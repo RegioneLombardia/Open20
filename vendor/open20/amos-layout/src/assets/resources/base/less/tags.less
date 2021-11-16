@@ -1,0 +1,110 @@
+/* AMOS-LAYOUT */
+
+/* TAGS DEFAULT VARIABLES */
+@tags-color: lighten(@secondary-color, 30%);
+@tags-border-color : @border-color-default;
+@tags-background-color: @light-background-color;
+
+//.tag-form{ //TODO is used?
+//  padding-top: @padding-default;
+//}
+
+//.tree-tags { //TODO is used?
+//  margin: 20px 0;
+//  padding: 20px 0;
+//  border-top: 2px dashed @border-color-default;
+//}
+
+//.tag { //TODO is used?
+//  padding: 0px 5px;
+//  margin: 2px;
+//  text-align: center;
+//  border-radius: 5px;
+//  font-size: 1.15em;
+//  font-weight: normal;
+//  float: left;
+//  background: @tags-color;
+//  color: contrast(@tags-color);
+//}
+
+//--------------------------------------------
+// SHOW TAGS WIDGET - AMOS-TAG
+//--------------------------------------------
+.taglist {
+  list-style: none;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+
+  .flexbox;
+  .flexbox-wrap;
+  width: auto;
+
+  li {
+    float: left;
+  }
+  .tag-item {
+    display: inline-block;
+    line-height: 26px;
+    position: relative;
+    text-decoration: none;
+    width: auto;
+    padding: 1px 15px 5px 15px;
+    background-color: #efefef;
+    margin: 5px;
+
+    > div{
+      > .am-label {
+        margin-right: @margin-min;
+      }
+
+      p {
+        font-size: 0.95em;
+        margin: 0;
+        line-height: 10px;
+      }
+
+      .tag-label:only-child{
+        display: inline;
+        margin-top: 11px;
+      }
+    }
+  }
+}
+
+/* TODO delete: moved into amos-tag asset */
+//.tag-widget, // TAG WIDGET - AMOS-TAG
+//.amos-cwh-tag-tree-container{ //TAG WIDGET AREE INTERESSE - AMOS-CWH
+//
+//  .preview_tag_tree {
+//    .tag_selected{
+//      background-color: #f0f0ee;
+//      border: 1px solid @tags-border-color;
+//      cursor: pointer;
+//      font-size: 12px;
+//      margin: 3px;
+//      padding: 3px;
+//      text-transform: uppercase;
+//      display: table;
+//
+//      .tag_selected_part {
+//        display: table-cell;
+//
+//        &.tag_selected_remove_container{
+//          cursor: pointer;
+//          width: 20px;
+//          text-align: center;
+//        }
+//
+//        .tag_selected_label{
+//          font-weight: bold;
+//        }
+//
+//        .tag_selected_parents {
+//          font-size: 10px;
+//        }
+//      }
+//    }
+//  }
+//
+//}

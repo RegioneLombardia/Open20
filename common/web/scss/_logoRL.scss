@@ -1,0 +1,10 @@
+$logoRLTopbarWidth: 184px;
+$logoRLTopbarHeight: 38px;
+
+
+.logo-rl-top > img{
+    display: block !important;
+    max-width: $logoRLTopbarWidth;
+    height: auto;
+    max-height: $logoRLTopbarHeight;
+}

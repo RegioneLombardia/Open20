@@ -1,0 +1,25 @@
+.list-layout{
+    .page-content{
+        padding: 20px;
+        //margin-top: 50px;
+        &.flexed-ordered-layout{
+            .flexbox;
+            .flexbox-column;
+            .tabs-container{
+                order: 1;
+            }
+            .page-header{
+                order: 2;
+                padding: 0 @padding-default;
+            }
+            .container-change-view{
+                order: 3;
+                padding: 0 @padding-default;
+            }
+            .container-change-view + div[class$="-index"]{
+                order: 4;
+                padding: 0 @padding-default @padding-large;
+            }
+        }
+    }
+}

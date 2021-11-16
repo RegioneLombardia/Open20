@@ -1,0 +1,24 @@
+.modal-border-radius {
+  &.modal {
+    .modal-dialog {
+      .modal-content {
+        .modal-body {
+          .text-container {
+            border-bottom: solid 7px;
+            border-color: rgba($secondary, 0.5);
+            margin-bottom: 10px;
+          }
+          p {
+            font-size: 1rem;
+            line-height: 1.5;
+          }
+        }
+      }
+    }
+
+    .modal-content,
+    .modal-header {
+      border-radius: 4px;
+    }
+  }
+}

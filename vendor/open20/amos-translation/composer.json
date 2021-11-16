@@ -1,0 +1,33 @@
+{
+    "name": "open20/amos-translation",
+    "description": "AMOS Translation",
+    "keywords": ["amos", "yii2", "translation"],
+    "homepage": "http://www.open20.it/",
+    "type": "component",
+    "proscription": "BSD-3-Clause",
+    "support": {
+        "issues": "http://www.example.com/",
+        "forum": "http://www.example.com/forum/",
+        "wiki": "http://www.example.com/wiki/",
+        "source": "https://github.com/open20/amos-workflow"
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.5.0",
+        "open20/amos-core" : "*",
+        "open20/amos-dashboard" : "*",
+        "open20/amos-workflow" : "*",
+        "lajax/yii2-translate-manager": "1.*"
+    },
+    "extra": {
+        "asset-installer-paths": {
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "open20\\amos\\translation\\": "src"
+        }
+    }
+}

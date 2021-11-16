@@ -1,0 +1,394 @@
+{
+    "vars": [{
+            "var": "id",
+            "label": "Id",
+            "initValue": "form_id_0",
+            "description": "Sono permessi solo lettere e numeri senza spazi.",
+            "placeholder": "ID del form HTML",
+            "type": "zaa-text"
+        }, {
+            "var": "table",
+            "label": "Table (required)",
+            "description": "Sono permessi solo lettere e numeri senza spazi.",
+            "placeholder": "Nome Tabella su Database",
+            "type": "zaa-dbfield"
+        }, {
+            "var": "submitlabel",
+            "label": "Submit label",
+            "description": "",
+            "placeholder": "Etichetta bottone di submit",
+            "type": "zaa-text"
+        }
+        , {
+            "var": "items",
+            "label": "Fields",
+            "description": "",
+            "type": "zaa-multiple-inputs",
+            "options": [{
+                    "var": "field",
+                    "label": "Field",
+                    "description": "",
+                    "initvalue": "",
+                    "type": "zaa-dbfield"
+                },
+                {
+                    "var": "label",
+                    "label": "Label",
+                    "description": "",
+                    "initvalue": "",
+                    "type": "zaa-wysiwyg"
+                },
+                {
+                    "var": "hint",
+                    "label": "Hint",
+                    "description": "",
+                    "initvalue": "",
+                    "type": "zaa-text"
+                },
+                {
+                    "var": "required",
+                    "label": "Required",
+                    "description": "",
+                    "initvalue": "",
+                    "type": "zaa-checkbox"
+                },
+                {
+                    "var": "field_css",
+                    "label": "Field css",
+                    "description": "",
+                    "initvalue": "",
+                    "type": "zaa-text"
+                },
+                {
+                    "var": "type",
+                    "label": "Type",
+                    "description": "",
+                    "initvalue": "",
+                    "options": [{
+                            "value": "label",
+                            "label": "Label"
+                        }, {
+                            "value": "attachmentsInput",
+                            "label": "AttachmentsInput"
+                        }, {
+                            "value": "checkbox",
+                            "label": "Checkbox"
+                        }, {
+                            "value": "radioList",
+                            "label": "RadioList"
+                        }, {
+                            "value": "string",
+                            "label": "InputText"
+                        }, {
+                            "value": "textarea",
+                            "label": "TextArea"
+                        }, {
+                            "value": "integer",
+                            "label": "Integer"
+                        }, {
+                            "value": "date",
+                            "label": "Date"
+                        }, {
+                            "value": "email",
+                            "label": "Email"
+                        }, {
+                            "value": "password",
+                            "label": "Password"
+                        }
+                        , {
+                            "value": "select",
+                            "label": "Select"
+                        }
+                        , {
+                            "value": "selectdb",
+                            "label": "SelectDB"
+                        },
+                         {
+                            "value": "selectrel",
+                            "label": "Select Relative"
+                        }
+                        , {
+                            "value": "hidden",
+                            "label": "Hidden"
+                        }, {
+                            "value": "checkList",
+                            "label": "CheckList"
+                        }],
+                    "type": "zaa-select"
+                }
+                ,
+                {
+                    "var": "subvalue",
+                    "label": "Values",
+                    "description": "",
+                    "initValue": "",
+                    "type": "zaa-multiple-inputs",
+                    "options": [{
+                            "var": "value",
+                            "label": "Value",
+                            "description": "",
+                            "initvalue": "",
+                            "type": "zaa-text"
+                        }, {
+                            "var": "label",
+                            "label": "Label",
+                            "description": "",
+                            "initvalue": "",
+                            "type": "zaa-text"
+                        }
+                    ]
+                }
+            ]
+        }],
+    "cfgs": [
+        {
+            "var": "tks_page",
+            "label": "Thanks Page",
+            "description": "",
+            "initValue": "",
+            "placeholder": "",
+            "type": "zaa-link"
+        },
+        {
+            "var": "tks_page_no_account",
+            "label": "Thanks Page Wuthout Account",
+            "description": "",
+            "initValue": "",
+            "placeholder": "",
+            "type": "zaa-link"
+        },
+        {
+            "var": "tks_waiting_page",
+            "label": "Thanks Waiting Page",
+            "description": "",
+            "initValue": "",
+            "placeholder": "",
+            "type": "zaa-link"
+        },
+        {
+            "var": "already_present_page",
+            "label": "Already Present Page",
+            "description": "",
+            "initValue": "",
+            "placeholder": "",
+            "type": "zaa-link"
+        },
+        {
+            "var": "check_in_event_already_present",
+            "label": "Verifica la presenza nell'evento",
+            "description": "",
+            "initvalue": "",
+            "type": "zaa-checkbox"
+        },
+        {
+            "var": "already_present_field",
+            "label": "Already Present Field Condition (required)",
+            "description": "Nome del campo presente sul db utilizzato per la veriifca se la registrazione è già presente.",
+            "initvalue": "email",
+            "type": "zaa-text"
+        },
+        {
+            "var": "community_id",
+            "label": "Community ID",
+            "description": "",
+            "initvalue": "",
+            "type": "zaa-number"
+        },
+        {
+            "var": "facilitator_id",
+            "label": "Facilitator ID",
+            "description": "",
+            "initvalue": "",
+            "type": "zaa-number"
+        },
+        {
+            "var": "send_mail",
+            "label": "Send Mail",
+            "description": "",
+            "initvalue": "",
+            "type": "zaa-checkbox"
+        },
+        {
+            "var": "register_on_platform",
+            "label": "Register On Platform",
+            "description": "",
+            "initvalue": "",
+            "type": "zaa-checkbox"
+        },
+        {
+            "var": "register_on_platform_addicted",
+            "label": "Register On Platform Addicted On",
+            "description": "",
+            "initvalue": "",
+            "type": "zaa-checkbox"
+        },
+        {
+            "var": "register_on_platform_field",
+            "label": "Register On Platform Field Condition",
+            "description": "",
+            "initvalue": "",
+            "type": "zaa-text"
+        },
+        {
+            "var": "register_with_social",
+            "label": "Register With Social",
+            "description": "",
+            "initvalue": "",
+            "type": "zaa-checkbox"
+        },
+        {
+            "var": "send_credential",
+            "label": "Send Credential",
+            "description": "",
+            "initvalue": "",
+            "type": "zaa-checkbox"
+        },
+        {
+            "var": "token_group_string_code",
+            "label": "Token Group String",
+            "description": "",
+            "initvalue": "",
+            "type": "zaa-text"
+        },
+        {
+            "var": "from_email",
+            "label": "From email",
+            "description": "",
+            "initvalue": "",
+            "type": "zaa-text"
+        },
+        {
+            "var": "ccn_email",
+            "label": "Ccn email",
+            "description": "",
+            "initvalue": "",
+            "type": "zaa-text"
+        },
+        {
+            "var": "user_name_form_field",
+            "label": "'Name' Form Field Name",
+            "description": "",
+            "initvalue": "",
+            "type": "zaa-text"
+        },
+        {
+            "var": "user_surname_form_field",
+            "label": "'Surame' Form Field Name",
+            "description": "",
+            "initvalue": "",
+            "type": "zaa-text"
+        },
+        {
+            "var": "to_form_field",
+            "label": "'To' Form Field Name",
+            "description": "",
+            "initvalue": "",
+            "type": "zaa-text"
+        },
+        {
+            "var": "privacy_form_field",
+            "label": "'Privacy' Form Field Name",
+            "description": "",
+            "initvalue": "",
+            "type": "zaa-text"
+        },
+        {
+            "var": "seats_available",
+            "label": "Seats Available",
+            "description": "",
+            "initvalue": "",
+            "type": "zaa-number"
+        },
+        {
+            "var": "css",
+            "label": "Css",
+            "description": "",
+            "initvalue": "",
+            "type": "zaa-text"
+        },
+        {
+            "var": "email_layout",
+            "label": "Email Layout",
+            "description": "",
+            "initvalue": "",
+            "type": "zaa-text"
+        },
+        {
+            "var": "email_subject",
+            "label": "Email Subject",
+            "description": "",
+            "initvalue": "",
+            "type": "zaa-text"
+        },
+        {
+            "var": "email_text",
+            "label": "Email Text",
+            "description": "",
+            "initValue": "",
+            "placeholder": "",
+            "type": "zaa-wysiwyg"
+        },
+        {
+            "var": "email_text_new_account",
+            "label": "Email Text New Account",
+            "description": "",
+            "initValue": "",
+            "placeholder": "",
+            "type": "zaa-wysiwyg"
+        },
+        {
+            "var": "email_waiting_list_text",
+            "label": "Email Waiting List Text",
+            "description": "",
+            "initValue": "",
+            "placeholder": "",
+            "type": "zaa-wysiwyg"
+        },
+        {
+            "var": "email_after_login",
+            "label": "Send Mail After Login",
+            "description": "",
+            "initvalue": "",
+            "type": "zaa-checkbox"
+        },
+        {
+            "var": "email_layout_after_login",
+            "label": "Email Layout Email After Login",
+            "description": "",
+            "initvalue": "",
+            "type": "zaa-text"
+        },
+        {
+            "var": "email_subject_after_login",
+            "label": "Email Subject",
+            "description": "",
+            "initvalue": "",
+            "type": "zaa-text"
+        },
+        {
+            "var": "email_after_login_text",
+            "label": "Email After Login Text",
+            "description": "",
+            "initValue": "",
+            "placeholder": "",
+            "type": "zaa-wysiwyg"
+        },
+        {
+            "var": "send_content_by_email",
+            "label": "Invia dati compilazione nella mail",
+            "description": "",
+            "initvalue": "",
+            "type": "zaa-checkbox"
+        },
+        {
+            "var": "send_content_by_email_text",
+            "label": "Mail per inviare i dati di compilazione",
+            "description": "Variabili disponibili: {{{content}}}",
+            "initvalue": "",
+            "type": "zaa-wysiwyg"
+        }
+    ],
+    "defaults": {
+        "id": "form_id_0"
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "name": "open20/amos-comments",
+    "description": "Comments for contents - plugin",
+    "keywords": ["amos", "yii2", "comments"],
+    "type": "plugin",
+    "proscription": "BSD-3-Clause",
+    "require": {
+        "php": ">=5.4.0",
+        "open20/amos-core" : "*",
+        "open20/amos-admin" : "*",
+        "open20/amos-attachments" : "*"
+    },
+    "extra": {
+        "asset-installer-paths": {
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "open20\\amos\\comments\\": "src"
+        }
+    }
+}

@@ -1,0 +1,409 @@
+// IMMAGINE DI SFONDO LOGIN
+@image-background-default: url('/img/bg-login.jpg');
+@danger: #d9364f;
+@warning: #a66300;
+@success: #008758;
+@info: #06c;
+@neutral: #5c6f82;
+
+// se si imposta un immagine di sfondo per il login impostare anche queste:
+.dashboard-content,
+#bk-page {
+  background-color: #474145;
+}
+
+.text-secondary {
+  color: #3d4955;
+}
+
+#bk-page {
+  min-height: 100vh !important;
+  margin-top: 0 !important;
+  padding-top: 152px;
+
+  &.preferenceFullsizeFormLayout {
+    @media (max-width:767px) {
+      background-color: #FFF;
+    }
+
+    .page-content {
+      padding: 0;
+      margin-top: 20px;
+    }
+  }
+
+  &.preferenceFullsizeListLayout {
+    .page-content {
+      padding: 20px;
+    }
+  }
+}
+
+.layout-standardForm {
+  padding: 20px;
+}
+
+// FINE IMMAGINE DI SFONDO LOGIN
+
+//PANNELLO LOGIN 
+.login-page {
+  .logo-login {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 25px;
+
+    .login-logo-and-text {
+      padding-left: 0;
+      margin: 10px 0px;
+
+      img {
+        margin-right: 24px;
+      }
+
+    }
+
+    .logo-text {
+      display: none;
+    }
+
+    .login-logo-text {
+      font-size: 18px;
+      font-weight: bold;
+      padding-left: 0;
+    }
+  }
+}
+
+
+/* CUSTOM STYLE */
+@custom-color: #297a38; //Regione Lombardia linee guida design applicativi RL 25/07/19
+
+/* HEADER BRANDBOOK */
+.container-header {
+  .navbar {
+    height: 58px;
+    min-height: 58px !important;
+    padding-top: 14px;
+  }
+
+  .navbar-right {
+    display: flex;
+    flex-direction: row-reverse;
+
+    .user-menu {
+      margin-right: 12px;
+    }
+  }
+}
+
+.container-logo {
+  height: 94px;
+  display: flex;
+
+  img {
+    height: 54px;
+    width: 194px !important;
+  }
+
+  .img-responsive {
+    max-height: inherit;
+    padding: 0;
+
+    img {
+      height: 54px;
+    }
+  }
+
+  .logo-text {
+    display: none;
+  }
+}
+
+.container-logo .title-text {
+  //Regione Lombardia linee guida design applicativi RL 25/07/19
+  font-size: 18px;
+  margin-left: 24px;
+  letter-spacing: -0.5px;
+  margin-bottom: 0;
+  margin-top: 0;
+  color: #3d4955;
+  font-weight: 600;
+}
+
+// EFFETTO SHRINK
+@navbar-top-height: 58px;
+@container-logo-height: 94px;
+@navbar-top-height-shrink: 40px;
+@container-logo-height-shrink: 60px;
+
+.shrink {
+  .navbar {
+    height: @navbar-top-height-shrink;
+    transform: translateY(0px);
+    min-height: inherit !important;
+    padding-top: 5px;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    /* animation magic */
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+  }
+
+  .container-logo {
+    height: @container-logo-height-shrink;
+    transform: translateY(@navbar-top-height-shrink);
+    position: fixed;
+    width: 100%;
+    z-index: 990;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    /* animation magic */
+    transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+
+    img {
+      &.logo-amos {
+        height: 40px;
+        width: auto !important;
+      }
+    }
+  }
+
+  .menu-profile a.btn-full {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+  }
+}
+
+
+//NOTIFICATIONS BI
+.row-100 {
+  width: 100%;
+}
+
+//mobile
+.notification {
+  width: 100%;
+  padding: 1.5rem;
+  padding-right: 4rem;
+  box-shadow: 0 -0.5rem 1rem rgba(0, 0, 0, 0.15);
+  background: white;
+  position: relative;
+  display: block;
+  border-top: 4px solid @neutral;
+  margin-bottom: 20px;
+
+  .d-flex {
+    display: flex;
+    align-items: center;
+  }
+
+  //title
+  h5 {
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    color: @neutral;
+    letter-spacing: 0;
+    margin: 0;
+    position: relative;
+    line-height: 1.5em;
+    font-weight: 700;
+    letter-spacing: 0.025em;
+    display: flex;
+    align-items: center;
+
+    span {
+      margin-right: 10px;
+      color: @info;
+    }
+  }
+
+  //text 
+  p {
+    font-size: 1.6rem;
+    margin: 1.5rem 0 0 0;
+    color: @neutral;
+    line-height: 1.4em;
+  }
+
+  //icon version
+  &.with-icon {
+    border-top: 4px solid @neutral;
+
+    h5 {
+      .icon {
+        position: absolute;
+        top: -8px;
+        left: -38px;
+      }
+    }
+
+    h5,
+    p {
+      margin-left: 2rem;
+    }
+
+    //status variants
+    &.success {
+      border-color: @success;
+
+      .icon {
+        fill: @success;
+      }
+    }
+
+    &.error {
+      border-color: @danger;
+
+      .icon {
+        fill: @danger;
+      }
+    }
+
+    &.info {
+      border-color: @info;
+
+      .icon {
+        fill: @info;
+      }
+    }
+
+    &.warning {
+      border-color: @warning;
+
+      .icon {
+        fill: @warning;
+      }
+    }
+  }
+
+  // dismissable version
+  &.dismissable {
+
+    //close button
+    .notification-close {
+      position: absolute;
+      right: 20px;
+      top: 15px;
+      display: block;
+      width: 32px;
+      height: 32px;
+      padding: 0;
+      background: none;
+
+      .icon {
+        fill: @neutral;
+      }
+
+      &:hover {
+        .icon {
+          fill: @custom-color
+        }
+      }
+
+      &:active {
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+//small - tablet
+@media (min-width: 576px) {
+  .notification {
+    padding: 1.333rem;
+    padding-right: 3.556rem;
+
+    h5 {
+      font-size: 1.6rem;
+    }
+
+    p {
+      font-size: 1.6rem;
+      margin: 1.333rem 0 0 0;
+    }
+
+    &.with-icon {
+
+      h5,
+      p {
+        margin-left: 1.778rem;
+      }
+    }
+  }
+}
+
+//Tablet vertical
+@media (min-width: 768px) {
+  .notification {
+    border-radius: 4px;
+    border-top: none;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.15);
+
+    //icon version
+    &.with-icon {
+      border-left: 4px solid @neutral;
+      border-top: none;
+    }
+
+    //fix variants
+    &.top-fix {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: auto;
+      right: auto;
+    }
+
+    &.bottom-fix {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0;
+      right: auto;
+    }
+
+    &.left-fix {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      border-left: none;
+      border-right-style: solid;
+      border-right-width: 4px;
+      left: 0;
+      right: auto;
+      top: 50%;
+      bottom: auto;
+      transform: translateY(-50%);
+    }
+
+    &.right-fix {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      right: 0;
+      top: 50%;
+      bottom: auto;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.sondaggi-search {
+  padding: 24px !important;
+
+  select {
+    -webkit-appearance: auto;
+    -moz-appearance: auto;
+  }
+}
+
+//Tablet horizontal / small desktop
+@media (min-width: 992px) {}
+
+//Desktop
+@media (min-width: 1200px) {}

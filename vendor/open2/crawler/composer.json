@@ -1,0 +1,32 @@
+{
+    "name": "open2/crawler",
+    "description": "An full search page crawler to enable complex and customized searching abilities.",
+    "type": "luya-module",
+    "keywords": ["php", "luya", "module", "crawler", "yii2", "yii", "luya-module"],
+    "proscription": "MIT",
+    "homepage": "http://luya.io",	
+    "require": {
+        "fabpot/goutte": "~3.1.0",
+        "jakeasmith/http_build_url": "~1.0.0",
+        "nadar/stemming": "~1.0.0"
+    },
+    "require-dev": {
+        "luyadev/luya-testsuite": "~1.0.0",
+        "php-coveralls/php-coveralls": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "open2\\crawler\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "crawlerests\\": "tests/"
+        }
+    },	
+    "config": {
+        "platform": {
+            "php": "7.0"
+        }  
+    }    
+}

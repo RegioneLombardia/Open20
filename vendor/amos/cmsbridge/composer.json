@@ -1,0 +1,21 @@
+{
+    "name": "amos/cmsbridge",
+    "description": "Amos Cms Brigde",
+    "keywords": [
+        "amos",
+        "Bridge"
+    ],
+    "homepage": "",
+    "type": "component",
+    "require": {
+        "php": ">=5.4.0",
+        "open20/amos-core": ">=1.9",
+        "open20/amos-mobile-bridge": ">=1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "amos\\cmsbridge\\": "src"
+        }
+    }
+    
+}

@@ -1,0 +1,41 @@
+body {
+    min-height: 100vh;
+    @if $background-image-default !='unset' {
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: top;
+        background-size: cover;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-image: $background-image-default;
+    }
+    @else {
+        background-color: $white;
+    }
+}
+
+#mainContent {
+    main {
+        margin-top: $height-header-slim-wrapper-m + $height-it-small-header-m;
+        @include media-breakpoint-up(lg) {
+            margin-top: $height-header-slim-wrapper-d + $height-it-small-header-d;
+        }
+    }
+}
+
+.affix-top {
+    top: $height-header-slim-wrapper-m + $height-it-small-header-m;
+}
+
+.container {
+    @include media-breakpoint-down(md) {
+        max-width: 100% !important;
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+}
+
+.list-view-design {
+    @extend .variable-gutters;
+}

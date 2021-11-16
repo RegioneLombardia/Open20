@@ -1,0 +1,674 @@
+@primary-color: #297a38;
+
+/*======================================
+*   SLIDER with thumb
+======================================*/
+.galleryThumb {
+  /*=========== CAPTION ===============*/
+  .caption {
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)),color-stop(25%, rgba(0,0,0,0)),color-stop(50%, rgba(0,0,0,0.36)),color-stop(88%, rgba(0,0,0,1)),to(rgba(0,0,0,1)));
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 25%,rgba(0,0,0,0.36) 50%,rgba(0,0,0,1) 88%,rgba(0,0,0,1) 100%);
+    background: -o-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 25%,rgba(0,0,0,0.36) 50%,rgba(0,0,0,1) 88%,rgba(0,0,0,1) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 25%,rgba(0,0,0,0.36) 50%,rgba(0,0,0,1) 88%,rgba(0,0,0,1) 100%);
+  }
+
+  /*=========== THUMBS ===============*/
+  ul.lSPager.lSGallery {
+    right: 16%;
+    position: absolute;
+    width: 100% !important;
+    left: 0;
+    bottom: 0;
+    padding-left: 16% !important;
+    padding-right: 16% !important;
+    padding-bottom: 3%;
+    z-index: 10;
+
+    @media screen and (max-width: 1199px) {
+      padding: 5% 2% !important;
+    }
+
+    @media (min-width: 992px) and (max-width: 1199px) {
+      left: 4%;
+      right: 4%;
+    }
+
+    @media (max-width: 450px) and (orientation: portrait) {
+      bottom: 30%;
+    }
+    @media (max-width: 991px) , (max-width: 900px) and (max-height: 400px) and (orientation: landscape) {
+      left: 16%;
+      bottom: 16%;
+    }
+
+    li {
+      width: 25%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+    }
+
+    .thumb-item {
+      width: 25%;
+      margin: 0;
+      border-top: 2px solid #ffffff7a;
+      padding-top: 10px;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+
+      @media(min-width: 992px) and (max-width: 1199px) {
+        width: 23%;
+      }
+      @media(max-width: 991px) {
+        width: 16%;
+        border-top: 4px solid #ffffff7a;
+
+        > * {
+          display: none !important;
+        }
+      }
+
+      &.active {
+        border-color: #fff;
+        border-radius: 0;
+
+        a {
+          border: 5px solid #ffffff;
+        }
+      }
+
+      a {
+        width: 100px;
+        min-width: 100px;
+        max-width: 100px;
+        overflow: hidden;
+        float: left;
+        border: 5px solid #908f8d;
+        margin-right: 10px;
+        position: relative;
+      }
+
+      img {
+        position: absolute;
+        width: auto;
+        margin: 0;
+        max-width: none;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        height: 100%;
+      }
+    }
+
+    .thumb-caption {
+      width: 80%;
+      padding-right: 40px;
+      align-content: stretch;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      flex-wrap: wrap;
+
+      p {
+        color: #fff !important;
+        font-size: 1rem;
+        line-height: 1rem;
+
+        &:last-child {
+          font-size: 0.8rem;
+          margin: 0;
+
+          @media(max-width: 1199px) {
+            font-size: 1rem;
+          }
+        }
+
+      }
+    }
+  }
+
+  .lSAction {
+    > a {
+      top: 40%;
+    }
+  }
+
+  .lightSliderAction {
+    bottom: 0;
+  }
+}
+
+/*======================================
+*   basic SLIDER
+======================================*/
+.lSSlideOuter {
+  position: relative;
+
+  li {
+    position: relative;
+
+    .caption {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+
+      .el-content{
+        position: absolute;
+        bottom: 33%;
+        left: 16%;
+        width: 50%;
+
+        @media(max-width: 991px){
+          left: 10%;
+          width: 45%;
+        }
+
+        h1 {
+          margin-top: 0.50em;
+          margin-bottom: 0.25em;
+          line-height: 0.95em;
+          font-size: 2.33em;
+          font-weight: bold;
+          a:hover { // underline link color
+            text-decoration: underline;
+            -moz-text-decoration-color: #ffffff;
+            text-decoration-color: #ffffff;
+          }
+        }
+
+        h6 {
+          font-size: 0.78em;
+          margin-bottom: 0.715em;
+          span {
+            background-color: @primary-color;
+            padding: 0.1em 1.5em;
+            font-weight: bold;
+            text-transform: uppercase;
+          }
+        }
+
+        p {
+          color: #fff !important;
+          font-size: 1em;
+          margin-bottom: 1.15em;
+          margin-top: 0.8em;
+        }
+      }
+
+      @media(max-width: 991px) , (max-width: 900px) and (max-height: 400px) and (orientation: landscape) {
+        font-size: 18px;
+
+        .el-content{
+          position: absolute;
+          font-size: 1.15em;
+          width: 80%;
+          left: 10%;
+          bottom: 20%;
+          right: 10%;
+          h6{
+            font-size: 0.8em;
+            span {font-size: 0.7em; font-weight: bold; text-transform: uppercase;}
+
+          }
+          h1{font-size: 1.2em;}
+          p{
+            margin-bottom: 10%;
+            margin-top: 5%;
+            font-size: 0.6em;
+          }
+        }
+      }
+
+      @media(max-width: 991px) and (max-height: 400px) and (orientation: landscape) {
+        .el-content{
+          h1{font-size: 1.2em;}
+          p{ font-size: 0.6em;}
+        }
+      }
+
+      @media(max-width: 991px) and (min-width: 768px) {
+        .el-content h1 {
+          font-size: 1.5em;
+        }
+      }
+
+      //@media (max-width: 450px) and (orientation: portrait) {
+      //  .el-content{
+      //    bottom: 25%;
+      //  }
+      //}
+    }
+
+    &.sliderItemDot {
+      .caption {
+        background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(25%, rgba(0, 0, 0, 0)), color-stop(60%, rgba(0, 0, 0, 0.7)), color-stop(88%, rgba(0, 0, 0, 0.9)));
+        background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0.7) 60%, rgba(0, 0, 0, 0.9) 88%);
+        background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0.7) 60%, rgba(0, 0, 0, 0.9) 88%);
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0.7) 60%, rgba(0, 0, 0, 0.9) 88%);
+      }
+    }
+  }
+
+  .lslide {
+    position: relative;
+  }
+
+  .lightSlider {
+    .lSliderItem {
+      img {
+        position: absolute;
+        bottom: 0;
+        width: 100vw;
+        margin: 0;
+        //IMG FIX NO IE -16 USE MEDIA QUERY FOR IE @media screen\0 {…}
+        object-fit: cover;
+        height: 100%;
+
+
+        //MEDIA QUERY IE 9-10
+        @media screen and (min-width: ~"0\0"){
+          height: auto;
+        }
+        //MEDIA QUERY IE 11
+        @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+          height: auto;
+        }
+        /*MEDIA QUERY IE 10
+        _:-ms-lang(x), .ie10up { height: auto; }
+        //MEDIA QUERY IE 11
+        _:-ms-fullscreen, :root .ie11up { height: auto; }
+        */
+
+        @media (max-width: 1023px) {
+          height: 100%;
+          width: 100vw;
+          max-width: unset;
+        }
+
+        @media (max-width: 900px) and (orientation: landscape) {
+          height: auto;
+          width: 100%;
+        }
+      }
+    }
+
+    ul, li {
+      list-style-type: none;
+    }
+  }
+}
+
+.overlay-bck {
+  height: 200px;
+  position: absolute;
+  bottom: 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(229, 229, 229, 0)), color-stop(80%, rgba(0, 0, 0, 0.7)));
+  background: -webkit-linear-gradient(top, rgba(229, 229, 229, 0) 0%, rgba(0, 0, 0, 0.7) 80%);
+  background: -o-linear-gradient(top, rgba(229, 229, 229, 0) 0%, rgba(0, 0, 0, 0.7) 80%);
+  background: linear-gradient(to bottom, rgba(229, 229, 229, 0) 0%, rgba(0, 0, 0, 0.7) 80%);
+  width: 100%;
+}
+
+.wrap-lightslider {
+  position: relative;
+}
+
+.isGalleryClass .lSSlideOuter {
+  .lSPager.lSGallery {
+    li {
+      &.active {
+        a {
+          background-color: #ffffff;
+        }
+      }
+      a {
+        color: transparent !important;
+        background-color: #333;
+        border-radius: 50%;
+        padding: 4px 5px;
+        font-size: 3px;
+        line-height: 5;
+      }
+    }
+  }
+}
+
+.lightSliderAction {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  padding-left: 16%;
+  font-size: 2em;
+  color: #fff;
+  cursor: pointer;
+  padding-left: 16%;
+  z-index: 10;
+
+    @media screen and (max-width: 1199px) {
+      padding: 0 2% !important;
+    }
+
+    @media (min-width: 768px) and (max-width: 1199px) {
+      left: 4%;
+    }
+
+}
+
+/*======================================
+*   .gallerySlider - slider with one or more images NO thumb
+======================================*/
+.gallerySlider {
+  .lSSlideOuter {
+    .lightSlider {
+      .lSliderItem.lslide.active {
+        cursor: default;
+      }
+      .lSliderItem {
+        &:before {
+          display: none;
+        }
+        img {
+          position: absolute;
+          bottom: 0;
+          width: 100vw;
+          height: 100%;
+          object-fit: cover;
+          //margin: 0;
+          //max-width: none;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          //height: auto;
+
+          //@media only screen and (max-width: 1023px) {
+          //  height: 100%;
+          //  width: auto;
+          //  max-width: unset;
+          //}
+        }
+
+        .caption {
+          width: 100%;
+          padding: 5% 30% 7% 30%;
+          color: #fff;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          text-indent: 0;
+          text-align: center;
+          background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)),color-stop(25%, rgba(0,0,0,0)),color-stop(50%, rgba(0,0,0,0.36)),color-stop(88%, rgba(0,0,0,1)),to(rgba(0,0,0,1)));
+          background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 25%,rgba(0,0,0,0.36) 50%,rgba(0,0,0,1) 88%,rgba(0,0,0,1) 100%);
+          background: -o-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 25%,rgba(0,0,0,0.36) 50%,rgba(0,0,0,1) 88%,rgba(0,0,0,1) 100%);
+          background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 25%,rgba(0,0,0,0.36) 50%,rgba(0,0,0,1) 88%,rgba(0,0,0,1) 100%);
+
+          @media only screen and (max-width: 767px) {
+            width: 100%;
+            padding: 5% 10% 10% 10%;
+
+          }
+          @media only screen and (max-width: 639px) {
+            display: block;
+          }
+          @media only screen and (max-width: 420px) {
+            padding: 5% 5% 15% 5%;
+          }
+
+          .el-content{
+            left: 32.5%;
+            bottom: 10%;
+            position: absolute;
+            width: 35%;
+            @media only screen and (max-width: 991px) {
+              left: 25%;
+              width: 50%;
+            }
+            @media only screen and (max-width: 767px) {
+              left: 10%;
+              width: 80%;
+              font-size: 16px;
+            }
+            @media only screen and (max-width: 414px) {
+              bottom: 18%;
+              font-size: 18px;
+            }
+          }
+          p:first-child {
+            background-color: #1089c0;
+            padding: 0.1em 1.5em;
+            font-size: .875rem;
+            //font-weight: bold;
+            display: inline-block;
+            line-height: normal;
+            text-transform: uppercase;
+          }
+          h1, h2, h3, h4, h5 {
+            color: #fff;
+            font-size: 2.625rem;
+            font-weight: bold;
+            margin: 0;
+            line-height: 1.0em;
+            @media only screen and (max-width: 420px) {
+              font-size: 2em;
+            }
+          }
+          p {
+            color: #fff;
+            background-color: transparent;
+            margin: 10px 0;
+            font-size: 1em;
+            line-height: 1.3em;
+            @media only screen and (max-width: 420px) {
+              font-size: 0.9em;
+            }
+          }
+        }
+      }
+    }
+    .lSPager.lSGallery {
+      //display: none;
+      position: absolute;
+      bottom: 20px;
+      width: 100% !important;
+      display: -webkit-box !important;
+      display: -ms-flexbox !important;
+      display: flex !important;
+      justify-content: center;
+      z-index: 10;
+
+      li {
+        float: none;
+        padding: 0 5px;
+
+        &:only-child {
+          display: none;
+        }
+        a {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+/**
+MODIFICHE POST MAIL
+ */
+
+//.lSSlideOuter li .caption { //titolo abbassato
+//  bottom: 25%;
+//}
+
+//ul.lSPager.lSGallery {
+//  //padding-top: 3%;
+//  //background: -webkit-gradient(linear, left top, left bottom, from(rgba(229, 229, 229, 0)), color-stop(30%, rgba(0, 0, 0, 0.95)));
+//  //background: -webkit-linear-gradient(top, rgba(229, 229, 229, 0) 0%, rgba(0, 0, 0, 0.95) 30%);
+//  //background: -o-linear-gradient(top, rgba(229, 229, 229, 0) 0%, rgba(0, 0, 0, 0.95) 30%);
+//  //background: linear-gradient(to bottom, rgba(229, 229, 229, 0) 0%, rgba(0, 0, 0, 0.95) 30%);
+//}
+
+//.lSSlideOuter li .caption h6 span { // testo tag maiuscolo e bold
+//  text-transform: uppercase;
+//  font-weight: bold;
+//}
+
+//.lSSlideOuter h1 { // testo titolo bold
+//  font-weight: bold;
+//  > a:hover { // underline link color
+//    text-decoration: underline;
+//    -moz-text-decoration-color: #ffffff;
+//    text-decoration-color: #ffffff;
+//  }
+//}
+
+//ul.lSPager.lSGallery .thumb-item a { // fissato thumb a 100px
+//  width: 100px;
+//  min-width: 100px;
+//  max-width: 100px;
+//}
+
+ul.lSPager.lSGallery .thumb-caption p:last-child { //font thumbs
+  font-size: 1rem;
+}
+
+.lSAction > a { // override image and insert glyphicon in js
+  background-image: none;
+  color: #ffffff;
+  font-size: 1.5em;
+
+  opacity: 1;
+  //background-color: rgba(0,0,0,0.8);
+  //width: 55px;
+  //height: 55px;
+  //border-radius: 50%;
+
+  &:before {
+    position: absolute;
+    top: 10px;
+    right: 11px;
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: #297a38;
+  }
+  &.lSPrev {
+    left: 5%;
+      @media only screen and (max-width: 991px) {
+        left: 1%;
+      }
+    }
+  &.lSNext {
+    right: 5%;
+    @media only screen and (max-width: 991px) {
+      right: 1%;
+    }
+  }
+}
+
+ul.lSPager.lSGallery .thumb-caption { //multiline ellipsis pure css
+  height: 98px;
+  p:last-child {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+  }
+}
+
+@media (max-width: 1199px) {
+  .lSSlideOuter .lightSlider .lSliderItem img {
+    width: 100%;
+    max-width: unset;
+  }
+}
+
+/* 2688x1242px at 458ppi */
+@media only screen and (device-width : 414px) and (device-height : 896px) and (-webkit-device-pixel-ratio : 3) and (orientation: landscape) {
+  .lSSlideOuter .lightSlider .lSliderItem img {
+    //height: 100vh;
+    width: 100%;
+    max-width: unset;
+  }
+}
+
+/* 2436x1125px at 458ppi */
+@media only screen and (device-width : 375px) and (device-height : 812px) and (-webkit-device-pixel-ratio : 3) and (orientation: landscape) {
+  .lSSlideOuter .lightSlider .lSliderItem img {
+    width: 100%;
+    max-width: unset;
+  }
+}
+
+/*RESPONSIVE FIX LANDSCAPE */
+@media(max-height: 325px) {
+  .gallerySlider,
+  .galleryThumb {
+    .lSSlideOuter {
+      height: 100% !important;
+      min-height: 100vh;
+
+      .lightSlider {
+        height: auto !important;
+        min-height: 100vh;
+        padding-bottom: 0 !important;
+
+        .lSliderItem {
+          height: auto !important;
+          min-height: 100vh;
+
+          &.lslide.active{
+            position: relative !important;
+          }
+
+          img {
+            width: 100%;
+            height: 100% !important;
+            min-height: 100vh;
+            object-fit: cover;
+          }
+
+          .caption {
+            position: relative;
+            padding: 10% 5%;
+            min-height: 100vh;
+
+            .el-content {
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: auto;
+              width: 100%;
+              position: relative;
+
+              h1 {
+                font-size: 1.35em;
+              }
+
+              p {
+                font-size: 0.95em;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.lSSlideOuter {
+  height: 100vh !important;
+
+  .lightSlider {
+    height: 100vh !important;
+
+    .lSliderItem {
+      height: 100vh !important;
+
+      img {
+        height: 100vh !important;
+      }
+    }
+  }
+}

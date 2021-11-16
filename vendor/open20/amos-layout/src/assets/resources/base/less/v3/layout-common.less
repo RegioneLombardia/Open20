@@ -1,0 +1,198 @@
+#bk-page {
+  padding-bottom: 50px;
+}
+.page-content {
+  margin-bottom: 0px;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-header {
+  border-bottom: 1px solid #CCC;
+  margin-bottom:12px;
+  margin-top: 0;
+  display: flex;
+  align-items:center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  @media (max-width:1199px) {
+    flex-direction: column;
+    align-items:flex-start;
+
+  }
+  h1 {
+    &.title {
+      text-transform: none;
+      color: #000;
+      font-size: 2.666rem;
+      line-height: 1.25;
+    }
+  }
+
+  .title-heading-plugin {
+    flex-wrap: wrap;
+    align-items: center;
+    color: #000;
+
+    .h2 {
+      margin-bottom: 0;
+    }
+
+    .bullet-count-testata-plugin {
+      font-size: 0.87rem;
+      position: relative;
+      // margin-top: -25px;
+      margin-left: 10px;
+      margin-bottom: 6px;
+      margin-right: 10px;
+    }
+  }
+
+  .manage-cta-container {
+    margin-top: @margin-min;
+    margin-bottom: @margin-min;
+
+  }
+}
+
+.social-share-wrapper {
+  margin-top: 20px;
+
+  .container-social-share {
+    display: flex;
+    font-size: 30px;
+    margin-top: 5px;
+    justify-content: flex-start;
+    a {
+      text-decoration: none;
+      margin-right: 10px;
+      &:hover {
+        color: darken(@primary-color, 5%);
+      }
+    }
+  }
+}
+
+.container-like {
+  .like-wrap-button {
+
+    .notlikeme,
+    .likeme {
+      a {
+        &.btn {
+          font-size: 22px;
+
+        }
+
+        &:hover {
+          color: @danger-color;
+          opacity: 0.8;
+        }
+      }
+    }
+
+    .like-wrap-piacea {
+      margin-left: 12px;
+
+      a {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.summary-design {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: @margin-default;
+}
+
+a.readmore {
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 0.9px;
+  font-size: 0.7777777778rem;
+}
+.container-tools {
+  padding: 0;
+  @media (max-width:767px) {
+    padding: 0 15px;
+    + div {
+      //padding: 0 15px;
+    }
+  }
+}
+
+.header-widget {
+  display: flex;
+  align-items: flex-start;
+
+  @media (max-width:400px) {
+      flex-direction: column-reverse;
+  }
+
+  .post-header {
+
+      // display: flex;
+      // align-items: center;
+      .creator {
+          margin-right: auto;
+
+          @media (max-width:575px) {
+              max-width: 100%;
+              width: 100%;
+              margin-right: 0;
+          }
+      }
+
+      .card-prevalent-partnership {
+          line-height: 1em;
+          i {
+              font-style: normal;
+          }
+      }
+
+      .card-creator-targets {
+          margin-top: 14px;
+      }
+
+      .publication-date {
+          text-align: left !important;
+      }
+  }
+
+  .more-info-content {
+      margin-left: 20px;
+      margin-bottom: 15px;
+      margin-top: 5px;
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+
+      @media (max-width:400px) {
+          margin-left: 0;
+
+          .dropdown-menu.pull-right {
+              //left: 0;
+          }
+      }
+
+
+
+  }
+
+}
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  .widget-body-content {
+    margin-left: auto;
+    .report-dropdown {
+      margin-left: 24px;
+    }
+  }
+}

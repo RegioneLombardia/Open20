@@ -1,0 +1,44 @@
+/* AMOS-LAYOUT */
+
+/**
+ Assistance div on dashboard button right position
+*/
+.assistance {
+  a{
+    .flexbox;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background-color: contrast(@secondary-color);
+    border: 2px solid @custom-color;
+    color: @secondary-color;
+    padding:10px 5px;
+    text-decoration: none;
+    z-index: 999;
+    position: fixed;
+    
+    @media(max-width: 767px) {
+      position: relative;
+      width: 100%;
+      display: inline-block;
+      text-align: center;
+    }
+
+    &:hover {
+      text-decoration: none;
+      span + span {
+        text-decoration: underline;
+      }
+    }
+
+    .icon-assistance {
+      font-size: 1.8em;
+      text-decoration: none;
+      + span {
+        padding-left: 5px;
+        font-size: 1.2em;
+      }
+    }
+  }
+}

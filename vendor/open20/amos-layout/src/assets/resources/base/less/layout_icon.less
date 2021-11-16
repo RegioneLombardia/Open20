@@ -1,0 +1,318 @@
+/* AMOS-LAYOUT */
+
+/*ICON VIEW*/
+.icon-view {
+
+  .under-img {
+    position: absolute;
+    left: 15%;
+    right: 15%;
+    bottom: -52px;
+    z-index: 3;
+
+    .btn {
+      width: 100%;
+    }
+
+    @media (max-width: 767px) {
+      left: 20%;
+      right: 20%;
+    }
+  }
+}
+
+/**
+CARDS (ICON)
+default layout cards/icon
+(overridden 100% in amos-admin)
+*/
+.card-container {
+  margin: 0;
+  border: solid @border-color-default 0.3px;
+  background: #fff;
+  margin-bottom: @margin-default;
+  height: 305px;
+
+  .chechbox-widget input {
+    position: relative;
+    z-index: 999;
+  }
+
+  .manage {
+    margin: 5px 0;
+    position: absolute;
+    right: 0;
+    z-index: 3;
+    .manage-menu {
+      color: @white-color;
+    }
+  }
+
+  .icon-header {
+    height: 116px;
+    background-color: @primary-color;
+    position: relative;
+    //CONTAINER-ROUND-IMG INTO ICON VIEW
+    .container-round-img {
+      position: absolute;
+      bottom: -50px;
+      left: 50%;
+      margin-left: -74px;
+    }
+    //BADGE "NEW"
+    .badge {
+      top: 5px;
+      left: 5px;
+    }
+  }
+
+  .icon-body {
+    padding: 40px @padding-medium 30px @padding-medium;
+    text-align: center;
+    max-width: 100%;
+
+    .badge {
+      .badge-position(absolute; 5px; auto; inherit; 5px;);
+    }
+
+    .container-title {
+      position: relative;
+      height: 60px;
+      width: 100%;
+    }
+
+    h3 {
+      margin-bottom: @margin-default;
+
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      height: 48px;
+
+    }
+    p {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      width: 100%;
+    }
+    p, label {
+      margin: 0;
+      line-height: 1.4em;
+      color: @text-primary-color;
+    }
+
+  }
+
+  .icon-footer .foot-bar {
+    margin: 0 0 25px 0;
+    background-color: @light-background-color;
+    float: left;
+    padding: @padding-medium;
+    width: 100%;
+
+    .container-action {
+      padding: 0;
+      a {
+        padding: 0;
+
+        span {
+          font-size: 18px;
+        }
+      }
+    }
+
+    p {
+      display: inline-block;
+      padding: @padding-default @padding-medium;
+      margin: 0;
+
+      span {
+        padding: 0 @padding-min;
+      }
+    }
+
+    @media (min-width: 767px) {
+      .container-action {
+        padding-left: 0;
+        text-align: right;
+      }
+    }
+  }
+  .foot-button {
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    .btn {
+      margin-bottom: 0;
+    }
+  }
+}
+
+/*
+ ICON VIEW DETAILS (card)
+ - layouts 1 column -->  .right_column in div.col-xs-12
+ - layouts 2 column -->  .left-column + .right_column in bootstrap columns
+*/
+.details_card {
+  background: @light-background-color;
+  float: left;
+  width: 100%;
+
+  .img-profile .has-error .col-xs-6 {
+    width: 100% !important;
+  }
+}
+
+.profile .default-form {
+  background-color: @light-background-color;
+}
+
+.section-data {
+  float: left;
+  width: 100%;
+  padding: 5px 0;
+
+  > .row {
+    margin-top: 5px;
+    padding-left: 15px;
+  }
+}
+
+//LEFT COLUMN
+.left-column {
+  padding: @padding-large;
+
+  .img-profile {
+    margin: auto;
+
+    //TODO DA SISTEMARE - per errore di upload formato immagine
+    .col-xs-12 {
+      width: 100%;
+    }
+
+    /*@media(max-width:767px){
+      background-color: @primary-color;
+    }*/
+
+    @media (max-width: 767px) {
+      text-align: center;
+      padding-top: @padding-large;
+    }
+
+    img {
+      margin: 0 auto;
+      //max-height: 250px;
+
+      @media (min-width: 768px) {
+        width: 100%;
+      }
+
+      @media (max-width: 767px) {
+        display: inline-block;
+        height: auto;
+        //border-radius: 50%;
+        border: 4px solid #fff;
+        //box-shadow: 0 8px 17px rgba(0, 0, 0, .2), 0 6px 20px rgba(0, 0, 0, .19);
+      }
+    }
+  }
+  .fileinput .container-btn .fileinput-new {
+    max-width: 100%;
+  }
+
+  .under-img {
+    position: relative;
+    text-align: center;
+    vertical-align: center;
+    background-color: @primary-color;
+    padding: @padding-default @padding-min;
+    min-height: 70px;
+
+    .btn {
+      top: -@margin-medium;
+      right: 0;
+      left: 0;
+      position: absolute;
+      font-size: 1em;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 170px;
+    }
+
+    h2 {
+      color: contrast(@primary-color);
+      margin-top: @margin-default;
+      font-size: 1.5em;
+    }
+  }
+  .container-info-icons {
+    max-width: 100%;
+    @media (max-width: 767px) {
+      text-align: center;
+    }
+    p.title {
+      font-size: 1.25em;
+      color: #000;
+    }
+    p {
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      .am {
+        margin-right: @margin-min;
+      }
+    }
+  }
+  .container-info-icons {
+    margin-top: 18px;
+
+    label {
+      cursor: pointer;
+    }
+  }
+}
+
+//RIGHT COLUMN
+.left-column + .right-column {
+  @media (min-width: 768px) {
+    border-left: 1px solid @border-color-default;
+  }
+}
+
+.right-column {
+  background: #fff;
+  min-height: 550px;
+  padding-right: 0px;
+  @media (max-width: 767px) {
+    min-height: 0;
+  }
+  .btn-associa {
+    margin: 0 0 @margin-min 0;
+    width: 100%;
+  }
+}
+
+//fix error in image profile
+.details_card .img-profile .has-error .col-xs-6 {
+  width: 100% !important;
+}
+
+@media (max-width: 767px) {
+  .left-column, .right-column {
+    padding: 0;
+  }
+
+  .details_card {
+    .img-profile {
+      .has-error {
+        .fileinput-preview.fileinput-exists.thumbnail,
+        span.tooltip-error-field > span {
+          color: contrast(@primary-color);
+        }
+      }
+    }
+  }
+}

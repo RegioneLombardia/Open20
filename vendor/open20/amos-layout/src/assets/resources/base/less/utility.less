@@ -1,0 +1,68 @@
+/* AMOS-LAYOUT UTILITY
+nb: use only vars in variables.less because this file is imported by other plugin
+ */
+
+/**
+FLEXBOX
+ */
+.flexbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.flexbox-column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.flexbox-row {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.flexbox-wrap(@flex-wrap-value: wrap) {
+  -ms-flex-wrap: @flex-wrap-value;
+  flex-wrap: @flex-wrap-value;
+}
+
+/**
+BOX SHADOW
+ */
+.boxshadow(@h-offset: 0px,@v-offset: 0px,@blur: 0px,@spread: 0px,@color: @box-shadow-default) {
+  -webkit-box-shadow: @h-offset @v-offset @blur @spread @color;
+  -moz-box-shadow: @h-offset @v-offset @blur @spread @color;
+  box-shadow: @h-offset @v-offset @blur @spread @color;
+}
+
+/**
+TRANSITION
+ */
+.transition(@property:all,@duration:0s,@timing-function:ease,@delay:0s) {
+  -webkit-transition: @property @duration @timing-function @delay;
+  -moz-transition: @property @duration @timing-function @delay;
+  -o-transition: @property @duration @timing-function @delay;
+  -ms-transition: @property @duration @timing-function @delay;
+  transition: @property @duration @timing-function @delay;
+}
+
+/**
+LINEAR GRADIENT
+ */
+.linear-gradient(@direction:to bottom,@color1: @primary-color,@color1perc: 50%,@color2: @white-color, @color2perc: 50%){
+  background: @color1;
+  background: -moz-linear-gradient(@direction, @color1 @color1perc, @color2 @color2perc);
+  background: -webkit-linear-gradient(@direction, @color1 @color1perc, @color2 @color2perc);
+  background: linear-gradient(@direction, @color1 @color1perc, @color2 @color2perc);
+}
+
+
+.no-margin{
+  margin: 0;
+}
+

@@ -1,0 +1,52 @@
+/*--------------------------------------------------
+-- ROBOTO FONT
+--------------------------------------------------*/
+@font-face {
+    font-family: 'Roboto';
+    src: url('./roboto/roboto-condensed.eot'),
+    url('./roboto/roboto-condensed.eot?#iefix') format('embedded-opentype'),
+    url('./roboto/roboto-condensed.woff') format('woff'),
+    url('./roboto/roboto-condensed.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*--------------------------------------------------
+-- TITILLIUM FONT
+--------------------------------------------------*/
+
+/*---------------- LIGHT 300 -------------------*/
+@font-face {
+    font-family: 'titillium-web';
+    src: url('./titillium-web/titillium-web-v5-latin-300.eot') format('embedded-opentype'),
+    url('./titillium-web/titillium-web-v5-latin-300.woff2') format('woff2'),
+    url('./titillium-web/titillium-web-v5-latin-300.woff') format('woff'),
+    url('./titillium-web/titillium-web-v5-latin-300.ttf') format('truetype'),
+    url('./titillium-web/titillium-web-v5-latin-300.svg') format('svg');
+    font-weight: lighter;
+    font-style: normal;
+}
+
+/*---------------- REGULAR 400 -------------------*/
+@font-face {
+    font-family: 'titillium-web';
+    src: url('./titillium-web/titillium-web-v5-latin-regular.eot') format('embedded-opentype'),
+    url('./titillium-web/titillium-web-v5-latin-regular.woff2') format('woff2'),
+    url('./titillium-web/titillium-web-v5-latin-regular.woff') format('woff'),
+    url('./titillium-web/titillium-web-v5-latin-regular.ttf') format('truetype'),
+    url('./titillium-web/titillium-web-v5-latin-regular.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*---------------- BOLD 700 -------------------*/
+@font-face {
+    font-family: 'titillium-web';
+    src: url('./titillium-web/titillium-web-v5-latin-700.eot') format('embedded-opentype'),
+    url('./titillium-web/titillium-web-v5-latin-700.woff2') format('woff2'),
+    url('./titillium-web/titillium-web-v5-latin-700.woff') format('woff'),
+    url('./titillium-web/titillium-web-v5-latin-700.ttf') format('truetype'),
+    url('./titillium-web/titillium-web-v5-latin-700.svg') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}

@@ -1,0 +1,110 @@
+/* BOOSTRAP ITALIA AVATAR OVERRIDE*/
+.avatar-wrapper {
+  .avatar {
+    &.size-sm {
+      p {
+        font-size: 12px;
+      }
+    }
+    &.size-xs {
+      .avatar-presence {
+        bottom: -2px;
+        right: -2px;
+      }
+    }
+    &.size-lg, &.size-md, &.size-sm {
+      .avatar-presence {
+        bottom: 0;
+        right: -2px;
+      }
+    }
+    &.size-lg {
+      .avatar-presence {
+        width: 14px;
+        height: 14px;
+      }
+    }
+    &.size-xl {
+      .avatar-presence {
+        right: 0px;
+      }
+    }
+    &.size-xxxl {
+      width: $avatar-base-size * 32;
+      height: $avatar-base-size * 32;
+    }
+
+
+  }
+
+  .avata-status {
+    .icon {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  .avatar-status {
+    right: inherit;
+    left: 0;
+  }
+
+  .size-xl {
+    .avatar-status {
+      left: 6px;
+
+    }
+  }
+
+  .size-lg {
+    .avatar-status {
+      left: -2px;
+    }
+  }
+
+  .size-sm,
+  .size-xs {
+    .avatar-status {
+      display: none;
+    }
+  }
+
+
+  .avatar-box-img {
+    overflow: inherit;
+  }
+
+  .info-box-avatar {
+    position: absolute;
+    bottom: -4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 6px;
+
+    .info-avatar {
+      border: 1px solid #FFF;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 1px;
+
+      .icon {
+        width: 12px;
+        height: 12px;
+      }
+    }
+  }
+}
+
+.avatar-group-stacked {
+  .avatar-wrapper {
+    .avatar-presence {
+      left: -2px;
+      bottom: 0;
+    }
+  }
+}

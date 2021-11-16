@@ -1,0 +1,24 @@
+.agid-card-news-container  {
+    .card-calendar {
+        top:0;
+        left:20px;
+        height: 85px;
+        width: 60px;                
+    }       
+    .card-body {
+        .card-text {
+            font-family: inherit;
+        }
+        a.read-more  {
+            position: relative;
+            bottom: 0;
+        }
+    } 
+    .other-info-item {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: flex;
+    }
+}
+

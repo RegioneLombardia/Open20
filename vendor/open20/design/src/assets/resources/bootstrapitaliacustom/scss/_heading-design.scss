@@ -1,0 +1,12 @@
+.step {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 50px;
+  text-align: center;
+  background-color: $primary;
+  color: $white;
+  font-size: 14px;
+  font-weight: 600;
+}

@@ -1,0 +1,15 @@
+<?php
+
+namespace backend\modules\operators\models\api;
+
+/**
+* This is the class for REST controller "AgidPersonController".
+*/
+
+use yii\filters\AccessControl;
+use yii\helpers\ArrayHelper;
+
+class AgidPersonController extends \yii\rest\ActiveController
+{
+public $modelClass = 'backend\modules\operators\models\AgidPerson';
+}

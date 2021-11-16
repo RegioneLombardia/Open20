@@ -1,0 +1,27 @@
+<?php
+/* SVN FILE: $Id: SassIfNode.php 49 2010-04-04 10:51:24Z chris.l.yates $ */
+/**
+ * SassElseNode class file.
+ * @package      PHamlP
+ * @subpackage  Sass.tree
+ */
+
+/**
+ * SassElseNode class.
+ * Represents Sass Else If and Else statements.
+ * Else If and Else statement nodes are chained below the If statement node.
+ * @package      PHamlP
+ * @subpackage  Sass.tree
+ */
+class SassElseNode extends SassIfNode
+{
+  /**
+   * SassElseNode constructor.
+   * @param object $token source token
+   * @return SassElseNode
+   */
+  public function __construct($token)
+  {
+    parent::__construct($token, false);
+  }
+}

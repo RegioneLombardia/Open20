@@ -1,0 +1,39 @@
+{
+    "name": "open20/amos-chat",
+    "description": "Sistema AMOS per la chat",
+    "keywords": ["amos", "yii2", "chat"],
+    "homepage": "http://git.open20.it/open20/amos-chat",
+    "type": "component",
+    "proscription": "BSD-3-Clause",
+    "support": {
+        "issues": "http://git.open20.it/open20/amos-chat/issues",
+        "forum": "http://www.example.com/forum/",
+        "wiki": "http://git.open20.it/open20/amos-chat/wikis/home",
+        "source": "http://git.open20.it/open20/amos-chat/tree/master"
+    },
+    "require": {
+        "php": ">=5.4.0",
+        "open20/amos-admin" : "*",
+        "open20/amos-core" : "*",
+        "open20/amos-email-manager" : "*",
+        "kop/yii2-scroll-pager": "~2.2"
+    },
+    "config": {
+        "process-timeout": 1800,
+        "secure-http": false
+    },
+    "extra": {
+        "asset-installer-paths": {
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "open20\\amos\\chat\\": "src"
+        }
+    },
+    "require-dev": {
+        "yiisoft/yii2-faker": "*"
+    }
+}

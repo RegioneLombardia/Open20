@@ -1,0 +1,32 @@
+.transfer-container.it-transfer-block {
+    .it-transfer-buttons {
+        a svg {
+            fill: #C3CFDB;
+        }
+        a.active svg {
+            fill: $primary;
+        }
+    }
+    .it-transfer-wrapper {
+        .form-check {
+            input.semi-checked:not(:checked)+label::after {
+                border-color: $primary;
+                background-color: $primary;
+            }
+        }
+    }
+    .transfer-scroll {
+        scrollbar-width: thin;
+        scrollbar-color: #BFC2C9 transparent;
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+        &::-webkit-scrollbar-track {
+            border-radius: 10px;
+        }
+        &::-webkit-scrollbar-thumb {
+            border: 3px solid #BFC2C9;
+            border-radius: 10px;
+        }
+    }
+}

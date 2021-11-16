@@ -1,0 +1,102 @@
+/* AMOS-LAYOUT */
+
+/* WORKFLOW DEFAULT VARIABLES */
+@workflow-background-color: lighten(desaturate(@primary-color, 50%), 50%);
+@workflow-state-descriptor-text-color: @workflow-alert-color;
+
+/* WORKFLOW TRANSITION WIDGET
+show current status and buttons on top page in create/update view
+*/
+.workflow-transition-widget {
+  background-color: @workflow-background-color;
+  width: 100%;
+  float: left;
+  padding: 5px;
+  button {
+    margin: 5px 0;
+  }
+  .message {
+    margin-left: 10px;
+    h4, h3 {
+      margin: 0;
+    }
+  }
+  hr {
+    margin-top: 0;
+    margin-bottom: 0px;
+    border: 0;
+    border-top: 1px dashed @border-color-default;
+    clear: both;
+  }
+}
+
+/* WORKFLOW TRANSITION TRANSITION STATE DESCRIPTOR WIDGET
+show current status on top page in create/update view
+*/
+.workflow-transition-state-descriptor-widget {
+  background-color: @white-color;
+  color: @workflow-state-descriptor-text-color;
+  padding: @padding-default;
+  text-transform: uppercase;
+  width: 100%;
+  float: left;
+  border-left: 15px solid @workflow-state-descriptor-text-color;
+  border-bottom: 1px solid @workflow-state-descriptor-text-color;
+  border-right: 1px solid @workflow-state-descriptor-text-color;
+  border-top: 1px solid @workflow-state-descriptor-text-color;
+
+}
+
+/* WORKFLOW TRANSITION BUTTON WIDGET
+workflow buttons on bottom page in create/update view
+*/
+.workflow-transition-button-widget {
+  margin-top: @margin-large;
+  margin-bottom: @margin-default;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  @media (max-width:992px){
+    flex-direction: column;
+  }
+
+  .workflow-button-container .btn { //reset button not into container
+    margin-top: @margin-medium;
+  }
+  .workflow-buttons-container {
+    display: inline-flex;
+    .flexbox-row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    //width: 100%;
+    text-align: center;
+    .workflow-button-descriptor {
+      display: block;
+    }
+    .workflow-button-container {
+      //flex: 1; //comment because incompatible with IE11
+      padding: 0 @padding-medium;
+      //max-width: 300px;
+      min-width: 200px;
+      width: fit-content;
+      border-right: 1px solid @border-color-default;
+      &:last-child {
+        border-right: none;
+        padding-right: 0;
+      }
+      &:first-child {
+        padding-left: 0;
+      }
+      .btn {
+        width: 100%;
+        margin-top: 10px;
+      }
+      p {
+        line-height: 1.2em;
+        font-size: 0.9em;
+      }
+    }
+  }
+
+}

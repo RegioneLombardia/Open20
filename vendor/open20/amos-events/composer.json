@@ -1,0 +1,38 @@
+{
+    "name": "open20/amos-events",
+    "description": "Events manager with calendar - plugin",
+    "keywords": ["amos", "yii2", "events"],
+    "type": "plugin",
+    "proscription": "BSD-3-Clause",
+    "support": {
+        "issues": "https://github.com/open20/amos-events/issues?state=open",
+        "source": "https://github.com/open20/amos-events"
+    },
+    "require": {
+        "php": ">=5.4.0",
+        "cornernote/yii2-workflow-manager": "*",
+        "open20/amos-admin" : "*",
+        "open20/amos-attachments" : "*",
+        "open20/amos-comments" : "*",
+        "open20/amos-community" : "*",
+        "open20/amos-comuni" : "*",
+        "open20/amos-core" : "*",
+        "open20/amos-dashboard" : "*",
+        "open20/amos-wizflow" : "*",
+        "open20/amos-workflow" : "*",
+        "raoul2000/yii2-workflow": "*",
+        "open20/yii2-dynamicform" : "*",
+        "symfony/dom-crawler": "2.8",
+        "symfony/css-selector": "2.8",
+        "2amigos/yii2-qrcode-helper": "1.0.2",
+        "kartik-v/yii2-mpdf": "*",
+        "kartik-v/yii2-popover-x": "*",
+        "moonlandsoft/yii2-phpexcel": "*",
+        "xj/yii2-tagit-widget" : "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "open20\\amos\\events\\": "src"
+        }
+    }
+}

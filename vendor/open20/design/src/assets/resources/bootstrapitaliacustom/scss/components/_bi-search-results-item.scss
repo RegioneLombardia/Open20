@@ -1,0 +1,11 @@
+.it-list-wrapper {
+  &.list-search {
+    .it-list {
+      a{
+        &:hover {
+          color: $link-hover-color;
+        }
+      }
+    }
+  }
+}

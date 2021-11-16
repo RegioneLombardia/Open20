@@ -1,0 +1,30 @@
+.wrap-modules {
+    //sono nel CMS
+    div[id*="button-"] {
+        display: inline-block;
+        .uk-button {
+            @extend .btn;
+            &.uk-button-primary {
+                @extend .btn-primary;
+            }
+            &.uk-button-secondary {
+                @extend .btn-secondary;
+            }
+            &.uk-button-default {
+                @extend .btn-tertiary;
+            }
+            &.uk-button-danger {
+                @extend .btn-danger;
+            }
+            &.uk-button-large {
+                @extend .btn-lg;
+            }
+            &.uk-button-small {
+                @extend .btn-sm;
+            }
+        }
+        + div[id*="button-"]{
+            @extend .ml-3;
+        }
+    }
+}

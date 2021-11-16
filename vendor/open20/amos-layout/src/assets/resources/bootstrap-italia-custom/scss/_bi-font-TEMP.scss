@@ -1,0 +1,10 @@
+/**
+FINCHE' NON RIUSCIAMO A CARICARE IL JS DI BOOTSTRAP ITALIA NON E' POSSIBILE CARICARE
+IL FONT NEL CAMPO HEAD REGISTRANDOLO COME DA GUIDA BI.
+PER IL MOMENTO PER CARICARE IL FONT TITILLIUM-WEB:
+- inseriamo in asset BootstrapItaliaCustomAsset la dipendenza con l'attuale asset FontAsset
+- il font viene settato tramite questo file
+*/
+body{
+  font-family: 'titillium-web', Geneva, Tahoma, sans-serif;
+}

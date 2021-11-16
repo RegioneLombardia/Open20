@@ -1,0 +1,87 @@
+.bi-widget-myprofile-wrapper {
+
+  .additional-info, 
+  .avatar-wrapper > .lead,
+  .avatar-wrapper > .lead a,
+  a.box-item-number-profile,
+  .last-contents-wrapper {
+    @include get-color-contrast($secondary);
+  }
+
+  .avatar-wrapper {
+    .avatar-box-img {
+      .avatar {
+        border: 2px solid #FFF;
+      }
+      .info-box-avatar {
+        bottom: -6px;
+        .info-avatar {
+          border: 2px solid #fff;
+        }
+      }
+    }
+  }
+ 
+  .avatar > p {
+    @extend .text-secondary;
+  }
+  .new-contents-wrapper {
+    border-top: 1px dashed #FFF;
+    border-bottom: 1px dashed #FFF;
+    // display: flex;
+    // flex-wrap: wrap;
+
+    .box-item-number-profile {
+      display: flex;
+      align-items: center;
+      @extend .py-2;
+      text-decoration: none;
+      .number-profile {
+        background: $white;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        @extend .lead,
+        .font-weight-bold,
+        .mr-2,
+        .text-secondary;
+
+      }
+
+      .info-number-profile {
+        @extend .text-uppercase,
+        .small;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .last-contents-wrapper {
+    .box-last-contents {
+      background-color: darken($secondary, 8%);
+      @extend .p-3,
+      .h-100;
+
+      .community-image {
+        width: 70px;
+        height: 50px;
+        overflow: hidden;
+        background-color: darken($secondary, 15%);
+        @extend .mt-2;
+        img {
+          object-position: center;
+          object-fit: cover;
+          min-height: 50px;
+          min-width: 70px;
+        }
+      }
+    }
+    .avatar-group-stacked {
+      justify-content: flex-end;
+      @extend .mt-2;
+    }
+  }
+}

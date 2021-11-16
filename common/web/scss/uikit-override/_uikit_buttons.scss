@@ -1,0 +1,11 @@
+.btn {
+    &.btn-primary {
+        cursor: pointer;
+        .uk-button {
+            &.uk-button-primary {
+                @include get-color-contrast($primary);
+                text-decoration: none;
+            }
+        }
+    }
+}

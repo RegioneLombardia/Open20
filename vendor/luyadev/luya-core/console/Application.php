@@ -1,0 +1,62 @@
+<?php
+
+namespace luya\console;
+
+use luya\traits\ApplicationTrait;
+
+/**
+ * LUYA Console/CLI Application.
+ *
+ * @property \luya\console\ErrorHandler $errorHandler The error handler component.
+ *
+ * @since 1.0.0
+ */
+class Application extends \yii\console\Application
+{
+    use ApplicationTrait;
+
+    /**
+     * @var bool Mute the Applications ouput, this is used to make application
+     * cli tests with no output. The `luya\console\Controller` output/print methods are listening
+     * to this property.
+     */
+    public $mute = false;
+
+    /**
+     * Provides an array with all LUYA core commands.
+     *
+     * Instead of overriding the core command application and merged the value we directly copied them.
+     *
+     */
+    public function coreCommands()
+    {
+        return [
+            // yii default commands
+            'asset' => 'yii\console\controllers\AssetController',
+            'cache' => 'yii\console\controllers\CacheController',
+            'fixture' => 'yii\console\controllers\FixtureController',
+            'help' => 'yii\console\controllers\HelpController',
+            'message' => 'yii\console\controllers\MessageController',
+            'serve' => [
+                'class' => 'yii\console\controllers\ServeController',
+                'docroot' => '@app/public_html',
+            ],
+            // luya default commands
+            'migrate' => 'luya\console\commands\MigrateController',
+            'module' => 'luya\console\commands\ModuleController',
+            'theme' => 'luya\console\commands\ThemeController',
+            'import' => 'luya\console\commands\ImportController',
+            'health' => 'luya\console\commands\HealthController',
+        ];
+    }
+    
+    /**
+     * @inheritdoc
+     */
+    public function coreComponents()
+    {
+        return array_merge($this->luyaCoreComponents(), [
+            'errorHandler' => ['class' => 'luya\console\ErrorHandler'],
+        ]);
+    }
+}

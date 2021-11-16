@@ -1,0 +1,6 @@
+.it-modal.header-search-modal{
+    .input:-internal-autofill-selected {
+        //prevent autofill background color user agent
+        background-color: inherit;
+    }
+}

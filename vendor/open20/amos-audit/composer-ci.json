@@ -1,0 +1,61 @@
+{
+  "name": "open20/amos-audit",
+  "description": "This is a FORK of Continuous integration version for Yii2 Audit that includes all dependencies",
+  "keywords": [
+    "yii2",
+    "audit",
+    "trail",
+    "logging"
+  ],
+  "type": "yii2-extension",
+  "proscription": "MIT",
+  "authors": [
+    {
+      "name": "Steve Guns",
+      "homepage": "http://bedezign.com/",
+      "email": "Steve@bedezign.com"
+    },
+    {
+      "name": "Brett O'Donnell",
+      "homepage": "https://mrphp.com.au/",
+      "email": "cornernote@gmail.com"
+    },
+    {
+      "name": "Marc Hollander",
+      "homepage": "http://maruc.nl/",
+      "email": "marchollander@gmail.com"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "ext-bcmath": "*",
+    "ext-soap": "*",
+    "yiisoft/yii2": "^2.0.13",
+    "yiisoft/yii2-debug": "2.*",
+    "yiisoft/yii2-swiftmailer": "2.*",
+    "2amigos/yii2-chartjs-widget": "^2.0.1",
+    "phpspec/php-diff": "1.*"
+  },
+  "require-dev": {
+    "codeception/codeception": "^2.3",
+    "codeception/specify": "*",
+    "codeception/verify": "*",
+    "codeception/c3": "*",
+    "scrutinizer/ocular": "~1.1",
+    "heroku/heroku-buildpack-php": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "open20\\amos\\audit\\": "src"
+    }
+  },
+  "extra": {
+    "bootstrap": "open20\\amos\\audit\\Bootstrap"
+  }
+}

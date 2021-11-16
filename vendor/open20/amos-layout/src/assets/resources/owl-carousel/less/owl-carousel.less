@@ -1,0 +1,50 @@
+/**
+IMPORT AMOS-LAYOUT VARIABLES
+ */
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/variables.less";
+
+/*CAROUSEL DEFAULT VARIABLES*/
+@owl-height: 150px;
+@owl-background-color-nav: @black-color;
+@owl-color-nav: @white-color;
+
+/* Yii2 Owl Carousel */
+
+.owl-carousel {
+  .owl-nav {
+    top: 0;
+    width: 100%;
+    > button {
+      position: absolute;
+      top: 0;
+      &.owl-prev {
+        left: 0;
+      }
+      &.owl-next {
+        right: 0;
+      }
+      &.owl-prev,
+      &.owl-next {
+        background-color: @owl-background-color-nav;
+        color: @owl-color-nav !important;
+        font-size: 3em !important;
+        height: @owl-height;
+        > span {
+          position: relative;
+          bottom: 5px;
+          margin: 5px;
+        }
+      }
+    }
+  }
+  .owl-item {
+    height: @owl-height;
+    .owl-item-content { /* <-- custom class for items */
+      border: 1px solid @border-color-default;
+      height: @owl-height;
+      > div {
+        height: @owl-height;
+      }
+    }
+  }
+}

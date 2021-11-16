@@ -1,0 +1,272 @@
+/*======================================
+*   FOOTER
+======================================*/
+.pre-footer {
+  background-color: white;
+  padding: 35px 0;
+  display: none;
+  .row {
+    .flexer;
+    justify-content: center;
+
+    @media(max-width: 767px) {
+      flex-direction: column;
+    }
+
+    + .row {
+      margin-top: 30px;
+    }
+  }
+
+  .wrap-logo {
+    @media(min-width: 768px) {
+      margin-right: 25px;
+    }
+
+    img {
+      max-height: 50px;
+    }
+  }
+}
+
+.footer {
+  background-color: @footer-color;
+  color: #fff;
+  width: 100%;
+  position: relative !important;
+  bottom: 0;
+  .modulo{
+    font-weight: bold;
+  }
+  .menu-footer{
+    display: flex;
+    margin:0 0 20px 0!important;
+    li a {
+      text-decoration: underline;
+    }
+  }
+  a {
+    color: #fff;
+    text-transform: capitalize;
+
+    &:hover {
+      color: #ffffff;
+      opacity: 0.8;
+    }
+  }
+
+  > div {
+    //padding: 60px 0 40px 0;
+  }
+}
+
+/*======================================
+*   GO TO TOP
+======================================*/
+.gototop {
+  position: fixed;
+  bottom: 12%;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 0;
+  background-color: @primary-color;
+  font-size: 0.6em;
+  padding: 5px 7px 5px 6px;
+  color: #fff;
+  text-decoration: none;
+  transition: opacity 0.2s ease-out;
+  display: none;
+  z-index: 10;
+  text-align: center;
+  line-height: 1.2em;
+  @media screen and (max-width: 991px){
+    bottom: 15%;
+    right: 5px;
+    width: 35px;
+    height: 35px;
+    padding: 8px 2px 5px 4px;
+    font-size: unset;
+  }
+  @media screen and (max-width: 440px){
+    bottom: 20%;
+    right: 5px;
+    width: 35px;
+    height: 35px;
+    padding: 8px 2px 5px 4px;
+    font-size: unset;
+  }
+
+
+
+  &:hover {
+    color: @primary-color;
+    border: 1px solid @primary-color;
+    background-color: #ffffff;
+  }
+
+  &.show {
+    display: block;
+  }
+}
+
+
+/*======================================
+*   FOOTER CALL TO ACTION BOX
+======================================*/
+.footer_box {
+  position: relative;
+  background-color: #ececec;
+  margin: 5% 16%;
+  padding: 1.5em 0;
+
+  @media screen and (max-width: 1599px){
+    margin: 5% 12%;
+  }
+  @media screen and (max-width: 991px){
+    margin: 5% 8%;
+  }
+  @media screen and (max-width: 767px){
+    margin: 5% 4%;
+  }
+
+  .uk-container{
+    padding: 1em 2em;
+    .triangle {
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 30px 50px 0 50px;
+      border-color: #ffffff transparent transparent transparent;
+      position: absolute;
+      top: 0;
+      left: 43%;
+      @media(max-width: 375px) {
+        left: 35%;
+      }
+
+    }
+    .row {
+      div {
+        @media(max-width: 991px) {
+          text-align: center;
+        }
+      }
+
+      h3{margin-bottom: 0;}
+      p{margin: 0;}
+
+      .btn-default{
+        font-weight: bold;
+        float: right;
+        margin-top: 10px;
+
+        @media(max-width: 991px) {
+          float: none;
+          margin: 20px auto 0;
+        }
+      }
+    }
+  }
+}
+.footer_box.full-width{
+  margin: 5% 0;
+}
+
+/*======================================
+*   FOOTER SOCIAL
+======================================*/
+.footer-premio-internazionale {
+  margin-top:30px;
+
+  h2 {
+    color: @primary-color;
+    font-size: 50px;
+    float: left;
+    padding-right: 10px;
+  }
+
+  a {
+    &:hover {
+      text-decoration: none;
+      opacity: 0.8;
+    }
+  }
+
+  img {
+    position: relative;
+    top: -3px;
+    height: 35px;
+    width: auto;
+  }
+}
+
+.gototop > .glyphicon{ //stessa icona del carousel
+  top: 0;
+  right: 1px;
+}
+
+/*===================================
+*   FOOTER INTERNAL PAGE
+===================================*/
+
+
+.internal-footer-page-section{
+  .uk-accordion{
+    .uk-open .uk-accordion-title p{color:#297A38;}
+    .uk-accordion-title{
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #979797;
+      &:active p{color:#297A38;}
+      &:focus p{color:#297A38;}
+      &:hover p{color:#297A38;}
+      p{
+        
+        color:black;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 26px;
+        letter-spacing: -1.34px;
+
+      }
+    }
+    
+    .uk-accordion-content{
+      .el-content{
+        .col-md-6:nth-child(1){
+          padding-left: 0;
+          .accordion-content-title:nth-child(1){
+            padding-bottom: 2em;
+          }
+        }
+        .col-md-6:nth-child(2){
+          padding-right: 0;
+        }
+        .accordion-content-title{
+          font-size: 26px;
+          letter-spacing: -1.09px;
+          line-height: 28px;
+        }
+        
+        .accordion-content-subtitle, .paragraph{
+          font-size: 16px;
+          letter-spacing: -0.67px;
+          line-height: 26px;
+          padding-bottom: 2em;
+        }
+        a{
+          color: green;
+          &:hover{
+            color: green;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+

@@ -1,0 +1,8 @@
+$custom-tag-green: #eaf1eb;
+
+$custom-tag-colors: (
+  "custom-tag-green": $custom-tag-green,
+);
+
+$theme-colors: map-merge($theme-colors, $custom-tag-colors);
+

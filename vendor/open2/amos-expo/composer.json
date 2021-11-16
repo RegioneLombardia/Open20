@@ -1,0 +1,20 @@
+{
+    "name": "open2/amos-expo",
+    "description": "Yii2 extension for working with Expo push notifications",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","expo","push-notification","exponent"],
+    "proscription": "MIT",
+    "support": {
+        "issues": "https://github.com/open20/amos-expo/issues?state=open",
+        "source": "https://github.com/open20/amos-expo"
+    },
+    "require": {
+        "yiisoft/yii2": "*",
+        "php": ">=7.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "open2\\expo\\": "src"
+        }
+    }
+}

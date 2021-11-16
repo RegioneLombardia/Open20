@@ -1,0 +1,33 @@
+{
+    "name": "open20/amos-sondaggi",
+    "description": "Sistema AMOS per gestire i sondaggi",
+    "keywords": ["amos", "yii2", "sondaggi"],
+    "homepage": "http://www.open20.it/",
+    "type": "component",
+    "proscription": "BSD-3-Clause",
+    "support": {
+        "issues": "http://www.example.com/",
+        "forum": "http://www.example.com/forum/",
+        "wiki": "http://www.example.com/wiki/",
+        "source": "https://github.com/open20/amos-sondaggi"
+    },
+    "require": {
+        "php": ">=5.4.0",
+        "ext-json": "*",
+        "open20/amos-admin" : "*",
+        "open20/amos-attachments" : "*",
+        "open20/amos-core" : "*",
+        "open20/amos-dashboard" : "*",
+        "open20/amos-email-manager" : "*",
+        "open20/amos-upload" : "*",
+        "kartik-v/yii2-detail-view": "*",
+        "kartik-v/yii2-dropdown-x": "*",
+        "kartik-v/yii2-widget-fileinput": "*",
+        "xj/yii2-tagit-widget" : "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "open20\\amos\\sondaggi\\": "src"
+        }
+    }
+}

@@ -1,0 +1,11 @@
+vendor
+composer.lock
+src/Compute/HTTPHealthCheck.php
+src/Compute/HTTPSHealthCheck.php
+
+# Python for generator
+*.pyc
+*.egg-info
+
+# When running synth.py
+.cache/

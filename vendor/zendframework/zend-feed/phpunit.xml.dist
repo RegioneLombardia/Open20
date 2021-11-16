@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         backupGlobals="true"
+         colors="true">
+    <testsuites>
+        <testsuite name="zend-feed Test Suite">
+            <directory>./test</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./src</directory>
+        </whitelist>
+    </filter>
+
+    <php>
+        <env name="TESTS_ZEND_FEED_PUBSUBHUBBUB_BASEURI" value="false" />
+        <env name="TESTS_ZEND_FEED_READER_ONLINE_ENABLED" value="false" />
+    </php>
+</phpunit>

@@ -1,0 +1,55 @@
+.dashboard-content {
+  .square-box {
+    .dashboard-menu-item {
+
+      .ic,
+      .am,
+      .dash {
+        &:before {
+          font-size: 40px !important;
+        }
+      }
+
+      .language-item, .pluginName {
+        font-size: 14.4px !important;
+        //hyphens: auto;
+      }
+      .badge {
+        border-radius: 100px;
+        background: @danger-color;
+        font-size: 0; //nascosti numeri su befe
+        &:empty {
+          display: inline-flex !important;
+          height: 14px;
+          width: 14px;
+          padding: 0;
+        }
+      }
+    }
+  }
+
+  .wrap-graphic-widget {
+    .box-widget-header {
+      .box-widget-title {
+
+        .ic,
+        .am,
+        .dash {
+          &:before {
+            font-size: 30px !important;
+          }
+        }
+
+        .language-item {
+          font-size: 13px !important;
+        }
+      }
+      .read-all {
+        a {
+          font-size: 13px !important;
+          line-height: 1.3;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,192 @@
+@font-face {
+  font-family: 'ic';
+  src:  url('fonts/ic.eot?pabd0a');
+  src:  url('fonts/ic.eot?pabd0a#iefix') format('embedded-opentype'),
+    url('fonts/ic.ttf?pabd0a') format('truetype'),
+    url('fonts/ic.woff?pabd0a') format('woff'),
+    url('fonts/ic.svg?pabd0a#ic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="ic-"], [class*=" ic-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'ic' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ic-community:before {
+  content: "\e908";
+}
+.ic-propostecollaborazione:before {
+  content: "\e909";
+}
+.ic-disc:before {
+  content: "\e900";
+}
+.ic-esperienze:before {
+  content: "\e901";
+}
+.ic-fatture:before {
+  content: "\e902";
+}
+.ic-money:before {
+  content: "\e903";
+}
+.ic-network:before {
+  content: "\e904";
+}
+.ic-news:before {
+  content: "\e905";
+}
+.ic-prenotazioni:before {
+  content: "\e906";
+}
+.ic-user:before {
+  content: "\e907";
+}
+.ic-assistenza:before {
+  content: "\e90a";
+}
+.ic-avvisi:before {
+  content: "\e90b";
+}
+.ic-bestpractice:before {
+  content: "\e90c";
+}
+.ic-cassettaattrezzi:before {
+  content: "\e90d";
+}
+.ic-cercafinanziamento:before {
+  content: "\e90e";
+}
+.ic-eventi:before {
+  content: "\e90f";
+}
+.ic-fotogallery:before {
+  content: "\e910";
+}
+.ic-gestione:before {
+  content: "\e911";
+}
+.ic-organizzazioni:before {
+  content: "\e912";
+}
+.ic-progetti:before {
+  content: "\e913";
+}
+.ic-sondaggi:before {
+  content: "\e914";
+}
+.ic-videoconferenza:before {
+  content: "\e915";
+}
+.ic-lucchetto:before {
+  content: "\e916";
+}
+.ic-mail:before {
+  content: "\e917";
+}
+.ic-modale:before {
+  content: "\e918";
+}
+.ic-mio-profilo:before {
+  content: "\e919";
+}
+.ic-iniziative:before {
+  content: "\e91a";
+}
+.ic-opportunita:before {
+  content: "\e91b";
+}
+.ic-proposte-collaborazione-een:before {
+  content: "\e91c";
+}
+.ic-aziende:before {
+  content: "\e91d";
+}
+.ic-la-mia-azienda:before {
+  content: "\e91e";
+}
+.ic-categorie-merceologiche:before {
+  content: "\e91f";
+}
+.ic-info:before {
+  content: "\e920";
+}
+.ic-segnalazioni:before {
+  content: "\e921";
+}
+.ic-modifica:before {
+  content: "\e922";
+}
+.ic-settings:before {
+  content: "\e923";
+}
+.ic-risultati:before {
+  content: "\e924";
+}
+.ic-community-consigliate:before {
+  content: "\e925";
+}
+.ic-piano-lavoro:before {
+  content: "\e926";
+}
+.ic-altri:before {
+  content: "\e927";
+}
+.ic-assi:before {
+  content: "\e928";
+}
+.ic-capofila:before {
+  content: "\e929";
+}
+.ic-obiettivi:before {
+  content: "\e92a";
+}
+.ic-work-packages:before {
+  content: "\e92b";
+}
+.ic-een-platform:before {
+  content: "\e92c";
+}
+.ic-een-world:before {
+  content: "\e92d";
+}
+.ic-whatsapp:before {
+  content: "\e92e";
+}
+.ic-telegram1:before {
+  content: "\e92f";
+}
+.ic-view_list:before {
+  content: "\e930";
+}
+.ic-library:before {
+  content: "\e931";
+}
+.ic-facebook:before {
+  content: "\e932";
+}
+.ic-linkedin:before {
+  content: "\e933";
+}
+.ic-telegram:before {
+  content: "\e934";
+}
+.ic-twitter:before {
+  content: "\e935";
+}
+.ic-whatsapp1:before {
+  content: "\e936";
+}

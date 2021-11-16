@@ -1,0 +1,21 @@
+{
+    "name": "open20/amos-rss",
+    "description": "Sistema AMOS per RSS",
+    "keywords": ["amos", "yii2", "utility"],
+    "homepage": "http://git.open20.it/amos/amos-utility",
+    "type": "component",
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=5.4.0",
+        "open20/amos-core" : "*",
+        "zendframework/zend-feed": "~2.9",
+        "zendframework/zend-servicemanager": "~3.3",
+        "zendframework/zend-http": "~2.7",
+        "kv4nt/yii2-owl-carousel2": "*" 
+    },
+    "autoload": {
+        "psr-4": {
+            "amos\\rss\\": "src"
+        }
+    }
+}

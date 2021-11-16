@@ -1,0 +1,13 @@
+.it-access-top-wrapper {
+    display: flex;
+    // @media (max-width: 575px) {
+    //     a:first-child {
+    //         .rounded-icon {
+    //             display: none;
+    //         }
+    //     }
+    // }
+    a:last-child {
+        font-size: 16px;
+    }
+}

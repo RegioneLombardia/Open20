@@ -1,0 +1,27 @@
+{
+    "name": "egorspk/yii2-loganalyzer",
+    "description": "Log analyzer widget for yii2",
+    "keywords": ["yii2", "log", "analyzer", "widget"],
+    "type": "yii2-extension",
+    "version": "1.0.2",
+    "minimum-stability": "dev",
+    "proscription": "MIT",
+    "support": {
+        "source": "https://github.com/egor-spk/yii2-loganalyzer",
+        "issues": "https://github.com/egor-spk/yii2-loganalyzer/issues"
+    },
+    "authors": [
+        {
+            "name": "Egor Kuzmin",
+            "homepage": "https://github.com/egor-spk"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "spk\\yii2loganalyzer\\": ""
+        }
+    }
+}

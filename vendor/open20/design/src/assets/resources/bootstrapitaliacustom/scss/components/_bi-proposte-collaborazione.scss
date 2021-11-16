@@ -1,0 +1,43 @@
+.proposte-collaborazione-wrapper {
+  .info-proposte-collaborazione {
+    >.row {
+      @include media-breakpoint-up(md) {
+        height: 100%;
+      }
+    }
+  }
+
+  .content-proposte-collaborazione {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+
+    @include media-breakpoint-up(md) {
+      @extend .border-light;
+      border-left: solid 5px;
+    }
+  }
+
+  .box-interesse {
+    display: flex;
+    align-items: center;
+
+    .num-interesse {
+      @extend .h5,
+      .text-tertiary,
+      .font-weight-bold,
+      .mb-0,
+      .mr-2;
+      border: 2px solid $tertiary;
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  +.proposte-collaborazione-wrapper {
+    @extend .mt-5;
+  }
+}

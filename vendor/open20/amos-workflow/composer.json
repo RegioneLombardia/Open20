@@ -1,0 +1,32 @@
+{
+    "name": "open20/amos-workflow",
+    "description": "Sistema AMOS per il workflow",
+    "keywords": ["amos", "yii2", "workflow"],
+    "homepage": "http://www.open20.it/",
+    "type": "component",
+    "proscription": "BSD-3-Clause",
+    "support": {
+        "issues": "http://www.example.com/",
+        "forum": "http://www.example.com/forum/",
+        "wiki": "http://www.example.com/wiki/",
+        "source": "https://github.com/open20/amos-workflow"
+    },
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=5.4.0",
+        "open20/amos-core" : "*",
+        "raoul2000/yii2-workflow": "^1.1.0",
+        "cornernote/yii2-workflow-manager": "^1.0.1"
+    },
+    "extra": {
+        "asset-installer-paths": {
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "open20\\amos\\workflow\\": "src"
+        }
+    }
+}

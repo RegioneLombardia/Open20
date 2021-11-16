@@ -1,0 +1,748 @@
+/* AMOS-LAYOUT */
+
+/*FORM DEFAULT VARIABLES*/
+@success-form-color: @success-color;
+@error-form-color: darken(@danger-color, 20%);
+//@background-form-color: @white-color; /* comment for readonly field */
+@border-form-color: @border-color-default;
+@border-form-focus-color: @primary-color;
+@title-form-color: @primary-color;
+@label-color: @black-color;
+@font-form-color: @secondary-color;
+
+/*FORM UTILITIES*/
+
+/* set input style with possibility to change border bottom color */
+.input-style(@color-border-bottom: darken(@border-form-color,25%) ) {
+  border: 1px solid @border-form-color;
+  border-bottom-color: @color-border-bottom;
+  //background-color: @background-form-color;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  box-shadow: none;
+  .amos-font-form;
+}
+
+/* set default font form in pixel - used for override */
+.amos-font-form {
+  font-size: 10px !important;
+  font-weight: bold !important;
+  letter-spacing: 0.7px !important;
+  font-family: inherit !important;
+  line-height: 20px !important;
+  color: @font-form-color;
+}
+
+/*FORM CLASSES AND OVERRIDE*/
+
+div[class*="-form "],
+div[class*="-create"] {
+  float: left;
+  width: 100%;
+  padding: 0;
+  h2.subtitle-form { // for h2 tags (h2 because h1 it's into layout header)
+    color: @title-form-color;
+    margin-top: 50px;
+    border-bottom: 4px solid @border-form-color;
+    padding-bottom: 5px;
+    .amos-tooltip {
+      font-size: 0.8em;
+      margin-left: @margin-default;
+    }
+    .reportflag-widget {
+      display: inline-block;
+      font-size: 0.5em;
+      margin-left: @margin-medium;
+      position: relative;
+      top: 1px;
+    }
+    .modal {
+      font-size: initial;
+    }
+  }
+  h3.subtitle-section-form{
+    background: @light-background-primary-color;
+    padding: 2px @padding-default;
+    font-weight: bold;
+    margin-top: 0;
+    > em {
+      font-size: 0.6em;
+      font-weight: normal;
+    }
+  }
+  .subtitle-description-form{
+    padding: @padding-medium @padding-default;
+    margin-bottom: @margin-large;
+    margin-top: -15px; // equal to margin-bottom .subtitle-form
+    background-color: lighten(desaturate(spin(@success-color, -71.8750), 55.5556), 70.5882);
+  }
+  .container-action-form {
+    background-color: @toolbar-background-color;
+    padding: @padding-medium @padding-default;
+    margin-bottom: @margin-min; // same as [data-toggle-element^="form"] margin-top
+    margin-top: -@margin-default;
+    float: left;
+    width: 100%;
+    > .btn {
+      float: right;
+    }
+  }
+
+}
+
+form {
+
+  .form-control {
+    .input-style;
+
+  }
+  textarea {
+    .input-style(@border-form-color) !important;
+  }
+
+  .form-group {
+    margin-top: @margin-min;
+    margin-bottom: @margin-large;
+    .row {
+      margin: 0;
+      > div {
+        padding: 0;
+      }
+    }
+
+    .mce-charactercount {
+      margin: 2px 0 2px 2px;
+      padding: 4px;
+      font-size: 13px;
+    }
+
+    label.control-label {
+      display: inline-block;
+      max-width: 100%;
+      margin-bottom: 0;
+      font-weight: normal; //bootstrap override
+      line-height: normal;
+      color: @black-color;
+    }
+
+    .form-control {
+      .input-style;
+      &.kv-tree-wrapper, //exclude tree amos-tags
+      &.kv-tree-wrapper .kv-search-input {
+        background-color: @white-color;
+      }
+
+      &:focus {
+        border-bottom-color: @border-form-focus-color;
+        box-shadow: none;
+      }
+    }
+
+    &.half-width {
+      @media (min-width: 767px) {
+        width: 50%;
+        margin: @margin-min auto @margin-default auto;
+      }
+    }
+    .tooltip-field { /* hint - description bottom form */
+      font-size: 0.85em;
+      color: @text-primary-color;
+      .help-block {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+
+  }
+
+  .bk-btnFormContainer { //container form action buttons
+    margin: @margin-default 0;
+
+    @media (min-width: 420px) {
+      //float: right;
+    }
+
+    .btn {
+      &[type=button], //add for amos-invitations
+      &[type=submit] {
+        @media (min-width: 420px) {
+          margin-left: @margin-min;
+          float: right;
+        }
+      }
+      @media (max-width: 419px) {
+        width: 100%;
+      }
+    }
+
+  }
+
+}
+
+//-----------------------------------------------
+// SUCCESS FORM
+//-----------------------------------------------
+.has-success .select2-container--krajee.select2-container--focus .select2-selection, //override
+.has-success .form-control {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border: 1px solid @success-form-color;
+}
+
+.has-success .help-block,
+.has-success .control-label,
+.has-success .radio,
+.has-success .checkbox,
+.has-success .radio-inline,
+.has-success .checkbox-inline,
+.has-success.radio label,
+.has-success.checkbox label,
+.has-success.radio-inline label,
+.has-success.checkbox-inline label {
+  color: @success-form-color;
+}
+
+.alert-warning, //TODO check
+.alert-success {
+  color: #000;
+}
+
+//-----------------------------------------------
+// REDACTOR
+//-----------------------------------------------
+.redactor-box {
+  border: 1px solid @border-form-color;
+  border-bottom-color: darken(@border-form-color, 25%);
+  .redactor-toolbar {
+    border-bottom: 1px solid darken(@border-form-color, 25%);
+  }
+  .redactor-editor {
+    font-size: 0.9em; /*override redactor*/
+    font-family: inherit !important; /*override redactor*/
+    padding: 20px 10px;
+    border: none;
+    //background-color: @background-form-color;
+    &.redactor-placeholder p {
+      font-size: 0.9em; /*override redactor*/
+      font-family: inherit !important; /*override redactor*/
+    }
+  }
+}
+
+//-----------------------------------------------
+// SELECT2 OVERRIDE
+//-----------------------------------------------
+.select2-container,
+.select2-container.select2-container--krajee {
+  width: 100% !important;
+  .selection .select2-selection {
+    border-radius: 0;
+    //background-color: @background-form-color;
+    border: 1px solid @border-form-color;
+    border-bottom-color: darken(@border-form-color, 25%);
+    .select2-selection__rendered {
+      .amos-font-form;
+      .select2-selection__placeholder {
+        .amos-font-form;
+      }
+      .select2-search.select2-search--inline {
+        .select2-search__field {
+          width: auto !important;
+          padding: 6px 12px;
+        }
+      }
+      .select2-selection__clear {
+        bottom: 4px;
+        color: @secondary-color;
+      }
+      .select2-selection__choice {
+        white-space: normal;
+        .select2-selection__choice__remove {
+          position: relative;
+          bottom: 2px;
+        }
+      }
+    }
+    .select2-selection__arrow {
+      border: none;
+      b { /* bottom triangle */
+        border-width: 5px 6px 0 6px;
+        left: 0;
+      }
+    }
+    &:focus {
+      -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px @success-form-color;
+      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px @success-form-color;
+      box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px @success-form-color;
+    }
+
+    &.select2-selection--multiple {
+      &::after { //force add 'select2-selection__arrow b' (triangle) in select2 multiple
+        content: ' ';
+        position: absolute;
+        border-color: #888 transparent transparent transparent;
+        border-style: solid;
+        border-width: 5px 6px 0 6px;
+        right: 13px;
+        margin-top: -2px;
+        top: 50%;
+        cursor: pointer
+      }
+      .select2-selection__clear {
+        bottom: 13px;
+        right: 25px;
+      }
+    }
+
+  }
+  .select2-dropdown {
+    border-color: @success-form-color;
+    //.select2-search{
+    //}
+    .select2-results {
+      .select2-results__options .select2-results__option--highlighted[aria-selected] {
+        background-color: @primary-color !important;
+        color: contrast(@primary-color) !important;
+      }
+    }
+  }
+
+}
+
+//override select
+.has-success .select2-container--krajee .select2-selection,
+.has-success.select2-container--krajee .select2-dropdown,
+.has-success .select2-container--krajee.select2-container--focus .select2-selection {
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
+  border: 1px solid @success-form-color !important;
+}
+
+//---------------------------------------------------------------------------------
+// UPLOAD IMAGES (amos-attachments since 1.0.10 switch from badbreze to kartik-v)
+//---------------------------------------------------------------------------------
+.file-caption-main { /* folder icon */
+  &.form-control.kv-fileinput-caption {
+    .file-caption-name {
+      .amos-font-form;
+    }
+  }
+  .input-group-btn {
+    .glyphicon {
+      font-size: 16px;
+      line-height: normal;
+    }
+    .ajaxform {
+      font-size: 13px;
+    }
+    .fileinput-remove {
+      .btn-color(@danger-color);
+      .btn-border(@danger-color);
+      margin: 0;
+      &:hover {
+        .btn-hover-change-color(contrast(@danger-color), @danger-color);
+      }
+    }
+  }
+}
+
+.fileinput-caption {
+  .input-style(@border-form-color);
+}
+
+.file-preview {
+  //background-color: @background-form-color !important;
+  border-radius: 0 !important;
+
+  button.close.fileinput-remove { /* 'x' button */
+    color: @danger-color;
+    top: 5px;
+    right: 5px;
+    opacity: 1;
+  }
+}
+
+.krajee-default.file-preview-frame {
+  width: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+  margin-top: 35px !important; /* show 'x' button */
+  .kv-file-content {
+    width: 100% !important;
+    height: auto !important;
+    overflow: hidden;
+    max-height: 300px;
+    .file-preview-image {
+      width: 100% !important;
+    }
+  }
+  .file-thumbnail-footer {
+    .file-upload-indicator {
+      margin: 0;
+      margin-left: 5px;
+      .text-warning {
+        color: @primary-color;
+      }
+    }
+    .file-upload-indicator {
+      position: absolute;
+      bottom: 15px;
+      left: 10px;
+      margin: 0;
+    }
+    .file-footer-caption {
+      position: absolute;
+      bottom: 5px;
+      left: 5px;
+      margin: 0;
+      padding: 0;
+    }
+    .file-footer-buttons {
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+      .file-caption-info {
+        overflow: inherit;
+      }
+      .btn {
+        .btn-tools-primary; /* override class btn with buttons.less class */
+        &.kv-file-remove {
+          .btn-color(@danger-color, contrast(@danger-color));
+          .btn-border(@danger-color);
+          .btn-hover-change-color(contrast(@danger-color), @danger-color);
+          .btn-hover-shadow;
+        }
+        &.kv-file-zoom {
+          .btn-hover-change-color(contrast(@primary-color), @primary-color);
+          .btn-hover-shadow;
+        }
+      }
+
+    }
+  }
+}
+
+//-----------------------------------------------
+// ERROR FORM
+//-----------------------------------------------
+.has-error .form-control {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border: 1px solid @error-form-color;
+}
+
+.help-block-error {
+  background-color: @error-form-color;
+  color: @white-color;
+  padding: 0 @padding-min;
+  margin: 0;
+}
+
+.has-error .select2-container--krajee.select2-container .select2-selection,
+.has-error .select2-container--open .select2-selection {
+  border-right: 1px solid @error-form-color;
+  border-left: 1px solid @error-form-color;
+  border-top: 1px solid @error-form-color;
+}
+
+.has-error .help-block,
+.has-error.radio label,
+.has-error.checkbox label,
+.has-error.radio-inline label,
+.has-error.checkbox-inline label {
+  color: @white-color;
+  background-color: @error-form-color;
+  padding: 0 @padding-medium;
+}
+
+.has-error .control-label,
+.text-error,
+.errore-alert,
+.tooltip-error-field {
+  color: @error-form-color;
+}
+
+.tooltip-error-field { /* triangle alert */
+  .am.am-alert-triangle {
+    font-size: 1.5em;
+  }
+}
+
+//-----------------------------------------------
+// Asterisk REQUIRED FIELD
+//-----------------------------------------------
+.required label.control-label:after,
+.fake_asterisk_required label:after { // Useful for the SCENARIO_FAKE_REQUIRED in amos-core Record and ActiveField classes
+  content: '*';
+  padding-left: @padding-min;
+  color: @error-form-color;
+}
+
+.note_asterisk { // * I campi sono obbligatori
+  color: @error-form-color;
+  margin-bottom: @margin-large;
+}
+
+.required label.control-label.no-asterisk:after {
+  content: "";
+}
+
+//-----------------------------------------------
+// RECEIVER SECTION (news form, discussion form)
+//-----------------------------------------------
+.receiver-section {
+  border: 1px solid @border-form-color;
+  padding: 15px 25px;
+}
+
+//-----------------------------------------------
+// UPLOAD IMAGES (amos-attachments until 1.0.9) //TODO REMOVE
+//-----------------------------------------------
+.thumbnail {
+  background: transparent;
+}
+
+.fileinput {
+  width: 100%;
+  margin: 0;
+  position: relative;
+  min-height: 125px;
+  background: transparent;
+
+  .thumbnail {
+    border-radius: 0;
+    border: 0;
+    padding: 0;
+  }
+
+  .fileinput-new, .fileinput-exists {
+    width: 100%;
+    position: relative;
+    padding: 0;
+    margin: 0;
+  }
+
+  .fileinput-exists { // TODO CHECK THIS RULE
+    &.btn-action-secondary {
+      //border: 1px solid @btn-action-secondary-color;
+    }
+  }
+  .upload-img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .container-btn {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: -10px;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1;
+    max-width: 135px;
+
+    .btn-file {
+      height: 26px;
+      border: 0;
+    }
+
+    .fileinput-exists {
+      width: 50%;
+      position: relative;
+      float: left;
+      height: inherit;
+    }
+
+    .fileinput-new {
+      width: 100%;
+      max-width: 150px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+  }
+  .btn-upload {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+.input-group-btn {
+  .glyphicon {
+    font-size: 16px;
+    line-height: normal;
+  }
+
+  .ajaxform {
+    font-size: 13px;
+  }
+}
+
+//== Fix background plus btn
+.has-success .input-group-addon,
+.has-error .input-group-addon {
+  background-color: transparent;
+}
+
+.file-preview-frame {
+  margin: 0;
+  padding: 0;
+}
+
+.file-preview-image {
+  width: 100%;
+  height: auto !important;
+}
+
+.file-footer-buttons {
+  .text-danger {
+    color: @white-color;
+  }
+}
+
+.file-zoom-content {
+  height: auto;
+}
+
+.file-preview {
+  background-color: @white-color;
+}
+
+//-----------------------------------------------
+// SELECT
+// used in order items (news, discussioni, etc)
+//-----------------------------------------------
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: '';
+
+  background-position: bottom 9px right 4px !Important;
+  background-repeat: no-repeat !important;
+  //background-image: url(../img/select.png) !important;
+}
+
+//-----------------------------------------------
+// SELECT2
+//-----------------------------------------------
+.select2-container--krajee .select2-selection {
+  min-height: 34px;
+  padding-top: 0;
+}
+
+.select2-container--krajee .select2-selection--multiple {
+  padding-top: 0 !important;
+}
+
+.select2-container--krajee {
+
+  .select2-selection {
+    border-left: 0;
+    border-right: 0;
+    border-top: 0;
+    border-radius: 0;
+    padding-top: 6px;
+    box-shadow: none;
+    background: transparent;
+
+    &:focus {
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      -webkit-transition: none;
+      -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+      transition: none;
+      border-color: transparent;
+    }
+  }
+
+  .select2-dropdown {
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
+    padding: 10px 0;
+    border-radius: 3px;
+    top: 0px;
+    margin: 0;
+    border: 0;
+  }
+}
+
+.select2-dropdown {
+  .addNew {
+    background: #daf2e2;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    margin: 0 5px;
+    padding: 5px;
+    color: #333;
+    font-weight: bold;
+
+    button {
+      margin: 0;
+      border: 0;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+      background-color: @primary-color;
+      color: @white-color;
+      float: right;
+      padding: 3px 11px;
+      font-size: 80%;
+    }
+  }
+}
+
+//-----------------------------------------------
+// TREE
+//-----------------------------------------------
+ul.kv-tree > li.kv-parent {
+  > div.kv-tree-list > div.kv-node-detail > .kv-node-label {
+    text-transform: uppercase;
+  }
+
+  > ul {
+    > li.kv-parent > div.kv-tree-list > div.kv-node-detail > .kv-node-label {
+      font-weight: bold;
+    }
+
+    > li {
+      font-weight: 200;
+    }
+  }
+}
+
+.form-group .redactor-box {
+  margin: 0;
+}
+
+.icon-inline {
+  display: inline-block;
+  padding-left: 10px;
+  vertical-align: super;
+}
+
+//-----------------------------------------------
+// Form-text : form with description in col-lg-12 right
+// example in e015-api _form view
+//-----------------------------------------------
+.form-text {
+  font-style: italic;
+  color: @font-form-color;
+  line-height: 1.2;
+  border-left: 2px solid @border-form-color;
+  padding: 0 5px;
+  margin-bottom: 5px;
+}
+
+.col-lg-6.form-text:not(.col-lg-push-6) { /*only for col-lg-6 after col-xs-12 field*/
+  margin-top: 10px;
+}

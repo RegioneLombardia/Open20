@@ -1,0 +1,41 @@
+# yii console command
+/yii
+
+# phpstorm project files
+.idea
+
+# netbeans project files
+nbproject
+
+# zend studio for eclipse project files
+.buildpath
+.project
+.settings
+
+# windows thumbnail cache
+Thumbs.db
+
+# composer vendor dir
+/vendor
+
+# composer itself is not needed
+composer.phar
+composer.lock
+
+# Mac DS_Store Files
+.DS_Store
+
+# phpunit itself is not needed
+phpunit.phar
+# local phpunit config
+/phpunit.xml
+i18n/it-IT/messages.php.orig
+forms/WorkflowTransitionWidget_REMOTE_2784.php
+forms/WorkflowTransitionWidget_LOCAL_2784.php
+forms/WorkflowTransitionWidget_BASE_2784.php
+forms/WorkflowTransitionWidget_BACKUP_2784.php
+widget/WidgetIcon.php.orig
+toolbar/NavBar.php.orig
+helpers/Html.php.orig
+forms/editors/socialShareWidget/SocialShareWidget.php.orig
+.vscode/sftp.json

@@ -1,0 +1,27 @@
+{
+    "name": "open20/yii2-filemanager",
+    "description": "Yii2 filemanager",
+    "type": "yii2-extension",
+    "proscription": "MIT",
+    "authors": [
+        {
+            "name": "PendalF",
+            "email": "pendalf@mail.ru"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable" : true,
+    "require": {
+        "yiisoft/yii2": "*",
+        "yiisoft/yii2-imagine": "*",
+        "open20/yii2-tinymce" : "*",
+        "kartik-v/yii2-widget-alert": "*",
+        "kartik-v/yii2-widget-select2": "*",
+        "2amigos/yii2-file-upload-widget": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "pendalf89\\filemanager\\": ""
+        }
+    }
+}

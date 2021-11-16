@@ -1,0 +1,43 @@
+# yii console command
+/yii
+
+# phpstorm project files
+.idea
+
+# netbeans project files
+nbproject
+
+# zend studio for eclipse project files
+.buildpath
+.project
+.settings
+
+# windows thumbnail cache
+Thumbs.db
+
+# composer vendor dir
+/vendor
+
+# composer itself is not needed
+composer.phar
+
+# Mac DS_Store Files
+.DS_Store
+
+# phpunit itself is not needed
+phpunit.phar
+# local phpunit config
+/phpunit.xml
+
+composer.lock
+sh.exe.stackdump
+src/i18n/it-IT/messages.php.orig
+src/i18n/it-IT/messages_BACKUP_10492.php
+src/i18n/it-IT/messages_BACKUP_896.php
+src/i18n/it-IT/messages_BASE_10492.php
+src/i18n/it-IT/messages_BASE_896.php
+src/i18n/it-IT/messages_LOCAL_10492.php
+src/i18n/it-IT/messages_LOCAL_896.php
+src/i18n/it-IT/messages_REMOTE_10492.php
+src/i18n/it-IT/messages_REMOTE_896.php
+.vscode/sftp.json

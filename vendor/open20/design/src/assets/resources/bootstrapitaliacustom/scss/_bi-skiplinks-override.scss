@@ -1,0 +1,9 @@
+.skiplinks {
+  background-color: transparent;
+  .sr-only-focusable:focus {
+    @include get-color-contrast($primary);
+    position: relative;
+    display: inline-block;
+    z-index: 9;
+  }
+}

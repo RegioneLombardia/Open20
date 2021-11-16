@@ -1,0 +1,14 @@
+.filename {
+  display: flex;
+  min-width: 0;
+  max-width: 320px;
+  .filename__base {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+
+  .filename__extension {
+    flex-shrink: 0;
+  }
+}

@@ -1,0 +1,29 @@
+/* WORKFLOW TRANSITION BUTTON WIDGET
+workflow buttons on bottom page in create/update view
+*/
+.workflow-transition-button-widget {
+  flex-wrap: wrap;
+
+  >.workflow-button-container {
+    @media (max-width:430px) {
+      display: inherit;
+      width: 100%;
+
+      .btn {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+  }
+
+  .workflow-buttons-container {
+    @media (max-width:430px) {
+      width: 100%;
+    }
+    .workflow-button-container {
+      @media (max-width:430px) {
+        max-width: 100%;
+      }
+    }
+  }
+}

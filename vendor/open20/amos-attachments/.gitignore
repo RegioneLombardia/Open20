@@ -1,0 +1,10 @@
+.idea/
+build/
+vendor/
+tests/uploads/
+tests/data/db.sqlite
+composer.lock
+/nbproject/private/
+/.project
+.vscode/sftp.json
+.vscode/

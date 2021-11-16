@@ -1,0 +1,302 @@
+/* AMOS-LAYOUT */
+
+/*TABLE DEFAULT VARIABLES*/
+@table-border-color: @border-color-default;
+
+//-----------------------------------------------
+// GENERAL TABLE RULES
+//-----------------------------------------------
+table.table {
+  > thead {
+    > tr {
+      > th {
+        font-size: 13px;
+        color: @primary-color;
+        a { //sorting field icon
+          &:after {
+            content: '\f312';
+            font-family: Amos-font;
+            margin-left: 5px
+          }
+
+          &.asc::after {
+            content: '\f2fc';
+            font-family: Amos-font;
+            margin-left: 5px
+          }
+          &.desc::after {
+            content: '\f2f9';
+            font-family: Amos-font;
+            margin-left: 5px
+          }
+        }
+        .checkbox {
+          margin: 0;
+          position: relative;
+          bottom: -5px;
+        }
+      }
+    }
+  }
+  > tbody {
+    > tr {
+      &:nth-of-type(2n+1) {
+        background-color: @light-background-color;
+      }
+      > td {
+        padding: @padding-medium;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+//-----------------------------------------------
+// GENERAL RESPONSIVE RULES
+// custom layout for mobile table - class table_switch
+//-----------------------------------------------
+@media (max-width: 768px) {
+  .table_switch {
+    table,
+    tbody,
+    th,
+    td,
+    tr {
+      display: block;
+      float: left;
+      width: 100%;
+    }
+
+    table.table {
+      > thead {
+        display: none;
+      }
+      > tbody {
+        > tr {
+          > td {
+            border: none;
+            border-bottom: 1px solid @table-border-color;
+            position: relative;
+            padding-left: 40%;
+            min-height: 40px;
+            white-space: normal;
+          
+            &:before { /* get table header attribute and insert before */
+              content: attr(title);
+              font-weight: bold;
+              position: absolute;
+              top: 6px;
+              left: 6px;
+              width: 45%;
+              padding-right: 10px;
+            }
+            @media (max-width: 500px) {
+              &:not(:last-child) {
+                //padding-left: 50%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//-----------------------------------------------
+// WIDGET GRID VIEW
+//-----------------------------------------------
+.grid-view {
+  .table_switch.table-responsive {
+   
+    tbody {
+      > tr {
+        > td {
+          &:last-child .container-action {
+            @media (max-width: 768px) {
+              font-size: 1.2em;
+              display: inline-flex;
+              white-space: nowrap;
+              float: right;
+            }
+            
+            .btn + .btn,
+            .btn + .modal + .btn {
+              @media (max-width: 768px) {
+                margin-left: 3px;
+              }
+            }
+          }
+          .container-img img,
+          .gridview-image {
+            max-width: 70px;
+          }
+        }
+      }
+    }
+  }
+  &.excel-grid {
+    .table_switch.table-responsive {
+      overflow-x: auto;
+      > table {
+        @media (max-width: 768px) {
+          table-layout: auto;
+          margin-bottom: 0;
+        }        
+        thead > tr > th {
+          @media (max-width: 768px) {
+            border: 1px solid @table-border-color;
+            border-top: none;
+            border-bottom-color: @primary-color;
+            text-align: center;
+            line-height: 5px;
+          }
+        }
+        tbody{
+          > tr{
+            @media (max-width: 768px) {
+              background-color: @white-color;
+              border-left: 1px solid @primary-color;
+            }
+            > td {
+              @media (max-width: 768px) {
+                white-space: normal;
+                word-wrap: break-word;
+                border: 1px solid @table-border-color;
+                padding: 5px;
+              }
+              &:first-child{
+                @media (max-width: 768px) {
+                  border-left: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+/**
+excel grid sheet out grid-view (amos-statistics)
+ */
+.excel-grid-sheet{
+  border: 1px solid @border-color-default;
+  text-align: center;
+  float: left;
+  width: fit-content;
+  > span{
+    padding: 2px @padding-medium;
+  }
+  &.active{
+    color: @primary-color;
+    font-weight: bold;
+    border-bottom: 3px solid @primary-color;
+  }
+}
+
+.gridview-image { //used in more plugin outside grid-view class
+  max-width: 70px;
+}
+
+//-----------------------------------------------
+// YII2 WIDGET DETAIL VIEW
+// es: amos-invitation view
+//-----------------------------------------------
+.table.detail-view {
+  //table-layout: fixed;
+}
+
+/**
+RESPONSIVE INFO - layout TODO move into plugin asset after restyling
+used only into
+- amos-partnership-profiles
+- amos-proposte-collaborazione
+- amos-proposte-collaborazione-een
+*/
+.container-general-info {
+  .title {
+    text-align: center;
+    margin-bottom: @margin-default;
+  }
+  .more-info {
+    width: 100%;
+    float: left;
+    text-align: center;
+    margin: @margin-default auto;
+    text-decoration: underline;
+  }
+}
+
+.table-info {
+  width: 100%;
+  tr {
+    border-bottom: 1px solid @primary-color;
+  }
+
+  th {
+    width: 50%;
+    text-align: right;
+    padding-right: 25px;
+  }
+
+  td {
+    width: 50%;
+    text-align: left;
+    padding-left: 25px;
+    border-bottom: 1px solid @primary-color;
+  }
+}
+
+/**
+END RESPONSIVE INFO - layout
+ */
+
+
+ @media (max-width: 768px) {
+  .table_switch, .kv-grid-container {
+    table, table.kv-grid-table,
+    tbody,
+    th,
+    td,
+    tr {
+      display: block;
+      float: left;
+      width: 100%;
+      font-size: 16px;
+    }
+
+    table.table {
+      > thead {
+        display: none;
+      }
+      > tbody {
+        > tr {
+          > td {
+            border: none;
+            border-bottom: 1px solid @table-border-color;
+            position: relative;
+            padding-left: 40%;
+            min-height: 40px;
+            white-space: normal;
+          
+            &:before { /* get table header attribute and insert before */
+              content: attr(title);
+              font-weight: bold;
+              position: absolute;
+              top: 10px;
+              left: 6px;
+              width: 45%;
+              padding-right: 10px;
+            }
+            @media (max-width: 500px) {
+              &:not(:last-child) {
+                //padding-left: 50%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

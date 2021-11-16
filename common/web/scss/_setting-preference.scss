@@ -1,0 +1,48 @@
+.setting-preference {
+
+
+      .card-preference {
+        &.card-wrapper {
+          padding-bottom: 24px;
+          &:not(.active) {
+            .card {
+              .card-body {
+                .card-text {
+                  @media (max-width: 575.98px) {
+                    display: none;
+                  }
+
+                }
+              }
+            }
+          }
+        }
+
+      }
+
+  .status-toggle{
+    
+    @media (max-width: 768px) {
+      border: none !important;
+    }
+  }
+  .callout {
+    &.callout-highlight.warning {
+      border-color: $brandbook-triadic-1-color;
+    }
+    p {
+      font-size: 1rem;
+      color: $brandbook-secondary-color;
+    }
+  }
+ 
+}
+
+.settings-alert{
+    border-right-color: rgba($secondary, 0.1) !important;
+    border-top-color: rgba($secondary, 0.1) !important;
+    border-bottom-color: rgba($secondary, 0.1) !important;
+}
+.border-dotted {
+  border: 1px dotted !important;
+}

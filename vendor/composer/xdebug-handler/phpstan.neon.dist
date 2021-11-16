@@ -1,0 +1,9 @@
+parameters:
+    level: 5
+    bootstrapFiles:
+        - tests/bootstrap_phpstan.php
+    paths:
+        - src
+        - tests
+    excludePaths:
+        - tests/Helpers/LegacyLogger.php

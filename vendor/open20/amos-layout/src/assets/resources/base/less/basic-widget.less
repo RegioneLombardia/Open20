@@ -1,0 +1,630 @@
+/* AMOS-LAYOUT */
+
+/*BASIC WIDGET DEFAULT VARIABLES*/
+@shared-widget-hover-color: lighten(desaturate(@primary-color, 50%), 50%);
+
+@background-color-tooltip: @light-background-color;
+@font-color-tooltip: contrast(@light-background-color);
+@font-color-icon-tooltip: @secondary-color;
+
+/*POST HEADER WIDGET
+show on post top (community, discussion, news, etc)
+it show infos about post creator and flag report*/
+.post-header {
+  overflow: visible;
+  margin-bottom: @margin-default;
+  margin-top: @margin-min;
+
+  .post-header-avatar {
+    margin-right: @margin-min;
+  }
+
+  .card-prevalent-partnership,
+  .card-creator-targets,
+  .publication-date,
+  .creator {
+    margin: 0 0 0 10px;
+    color: @text-primary-color;
+  }
+
+  .creator {
+    font-size: 1.215em;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    a {
+      color: @black-color;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    @media (max-width: 1199px) and (min-width: 993px) {
+      max-width: 50%;
+    }
+    @media (max-width: 992px) and (min-width: 769px) {
+      max-width: 58%;
+    }
+    @media (max-width: 768px) {
+      max-width: 49%;
+    }
+  }
+  .publication-date {
+    margin-top: 15px;
+  }
+}
+
+/*PLUGIN LIST WIDGET
+Settings Menu -> Manage widgets
+show all plugin in card view*/
+.plugin-list {
+  table {
+    td.icona > p {
+      padding: @padding-min;
+      color: @white-color;
+      font-size: 2em;
+      width: 50px;
+      text-align: center;
+    }
+  }
+  .card-widget {
+    text-align: center;
+    min-height: 225px;
+    .item-widget {
+      .icon-dashboard-name {
+        border: 1px solid @border-color-default;
+      }
+      .badge {
+        right: 15px;
+      }
+    }
+    > p {
+      line-height: 1.2;
+    }
+    .chechbox-widget {
+      margin-left: 10px;
+      position: absolute;
+      z-index: 999;
+      input {
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+}
+
+/**
+TOOL USERS
+ */
+.icon-tools {
+  max-width: 51%;
+  cursor: pointer;
+  float: right;
+
+  a {
+    color: @text-primary-color;
+    text-decoration: none;
+    &:hover {
+      opacity: @text-link-hover-opacity;
+    }
+  }
+  + p {
+    clear: both;
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 38%;
+  }
+  @media (max-width: 1199px) and (min-width: 993px) {
+    max-width: 50%;
+  }
+  @media (max-width: 992px) and (min-width: 769px) {
+    max-width: 42%;
+  }
+  @media (max-width: 768px) {
+    max-width: 51%;
+  }
+}
+
+/**
+ MANAGE MENU WIDGET
+ show settings icon with dropdown menu
+ used on graphics widgets and posts
+*/
+.manage {
+  float: right;
+  //margin-top: @margin-default;
+
+  .icon-view + & {
+    margin: @margin-min 0;
+    position: absolute;
+    right: 0;
+    z-index: 3;
+
+    .manage-menu {
+      color: contrast(@primary-color);
+    }
+  }
+  
+  &.col-xs-2 {
+    position: absolute;
+    right: 0;
+  }
+
+  .manage-menu {
+    width: 55px;
+    float: right;
+    padding: 0 @padding-medium;
+    color: @text-primary-color;
+    font-size: 1.65em;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+    }
+  }
+
+  li.no-action {
+    margin: 0 @margin-min;
+    width: 150px;
+  }
+}
+
+
+
+/**
+ POST-INFOS WIDGET
+ show infos on bottom post view
+*/
+.post-info {
+  background-color: @light-background-color;
+  padding: @padding-min;
+
+  .item {
+    margin: 2px 0;
+
+    &:last-child {
+      margin: 0;
+    }
+
+    label {
+      margin: 0;
+    }
+  }
+
+  > span {
+    margin-left: @margin-medium;
+
+    > label {
+      margin: 2px 0;
+
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+/**
+AMOS-TOOLTIP
+show info into (i) icon
+ */
+.amos-tooltip {
+  // font-size: 1.65em;
+  // color: @font-color-icon-tooltip;
+}
+
+.amos-tooltip + .tooltip.fade.top.in .tooltip-inner { /* override bootstrap */
+  // max-width: 250px;
+  // width: 250px;
+  // background-color: @background-color-tooltip;
+  // color: @font-color-tooltip;
+  // border-radius: 0px;
+}
+
+.amos-tooltip + .tooltip.in { /* override bootstrap */
+  // opacity: 1;
+}
+
+.amos-tooltip + .tooltip.fade.top.in .tooltip-arrow { /* override bootstrap */
+  // border-top-color: @background-color-tooltip;
+}
+
+/**
+INTERACTION-WIDGET //TODO tenuto per retrocompatibilità
+flag signal
+ */
+.interaction-widget a {
+  font-size: 1em;
+  color: @secondary-color;
+}
+
+/**
+REPORTFLAG-WIDGET
+show colored flag icon on view header
+(amos-news, amos-discussioni, amos-documenti)
+ */
+.reportflag-widget {
+  a { /* override */
+    font-size: 1em;
+    color: @secondary-color;
+  }
+  &.unread-report a {
+    color: @danger-color;
+  }
+}
+
+/**
+SOCIALSHARE DROPDOWN WIDGET
+used in view into widget-body-content container
+ */
+.socialshared-dropdown {
+  .dropdown-menu {
+    min-width: 100%; /* bootstrap override */
+    .share-wrap-button {
+      text-align: center;
+      .social-network .am {
+        font-size: 42px; /* 3em change in px for fix all view */
+        color: @black-color;
+        padding: 0 @padding-min;
+
+      }
+      .social-network .dash {
+        font-size: 35px; /* 3em change in px for fix all view */
+        color: @black-color;
+        padding: 0 @padding-min;
+
+      }
+    }
+  }
+}
+
+/**
+LIST TAG WIDGET
+show list of tags
+ */
+.tags-list-all {
+  .table.table-striped { /* override */
+    margin: 0;
+    > thead > tr > th {
+      border: none;
+    }
+    > tbody > tr > td {
+      padding: 0;
+      border: none;
+    }
+  }
+  .tags-list-single {
+    .flexer;
+    @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) { /* fix IE11 */
+      display: block;
+      > div:first-child{
+        float: left;
+      }
+    }
+    width: 100%;
+    margin-bottom: @margin-min;
+    background-color: @white-color;
+    padding: @padding-min;
+    span {
+      font-size: 1.3em;
+      margin-right: @margin-medium;
+    }
+    .tag-label {
+      margin: 0;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    small {
+      font-style: italic;
+    }
+  }
+  .list-tags-view-all {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-top: 1px solid @white-color;
+    padding: @padding-medium 0;
+  }
+}
+
+.modal-dialog .modal-content .modal-body .grid-view { /* modal tags list */
+  .table.table-striped {
+    margin-top: 0;
+    .tags-list-single {
+      .flexer;
+      width: 100%;
+      margin-bottom: @margin-min;
+      span {
+        font-size: 1.3em;
+        margin-right: @margin-medium;
+      }
+      .tag-label {
+        margin: 0;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+      small {
+        font-style: italic;
+      }
+    }
+  }
+}
+
+.toolbar-search { /* search for tags */
+  .table.table-striped {
+    margin-top: 0;
+    .tags-list-single {
+      .flexer;
+      width: 100%;
+      margin-bottom: @margin-min;
+      span {
+        font-size: 1.3em;
+        margin-right: @margin-medium;
+      }
+      .tag-label {
+        margin: 0;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+      small {
+        font-style: italic;
+      }
+    }
+  }
+}
+
+/**
+ SHARED WIDGET
+ show #tags and #attachments
+*/
+.shared {
+  float: left;
+  font-size: 14px;
+  table {
+    margin: @margin-medium 0;
+    td {
+      margin: 0;
+      border: 1px solid @border-color-default;
+      padding: @padding-min @padding-medium;
+
+      a, a:visited, a:focus {
+        text-decoration: none;
+        color: @text-primary-color;
+        display: block;
+        width: 100%;
+        background-color: @white-color;
+      }
+      span {
+        padding-right: @padding-min;
+      }
+    }
+  }
+}
+
+/**
+ TOGGLE TRANSLATE WIDGET
+ show translate button
+*/
+#toggle-translate {
+  .btn.btn-secondary() !important; /* override yii2-translate-manager */
+  padding: 5px 25px !important; /* override yii2-translate-manager */
+  margin-top: 4px;
+  margin-left: 4px;
+  text-decoration: underline;
+  text-decoration-color: @danger-color;
+}
+
+/**
+ WIDGET PEOPLE
+ round image people who partecipates
+*/
+.people {
+  text-align: right;
+  margin-bottom: @margin-min;
+  float: right;
+
+  a {
+    border-radius: 50%;
+    border: 1px solid @border-color-default;
+    width: 35px;
+    height: 35px;
+    display: inline-block;
+    margin-left: 8px;
+    margin-bottom: @margin-min;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 600px) {
+  .post-footer {
+    .shared, .people {
+      width: 100%;
+    }
+  }
+
+  .shared {
+    margin-top: @margin-default;
+    font-size: 16px;
+    table {
+      margin: @margin-default auto;
+    }
+  }
+
+  .people {
+    text-align: center;
+  }
+}
+
+/**
+CONNECT TO USER WIDGET
+show button connect in amos-admin icon view,
+amos-admin net tab grid
+ */
+.btn.btn-connect-to-user {
+  .am {
+    margin-left: @margin-min;
+  }
+}
+
+/**
+JOIN COMMUNITY WIDGET
+show button join in amos-community icon view
+ */
+.btn.btn-join-community {
+  .am {
+    font-size: 1em;
+    margin-left: @margin-min;
+    position: relative;
+    top: 1px;
+  }
+}
+
+/**
+STATS TOOLBAR WIDGET
+show attachments, comments, tags counter
+//TODO ex div class ".shared"
+ */
+.stats-toolbar {
+  &.toolbar-vertical {
+    .flexbox;
+    .flexbox-column;
+    margin-right: @margin-medium;
+    .item {
+      .flexbox;
+      background-color: @light-background-primary-color;
+      width: 100%;
+      margin-bottom: @margin-min;
+      font-size: 1.2em;
+      color: @secondary-color;
+      text-decoration: none;
+      padding: 2px @padding-min;
+      .am, .dash {
+        margin-right: @margin-min;
+      }
+
+      &:last-child {
+        margin-bottom: @margin-default;
+      }
+      a { /* if link are enabled */
+        background-color: @light-background-primary-color;
+        color: @secondary-color;
+        text-decoration: none;
+        padding: 2px @padding-min;
+        .am, .dash {
+          margin-right: @margin-min;
+        }
+      }
+    }
+  }
+  &.toolbar-horizontal {
+    .flexbox;
+    .flexbox-row;
+    .item {
+      .flexbox;
+      background-color: @light-background-primary-color;
+      width: 100%;
+      margin-bottom: @margin-min;
+      font-size: 1.2em;
+      color: @secondary-color;
+      text-decoration: none;
+      padding: 2px @padding-min;
+      .am, .dash {
+        margin-right: @margin-min;
+      }
+      &:last-child {
+        margin-bottom: @margin-default;
+      }
+      a { /* if link are enabled */
+        background-color: @light-background-primary-color;
+        color: @secondary-color;
+        text-decoration: none;
+        padding: 2px @padding-min;
+        .am, .dash {
+          margin-right: @margin-min;
+        }
+      }
+    }
+  }
+}
+
+//-----------------------------------------------
+// more content - COMMENTI
+// answer
+//-----------------------------------------------
+#comments_anchor {
+  margin-top: 20px;
+}
+
+.comment_content {
+  .answer {
+    margin-top: 0;
+    margin-bottom: @margin-default;
+    > .media > .media-body {
+      height: 80px; /* set for open manage-menu height space */
+    }
+  }
+
+  .answer-action {
+    color: @text-main-color;
+  }
+
+  .comment-body p,
+  .answer-body p {
+    margin: @margin-min 0;
+    line-height: 1.3;
+  }
+
+  .footer {
+    border: 0;
+
+    .btn {
+      margin: 0;
+    }
+  }
+
+  textarea {
+    width: 100%;
+    margin: 0 0 15px 0;
+  }
+}
+
+.contribute-container textarea {
+  width: 100%;
+  height: 120px;
+  margin: @padding-default 0;
+}
+
+@media (max-width: 480px) {
+  .comment-body.media-body {
+    width: 100%;
+    display: block;
+  }
+
+  .risposta .img-left {
+    width: 30%;
+  }
+
+  .answer-body {
+    width: 60%;
+  }
+}
+
+.input-group .label-checkbox {
+  position: absolute;
+  top: -30px;
+  right: -35px;
+  @media (max-width: 380px) {
+    right: -45px;
+  }
+}
+
+//-----------------------------------------------
+// WIDGET PASSWORD INPUT
+//-----------------------------------------------
+.kv-strength-container .input-group .label-checkbox:after {
+  content: initial;
+}

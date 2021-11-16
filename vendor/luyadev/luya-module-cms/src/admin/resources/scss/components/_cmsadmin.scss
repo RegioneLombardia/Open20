@@ -1,0 +1,169 @@
+.cmsadmin {
+    display: flex;
+    margin: 0;
+    height: 100%;
+
+    @media (min-width: $mobile-nav-breakpoint) {
+        margin-right: $blockholder-width;
+        overflow-x: hidden;
+        overflow-y: auto;
+        margin-top: -10px;
+    }
+
+    > .row {
+        flex: 1 1 100%;
+        margin-right: 0;
+
+        > .col > .row {
+            flex: 1 1 100%;
+            flex-wrap: nowrap;
+        }
+
+
+        > .col,
+        > .col > .row > .col {
+            align-items: stretch;
+            flex-direction: column;
+        }
+    }
+    @media (min-width: $mobile-nav-breakpoint) {
+        > .row > .col,
+        > .row > .col > .row > .col {
+            display: flex;
+        }
+    }
+}
+
+.cmsadmin-blockholder-collapsed {
+    @media (min-width: $mobile-nav-breakpoint) {
+        margin: 0 $blockholder-width-small 0 0;
+    }
+}
+
+.cmsadmin-toolbar {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    margin: $content-padding-y 0 30px;
+    width: 100%;
+
+    label {
+        margin: 0;
+    }
+}
+
+.cmsadmin-nav-tabs {
+    display: flex;
+    min-height: 43px;
+
+    .nav-item:first-of-type {
+        margin-left: 0;
+        margin-right: 10px;
+    }
+
+    .nav-item-title {
+        padding-left: 10px;
+    }
+
+    .nav-item-alternative {
+        margin-left: 5px;
+
+        > .flag {
+            border-radius: $border-radius;
+            line-height: 44px;
+        }
+    }
+}
+
+.cmsadmin-fallback-small {
+    display: none;
+}
+
+.nav-tabs {
+    &.has-enough-space + .cmsadmin-fallback-small {
+        display: none;
+    }
+    &.not-enough-space {
+        display: none;
+
+        + .cmsadmin-fallback-small {
+            display: block;
+        }
+    }
+}
+
+.cmsadmin-pages {
+    display: flex;
+    flex: 1 1 100%;
+    padding: 0 0 15px;
+
+    > .row {
+        flex: 1 1 100%;
+
+        > .col {
+            display: flex;
+            flex-direction: column;
+            padding-right: 5px;
+            width: 100%;
+
+            & + .col {
+                padding-left: 5px;
+            }
+
+            &:last-of-type {
+                padding-right: 10px;
+            }
+
+            > .nav-tabs {
+                border-bottom: 0;
+                flex: 0 0 42px;
+                z-index: 10;
+
+                .nav-link {
+                    background-color: transparent;
+                    border-bottom: 0;
+
+                    &.active {
+                        border-bottom: 1px solid map-get($grays, 100);
+                    }
+                }
+
+                .nav-item-alternative .nav-link {
+                    background-color: transparent;
+                }
+
+                .nav-item-alternative:not(.nav-item-icon) a.nav-link {
+                    margin-top: -1px;
+                }
+            }
+        }
+    }
+}
+
+.cmsadmin-page {
+    border-top: 1px solid $nav-tabs-border-color;
+    flex: 1 1 100%;
+    margin-top: -1px;
+    padding: 10px 0 0;
+}
+
+.cmsadmin-container-title {
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+
+.cmsadmin-frame-wrapper {
+    position: relative;
+}
+
+.cmsadmin-frame {
+    border: none;
+    bottom: 30px;
+    display: block;
+    height: calc(100% - 25px);
+    left: 10px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: calc(100% - 20px);
+}

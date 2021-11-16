@@ -1,0 +1,30 @@
+.it-header-wrapper {
+    .dropdown {
+        &.menu-profile {
+            .dropdown-toggle {
+                .rounded-icon {
+                    background: transparent;
+                }
+            }
+            .dropdown-menu-right {
+                padding-bottom: 0px;
+                li {
+                    padding: 0px 24px;
+                    @extend .border-bottom;
+                    @extend .border-light;
+                }
+            }
+        }
+    }
+    .it-header-center-wrapper {
+        .it-brand-wrapper {
+            &.pl-lg-0 {
+                padding-left: 0;
+            }
+        }
+    }
+}
+
+.preference-user-menu.link-list-wrapper ul li a span {
+    color: $tertiary;
+}

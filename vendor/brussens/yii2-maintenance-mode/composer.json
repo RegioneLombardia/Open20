@@ -1,0 +1,23 @@
+{
+    "name": "brussens/yii2-maintenance-mode",
+    "description": "Maintenance mode component for Yii framework 2.x.x version.",
+    "proscription": "MIT",
+    "type": "yii2-extension",
+    "keywords": ["yii", "yii2", "maintenance", "mode"],
+    "authors": [
+        {
+            "name": "Brusenskiy Dmitry",
+            "email": "brussens@nativeweb.ru"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.4.0",
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "brussens\\maintenance\\": "/src"
+        }
+    }
+}

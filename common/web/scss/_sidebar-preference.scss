@@ -1,0 +1,60 @@
+.sidebar-preference {
+  &.sidebar-wrapper {
+    padding-top: 120px;
+    .sidebar-linklist-wrapper {
+      .link-list-wrapper {
+        h3 {
+          text-transform: none;
+          font-size: 1.1rem;
+          letter-spacing: inherit;
+        }
+        ul {
+          li {
+            a {
+              &:hover {
+                background-color: lighten(#EEEEEE, 5%);
+              }
+              &.list-item {
+                &.active {
+                  border-right: 3px solid $tertiary;
+                  background-color: #EEEEEE;
+                  span {
+                    font-weight: bold;
+                  }
+                }
+                &.disabled {
+                  cursor: pointer;
+                }
+                span {
+                  text-decoration: none;
+                  color: $tertiary;
+                  font-weight: normal;
+                }
+                div>span{
+                  &.status-iscrizioni {
+                  font-weight: normal;
+                  font-size: 14px;
+                  margin-top: 8px;
+                  width: 100px;
+                  text-align: left;
+                  &.status-active {
+                    color: #fff;
+                  }
+                  
+                }
+                }
+              }
+            }
+          }
+        }
+      }
+      &.linklist-secondary:before {
+        content: '';
+        width: 70%;
+        height: 5px;
+        margin-top: 110px;
+        margin-bottom: 32px;
+    }
+    }
+  }
+}

@@ -1,0 +1,202 @@
+//GENERAL
+.form-row {
+    .form-group {
+        margin-bottom: 2rem;
+    }
+}
+.form-group {
+    label {
+        //fix js per larghezza label su accordion o modale
+        width: auto !important;
+        color: $label-form-text-color;
+        line-height: calc(2.667rem - 1px);
+    }
+    //per autocomplete
+    input.js-fake-not-readonly[readonly] {
+        background-color: $white;
+        cursor: auto;
+        + label {
+            cursor: auto;
+        }
+    }
+    /* clears the 'X' from Internet Explorer */
+    input[type="search"]::-ms-clear {
+        display: none;
+        width: 0;
+        height: 0;
+    }
+    input[type="search"]::-ms-reveal {
+        display: none;
+        width: 0;
+        height: 0;
+    }
+
+    /* clears the 'X' from Chrome */
+    input[type="search"]::-webkit-search-decoration,
+    input[type="search"]::-webkit-search-cancel-button,
+    input[type="search"]::-webkit-search-results-button,
+    input[type="search"]::-webkit-search-results-decoration {
+        display: none;
+    }
+
+    .input-password {
+        ~ .password-icon {
+            background-color: transparent;
+            /* FIX per IE ed EDGE per far si che non venga fuori la doppia icona di visualizzazione in chiaro della password*/
+            //IE
+            @media all and (-ms-high-contrast: none) {
+                background-color: $white;
+            }
+            //EDGE
+            @supports (-ms-ime-align: auto) {
+                background-color: $white;
+            }
+        }
+    }
+
+    .bi-form-field-tooltip-helper {
+        //custom tooltip helper
+        position: absolute;
+        top: -1.7rem;
+        right: 0;
+    }
+    small[id^="describedBy"] {
+        position: relative;
+        @include media-breakpoint-up(xl) {
+            width: 95%; //aggiunto in modo che il tooltip non vada a capo da solo
+        }
+        .bi-form-field-tooltip-info {
+            //custom tooltip info
+            position: relative;
+            top: -0.2em;
+            left: 1em;
+        }
+    }
+
+    &.has-error{
+        input[type="password"]{
+            + .password-strength-meter{
+                .form-text{
+                    position: relative; //fix strength-meter text with form in error
+                }
+            }
+        }
+    }
+
+}
+
+textarea::placeholder {
+    //fix BI placeholder in textarea rules
+    color: $input-placeholder-color;
+    opacity: 1;
+}
+
+// FORM ROUNDED
+.form-rounded {
+    input[type="date"],
+    input[type="datetime-local"],
+    input[type="email"],
+    input[type="number"],
+    input[type="password"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="text"],
+    input[type="time"],
+    input[type="url"],
+    textarea {
+        border: 1px solid $gray-secondary;
+        border-radius: 4px;
+        height: 2.667rem;
+    }
+
+    .it-datepicker-wrapper {
+        .input-group {
+            border: 1px solid $gray-secondary;
+            border-radius: 4px;
+
+            input {
+                border-right: 0;
+                border-top-left-radius: 4px;
+                border-bottom-left-radius: 4px;
+                background: $white;
+                border: 0;
+                height: 2.35rem;
+            }
+
+            &::after {
+                content: inherit;
+            }
+
+            .datepicker-button {
+                height: 2.35rem;
+                margin-right: 0;
+                width: 40px;
+                @include media-breakpoint-up(sm) {
+                    height: 2.4rem;
+                }
+            }
+        }
+    }
+
+    &.was-validated .form-control:invalid,
+    .form-control.is-invalid {
+        border-color: $danger;
+    }
+
+    &.was-validated,
+    .is-invalid {
+        .datepicker-button {
+            border-color: $danger !important;
+        }
+    }
+
+    &.was-validated,
+    .is-valid {
+        .datepicker-button {
+            border-color: $success !important;
+        }
+    }
+
+    .bootstrap-select-wrapper {
+        button {
+            border: 1px solid $gray-secondary;
+            border-radius: 4px;
+            background: $white;
+
+            .filter-option {
+                &::after {
+                    content: inherit;
+                }
+            }
+        }
+
+        .bs-searchbox {
+            input {
+                border: 0;
+                border-bottom: 1px solid $gray-secondary;
+                border-radius: 0;
+            }
+        }
+    }
+    .password-icon {
+        right: 1px;
+        z-index: 2;
+    }
+}
+// FAKE LABEL ON TOP OF RADIO LIST
+.label-style {
+    font-size: 0.777rem;
+    margin-top: -22px;
+    font-weight: bold;
+}
+
+// SELECT
+.bootstrap-select-wrapper {
+    .bootstrap-select {
+        .dropdown-menu {
+            .inner {
+                max-height: 200px !important;
+            }
+        }
+    }
+}

@@ -1,0 +1,202 @@
+<?php
+/**
+ * Lombardia Informatica S.p.A.
+ * OPEN 2.0
+ *
+ *
+ * @package    open20\amos\core\views\common
+ * @category   CategoryName
+ */
+
+namespace open20\amos\core\views\common;
+
+use Yii;
+use lajax\translatemanager\models\Language;
+use lajax\translatemanager\widgets\ToggleTranslate;
+use \open20\amos\core\icons\AmosIcons;
+use open20\amos\core\module\BaseAmosModule;
+
+class HeaderMenu
+{
+
+    /**
+     * Return the array will add to header menu
+     * @return array
+     */
+    public function getTranslationField()
+    {
+        try {
+            $voceMenu = [];
+            if (\Yii::$app->getModule('translatemanager') && isset(Yii::$app->params['languageSelector']) && Yii::$app->params['languageSelector']
+                && isset(Yii::$app->language)) {
+                $translateManager = new Language();
+                $table            = $translateManager->getTableSchema()->name;
+
+                $posLang   = strpos(Yii::$app->language, '-');
+                $labelLang = strtoupper(substr(Yii::$app->language, 0, $posLang));
+
+                $activeLanguage = $this->getActiveLanguages($table);
+                $languages      = (!empty($activeLanguage) ? $activeLanguage : []); //TODO al momento è così poi sistemiamo con il plugin
+                if (!empty($languages)) {
+                    $arrayLang = ['<li class="dropdown-header">'.BaseAmosModule::t('amoscore', 'Seleziona la lingua').'</li>',
+                        '<li class="divider"></li>'];
+                    foreach ($languages as $Lang) {
+                        $arrayLang[] = [
+                            'label' => $Lang['name'],
+                            'url' => (!empty(\Yii::$app->getModule('translation')->actionLanguage) ? [\Yii::$app->getModule('translation')->actionLanguage]
+                                : ['/site/language']),
+                            'linkOptions' => ['data-method' => 'post', 'data-params' => ['language' => $Lang['language_id'],
+                                    'url' => \yii\helpers\Url::current()]],
+                        ];
+                    }
+                }
+                if (Yii::$app->getUser()->can('TRANSLATION_ADMINISTRATOR')) {
+                    $arrayLang[] = (!empty($languages)) ? '<li class="divider"></li>' : '';
+                    $arrayLang[] = '<li class="dropdown-header">'.BaseAmosModule::t('amoscore', 'Amministra le traduzioni').'</li>';
+                    $arrayLang[] = '<li class="divider"></li>';
+                    $arrayLang[] = [
+                        'label' => BaseAmosModule::t('amoscore', 'Lista delle lingue'),
+                        'url' => ['/translatemanager/language/list'],
+                    ];
+                    $arrayLang[] = [
+                        'label' => BaseAmosModule::t('amoscore', 'Crea una nuova lingua'),
+                        'url' => ['/translatemanager/language/create'],
+                    ];
+                    $arrayLang[] = [
+                        'label' => BaseAmosModule::t('amoscore', 'Fai una scansione'),
+                        'url' => ['/translatemanager/language/scan'],
+                    ];
+                    $arrayLang[] = [
+                        'label' => BaseAmosModule::t('amoscore', 'Ottimizza le tabelle'),
+                        'url' => ['/translatemanager/language/optimizer'],
+                    ];
+                }
+
+                $voceMenu = [
+                    'label' => '<p>'.$labelLang.'</p>',
+                    'items' => $arrayLang,
+                    'options' => ['class' => 'user-menu'],
+                    'linkOptions' => ['title' => 'azioni utente']
+                ];
+            }
+
+            return $voceMenu;
+        } catch (\Exception $e) {
+            return NULL;
+        }
+    }
+
+    /**
+     * Echo translate button
+     */
+    public function getToggleTranslate($addClass = 'btn btn-secondary animated')
+    {
+        if (!\Yii::$app->user->isGuest) {
+
+            if (Yii::$app->getUser()->can('TRANSLATION_ADMINISTRATOR')) {
+                echo ToggleTranslate::widget([
+                    'template' => '<a href="javascript:void(0);" id="toggle-translate" class="{position} '.$addClass.'" data-language="{language}" data-url="{url}" style="z-index:10000;"><div class=\'wrapper\'><span class=\'tooltip-label\'>'.BaseAmosModule::t('amoscore',
+                        'Traduzioni in linea').'</span>'.AmosIcons::show('translate', ['class' => 'tooltip-icon']).'</div></a><div id="translate-manager-div"></div>',
+                    'position' => ToggleTranslate::POSITION_TOP_LEFT,
+                ]);
+            }
+        }
+    }
+
+    /**
+     * Return array of languages
+     * @param string $table
+     * @return array
+     */
+    protected function getActiveLanguages($table)
+    {
+        try {
+            $language  = new \lajax\translatemanager\models\Language;
+            $arrayLang = [];
+
+            if (Yii::$app->db->schema->getTableSchema($table, false) != null) {
+                if (\Yii::$app->user->can('CONTENT_TRANSLATOR')) {
+                    $arrayLang = (new \yii\db\Query())->from($table)->andWhere(['>=', 'status', 1])->select(['language_id',
+                            'name'])->all();
+                } else {
+                    $arrayLang = (new \yii\db\Query())->from($table)->andWhere(['=', 'status', 1])->select(['language_id',
+                            'name'])->all();
+                }
+            }
+            return $arrayLang;
+        } catch (\Exception $e) {
+            return NULL;
+        }
+    }
+
+    /**
+     * Return array of custom menu
+     * @return string
+     */
+    public function getCustomContent()
+    {
+        try {
+            //TO-DO GESTIONE DI ARRAY DI CONFIGURAZIONI
+            if (isset(\Yii::$app->params['headerCustomContent'])) {
+                $arrItems = [];
+                $menu     = [];
+                if (isset(\Yii::$app->params['headerCustomContent']['class'])) {
+                    $headerCustomContentClass = \Yii::$app->params['headerCustomContent']['class'];
+                    $class                    = new $headerCustomContentClass;
+                    $method                   = (isset(\Yii::$app->params['headerCustomContent']['class']['method'])) ? \Yii::$app->params['headerCustomContent']['class']['method']
+                            : 'getHeaderCustomContent';
+                    if (method_exists($class, $method)) {
+                        $arrItems[] = $class->getHeaderCustomContent();
+                        foreach ($arrItems as $value) {
+                            if (is_array($value)) {
+                                $menu['label'] = '<p style="margin: 6px 0 0 0;">'.((isset($value['label'])) ? $value['label']
+                                        : 'Menu custom').'</p>';
+                                if (isset($value['items'])) {
+                                    foreach ($value['items'] as $item)
+                                        $menu['items'][] = $item;
+                                }
+                            } else {
+                                $menu['label'] = '<p style="margin: 6px 0 0 0">'.$value.'</p>';
+                            }
+                        }
+                    }
+                }
+                return $menu;
+            }
+            return NULL;
+        } catch (\Exception $e) {
+            return NULL;
+        }
+    }
+
+    /**
+     *
+     */
+    public function getListLanguages()
+    {
+        $translateManager = new Language();
+        $table            = $translateManager->getTableSchema()->name;
+        $activeLanguage   = $this->getActiveLanguages($table);
+        $languages        = (!empty($activeLanguage) ? $activeLanguage : []); //TODO al momento è così poi sistemiamo con il plugin
+        $stringLang = '';
+        if (!empty($languages) && (count($languages) > 1)) {
+            $stringLang = '<div class="dropdown">'.
+                \open20\amos\core\helpers\Html::a(
+                    BaseAmosModule::t('amoscore', '#select_language').\open20\amos\core\icons\AmosIcons::show('chevron-down',
+                        ['title' => BaseAmosModule::t('amosadmin', '#select_language')]), '#',
+                    ['class' => 'dropdown-toggle', 'data-toggle' => 'dropdown']).
+                '<ul class="dropdown-menu">';
+            foreach ($languages as $Lang) {
+                $stringLang = $stringLang.'<li>'.
+                    \open20\amos\core\helpers\Html::a(
+                        $Lang['name'],
+                        (!empty(\Yii::$app->getModule('translation')->actionLanguage) ? [\Yii::$app->getModule('translation')->actionLanguage]
+                            : ['/site/language']),
+                        ['data-method' => 'post', 'data-params' => ['language' => $Lang['language_id'], 'url' => \Yii::$app->request->url]]
+                    ).'</li>';
+            }
+            $stringLang = $stringLang.'</ul></div>';
+        }
+        return $stringLang;
+    }
+}

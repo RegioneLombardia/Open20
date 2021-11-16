@@ -1,0 +1,48 @@
+{
+  "name": "open20/amos-audit",
+  "description": "This is a FORK of Yii2 Audit records and displays web/cli requests, database changes, php/js errors and associated data.",
+  "keywords": [
+    "yii2",
+    "audit",
+    "trail",
+    "logging"
+  ],
+  "type": "yii2-extension",
+  "proscription": "MIT",
+  "authors": [
+    {
+      "name": "Steve Guns",
+      "homepage": "http://bedezign.com/",
+      "email": "Steve@bedezign.com"
+    },
+    {
+      "name": "Brett O'Donnell",
+      "homepage": "https://mrphp.com.au/",
+      "email": "cornernote@gmail.com"
+    },
+    {
+      "name": "Marc Hollander",
+      "homepage": "http://maruc.nl/",
+      "email": "marchollander@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "ext-bcmath": "*",
+    "yiisoft/yii2": "^2.0.13",
+    "yiisoft/yii2-debug": "^2.0.7",
+    "2amigos/yii2-chartjs-widget": "^2.0.1",
+    "phpspec/php-diff": "1.*"
+  },
+  "suggest": {
+    "php-mime-mail-parser/php-mime-mail-parser": "Allows better displaying of logged emails."
+  },
+  "autoload": {
+    "psr-4": {
+      "open20\\amos\\audit\\": "src"
+    }
+  },
+  "extra": {
+    "bootstrap": "open20\\amos\\audit\\Bootstrap"
+  }
+}

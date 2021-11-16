@@ -1,0 +1,6 @@
+Copiare la cartella
+open20integration
+in
+/local 
+presente nella root della piattaforma Moodle
+e poi da dentro Moodle procedere all'upgrade del database (sarà moodle a chiederlo in automatico).

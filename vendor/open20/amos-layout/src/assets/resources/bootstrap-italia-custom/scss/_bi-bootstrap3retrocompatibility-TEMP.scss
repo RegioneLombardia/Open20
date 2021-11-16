@@ -1,0 +1,127 @@
+// body:before {
+//   background-color: $background-color-default;
+//   width: 100%;
+//   height: 100%;
+//   position: absolute;
+//   content: '';
+//   z-index: -1;
+// }
+// .btn.btn-primary {
+//   background-color:$color-primary;
+// }
+// .btn.btn-primary:hover {
+//   background-color: darken($primary, 10%);
+//   color: $white;
+//   border-radius: $btn-border-radius;
+// }
+
+/* INIBITO FUNZIONAMENTO COL-XS DI BS3 */
+.col-xs-12 {
+  @extend .col-sm-12;
+}
+
+.col-xs-11 {
+  @extend .col-sm-11;
+}
+
+.col-xs-110 {
+  @extend .col-sm-10;
+}
+
+.col-xs-9 {
+  @extend .col-sm-9;
+}
+
+.col-xs-8 {
+  @extend .col-sm-8;
+}
+
+.col-xs-7 {
+  @extend .col-sm-7;
+}
+
+.col-xs-6 {
+  @extend .col-sm-6;
+}
+
+.col-xs-5 {
+  @extend .col-sm-5;
+}
+
+.col-xs-4 {
+  @extend .col-sm-4;
+}
+
+.col-xs-3 {
+  @extend .col-sm-3;
+}
+
+.col-xs-2 {
+  @extend .col-sm-2;
+}
+
+.col-xs-1 {
+  @extend .col-sm-1;
+}
+
+/* COLLAPSE: da bootstrap 3 a 4 cambia la classe da in a show */
+.collapse.in {
+  display: block;
+}
+
+.sidebar.collapse.in {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  -webkit-transition: .3s cubic-bezier(.29, .85, .5, .99);
+  transition: .3s cubic-bezier(.29, .85, .5, .99);
+  height: auto;
+}
+
+/* */
+.fade.modal.show,
+.fade.show {
+  opacity: 1;
+}
+
+.popover>.arrow {
+  border-color: inherit;
+  border-style: inherit;
+}
+
+.sidebar-elite {
+
+  .nav>li>a:hover,
+  .nav>li>a:focus {
+    background-color: transparent;
+  }
+}
+
+.it-header-slim-wrapper {
+  .navbar-brand {
+    height: auto;
+  }
+}
+
+.it-header-navbar-wrapper {
+  .navbar {
+    margin-bottom: 0;
+  }
+}
+
+.input-group-btn {
+  width: auto !important;
+}
+
+.modal-body {
+  padding-bottom: 24px !important;
+  .input-group {
+    margin-bottom: 20px;
+  }
+}
+
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.btn-primary:focus {
+  background-color: darken($primary, 10%);
+}

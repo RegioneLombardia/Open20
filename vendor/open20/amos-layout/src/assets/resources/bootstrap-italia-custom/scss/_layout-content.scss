@@ -1,0 +1,111 @@
+html,
+body {
+    padding-bottom: 20px !important;
+}
+
+body {
+    @if $background-image-default !='unset' {
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: top;
+        background-size: cover;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-image: $background-image-default;
+    }
+
+    @else {
+        background-color: #FFF;
+
+        @media (min-width: $grid-breakpoints-xxl) {
+            background-color: $background-color-default;
+        }
+    }
+}
+
+.box-container {
+    max-width: 1384px;
+}
+
+#mainContent {
+    main {
+        margin-top: $height-header-slim-wrapper-m + $height-it-small-header-m;
+
+        @include media-breakpoint-up(lg) {
+            margin-top: $height-header-slim-wrapper-d + $height-it-small-header-d;
+        }
+    }
+
+    &.bootstrap-italia-layout-with-sidebar {
+        &.sidebar-setting {
+            .sidebar {
+                background-color: #2F3948;
+                background-image: url('/img/bg-sidebar-settings.svg');
+                background-repeat: no-repeat;
+                background-position: -63px calc(100% + 31px);
+            }
+        }
+
+        main {
+            background-color: #FFF;
+
+            @include media-breakpoint-up(lg) {
+                padding-left: calc(#{$width-sidebar} + 48px) !important;
+            }
+        }
+
+        @media (min-width: $grid-breakpoints-xxl) {
+            >.row {
+                flex-wrap: nowrap;
+            }
+
+            padding-top:48px;
+
+            &.box-container {
+                .sidebar {
+                    position: relative;
+                    z-index: 0;
+                    width: auto;
+                    bottom: auto;
+                    left: auto;
+                    top: auto;
+                    margin-top: $height-header-slim-wrapper-d + $height-it-small-header-d;
+
+                    .sidebar-elite {
+                        width: $width-sidebar;
+                        position: relative;
+                    }
+                }
+
+                main {
+                    padding-left: 48px !important;
+                }
+            }
+        }
+    }
+
+    &.bootstrap-italia-layout-no-sidebar {
+        @media (min-width: $grid-breakpoints-xxl) {
+            padding-top: 48px;
+        }
+    }
+}
+
+.title-substeps {
+    background-color: #FFF;
+    z-index: 9;
+
+    &.affix-top {
+        top: 99px;
+    }
+}
+
+//TEXT-EDITOR
+.text-description {
+    p>img {
+        //immagini caricate da text-editor
+        max-width: 100%;
+        height: auto;
+    }
+}

@@ -1,0 +1,10 @@
+protected/runtime/*
+!protected/runtime/.gitignore
+protected/data/*.db
+themes/classic/views/
+.idea
+/composer.lock
+/vendor
+/nbproject/private/
+nbproject/
+.vscode/

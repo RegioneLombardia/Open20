@@ -1,0 +1,87 @@
+@headings-font-weight: 600;
+@headings-margin-top: 0;
+@headings-margin-bottom: 8px;
+@text-primary-color: lighten(@text-main-color,35%);
+@text-link-hover-opacity: 1;
+html,
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #19191a;
+  font-weight: 300;
+  @media (min-width:576px) {
+    font-size: 18px;
+    line-height: 1.555;
+  }
+}
+a {
+  &:focus {
+    color: @primary-color;
+  }
+
+}
+
+//
+// Intestazioni
+//
+
+h1,
+.h1 {
+  letter-spacing: -1px;
+  @media (min-width:576px) {
+    font-size: 2.666rem;
+    letter-spacing: -1.2px;
+    line-height: 1.25;
+  }
+}
+
+h2,
+.h2 {
+  line-height: 1.25;
+  letter-spacing: normal;
+  @media (min-width:576px) {
+    font-size: 2.222rem;
+    line-height: 1.2;
+  }
+}
+
+h3,
+.h3 {
+  line-height: 1.1428;
+  letter-spacing: normal;
+  @media (min-width:576px) {
+    font-size: 1.777rem;
+    line-height: 1.25;
+  }
+}
+
+h4,
+.h4 {
+  line-height: 1.1666;
+  letter-spacing: normal;
+  @media (min-width:576px) {
+    font-size: 1.555rem;
+    line-height: 1.428;
+    font-weight: 600;
+  }
+}
+
+h5,
+.h5 {
+  font-weight: 400;
+  letter-spacing: normal;
+  @media (min-width:576px) {
+    font-size: 1.333rem;
+  }
+}
+
+h6,
+.h6 {
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: normal;
+  font-size: 1rem;
+}
+small, .small {
+  letter-spacing: normal;
+}

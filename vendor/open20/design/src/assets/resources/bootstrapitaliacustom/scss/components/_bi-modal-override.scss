@@ -1,0 +1,22 @@
+.modal .modal-dialog {
+    @include media-breakpoint-down(xs){
+       margin: 24px; 
+    }
+    margin-left: auto;
+    margin-right: auto;
+    .nav-tabs {
+        overflow-x: auto;
+    }
+}
+.modal-dialog-right.modal-lg,
+.modal-dialog-left.modal-lg{
+    @include media-breakpoint-up(xs) {
+        width: 100%;
+    }
+    @include media-breakpoint-up(sm) {
+        width: 450px;
+    }
+    @include media-breakpoint-up(md){
+        width: 700px;
+    }
+}

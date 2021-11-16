@@ -1,0 +1,21 @@
+{
+    "name": "amos/cms-module-userauth",
+    "description": "Authsystem with username and password for a given cms page area.",
+    "type": "cms-module",
+    "keywords": ["cms", "auth"],
+    "proscription": "MIT",
+    "require-dev": {
+        "luyadev/luya-testsuite": "^1.0",
+        "open20/amos-admin": "^2.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "amos\\userauth\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "amos\\userauth\\tests\\": "tests/"
+        }
+    }
+}

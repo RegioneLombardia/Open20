@@ -1,0 +1,27 @@
+.bi-assistance {
+  position: fixed;
+  right: 16px;
+  bottom: 64px;
+  margin-bottom:-48px;
+  transition: all 0.2s ease-in-out, transform 0.25s cubic-bezier(0.75, -0.5, 0, 1.75), visibility 0.3s linear, opacity 0.3s ease-in-out;
+  &.push-up {
+    margin-bottom: 0;
+    transition: all 0.2s ease-in-out, transform 0.25s cubic-bezier(0.75, -0.5, 0, 1.75), visibility 0.3s linear, opacity 0.3s ease-in-out;
+  }
+  @include media-breakpoint-up(xl){
+    bottom: 80px;
+    right: 32px;
+  }
+
+  a {
+    width: 40px;
+    height: 40px;
+    background-color: #FFF;
+    display: block;
+    @extend .shadow-sm, .border-primary, .rounded-circle;
+    // @include media-breakpoint-up(sm){
+    //   width: 40px;
+    //   height: 40px;
+    // }
+  }
+}

@@ -1,0 +1,174 @@
+//PAGINE FOOTER
+.top-banner-staticpages {
+    .uk-background-cover {
+        background-repeat: no-repeat;
+    }
+}
+
+//COOKIE
+.cookie-text-content {
+    a {
+        width: 80%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        vertical-align: top;
+        display: inline-block;
+
+    }
+}
+.logo-text-font {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+    text-transform: uppercase;
+    // text-shadow: #FFF 0px 0px 1px;
+    // -webkit-text-stroke: #FFF 1px;
+    strong, span {
+        font-weight: 500 !important;
+        // text-shadow: $tertiary 0px 0px 1px;
+        //  -webkit-text-stroke: $tertiary 1px;
+    }
+}
+//HOMEPAGE
+.title-hp {
+    line-height: 1;
+}
+.btn-spid {
+    margin-bottom: 40px;
+  }
+.top-banner-hp {
+    img {
+        max-width: 100%;
+    }
+}
+
+.owl-prev:focus,
+.owl-next {
+    outline: 0 !important;
+}
+
+.esplora-section {
+    background-color: #F5F7F8;
+
+    //Fix underline in IE
+    @media all and (-ms-high-contrast:none) {
+        a {
+            text-decoration: none;
+        }
+    }
+
+    .uk-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: $tertiary;
+    }
+
+    span {
+        font-size: 30px;
+    }
+}
+
+
+//PAGINA HAI DIMENTICATO LA PASSWORD
+.password-dimenticata,
+.recupera-password {
+    .top-banner {
+        background-image: url("/img/password-dimenticata-top-banner.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+}
+
+//PAGINA COOKIE POLICY
+.cookie-section {
+    .cookie-table {
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            color: $text-muted-custom;
+            border-collapse: separate;
+            border-spacing: 0px 10px;
+
+            thead {
+                color: $tertiary;
+                background-color: #f6f7f9;
+
+                th {
+                    vertical-align: middle;
+                    border-left: 2px solid white;
+                    border-bottom: none;
+                    text-align: center;
+                }
+            }
+
+            &.table-striped>tbody>tr:nth-of-type(even) {
+                background-color: #f9f9f9;
+            }
+
+            &.table-striped>tbody>tr:nth-of-type(odd) {
+                background-color: transparent;
+            }
+
+            tbody {
+                tr {
+                    box-shadow: 0px 5px 15px -10px #888888;
+                    border-radius: 6px;
+
+                    td:first-child {
+                        border-top-left-radius: 6px;
+                        border-bottom-left-radius: 6px;
+                    }
+
+                    td:last-child {
+                        border-top-right-radius: 6px;
+                        border-bottom-right-radius: 6px;
+                    }
+
+                    td {
+                        &.col-md-3 {
+                            width: 25%;
+                        }
+
+                        &.col-md-2 {
+                            width: 20%;
+                        }
+
+                        border-bottom: none;
+                        text-align: center;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+.info-content {
+    position: relative;
+    color: $tertiary;
+
+    &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0px;
+        height: 15px;
+        width: 100px;
+        /* percentage of the element width*/
+        border-top: 15px solid $tertiary;
+    }
+    img {
+        height: 96px
+    }
+}
+.header-banner {
+    .uk-background-cover {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        padding: 6px 0;
+    }
+}

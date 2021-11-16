@@ -1,0 +1,111 @@
+/* AMOS-LAYOUT */
+
+.modal-content {
+  float: left;
+  padding: 0 15px;
+  text-align: left;
+  width: 100%;
+
+  .modal-header {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 15px; /* not use em */
+    color: @text-primary-color;
+  }
+
+  .modal-body {
+    color: @text-primary-color;
+    font-size: 12px; /* not use em */
+    overflow: auto; //POII-1015
+    .pull-right {
+      .btn {
+        position: relative;
+      }
+      .btn + .btn { //button action + cancel into modal
+        margin-left: 5px;
+      }
+    }
+  }
+
+}
+
+//override bootstrap modal button
+.bootstrap-dialog .modal-content {
+  padding: 0;
+}
+
+.bootstrap-dialog-footer-buttons .btn-default {
+  margin-bottom: 0;
+  .btn-secondary; //TODO replace with other class (this class are deleted)
+}
+
+.bootstrap-dialog-footer-buttons .btn.btn-warning {
+  margin-bottom: 0;
+  .btn-primary; //TODO replace with other class (this class are deleted)
+}
+
+.modal-backdrop.in { //override opacity on page
+  filter: alpha(opacity=70);
+  opacity: .7;
+}
+
+/**
+MODAL UTILITY
+override bootstrap modal in amos-core utility
+ */
+@modal-confirm-color: @success-color;
+@modal-warning-color: @warning-color;
+@modal-danger-color: @danger-color;
+
+.modal-utility {
+  .modal-content {
+    padding: 0;
+  }
+  .modal-header {
+    padding: @padding-medium;
+    .modal-title {
+      margin: @margin-min;
+      text-transform: uppercase;
+      font-size: inherit;
+      .am, .dash {
+        margin: 0 @margin-min;
+      }
+    }
+    .close { /* x button */
+      color: @black-color;
+      text-shadow: none; /* override bootstrap */
+      opacity: unset; /* override bootstrap */
+      position: relative;
+      right: 5px;
+    }
+    &.modal-utility-confirm {
+      background-color: @modal-confirm-color;
+      color: contrast(@modal-confirm-color);
+      .close { /* x button */
+        color: contrast(@modal-confirm-color);
+      }
+    }
+    &.modal-utility-warning {
+      background-color: @modal-warning-color;
+      color: contrast(@modal-warning-color);
+      .close { /* x button */
+        color: contrast(@modal-confirm-color);
+      }
+    }
+    &.modal-utility-danger {
+      background-color: @modal-danger-color;
+      color: contrast(@modal-danger-color);
+      .close { /* x button */
+        color: contrast(@modal-confirm-color);
+      }
+    }
+  }
+
+  .modal-buttons-container {
+    margin-top: @margin-default;
+    .flexbox;
+    .flexbox-row;
+    justify-content: center;
+  }
+
+}

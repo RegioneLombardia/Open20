@@ -1,0 +1,128 @@
+/**
+IMPORT AMOS-LAYOUT VARIABLES
+ */
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/variables.less";
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/utility.less";
+/**
+IMPORT STYLE-CUSTOM
+ */
+@import (optional) "../../backend/web/less/style_custom.less";
+
+.icon-plugin {
+  .dash {
+    display: inline-block;
+  }
+}
+
+.my-activities-index {
+
+  .wrap-user {
+    @media (min-width: 461px) {
+      text-align: center;
+    }
+
+    @media (max-width: 460px) {
+      width: 83%;
+      text-align: center;
+
+      a[data-toggle=tooltip] {
+        float: left;
+        margin-right: 10px;
+      }
+
+      a + br {
+        display: none;
+      }
+    }
+
+    @media (max-width: 450px) {
+      width: 100%;
+      margin-top: 15px;
+    }
+  }
+
+  .wrap-report {
+    @media (max-width: 460px) {
+      width: 100%;
+      margin: 40px 0 0 0;
+      padding: 0;
+      text-align: center;
+    }
+  }
+
+  .user {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  .user-report {
+    text-transform: uppercase;
+    margin-bottom: 0px;
+  }
+
+  .icon-not-plugin {
+    span {
+      display: inline-block;
+      background-color: #000000;
+      padding: 15px 0;
+      width: 55px;
+      color: #fff;
+      text-align: center;
+      font-size: 25px;
+    }
+  }
+
+  .icon-plugin {
+    span {
+      background-color: @primary-color;
+      padding: 15px 0;
+      width: 55px;
+      color: #fff;
+      text-align: center;
+      font-size: 25px;
+    }
+  }
+
+  .wrap-activity {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    width: 100%;
+    padding: 5px 0;
+
+    @media (max-width: 991px) {
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 767px) {
+      flex-wrap: wrap;
+    }
+  }
+
+  .btn {
+    span {
+      margin-right: 5px;
+    }
+  }
+
+  .validate {
+
+  }
+}
+
+.wrap-action {
+  text-align: right;
+
+  @media (max-width: 991px) {
+    text-align: right;
+    margin-top: 10px;
+  }
+
+  @media (max-width: 460px) {
+    text-align: center;
+  }
+}
+/* fix for align center img */
+.container-round-img-sm{
+  margin: 0 auto;
+}

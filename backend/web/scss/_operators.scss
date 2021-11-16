@@ -1,0 +1,22 @@
+/*$custom-thead-operators-bg: #F8F9F9;
+
+$custom-operator-color: (
+  "thead-operators-bg": $custom-thead-operators-bg,
+);
+
+$theme-colors: map-merge($theme-colors, $custom-operator-color);
+
+.operator-index{
+    .thead_static{
+        background-color: $custom-operator-color;
+    }
+
+}*/
+
+.operator-update{
+  .subtitle-form{
+    font-weight: bold;
+  }
+}
+
+

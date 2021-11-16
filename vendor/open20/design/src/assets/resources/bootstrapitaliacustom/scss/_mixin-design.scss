@@ -1,0 +1,55 @@
+//CONTRAST CALC
+@mixin get-color-contrast($background, $rule : 'color' ) {
+  $r: red($background);
+  $g: green($background);
+  $b: blue($background);
+
+  $color-calc: (($r * 299) + ($g * 587) + ($b * 114))/1000;
+
+  @if ($color-calc >=128) {
+    #{$rule}: #000000 !important;
+  } @else {
+    #{$rule}: #ffffff !important;
+  }
+}
+
+//SET FONT SIZE EQUAL
+@mixin equal-font-size($fontrules) {
+  @each $name, $fs in $fontrules {
+    &-#{$name} {
+      @include font-size($fs);
+    }
+  }
+}
+
+//GET EXATLY THEME COLOR VAR FOR THIS RULE
+@mixin design-theme-color($rule, $colors) {
+  @each $name, $hex in $colors {
+    @if ($rule == 'background-color') {
+      &-#{$name} {
+        #{$rule}: $hex;
+        @include get-color-contrast($hex);
+      }
+    } @else {
+      &-#{$name} {
+        #{$rule}: $hex;
+      }
+    }
+  }
+}
+
+// HEIGHT HEADER
+@mixin height-header-slim-wrapper() {
+  height: $height-header-slim-wrapper-m;
+
+  @include media-breakpoint-up(lg) {
+    height: $height-header-slim-wrapper-d;
+  }
+}
+@mixin height-it-small-header() {
+  height: $height-it-small-header-m;
+
+  @include media-breakpoint-up(lg) {
+    height: $height-it-small-header-d;
+  }
+}

@@ -1,0 +1,244 @@
+.card-preference {
+  height: 100%;
+  min-height: 350px;
+  &.card-preference-checkbox {
+    min-height: inherit;
+    .card {
+      .categoryicon-top {
+        //INTERNET EXPLORER FIX
+        @media all and (-ms-high-contrast: none) {
+          display: inline-block;
+        }
+      }
+      &:hover {
+        border-color: $primary ;
+        }
+    }
+  }
+
+  &.card-wrapper {
+    .card {
+      border: 2px solid $card-preference-bg;
+      transition: 0.2s ease-out;
+      &:hover {
+        border-color: $primary;
+      }
+
+      .categoryicon-top {
+        align-items: flex-start;
+        .icon {
+          fill: $tertiary;
+          width: 56px;
+          height: 56px;
+        }
+
+        span {
+          margin: 0;
+        }
+      }
+
+      .card-body {
+        display: flex;
+        flex-direction: column;
+        padding: 1.12rem;
+
+        .card-title {
+          font-size: 1rem;
+          word-break: break-word !important;
+        }
+
+        .card-text {
+          font-size: 0.9rem;
+          @extend .text-sans-serif;
+          color: $tertiary;
+          margin: 0;
+          padding-bottom: 10px;
+          margin-bottom: auto;
+        }
+
+        small {
+          font-size: 14px;
+        }
+
+        .icon-card-preference {
+          img {
+            width: 56px;
+          }
+
+        }
+
+        .simple-link,
+        .form-check {
+          margin-top: 12px;
+          text-align: right;
+          line-height: 32px;
+          text-decoration: none;
+
+          label {
+            font-size: 0.88rem;
+            color: $primary;
+            margin: 0;
+            font-weight: 600;
+            text-decoration: underline;
+          }
+
+          span {
+            text-decoration: underline;
+          }
+
+        }
+      }
+
+      &::after {
+        content: inherit;
+      }
+
+    }
+
+    &::after {
+      content: '';
+      margin-bottom: 24px;
+    }
+  }
+
+  &.action-disabled {
+    &.active {
+      .card {
+         border: 2px solid $secondary;
+      }
+    }
+    .card {
+      .card-body {
+        a {
+          cursor: not-allowed;
+          pointer-events: none;
+          color: $secondary;
+          .rounded-primary {
+            background-color: $secondary;
+          }
+          svg {
+            fill: #FFF !important;
+          }
+        }
+      }
+    }
+  }
+
+
+  &.active {
+    .card {
+      background-color: transparent;
+      border: 2px solid $primary;
+      transition: 0.2s ease-out;
+    }
+  }
+  &.empty {
+    .card {
+      background-color: transparent !important;
+      border: 1px dashed $secondary;
+      border-radius: 4px;
+      box-sizing: border-box;
+      text-align: center;
+      .card-body {
+        justify-content: center;
+        .categoryicon-top {
+          align-self: center;
+        }
+      }
+    }
+  }
+
+  &::after {
+    content: inherit;
+  }
+
+  &.card-preference-checkbox {
+
+    .categoryicon-top {
+      align-items: flex-start;
+    }
+
+    .pretty {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+
+
+
+
+      input {
+        width: 0;
+        min-width: 0;
+       
+          position: absolute;
+          left: 0px;
+          top: 0px;
+          min-width: 1em;
+          width: 100%;
+          height: 100%;
+          z-index: 2;
+          opacity: 0;
+          margin: 0;
+          padding: 0;
+          cursor: pointer;
+      
+      }
+
+      &.p-icon {
+        .state {
+          width: 100%;
+          text-align: right;
+          .icon {
+            width: 24px;
+            height: 24px;
+            position: relative;
+            margin: 20px;
+            margin-left: auto;
+          }
+
+          label {
+            width: 0;
+            max-width: 0;
+            &:after {
+              content: '';
+              width: 100%;
+              height: 100%;
+              display: block;
+              box-sizing: border-box;
+              border-radius: 0;
+              border: 1px solid transparent;
+              z-index: 1;
+              position: absolute;
+              left: 0;
+              top: 0;
+              background-color: transparent;
+              cursor: pointer;
+            }
+            &:before {
+              content: '';
+              width: 100%;
+              height: 100%;
+              display: block;
+              box-sizing: border-box;
+              border-radius: 0;
+              border: 1px solid transparent;
+              z-index: 1;
+              position: absolute;
+              left: 0;
+              top: 0;
+              background-color: transparent;
+              cursor: pointer;
+            }
+          }
+        }
+
+      }
+
+    }
+  }
+}
+.it-single-slide-wrapper {
+  .card-preference {
+    min-height: inherit;
+  }
+}

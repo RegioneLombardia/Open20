@@ -1,0 +1,20 @@
+.btn {
+    @extend .text-uppercase;
+    @each $name, $hex in $theme-colors {
+        &.btn-#{$name} {
+            .icon {
+                @include get-color-contrast($hex, "fill");
+            }
+        }
+    }
+    @each $name, $hex in $theme-colors {
+        &.btn-outline-#{$name} {
+            .icon {
+                fill: $hex;
+            }
+        }
+    }
+    &.disabled.disabled-with-pointer-events {
+        pointer-events: auto;
+    }
+}

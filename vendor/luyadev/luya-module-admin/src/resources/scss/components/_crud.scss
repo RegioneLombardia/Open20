@@ -1,0 +1,217 @@
+.crud-header {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.crud-title {
+    margin: 0 auto 0 0;
+    font-size: 20px;
+    font-weight:300;
+}
+
+.crud-counter {
+    color: color('gray-dark');
+    display: block;
+    font-size: 12px;
+    font-weight: 300;
+    margin-top: 15px;
+    padding-right: .75rem;
+    text-align: right;
+}
+
+.crud-loader-tag {
+    float: right;
+    margin-top: 2px;
+    position: relative;
+    right: 0;
+
+    &-for-checkbox {
+        margin-top: -6px;
+    }
+
+    .btn {
+        padding: 6px 9px;
+    }
+
+    & + * {
+        display: block;
+        padding-right: 45px;
+    }
+}
+
+.crud-selectable-row td {
+    cursor: pointer;
+}
+
+.crud-selected-row td {
+    background-color: theme-color(primary);
+    color: color(white);
+
+    .material-icons {
+        color: color(white);
+    }
+}
+
+.crud-card {
+    margin-bottom: 25px;
+
+    & > .card-body > *:last-child {
+        margin-bottom: 0;
+
+        .form-group {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.crud-toolbar {
+    .btn-group {
+        .btn {
+            border-radius: $border-radius !important;
+        }
+    }
+}
+
+.crud-buttons-column {
+    position: relative;
+    width: 50px;
+}
+
+.crud-buttons {
+    bottom: 0;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 24px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    &:hover,
+    &:focus {
+        background-color: color(gray);
+    }
+}
+
+.crud-buttons-toggler {
+    color: color(gray);
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+
+    .crud-buttons:hover &,
+    .crud-buttons:focus & {
+        color: $white;
+    }
+}
+
+.crud-buttons-pan {
+    background-color: color(gray);
+    border-radius: $border-radius 0 0 $border-radius;
+    bottom: 0;
+    display: block;
+    font-size: 0;
+    left: 0;
+    opacity: 0;
+    padding: 0;
+    position: absolute;
+    text-align: right;
+    top: 0;
+    transform: translateX(-100%);
+    white-space: nowrap;
+    z-index: -1;
+
+    .crud-buttons:hover &,
+    .crud-buttons:focus & {
+        opacity: 1;
+        z-index: 100;
+    }
+
+    &:before {
+        bottom: 0;
+        content: '';
+        display: block;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}
+
+.crud-buttons-button {
+    background-color: transparent;
+    border: none;
+    color: $white;
+    font-size: 16px;
+    height: 100%;
+    padding: 5px 15px;
+    position: relative;
+    transition: .25s ease-in-out background-color;
+    vertical-align: top;
+
+    &:hover {
+        background-color: map_get($grays, 800);
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &:first-of-type {
+        border-radius: $border-radius 0 0 $border-radius;
+    }
+
+    &-success {
+        background-color: theme-color(success);
+
+        &:hover {
+            background-color: theme-color(success);
+        }
+    }
+    &-danger {
+        background-color: theme-color(danger);
+
+        &:hover {
+            background-color: theme-color(danger);
+        }
+    }
+
+    i {
+        font-size: 20px;
+    }
+}
+
+.crud-buttons-button-icon {
+    transition: .25s ease-in-out opacity;
+
+    .crud-buttons-button-loading & {
+        opacity: 0;
+    }
+}
+
+.crud-buttons-button-loader {
+    color: $white;
+    left: 10px;
+    opacity: 0;
+    position: absolute;
+    top: 5px;
+    transition: .25s ease-in-out opacity;
+    width: 25px;
+    z-index: 10;
+
+    .crud-buttons-button-loading & {
+        opacity: 1;
+    }
+}
+
+.crud-pagination {
+    display: block;
+    margin: 25px 0 10px;
+    padding: 0 17px;
+    width: 100%;
+}

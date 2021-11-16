@@ -1,0 +1,468 @@
+/* AMOS-LAYOUT */
+
+
+
+/*BTN DEFAULT VARIABLES*/
+@btn-font-size: 16px;
+@btn-font-size-sm: 14px;
+@btn-font-size-lg: 18px;
+@btn-font-weight: bold;
+@btn-shadow: none;
+@btn-hover-shadow: none;
+@btn-border-radius: 4px;
+@btn-min-width: 32px;
+@btn-min-height: 32px;
+
+@input-btn-line-height: 1.5;
+@input-btn-line-height-sm: 1.45;
+@input-btn-line-height-lg: 1.6;
+
+@btn-font-icon-size: 1.5em;
+
+/* default color btn newdash */
+@btn-color-admin: @primary-color; //btn color for primary action (Create, Save, New, OK)
+@btn-color-tools: @tertiary-color; //btn color for action in table list (view detail, modify, not TRASH)
+
+/*BTN UTILITIES*/
+.btn {
+  justify-content: center;
+  display: inline-flex !important;
+}
+.preview-pane {
+  .hidden {
+    display: none !important;
+  }
+}
+/* set button font */
+.btn-font(@size: @btn-font-size; @weight: @btn-font-weight; @transform: uppercase) {
+  font-size: @size;
+  font-weight: @weight;
+  text-transform: @transform;
+}
+
+/* set button colors */
+.btn-color(@text: @btn-color-admin; @background: contrast(@btn-color-admin); ) {
+  color: @text;
+  background-color: @background;
+}
+
+/* set button border */
+.btn-border(@color: @btn-color-admin; @perc: 0%; @rad: @btn-border-radius; @shadow: @btn-shadow; ) {
+  border-color: darken(@color, @perc);
+  -webkit-border-radius: @rad;
+  -moz-border-radius: @rad;
+  border-radius: @rad;
+  box-shadow: @shadow;
+}
+
+/* set button min size */
+.btn-min-size(@width: @btn-min-width; @height: @btn-min-height) {
+  min-width: @width;
+  min-height: @height;
+}
+
+/* HOVER: default hover is bootstrap */
+/* set hover one color based */
+.btn-hover-contrast(@color: @btn-color-admin) {
+
+  &:hover,
+  &:active,
+  &:focus,
+  &:active:focus,
+  &:active:hover {
+    .btn-color(contrast(@color); @color);
+  }
+}
+
+/* set hover lighten background color */
+.btn-hover-lighten(@color: @btn-color-admin; @perc: 10%) {
+
+  &:hover,
+  &:active,
+  &:focus,
+  &:active:focus,
+  &:active:hover {
+    background-color: lighten(@color, @perc);
+    color: contrast(lighten(@color, @perc));
+  }
+}
+
+/* set hover lighten background color */
+.btn-hover-darken(@color: @btn-color-admin; @perc: 4%) {
+
+  &:hover,
+  &:active,
+  &:focus,
+  &:active:focus,
+  &:active:hover {
+    background-color: darken(@color, 4%);
+    color: contrast(darken(@color, 4%));
+  }
+}
+
+/* set hover change text and background color */
+.btn-hover-change-color(@text-color; @background-color) {
+
+  &:hover,
+  &:active,
+  &:focus,
+  &:active:focus,
+  &:active:hover {
+    .btn-color(@text-color; @background-color);
+    .btn-border(@text-color);
+  }
+}
+
+/* set hover change shadow */
+.btn-hover-shadow {
+
+  &:hover,
+  &:active,
+  &:focus,
+  &:active:focus,
+  &:active:hover {
+    -webkit-box-shadow: @btn-hover-shadow;
+    box-shadow: @btn-hover-shadow;
+  }
+}
+
+/*BTN CLASSES*/
+/*btn is default button class: extend bootstrap class*/
+span {
+  &.btn {
+    &::before {
+      font-size: 24px;
+    }
+  }
+}
+
+.btn {
+  .btn-font;
+  .btn-color;
+  .btn-border;
+  align-items: center;
+
+  &:hover,
+  &:active,
+  &:active:focus,
+  &:active:hover {
+    //bootstrap override
+    outline: none;
+    opacity: 1;
+  }
+
+  span {
+    &+span {
+      margin-left: 4px;
+    }
+
+    &.am {
+      font-size: 22px !important;
+    }
+  }
+
+  @media (max-width: 1199px) {
+
+    //default for all button
+    &:not(.btn-file) {
+      /*upload file button*/
+      //margin-top: 5px;
+      margin-left: 3px;
+      margin-right: 3px;
+    }
+  }
+
+  /** CLASSI VECCHIE PRE 2020 */
+
+  &.btn-success,
+  &.btn-action-primary,
+  &.btn-navigation-primary,
+  &.btn-administration-primary {
+    .btn-color(contrast(@btn-color-admin); @btn-color-admin);
+    .btn-hover-darken(@btn-color-admin; contrast(@btn-color-admin));
+    .btn-hover-shadow;
+  }
+
+  &:hover {
+    border-radius: 4px;
+  }
+
+  &.btn-file {
+    height: 46px;
+
+    &:hover {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  &.btn-tools-primary {
+    /* search, download, order, change view */
+    font-size: 1.3em;
+    vertical-align: middle;
+    display: flex;
+    padding-top: 0 !important;
+    .btn-color(contrast(@btn-color-tools); @btn-color-tools) !important;
+    .btn-border(@btn-color-tools) !important;
+    .btn-min-size;
+    .btn-hover-darken(@btn-color-tools, contrast(@btn-color-tools)) !important;
+    .btn-hover-shadow;
+
+    &.am-unfold-more {
+      padding: 7px 11px;
+    }
+
+    .am-download {
+      /* without & before it's a dropdown button */
+      padding: 0;
+    }
+
+    &.am-triangle-up {
+      padding: 6px 0;
+    }
+
+  }
+
+  &.btn-tool-secondary,
+  //TODO replace with 'tools'
+  &.btn-tools-secondary {
+    padding: 6px 0; //bootstrap override
+    .btn-color(contrast(@btn-color-tools); @btn-color-tools);
+    .btn-min-size(36px; 36px);
+    max-height: 36px;
+    .btn-border(@btn-color-tools);
+    .btn-hover-darken(@btn-color-tools; contrast(@btn-color-tools); );
+    .btn-hover-shadow;
+
+    &.btn-tools-secondary-text {
+      font-size: 0.8em;
+      padding: 8px 10px 6px;
+    }
+
+    .am-search {
+      font-size: 1.3em;
+      top: 1px;
+      position: relative;
+    }
+
+  }
+
+  &.btn-workflow {
+    .btn-color(@btn-color-admin; contrast(@btn-color-admin); );
+    .btn-border(@btn-color-admin);
+    .btn-hover-darken(contrast(@btn-color-admin); @btn-color-admin; );
+    border-radius: 4px;
+  }
+
+
+  &.btn-icon {
+    .btn-font(@size: @btn-font-size; );
+    .btn-color(@btn-color-admin, transparent);
+    .btn-border(@color: transparent; @perc: 0%; @rad: 0px; @shadow: none);
+
+    &.am-close {
+      color: @danger-color;
+    }
+
+    &.am-block-alt {
+      color: @danger-color;
+    }
+  }
+
+  /** CLASSI NUOVE POST 2020 */
+
+  &.btn-primary {
+    .btn-color(contrast(@primary-color); @primary-color);
+    .btn-hover-darken(@primary-color; contrast(@primary-color));
+    .btn-hover-shadow;
+  }
+
+  &.btn-outline-primary {
+    .btn-color(@primary-color; contrast(@primary-color));
+    .btn-hover-darken(contrast(@primary-color), @primary-color);
+    .btn-border(@primary-color);
+    .btn-hover-shadow;
+  }
+
+  &.btn-secondary {
+    .btn-color(contrast(@secondary-color); @secondary-color);
+    .btn-hover-darken(@secondary-color; contrast(@secondary-color));
+    .btn-hover-shadow;
+    .btn-border(@secondary-color);
+  }
+
+  &.btn-outline-secondary {
+    .btn-color(@secondary-color; contrast(@secondary-color));
+    .btn-hover-darken(contrast(@secondary-color), @secondary-color);
+    .btn-border(@secondary-color);
+    .btn-hover-shadow;
+    .btn-border(@secondary-color);
+  }
+
+  &.btn-tertiary {
+    .btn-color(contrast(@tertiary-color); @tertiary-color);
+    .btn-hover-darken(@tertiary-color; contrast(@tertiary-color));
+    .btn-hover-shadow;
+    .btn-border(@tertiary-color);
+  }
+
+  &.btn-outline-tertiary {
+    .btn-color(@tertiary-color; contrast(@tertiary-color));
+    .btn-hover-darken(contrast(@tertiary-color), @tertiary-color);
+    .btn-border(@tertiary-color);
+    .btn-hover-shadow;
+    .btn-border(@tertiary-color);
+  }
+
+  &.btn-danger {
+    //bootstrap override
+    .btn-color(contrast(@danger-color),@danger-color);
+    .btn-border(@color: @danger-color; );
+    .btn-hover-darken(@danger-color,contrast(@danger-color));
+  }
+
+  &.btn-warning {
+    //bootstrap override
+    .btn-color(contrast(@warning-color),@warning-color);
+    .btn-min-size(36px; 36px);
+    .btn-border(@color: @warning-color; );
+    .btn-hover-darken(@warning-color,contrast(@warning-color));
+  }
+
+  &.btn-success {
+    //bootstrap override
+    .btn-color(contrast(@success-color),@success-color);
+    .btn-border(@color: @success-color; );
+    .btn-hover-darken(@success-color,contrast(@success-color));
+  }
+
+  &.btn-danger-inverse {
+    .btn-color(@danger-color; contrast(@danger-color));
+    .btn-min-size(36px; 36px);
+    max-height: 36px;
+    .btn-border(@danger-color);
+    .btn-hover-change-color(contrast(@danger-color); @danger-color);
+
+    .am-close {
+      font-size: 1.3em;
+      top: 1px;
+      position: relative;
+    }
+  }
+
+  &.disabled {
+    color: #bfc2c9;
+    background-color: #e6e9f2;
+    border-color: #dfe4f2;
+
+    &:hover {
+      color: #bfc2c9;
+      background-color: #e6e9f2 !important;
+      border-color: #dfe4f2;
+    }
+
+    &.disabled-with-pointer-events {
+      pointer-events: auto;
+    }
+  }
+
+  &.btn-linkedin {
+    .btn-color(contrast(@linkedin); @linkedin);
+    border: 1px solid @linkedin;
+  }
+
+  &.btn-facebook {
+    .btn-color(contrast(@facebook); @facebook);
+    border: 1px solid @facebook;
+  }
+
+  &.btn-google {
+    .btn-color(contrast(@google); @google);
+    border: 1px solid @facebook;
+  }
+
+  &.btn-twitter {
+    .btn-color(contrast(@twitter); @twitter);
+    border: 1px solid @twitter;
+  }
+  &.btn-apple {
+    .btn-color(contrast(@apple); @apple);
+    border: 1px solid @apple;
+  }
+  &.btn-spid {
+    .btn-color(contrast(@spid); @spid);
+    border: 1px solid @spid;
+    border-radius: 0;
+  }
+
+}
+
+.btn-xs {
+  padding: 8px 8px;
+  font-size: @btn-font-size-sm;
+  line-height: @input-btn-line-height-sm;
+}
+
+.btn-sm {
+  padding: 10px 20px;
+  font-size: @btn-font-size-sm;
+  line-height: @input-btn-line-height-sm;
+}
+
+.btn-lg {
+  padding: 14px 28px;
+  font-size: @btn-font-size-lg;
+  line-height: @input-btn-line-height-lg;
+}
+
+.btn-link{
+  border-color: transparent;
+  &:hover{
+    color: @brand-primary-color;
+  }
+}
+
+
+a[class*='link-all'] {
+  align-items: center;
+  display: inline-flex;
+  text-decoration: none; 
+  padding: @padding-medium 0;
+  margin-top: @margin-min;
+  .icon {
+    
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+}
+.btn + .btn:not(.btn-block) {
+  margin-left: 3px;
+  margin-right: 3px;
+  @media (max-width: 479px){
+    margin-left: 3px;
+    margin-right: 3px;
+  }
+}
+
+.input-group-btn {
+  .btn {
+    margin-top: 0px;
+    margin-left: 0px !important;
+    border-radius: 0px !important;
+    height: 45px;
+    &:last-child {
+      border-top-right-radius: 4px !important;
+    border-bottom-right-radius: 4px !important;
+    }
+    i + span {
+      margin-left: 4px;
+    }
+  }
+}
+.btn-toolbar {
+  .btn-group {
+    .btn {
+      line-height: 1;
+    }
+  }
+}

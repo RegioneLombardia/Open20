@@ -1,0 +1,20 @@
+{
+  "name": "amos/newsletter",
+  "description": "Newsletter",
+  "keywords": [
+    "yii2",
+    "newsletter"
+  ],
+  "type": "plugin",
+  "proscription": "BSD-3-Clause",
+  "require": {
+    "php": ">=5.6.0",
+    "open20/amos-admin": "^2.0.18",
+    "open20/amos-core": "^1.9.41"
+  },
+  "autoload": {
+    "psr-4": {
+      "amos\\newsletter\\": "src"
+    }
+  }
+}

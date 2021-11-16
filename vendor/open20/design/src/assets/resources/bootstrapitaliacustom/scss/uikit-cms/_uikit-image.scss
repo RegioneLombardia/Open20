@@ -1,0 +1,13 @@
+.wrap-modules {
+    //sono nel CMS
+    .img-responsive,
+    .el-image {
+        @extend .img-fluid;
+    }
+
+    .avatar {
+        > figure {
+            margin: 0;
+        }
+    }
+}

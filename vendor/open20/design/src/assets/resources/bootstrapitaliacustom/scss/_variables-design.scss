@@ -1,0 +1,68 @@
+/* BACKGROUND PLATFORM */
+$background-image-default: unset;
+$background-color-default: #5c5c5c;
+
+/* UTILITY COLOR */
+$tooltip-bg: darken(#5e7887, 10%);
+$card-preference-bg: lighten($brandbook-primary-color, 60);
+$tags-list-bg: lighten($brandbook-primary-color, 60);
+
+
+$components-colors: (
+    "card-preference-bg": $card-preference-bg,
+    "tags-list-bg": $tags-list-bg,
+    "tooltip-bg": $tooltip-bg,
+);
+
+/* TEXT COLOR */
+$text-muted-custom: #435960;
+$label-form-text-color: $brandbook-secondary-color;
+
+$text-colors: (
+    "text-muted": $text-muted-custom
+);
+
+/* FILE COLOR */
+$folder: #FAD165;
+$excel: #0C9D58;
+$word: #4A88E3;
+$pdf: #EA4435;
+$image: #D93025;
+$googleDrive: #3C83F7;  
+$file-colors: (
+    "folder": $folder,
+    "excel": $excel,
+    "word": $word,
+    "pdf": $pdf,
+    "image": $image,
+    "google-drive" : $googleDrive,
+);
+
+
+/* SOCIAL COLOR */
+$linkedin: #0177b5;
+$facebook: #4867aa;
+$google: #ea4335;
+$twitter: #32ccfe;
+$apple: #000000;
+$youtube: #be1b1e;
+$spid: #0066cc;
+
+
+$social-colors: (
+    "linkedin": $linkedin,
+    "facebook": $facebook,
+    "google": $google,
+    "twitter": $twitter,
+    "apple": $apple,
+    "youtube": $youtube,
+    "spid": $spid,
+
+);
+
+/* DEVICE AND BROWSER MEDIA QUERY */
+$device-media-queries: (
+  onlySafary: '-webkit-min-device-pixel-ratio:0',
+  onlyIe: '-ms-high-contrast:none',
+);
+

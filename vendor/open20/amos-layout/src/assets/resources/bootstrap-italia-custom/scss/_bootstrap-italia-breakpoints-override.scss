@@ -1,0 +1,7 @@
+$grid-breakpoints-xxl: 1400px;
+$container-max-width-xxl: 1384px;
+.container{
+  @media (min-width: $grid-breakpoints-xxl){
+    max-width: $container-max-width-xxl;
+  }
+}

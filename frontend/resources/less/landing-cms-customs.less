@@ -1,0 +1,101 @@
+// STILI GENERICI //
+body,
+html {
+  color: #000;
+  font-size: 16px;
+  line-height: 1.5;
+
+  @media (min-width: 576px) {
+    font-size: 18px;
+  }
+}
+
+.uk-h1,
+.uk-h2,
+.uk-h3,
+.uk-h4,
+.uk-h5,
+.uk-h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Titillium Web', sans-serif;
+  line-height: 1;
+}
+.btn-primary {
+  background-color: @primary-color;
+}
+// GRADIENT 3 TEMI
+.gradient-verde-blu {
+  background: linear-gradient(-45deg, rgba(16, 51, 102, 1) 0%, rgba(41, 122, 56, 1) 100%);
+}
+
+.gradient-purple-blu {
+  background: linear-gradient(-45deg, #2D6FAA 0%, #46356F 100%);
+}
+
+.gradient-orange-pink {
+  background: linear-gradient(-45deg, #661053 0%, #C34B36 100%);
+}
+
+.gradient-verde-blu-2 {
+  background: linear-gradient(45deg, rgba(16, 51, 102, 1) 0%, rgba(41, 122, 56, 1) 100%);
+}
+.uk-section-primary {
+  background: @primary-color;
+}
+
+.intro-text {
+  font-size: 1.5em;
+
+  @media (min-width: 576px) {
+    font-size: 1.7em;
+  }
+}
+
+.vertical-title {
+  position: relative;
+
+  h3 {
+
+
+    font-weight: 600;
+    color: #FFF;
+    font-size: 2.5em;
+    text-transform: uppercase;
+    padding-bottom:20px;
+    @media (min-width:640px) {
+      writing-mode: tb-rl;
+      transform: rotate(-180deg);
+      padding-bottom:0px;
+      font-size: 3.5em;
+    }
+  }
+
+}
+
+
+.title-dx {
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
+
+  .uk-width-expand\@m {
+    padding-left: 100px;
+    flex: none;
+  }
+
+  h3.vertical-title {
+    position: absolute;
+    height: max-content;
+    right: 0;
+    top: 0;
+  }
+}
+
+.uk-visible\@xl {
+  display: block !important;
+}

@@ -1,0 +1,48 @@
+$custom-campain-channel-bg: #D8D8D8;
+$custom-campain-channel-checkbox-border:#5C6F82;
+
+$custom-campain-color: (
+  "campain-channel-bg": $custom-campain-channel-bg,
+  "campain-channel-checkbox-border":$custom-campain-channel-checkbox-border,
+);
+
+$theme-colors: map-merge($theme-colors, $custom-campain-color);
+
+.accordion-dettaglio-campagna{
+    button[aria-expanded='false']{
+        .accordion-icon{
+            -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+        }
+    }
+    .full-size-bg-100{
+        @media screen and (min-width:768px){
+            background-color: #e3e4e6;
+        }
+        &::after{
+            @media screen and (max-width:767px){
+                content: ':';
+            }
+
+        }
+        
+    }
+    button{
+        &::before{
+            display: none;
+        }
+    }
+    .am{
+        height: 22px;
+        width: 22px;
+    }
+}
+
+.checkbox-canali-invio{
+    background-color: $custom-campain-channel-bg;
+    .form-check [type=checkbox] + label::after{
+        border-color:$custom-campain-channel-checkbox-border;
+    }
+}
+
+

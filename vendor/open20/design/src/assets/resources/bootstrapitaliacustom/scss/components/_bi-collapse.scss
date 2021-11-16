@@ -1,0 +1,25 @@
+.collapse-lg {
+  .collapse-header {
+    *[data-toggle='collapse'] {
+      outline: none; 
+      &:before {
+        width: 2.5rem;
+      }
+      img{
+        max-width: 60px;
+      }
+    }
+
+  }
+}
+
+// NON ABBIAMO CAPITO A COSA SERVE - DA ELIMINARE?
+
+// .form-check [type='checkbox'].not-checked + label::before,
+// .form-check [type='checkbox'].not-checked + label::after{
+//   background-color: $white;
+//   border-color: $brandbook-btn-tertiary-color;
+//   z-index: 0;
+// }
+
+

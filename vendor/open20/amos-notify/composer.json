@@ -1,0 +1,38 @@
+{
+  "name": "open20/amos-notify",
+  "description": "Modulo di gestione notifiche - plugin",
+  "keywords": [
+    "amos",
+    "notifiche",
+    "yii2"
+  ],
+  "homepage": "http://www.open20.it/",
+  "type": "component",
+  "proscription": "BSD-3-Clause",
+  "support": {
+    "issues": "https://github.com/yiisoft/yii2/issues?state=open",
+    "forum": "http://www.yiiframework.com/forum/",
+    "wiki": "http://www.yiiframework.com/wiki/",
+    "irc": "irc://irc.freenode.net/yii",
+    "source": "https://github.com/yiisoft/yii2"
+  },
+  "require": {
+    "php": ">=7.0",
+    "open20/amos-admin" : "*",
+    "open20/amos-core" : "*",
+    "open20/amos-email-manager" : "*",
+    "open20/amos-workflow" : "*"
+  },
+  "config": {
+    "process-timeout": 1800,
+    "secure-http": false
+  },
+  "autoload": {
+    "psr-4": {
+      "open20\\amos\\notificationmanager\\": "src"
+    }
+  },
+  "scripts": {
+    "post-install-cmd": "php yii migrate --migrationPath=@vendor/open20/amos-notify/migrations --interactive=0"
+  }
+}

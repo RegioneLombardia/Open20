@@ -1,0 +1,93 @@
+<?php
+/**
+ */
+
+namespace Zend\Uri;
+
+/**
+ * File URI handler
+ *
+ * The 'file:...' scheme is loosely defined in RFC-1738
+ */
+class File extends Uri
+{
+    protected static $validSchemes = ['file'];
+
+    /**
+     * Check if the URI is a valid File URI
+     *
+     * This applies additional specific validation rules beyond the ones
+     * required by the generic URI syntax.
+     *
+     * @return bool
+     */
+    public function isValid()
+    {
+        if ($this->query) {
+            return false;
+        }
+
+        return parent::isValid();
+    }
+
+    /**
+     * User Info part is not used in file URIs
+     *
+     * @param  string $userInfo
+     * @return File
+     */
+    public function setUserInfo($userInfo)
+    {
+        return $this;
+    }
+
+    /**
+     * Fragment part is not used in file URIs
+     *
+     * @param  string $fragment
+     * @return File
+     */
+    public function setFragment($fragment)
+    {
+        return $this;
+    }
+
+    /**
+     * Convert a UNIX file path to a valid file:// URL
+     *
+     * @param  string $path
+     * @return File
+     */
+    public static function fromUnixPath($path)
+    {
+        $url = new static('file:');
+        if (0 === strpos($path, '/')) {
+            $url->setHost('');
+        }
+
+        $url->setPath($path);
+        return $url;
+    }
+
+    /**
+     * Convert a Windows file path to a valid file:// URL
+     *
+     * @param  string $path
+     * @return File
+     */
+    public static function fromWindowsPath($path)
+    {
+        $url = new static('file:');
+
+        // Convert directory separators
+        $path = str_replace(['/', '\\'], ['%2F', '/'], $path);
+
+        // Is this an absolute path?
+        if (preg_match('|^([a-zA-Z]:)?/|', $path)) {
+            $url->setHost('');
+        }
+
+        $url->setPath($path);
+        return $url;
+    }
+}

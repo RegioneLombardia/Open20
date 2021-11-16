@@ -1,0 +1,26 @@
+{
+    "name": "open20/amos-seo",
+    "description": "Amos SEO",
+    "keywords": [
+        "amos",
+        "seo"
+    ],
+    "homepage": "http://www.open20.it/",
+    "type": "component",
+    "require": {
+        "php": ">=5.4.0",
+        "open20/amos-core" : "*",
+        "simialbi/yii2-schema-org": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "open20\\amos\\seo\\": "src"
+        }
+    },
+    "fxp-asset": {
+        "installer-paths": {
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower"
+        }
+    }
+}

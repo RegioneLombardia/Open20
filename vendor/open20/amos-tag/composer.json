@@ -1,0 +1,38 @@
+{
+    "name": "open20/amos-tag",
+    "description": "Sistema AMOS per le TAG",
+    "keywords": ["amos", "yii2", "tag"],
+    "homepage": "http://www.example.com/",
+    "type": "project",
+    "proscription": "BSD-3-Clause",
+    "support": {
+        "forum": "http://www.example.com/forum/",
+        "wiki": "http://www.example.com/wiki/"        
+    },
+    "require": {
+        "php": ">=5.4.0",
+        "open20/amos-core" : "*",
+        "open20/amos-admin" : "*",
+        "open20/amos-dashboard" : "*",
+        "creocoder/yii2-nested-sets": "0.9.*",
+        "lispa/yii2-tree-manager": "~2.0.0"
+    },
+    "config": {
+        "process-timeout": 1800,
+        "secure-http": false
+    },
+    "extra": {
+        "asset-installer-paths": {
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "open20\\amos\\tag\\": "src"
+        }
+    },
+    "require-dev": {
+        "yiisoft/yii2-faker": "*"
+    }
+}

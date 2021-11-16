@@ -1,0 +1,60 @@
+/* AMOS-LAYOUT */
+
+/*ICONS DEFAULT VARIABLES*/
+@icon-folder:#F8D484;
+@icon-blue:#104281;
+@icon-green:#2E8034;
+@icon-red:#C3191D;
+@icon-black:#000000;
+
+/*
+ICON DOCUMENTS
+ */
+.graphics-dashboard-container,
+div[class*="-form"],
+div[class*="-view"],
+div[class*="-index"]{
+  .dash-folder-open {
+    color: @icon-folder;
+  }
+  .dash-download-docx,
+  .dash-file-word-o,
+  .dash-download-doc,
+  .dash-file-doc-o,
+  .dash-file-docx-o{
+    color: @icon-blue;
+  }
+  .dash-download-xlsx,
+  .dash-file-excel-o,
+  .dash-download-xls,
+  .dash-file-xls-o,
+  .dash-file-xlsx-o{
+    color: @icon-green;
+  }
+  .dash-download-pdf,
+  .dash-file-pdf-o,
+  .dash-file-pdf-o2,
+  .dash-download-rtf {
+    color: @icon-red;
+  }
+  .dash-download-txt,
+  .dash-file-text-o,
+  .dash-file-txt-o,
+  .dash-file-o,
+  .dash-download-general,
+  .dash-doc-www {
+    color: @icon-black;
+  }
+
+  .grid-view{
+    .dash-folder-open {
+      font-size: 2.2em;
+    }
+    span[class*="dash-file-"],
+    span[class*="dash-doc-"],
+    span[class*="dash-download-"]{
+      font-size: 2.5em;
+    }
+  }
+
+}

@@ -1,0 +1,93 @@
+.pagination {
+    flex-grow: 1;
+    width: 100%;
+    padding: 0 15px;
+    margin: 56px auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    >li {
+      width: auto;
+      padding: 0;
+    }
+    
+    >li:first-child > a,
+    >li:first-child > span,
+    >li:last-child > a, 
+    >li:last-child > span{
+        font-size: 16px;
+    }
+
+    >li>a,
+    >li>span {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      height: 48px;
+      min-width: 48px;
+      border-radius: 4px;
+      border: 1px solid transparent;
+      font-size: 16px;
+      font-weight: 600;
+      color: @secondary-color;
+      background-color: transparent;
+    }
+  
+    >li>a:hover,
+    >li>span:hover,
+    >li>a:focus,
+    >li>span:focus {
+      background: transparent;
+      border-color: transparent;
+      color: @brand-primary-color ;
+
+    }
+  
+    >li.active>a,
+    >li.active>span,
+    >li.active>a:hover,
+    >li.active>span:hover,
+    >li.active>a:focus,
+    >li.active>span:focus{
+      background: transparent ;
+      border-color: @brand-primary-color ;
+      color: @brand-primary-color ;
+      
+    }
+
+    >li.prev:not(.disabled) a,
+    >li.next:not(.disabled) a{
+      background: transparent;
+      border-color: @brand-primary-color;
+      color: @brand-primary-color;
+      
+    }
+  
+    >.disabled>span,
+    >.disabled>span:hover,
+    >.disabled>span:focus,
+    >.disabled>a,
+    >.disabled>a:hover,
+    >.disabled>a:focus {
+      background: transparent;
+      opacity: 0.5;
+      border: 1px solid transparent;
+    }
+}
+
+  .widget-graphic-cms-bi-less {
+    .pagination {
+      >li {
+        width: auto;
+        padding: 0;
+      }
+    }
+  }

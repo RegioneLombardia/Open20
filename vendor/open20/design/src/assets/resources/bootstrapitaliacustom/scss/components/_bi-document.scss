@@ -1,0 +1,82 @@
+.document-container {
+    .last-info {
+        a:hover {
+            svg {
+                fill: #1d719c !important;
+            }
+        }
+    }
+
+}
+
+.document-item-container {
+    .info-file {
+        position: relative;
+
+        .icon-overlay {
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            top: -10px;
+            left: -10px;
+            border: 2px solid #fff;
+        }
+    }
+
+}
+
+// DOCUMENTI CARD 
+
+.documenti-card-wrapper {
+    position: relative;
+
+    .categoryicon-top {
+        position: relative;
+
+        .icon-overlay {
+            position: absolute;
+            width: 26px;
+            height: 26px;
+            top: -5px;
+            left: -7px;
+            border: 2px solid #fff;
+        }
+
+        .allegatiNum {
+            .icon {
+                &.icon-sm {
+                    width: 24px !important;
+                    height: 24px !important;
+                    margin-right: 0 !important;
+                }
+            }
+
+        }
+    }
+
+    &.card-type-folder {
+
+        .card-bg {
+            background: lighten($folder, 25%);
+
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 48px 0 0 48px;
+                border-color: $folder transparent transparent transparent;
+                margin: 0;
+            }
+        }
+    }
+
+    .info-doc {
+        position: absolute;
+        bottom: 24px;
+        right: 24px;
+    }
+}

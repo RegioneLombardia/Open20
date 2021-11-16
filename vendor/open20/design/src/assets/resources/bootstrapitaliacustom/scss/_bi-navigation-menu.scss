@@ -1,0 +1,41 @@
+.it-header-navbar-wrapper {
+    &.theme-light-desk {
+        .navbar {
+            .navbar-collapsable {
+                .nav-item {
+                    @media (min-width: 992px) {
+                        a,
+                        a.list-item span {
+                            color: $brandbook-secondary-color;
+                        }
+                        .dropdown-toggle svg {
+                            fill: $brandbook-secondary-color;
+                        }
+                    }
+                }
+                .navbar-nav{
+                    li {
+                        a.nav-link{
+                            @media (min-width: 992px) {
+                                color: $brandbook-secondary-color;
+                            }
+                            &.active{
+                                @media (min-width: 992px) {
+                                    border-bottom-color:$brandbook-secondary-color;
+                                }
+                            }
+                            &.dropdown-toggle{
+                                svg{
+                                    @media (min-width: 992px) {
+                                        fill: $brandbook-secondary-color;
+                                    }
+                                }
+                                
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

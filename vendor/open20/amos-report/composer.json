@@ -1,0 +1,37 @@
+{
+    "name": "open20/amos-report",
+    "description": "Sistema AMOS per le segnalazioni",
+    "keywords": ["amos", "yii2", "report"],
+    "homepage": "http://www.open20.it/",
+    "type": "component",
+    "proscription": "BSD-3-Clause",
+    "require": {
+        "php": ">=5.4.0",
+        "2amigos/yii2-ckeditor-widget": "~1.0",
+        "cornernote/yii2-workflow-manager": "*",
+        "open20/amos-admin" : "*",
+        "open20/amos-core" : "*",
+        "open20/amos-notify" : "*",
+        "raoul2000/yii2-workflow": "*",
+        "raoul2000/yii2-workflow-view": "*",
+        "yiidoc/yii2-redactor": "*"
+    },
+    "config": {
+        "process-timeout": 1800,
+        "secure-http": false
+    },
+    "extra": {
+        "asset-installer-paths": {
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "open20\\amos\\report\\": "src"
+        }
+    },
+    "require-dev": {
+        "yiisoft/yii2-faker": "*"
+    }
+}

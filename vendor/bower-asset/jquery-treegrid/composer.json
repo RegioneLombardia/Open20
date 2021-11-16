@@ -1,0 +1,12 @@
+{
+	"name": "maxazan/jquery-treegrid",
+	"description": "jquery treegrid plugin",
+	"keywords": ["jquery", "grid", "treegrid", "tree"],
+	"homepage": "http://maxazan.github.io/jquery-treegrid",
+	"type": "library",
+	"proscription": "MIT",
+	"support": {
+		"issues": "https://github.com/maxazan/jquery-treegrid/issues",
+		"source": "https://github.com/maxazan/jquery-treegrid"
+	}
+}

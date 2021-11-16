@@ -1,0 +1,265 @@
+/* AMOS-LAYOUT */
+
+/*BTN DEFAULT VARIABLES*/
+@btn-font-size: 1em;
+@btn-font-weight: bold;
+@btn-shadow: 0 2px 5px rgba(0, 0, 0, .16), 0 2px 10px rgba(0, 0, 0, .12);
+@btn-border-radius: 5px;
+@btn-min-width: 32px;
+@btn-min-height: 32px;
+
+@btn-font-icon-size: 1.5em;
+
+/*BTN UTILITIES*/
+
+/* set button font */
+.btn-font(@size:@btn-font-size;@weight:@btn-font-weight;@transform:uppercase) {
+  font-size: @size;
+  font-weight: @weight;
+  text-transform: @transform;
+}
+
+/* set button colors */
+.btn-color(@text:@primary-color;@background:contrast(@primary-color);) {
+  color: @text;
+  background-color: @background;
+}
+
+/* set button border */
+.btn-border(@color:@primary-color;@perc:10%;@rad:@btn-border-radius;@shadow:@btn-shadow;) {
+  border-color: darken(@color, @perc);
+  -webkit-border-radius: @rad;
+  -moz-border-radius: @rad;
+  border-radius: @rad;
+  box-shadow: @shadow;
+}
+
+/* set button min size */
+.btn-min-size(@width:@btn-min-width;@height:@btn-min-height) {
+  min-width: @width;
+  min-height: @height;
+}
+
+/* HOVER: default hover is bootstrap */
+
+/* set hover one color based */
+.btn-hover-contrast(@color:@primary-color) {
+  &:hover, &:active, &:focus, &:active:focus, &:active:hover {
+    .btn-color(contrast(@color); @color);
+  }
+}
+
+/* set hover lighten background color */
+.btn-hover-lighten(@color:@primary-color;@perc:10%) {
+  &:hover, &:active, &:focus, &:active:focus, &:active:hover {
+    background-color: lighten(@color, @perc);
+  }
+}
+
+/* set hover change text and background color */
+.btn-hover-change-color(@text-color;@background-color) {
+  &:hover, &:active, &:focus, &:active:focus, &:active:hover {
+    .btn-color(@text-color; @background-color);
+  }
+}
+
+/* set hover change shadow */
+.btn-hover-shadow {
+  &:hover, &:active, &:focus, &:active:focus, &:active:hover {
+    -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  }
+}
+
+/*BTN CLASSES*/
+/*btn is default button class: extend bootstrap class*/
+.btn {
+  .btn-font;
+  .btn-color;
+  .btn-border;
+
+  &:hover, &:active, &:active:focus, &:active:hover { //bootstrap override
+    outline: none;
+  }
+
+  @media (max-width: 1199px) {
+    //default for all button
+    &:not(.btn-file) { /*upload file button*/
+      //margin: 5px 0;
+    }
+  }
+
+  &.btn-navigation-primary,
+  &.btn-amministration-primary, //TODO replace this class with EN correct
+  &.btn-administration-primary {
+    .btn-color(contrast(@primary-color); @primary-color);
+    .btn-hover-lighten(@primary-color);
+    .btn-hover-shadow;
+  }
+
+  &.btn-action-primary {
+    .btn-color(contrast(@secondary-color); @secondary-color);
+    .btn-border(@secondary-color);
+    .btn-hover-lighten(@secondary-color);
+  }
+
+  &.btn-tools-primary {
+    font-size: 1.3em;
+    vertical-align: middle;
+    .btn-color(darken(@secondary-color, 10%), contrast(@secondary-color));
+    .btn-min-size;
+    .btn-hover-change-color(@primary-color, contrast(@primary-color));
+    .btn-hover-shadow;
+
+    &.am-unfold-more {
+      padding: 7px 11px;
+    }
+    &.am-search {
+      padding: 7px 8px;
+    }
+    .am-download { /* without & before it's a dropdown button */
+      padding: 0;
+    }
+    &.am-triangle-up {
+      padding: 6px 0;
+    }
+
+  }
+
+  &.btn-tool-secondary, //TODO replace with 'tools'
+  &.btn-tools-secondary {
+    padding: 6px 0; //bootstrap override
+    .btn-color(contrast(@primary-color); @primary-color);
+    .btn-min-size(36px; 36px);
+    .btn-hover-change-color(@secondary-color; contrast(@secondary-color));
+    .btn-hover-shadow;
+
+    &.btn-tools-secondary-text{
+      font-size: 0.8em;
+      padding: 8px 10px 6px;
+    }
+
+    .am-search{
+      font-size: 1.3em;
+      top: 1px;
+      position: relative;
+    }
+
+  }
+
+  &.btn-danger { //bootstrap override
+    .btn-color(@danger-color, contrast(@danger-color));
+    .btn-border(@color:@danger-color;);
+    .btn-hover-change-color(contrast(@danger-color), @danger-color);
+  }
+
+  &.btn-danger-inverse {
+    .btn-color(contrast(@danger-color); @danger-color);
+    .btn-min-size(36px; 36px);
+    .btn-border(@danger-color);
+    .btn-hover-lighten(@danger-color);
+
+    .am-close{
+      font-size: 1.3em;
+      top: 1px;
+      position: relative;
+    }
+
+  }
+
+  &.btn-primary,
+  &.btn-success {
+    .btn-hover-lighten(@primary-color); //bootstrap override
+  }
+
+  &.btn-secondary {
+    .btn-color(@secondary-color; contrast(@secondary-color););
+    .btn-border(@secondary-color);
+    .btn-hover-shadow;
+  }
+
+  &.btn-workflow { //used for workflow state
+    .btn-color(contrast(@secondary-color), darken(@secondary-color, 10%));
+    .btn-border(@secondary-color);
+    .btn-hover-shadow;
+  }
+
+  &.btn-icon{
+    .btn-font(@size:@btn-font-icon-size;);
+    .btn-color(@primary-color,transparent);
+    .btn-border(@color:transparent;@perc:0%;@rad:0px;@shadow:none);
+    padding: 3px;
+    &.am-close{
+      //padding: 3px;
+      color: @danger-color;
+    }
+    &.am-search{
+      //padding: 3px;
+    }
+    &.am-block-alt{
+      color: @danger-color;
+    }
+  }
+
+  &.btn-linkedin {
+    .btn-color(contrast(@linkedin); @linkedin);
+  }
+  &.btn-facebook {
+    .btn-color(contrast(@facebook); @facebook);
+  }
+  &.btn-google {
+    .btn-color(contrast(@google); @google);
+  }
+  &.btn-twitter {
+    .btn-color(@white-color; @twitter);
+  }
+
+}
+
+//--------------------------------------------------------------------------------------------------------------
+.btn-tools-primary { //TODO remove code after add btn class before btn-tools-primary
+  border: 1px solid transparent;
+  .btn;
+}
+
+// FIX for disable class effect + retrocompatibility - DO NOT REMOVE
+// before delete these classes, they must be deleted in all plugins
+.btn-primary,
+.btn-secondary {
+
+}
+
+//TODO amos-attachments until 1.0.9
+//since 1.0.10 override in form.less
+.field-documenti-documentmainfile .file-footer-buttons .text-danger,
+.field-documenticategorie-documentcategoryimage .file-footer-buttons .text-danger,
+.field-discussionitopic-discussionstopicimage .file-footer-buttons .text-danger,
+.field-community-communitylogo .file-footer-buttons .text-danger,
+.field-news-newsimage .file-footer-buttons .text-danger,
+.field-userprofile-userprofileimage .file-footer-buttons .text-danger {
+  .btn-color(@danger-color, contrast(@danger-color));
+}
+
+//TODO create button for delete relations into update views AND modify html class
+//FIX actual class
+.btn-delete-relation {
+  color: @danger-color;
+  padding: 8px 12px;
+  .btn-border;
+  margin-left: 3px;
+  width: 32px;
+  height: 32px;
+  .btn-hover-shadow;
+}
+
+//TODO create button for delete import file into invitation plugin
+.fileinput-remove {
+  color: @danger-color;
+}
+
+.btn-tools-secondary.dropdown-toggle{
+  margin: 0 5px;
+  > .caret {
+    display: none;
+  }
+}

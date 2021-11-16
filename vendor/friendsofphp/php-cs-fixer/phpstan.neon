@@ -1,0 +1,33 @@
+includes:
+    - dev-tools/vendor/jangregor/phpstan-prophecy/src/extension.neon
+    - dev-tools/vendor/phpstan/phpstan/conf/bleedingEdge.neon
+    - dev-tools/vendor/phpstan/phpstan-phpunit/extension.neon
+
+parameters:
+    level: 5
+    paths:
+        - src
+        - tests
+    excludePaths:
+        - src/Event/Event.php # @TODO remove in PHP CS Fixer 3.0
+        - tests/Event/EventTest.php # @TODO remove in PHP CS Fixer 3.0
+        - tests/Fixtures
+    ignoreErrors:
+        - '/^Return typehint of method PhpCsFixer\\Tests\\Test\\.+::createIsIdenticalStringConstraint\(\) has invalid type PHPUnit_Framework_Constraint_IsIdentical\.$/'
+        -
+            message: '/^Unsafe usage of new static\(\)\.$/'
+            path: src/Config.php
+        -
+            message: '/^Result of && is always false\.$/'
+            path: src/Config.php
+        -
+            message: '/^Strict comparison using === between false and true will always evaluate to false\.$/'
+            path: src/Config.php
+        -
+            message: '/^Else branch is unreachable because ternary operator condition is always true\.$/'
+            path: src/Config.php
+        -
+            message: '/^Dead catch - LogicException is never thrown in the try block\.$/'
+            path: src/Test/AccessibleObject.php
+
+    tipsOfTheDay: false

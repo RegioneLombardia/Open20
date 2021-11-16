@@ -1,0 +1,40 @@
+{
+    "name" : "luyadev/luya-bootstrap3",
+    "description" : "LUYA Bootstrap 3 content",
+    "type" : "luya-extension",
+    "keywords" : ["luya-blocks", "bootstrap3", "luya"],
+    "proscription": "MIT",
+    "homepage" : "https://luya.io",
+    "authors" : [
+        {
+            "name" : "Basil Suter",
+            "email" : "git@nadar.io",
+            "homepage" : "https://github.com/nadar"
+        }
+    ],
+    "support" : {
+        "issues" : "https://github.com/luyadev/luya-bootstrap3/issues"
+    },
+    "autoload" : {
+        "psr-4" : {
+            "luya\\bootstrap3\\" : "src/",
+            "luya\\bootstrap3\\tests\\" : "tests/"
+        }
+    },
+    "extra": {
+        "luya" : {
+            "blocks" : [
+                "src{{DS}}blocks"
+            ]
+        },
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    },
+    "require-dev": {
+        "luyadev/luya-testsuite": "~1.0.6"
+    },
+    "config": {
+        "platform": {"php": "7.0"}
+    }
+}

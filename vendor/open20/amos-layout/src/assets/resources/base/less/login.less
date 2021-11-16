@@ -1,0 +1,280 @@
+/* AMOS-LAYOUT */
+
+.login-page {
+  margin: @margin-default 0;
+  background: @white-color;
+
+  .container-help,
+  .container-intro,
+  .container-messages {
+    width: 100%;
+    margin: 20px 0 0 0;
+    padding: 0;
+  }
+  //LOGOS
+
+  .logo-login {
+    max-width: 100%;
+    background-color: #ffffff;
+    padding-top: 15px;
+
+    .login-logo-and-text {
+      .flexbox;
+      .flexbox-wrap(nowrap);
+      justify-content: center;
+      align-items: center;
+      @media (max-width: 991px) {
+        .flexbox-wrap;
+      }
+      /*.logo-amos{ // fix for IE11
+        width: 100%;
+      }*/
+    }
+
+    .login-logo-text {
+      font-size: 2.36em;
+      font-weight: 500;
+      line-height: 1.1;
+      display: block;
+      a {
+        margin: 0 auto;
+        text-align: center;
+        width: auto;
+        display: inline-flex;
+        background-color: #fff;
+        padding: @padding-min @padding-large;
+      }
+    }
+
+    // FIX FOR IE11
+    @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+      .login-logo-and-text {
+        display: inline;
+        .logo-amos {
+          width: auto;
+          margin: 0 auto;
+        }
+      }
+    }
+
+  }
+
+  .bk-loginContainer, //TODO remove this class when change on amos-admin login.php
+  .loginContainer {
+    //COMMON
+    background-color: #ffffff;
+    h2, h4 {
+      text-align: center;
+    }
+    .title-login {
+      text-transform: uppercase;
+      margin: 30px 0 0 0;
+      font-weight: bold;
+    }
+    .subtitle-login {
+      text-align: center;
+      margin: 0 0 15px 0;
+      font-size: 1.4em;
+    }
+    .header {
+      @media (max-width: 400px) {
+        padding: 20px 25px;
+      }
+    }
+    .body {
+      margin-top: 30px;
+      @media (max-width: 400px) {
+        padding: 20px 25px;
+      }
+      .row {
+        margin: 0;
+      }
+      .title-login{
+        margin-top: 0;
+      }
+    }
+
+    //HEADER
+    .btn.btn-spid { //single button to spid login
+      background-color: @spid;
+      color: contrast(@spid);
+      border-color: @spid;
+      border-radius: 0;
+      width: 100%;
+      font-size: 2em;
+      line-height: 1;
+      padding: @padding-min 0;
+      white-space: normal;
+      > span:last-child {
+        text-transform: initial;
+        font-size: 0.8em;
+        white-space: nowrap;
+      }
+      @media(max-width: 420px){
+        font-size: 1.5em;
+      }
+    }
+    .social-buttons {
+      text-align: center;
+      display: inline-flex;
+      .flexbox-wrap(nowrap);
+      justify-content: space-between;
+      @media (max-width: 480px) {
+        .flexbox-wrap;
+      }
+      .btn + .btn {
+        margin-left: 0;
+      }
+      .btn {
+        .btn-border(transparent; 0%; 0%);
+        width: 95%;
+        padding: 6px 0;
+        font-weight: normal;
+        font-size: 1.1em;
+        line-height: 1.2em;
+        span.am {
+          //padding-right: 5px;
+        }
+        span.text {
+          text-align: center;
+        }
+      }
+    }
+
+    //OR
+    .or-login {
+      background-color: #000000;
+      margin-top: 30px;
+      text-align: center;
+      span {
+        color: #ffffff;
+        text-transform: uppercase;
+        font-size: 1.2em;
+        line-height: 2em;
+      }
+    }
+
+    //BODY
+    .form-group {
+      margin: 0;
+      padding: 0;
+
+      &.field-loginform-username,
+      &.field-loginform-password,
+      &.field-firstaccessform-password,
+      &.field-firstaccessform-ripetipassword,
+      &.field-firstaccessform-username {
+        .control-label::after {
+          display: none; /* by TASK CHANGE-REQUEST */
+        }
+      }
+      &.field-registerform-recaptcha {
+        float: right;
+        & > label.control-label {
+          height: 0;
+        }
+      }
+      &.field-registerform-privacy, //registration view
+      &.field-firstaccessform-privacy { //first-access view
+        label.control-label {
+          display: none;
+        }
+        .radio {
+          display: inline-block;
+          input[type="radio"] {
+            top: -4px;
+          }
+          label::after {
+            display: none;
+          }
+          & + .radio {
+            margin-left: 15px;
+          }
+        }
+      }
+    }
+
+    /* modal for social registration privacy */
+    #modal-privacy {
+      .radio {
+        display: inline-block;
+        input[type="radio"] {
+          top: -4px;
+        }
+        label::after {
+          display: none;
+        }
+        label + label {
+          margin-left: 15px;
+        }
+      }
+    }
+
+    .btn.btn-primary.btn-administration-primary {
+      margin-bottom: 15px;
+    }
+
+    .forgot-password {
+      padding-top: 5px;
+    }
+
+    .required-field {
+      text-align: right;
+      color: @danger-color;
+      margin-top: 5px;
+    }
+
+    .text-bottom { //privacy-policy
+      margin: 30px 0;
+      font-size: 0.9em;
+      line-height: 1.2em;
+    }
+
+    .footer-link {
+      margin-top: 15px;
+      margin-bottom: 15px;
+      .subtitle-login {
+        text-transform: none;
+        border: 1px solid @border-color-default;
+        padding: 15px 0;
+      }
+    }
+
+    .level-security { //reset password view
+      position: absolute;
+      top: 21px;
+      right: 22px;
+      @media (max-width: 767px) {
+        top: 40px;
+      }
+    }
+
+    .level-security-fa { //first access view
+      position: absolute;
+      top: 62px;
+      right: 24px;
+      @media (max-width: 767px) {
+        top: 80px;
+      }
+    }
+
+  }
+
+  .dropdown-languages {
+    float: right;
+    margin: 15px 0;
+    > .dropdown {
+      float: right;
+      > .dropdown-toggle .am {
+        position: relative;
+        top: 2px;
+        padding: 0 5px;
+      }
+      > .dropdown-menu {
+        min-width: auto; //bootstrap override
+      }
+    }
+  }
+
+  //end container
+}

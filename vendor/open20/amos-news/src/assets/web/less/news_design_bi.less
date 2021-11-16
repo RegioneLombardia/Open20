@@ -1,0 +1,243 @@
+/**
+IMPORT AMOS-LAYOUT VARIABLES
+ */
+ @import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/v2/variables.less";
+ @import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/v2/utility.less";
+ /**
+ IMPORT STYLE-CUSTOM
+  */
+ @import (optional) "../../frontend/web/less/style_custom.less";
+
+.listview-container.news-item { 
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2) !important;
+    box-shadow: none;
+    .container-news {
+        font-size: 16px;
+        height: 100%;
+        .card-wrapper {
+            height: 100%;
+            .card {
+                padding: 0;
+                position: relative;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                min-width: 0;
+                border: none;
+                background-color: @white-color;
+                background-clip: border-box;
+                border-radius: 0;
+                height: 100%;
+                .w-100 {
+                    width: 100%;
+                }
+                .h-100 {
+                    height: 100%;
+                }
+                .font-weight-bold {
+                    font-weight: 700;
+                }
+                .font-weight-light {
+                    font-weight: 300;
+                }
+                .img-responsive-wrapper {
+                    .image-wrapper {
+                        position: relative;
+                        .new-badge.badge {
+                            font-size: 13px;
+                            top: 9px;
+                            right: 5px;
+                            z-index: 1;
+                        }
+                        .manage {
+                            padding: 0;
+                            .dropdown {
+                                position: inherit;
+                            }
+                            .dropdown-menu {
+                                top: 30px;
+                            }
+                            &+.new-badge.badge {
+                                right: 50px;
+                            }
+                            .manage-menu{
+                                position: absolute;
+                                top: 5px;
+                                right: 5px;
+                                background-color: @white-color;
+                                z-index:1;
+                                width: auto;
+                                border-radius: 4px;
+                                border: 1px solid @black-color;
+                                padding: 3px 8px;
+                                margin-right: 0;
+                                font-size: 20px;
+                                .am-chevron-down{
+                                    display: none;
+                                }
+                                span.pull-left{
+                                    margin: 0;
+                                    color: inherit;
+                                }
+                                &:hover{
+                                    background-color: @main-background-color;
+                                    color: @white-color;
+                                    opacity: 1;
+                                }
+                            }
+                        }
+                    }
+                    .card-calendar {
+                        top: 0;
+                        left: 20px;
+                        //height: 85px;
+                        //width: 60px;
+                        height: 65px;
+                        width: 45px;
+                        max-height: 80px;
+                        background-color: @white-color;
+                        box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1), 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+                        right: 32px;
+                        color: #455a64;
+                        text-align: center;
+                        font-size: 0.889em;
+                        font-weight: 600;
+                        line-height: 1.3;
+                        text-transform: capitalize;
+                        position: absolute;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        border-radius: 0;
+                        .text-600 {
+                            color: #3f3f40;
+                        }
+                        .card-day {
+                            margin: 0;
+                        }
+                    }
+                }
+                .post-header {
+                    /*display: inline-flex;
+                    justify-content: flex-start;
+                    align-items: center;*/
+                    margin-bottom: 0;
+                    .creator {
+                        max-width: 100% !important;
+                        font-size: 14px;
+                        padding-left: 27px;
+                    }
+                    .card-creator-targets {
+                        margin-top: @margin-min;
+                        font-size: 85%;
+                        padding-left: 27px;
+                        strong {
+                            font-weight: normal;
+                        }
+                    }
+                    .post-header-avatar {
+                        .container-round-img-sm {
+                            filter: brightness(100%);
+                            width: 32px;
+                            height: 32px;
+                            display: inline-flex;
+                            overflow: hidden;
+                            border-radius: 50%;
+                            width: 32px;
+                            height: 32px;
+                            justify-content: center;
+                            align-items: center;
+                            background: @light-background-color;
+                            box-sizing: content-box;
+                            transition: background-color 0.2s;
+                            border: none;
+                        }
+                    }
+                }
+                .card-body {
+                    padding: 12px 0;
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+                    .card-category {
+                        text-transform: uppercase;
+                        margin: 0;
+                    }
+                    hr {
+                        border: 0;
+                        border-top: 1px solid rgba(0, 0, 0, 0.1);
+                        margin: 8px 0px;
+                    }
+                    .link-list-title {
+                        color: @text-main-color;
+                        text-decoration: none;
+                        &:hover {
+                            text-decoration: underline;
+                            color: @text-main-color;
+                        }
+                        h3 {
+                            font-weight: 700;
+                            font-size: 1.2em;
+                            line-height: 1.25;
+                            margin: @margin-medium 0;
+                        }
+                    }
+                    /* vedere se mettere o tenere colore di default
+                    .card-description {
+                        line-height: 1.2rem;
+                        color: #435a70;
+                        font-family: inherit;
+                    }*/
+                    .card-description {
+                        margin-bottom: auto;
+                        font-size: 0.875em;
+                        line-height: 1.5em;
+                    }
+                    a.read-more {
+                        margin-top: 18px;
+                        position: relative;
+                        bottom: 0;
+                        display: flex;
+                        align-items: center;
+                        text-transform: uppercase;
+                        font-weight: bold;
+                        letter-spacing: 0.9px;
+                        text-decoration: none;
+                        .text {
+                            text-decoration: underline;
+                        }
+                        .icon {
+                            margin-left: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+//per widget
+.card-news {
+    .list-view {
+        padding: 0 15px;
+        div[role="listbox"] {
+                display: flex;
+                flex-wrap: wrap;
+                height: auto !important;
+                >div{
+                    width: 33%;
+                    padding: @padding-large;
+                    padding-left: 0;
+                    display: flex;
+                    @media screen and (max-width:991px) {
+                        width: 50%;
+                    }
+                    @media screen and (max-width:767px) {
+                        width: 100%;
+                    }
+                }
+            
+        }
+    }
+}

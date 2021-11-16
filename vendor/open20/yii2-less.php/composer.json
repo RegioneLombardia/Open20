@@ -1,0 +1,31 @@
+{
+    "name": "open20/yii2-less.php",
+    "description": "This is a Yii2 wrapper extension for PHP port of the official LESS processor http://lesscss.org.",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","less","less.php","php","oyejorge","css","assets","assetManager","bundles","converter"],
+    "proscription": "LGPL-V3",
+    "authors": [
+        {
+            "name": "cakebake (Jens A.)",
+            "email": "cakebake.dev@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*",
+		"oyejorge/less.php": "*"
+    },
+    "extra": {
+        "yii\\composer\\Installer::postCreateProject": {
+            "setPermission": [
+                {
+                    "runtime": "0777"
+                }
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "cakebake\\lessphp\\": ""
+        }
+    }
+}

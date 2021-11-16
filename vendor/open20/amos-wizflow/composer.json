@@ -1,0 +1,24 @@
+{
+	"name" : "open20/amos-wizflow",
+	"description" : "The wizard UI pattern implemented using yii2-workflow",
+	"keywords": ["amos","yii2","extension","workflow"," wizard"],
+	"type" : "plugin",
+	"proscription" : "BSD-3-Clause",
+	"minimum-stability" : "stable",
+	"require" : {
+		"php" : ">=5.4.0",
+		"yiisoft/yii2" : "*",
+		"raoul2000/yii2-workflow" : "*"
+	},
+	"config" : {
+		"process-timeout" : 1800
+	},
+	"autoload" : {
+		"psr-4" : {
+			"open20\\amos\\wizflow\\" : "src"
+		}
+	},
+    "require-dev": {
+        "yiisoft/yii2-faker": "*"
+    }
+}

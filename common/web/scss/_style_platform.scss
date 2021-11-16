@@ -1,0 +1,35 @@
+//UIKIT OVVERIDE
+@import "uikit_buttons";
+
+//BRANDBOOK RL
+@import "logoRL";
+
+//COMPONENTS
+@import "typography-preference";
+@import "modal-preference";
+@import "social-login-preference";
+@import "form-preference";
+@import "bi-card-preference";
+
+//LAYOUTS
+@import "header-custom-preference";
+@import "header-usermenu-custom-preference";
+@import "header-usernotlogged-custom-preference";
+@import "footer-custom-preference";
+@import "static-pages-preference";
+@import "sidebar-preference";
+@import "setting-preference";
+
+
+//TEMPLATE LANDING
+@import "template-landing";
+
+
+//Ovverride colore bg card per preference center
+$card-preference-bg: #eaf1eb;
+
+$override-colors: (
+    "card-preference-bg": $card-preference-bg,
+);
+
+$theme-colors: map-merge($theme-colors, $override-colors);

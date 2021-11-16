@@ -1,0 +1,133 @@
+/**
+IMPORT AMOS-LAYOUT VARIABLES
+ */
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/variables.less";
+/**
+IMPORT STYLE-CUSTOM
+ */
+@import (optional) "../../backend/web/less/style_custom.less";
+
+@color-grey:#888787;
+//@icon-folder:#F8D484;
+//@icon-blue:#104281;
+//@icon-green:#2E8034;
+//@icon-red:#C3191D;
+//@icon-black:#000000;
+
+#hierarchical-widget-list-id > div {
+  padding: 0;
+}
+
+.box-widget.hierarchical-documents {
+  background-color: #ffffff;
+  .box-widget-title {
+    margin-right: 5px;
+  }
+  .read-all {
+    text-align: left;
+    float: left;
+    margin: 8px 0;
+    padding: 0;
+    text-transform: uppercase;
+    color: @color-grey;
+    &:after {
+      content: ' >>';
+    }
+  }
+
+  //first case of change-view into graphic widget
+  .btn-group div.btn-tools-primary {
+    padding: 4px 12px;
+    min-height: 28px;
+    height: 100%;
+    margin-top: 3px;
+    p {
+      font-size: calc(0.8em);
+      float: right;
+      margin: 0 0 0 6px;
+      //padding-bottom: 4px;
+      & > span { //add by ::tHtml translate
+        margin-top: 3px;
+      }
+    }
+  }
+  .btn-group div.btn-tools-primary span:first-child {
+    font-size: 1em;
+    float: left;
+    line-height: 0.9
+  }
+
+  .dropdown-menu.dropdown-menu-change-view.dropdown-menu-left > li > a > p {
+    display: inline-block;
+  }
+
+  .hierarchical-widget-address-bar-id {
+    .title {
+      color: #363636;
+    }
+  }
+
+  .hierarchical-widget-address-bar {
+    background-color: #eeeded;
+    padding: 15px;
+    margin: 0 0 15px 0;
+
+    > a {
+      text-decoration: underline;
+    }
+    > a:not(:first-child) {
+      margin-left: 5px;
+    }
+    .dash-folder-open {
+      color: inherit;
+    }
+  }
+
+  .hierarchical-widget-list {
+    margin-bottom: 50px;
+  }
+
+  .card-container {
+    border: none;
+    height: 100%;
+    .icon-body {
+      padding: 0 5px;
+    }
+
+    .directory-title {
+      font-size: 1em;
+      margin: 5px 0;
+      font-weight: bold;
+      text-decoration: underline;
+
+    }
+
+    .date + .directory-title {
+      margin-top: 0;
+    }
+
+    &.file {
+      background-color: lighten(@color-grey, 40%);
+      border-radius: 10px;
+    }
+  }
+  .card-container .widget-listbox-option article .container-icon {
+    width: 100%;
+    height: 100%;
+    padding: 5px 0;
+    border-bottom: 1px solid @color-grey;
+    text-align: center;
+    .dash {
+      font-size: 50px;
+    }
+  }
+
+  //icon table view
+  td a {
+    text-decoration: none;
+    .dash {
+      font-size: 35px;
+    }
+  }
+
+}

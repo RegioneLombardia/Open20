@@ -1,0 +1,764 @@
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/v2/variables.less";
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/v2/utility.less";
+
+@margin-top-blocks: 30px;
+@placeholder-color: black;
+@padding-login: 25px;
+
+/**
+FORM OVERRIDE
+ */
+.form-group-login {
+    height: 45px;
+    padding-left: 35px;
+    padding-top: 7px;
+    font-size: 1.1em !important;
+    letter-spacing: 0.2px !important;
+}
+
+/**
+PLACEHOLDER FORM OVERRIDE
+ */
+.placeholder-login {
+    text-transform: uppercase;
+    color: @placeholder-color;
+    font-weight: normal;
+    opacity: 1;
+}
+
+//PARTE LOGIN-REGISTER IDPC
+.login-page {
+    margin: @margin-top-blocks 0;
+    .logo-login{
+        display: flex;
+    }
+    .container-messages {
+      width: 100%;
+      padding: 0;
+    }
+  
+    .dropdown-languages {
+      float: right;
+      background: @white-color;
+      padding-top: @padding-default;
+  
+      >.dropdown {
+        float: right;
+  
+        >.dropdown-toggle .am {
+          position: relative;
+          top: 2px;
+          padding: 0 5px;
+        }
+  
+        >.dropdown-menu {
+          min-width: auto; //bootstrap override
+        }
+      }
+    }
+  
+    .welcome-message {
+      margin: 0;
+    }
+  
+    ::-webkit-input-placeholder {
+      /* WebKit browsers */
+      .placeholder-login;
+    }
+  
+    :-moz-placeholder {
+      /* Mozilla Firefox 4 to 18 */
+      .placeholder-login;
+    }
+  
+    ::-moz-placeholder {
+      /* Mozilla Firefox 19+ */
+      .placeholder-login;
+    }
+  
+    :-ms-input-placeholder {
+      /* Internet Explorer 10+ */
+      .placeholder-login;
+    }
+  
+    ::placeholder {
+      /* Recent browsers */
+      .placeholder-login;
+    }
+  
+    .btn {
+      border: 1px solid @white-color;
+    }
+  
+    .title-login {
+      font-size: 1.3em;
+      margin-top: 0;
+      color: @main-background-color;
+    }
+  
+    h3.title-login {
+      font-size: 1.1em;
+    }
+  
+    .logo-login {
+      max-width: 100%;
+      background-color: @white-color;
+      padding: @padding-login 0;
+      .flexbox;
+      align-items: flex-end;
+  
+      .login-logo-and-text {
+        .flexbox;
+        .flexbox-wrap(nowrap);
+        justify-content: flex-start;
+        align-items: center;
+        padding-left: @padding-login;
+        img{
+          height: 50px;
+        }
+        @media (max-width: 991px) {
+          .flexbox-wrap;
+        }
+      }
+  
+      .login-logo-text {
+        font-size: 18px;
+        color: @brand-secondary-color;
+        font-weight: 600;
+        line-height: 1.3;
+        display: block;
+        //padding-left: @padding-login;
+  
+        a {
+          margin: 0 auto;
+          text-align: center;
+          width: auto;
+          display: inline-flex;
+          background-color: #fff;
+          padding: @padding-min @padding-large;
+          
+        }
+       
+       
+      }
+  
+      // FIX FOR IE11
+      @media screen and (-ms-high-contrast: active),
+      screen and (-ms-high-contrast: none) {
+        .login-logo-and-text {
+          display: inline;
+  
+          .logo-amos {
+            width: auto;
+            margin: 0 auto;
+          }
+        }
+      }
+  
+    }
+  
+    .login-block {
+      background-color: @white-color;
+      padding: 0px;
+      margin-top: @margin-top-blocks;
+  
+      .login-body {
+        padding: 35px @padding-login 0 @padding-login;
+        background-color: white;
+        color: @placeholder-color;
+  
+        .form-group {
+          margin-bottom: @margin-min;
+  
+          >.row>.col-xs-12:first-child {
+            //hide label div
+            display: none;
+          }
+  
+          .form-control {
+            .form-group-login;
+          }
+  
+          +.ic {
+            position: absolute;
+            top: 20px;
+            margin-left: 7px;
+            font-size: 1.2em;
+          }
+        }
+  
+        .select2-container {
+          background: @white-color;
+          text-transform: uppercase;
+  
+          .selection .select2-selection .select2-selection__rendered .select2-selection__placeholder,
+          &.select2-container--krajee .selection .select2-selection .select2-selection__rendered .select2-selection__placeholder {
+            color: @black-color;
+          }
+        }
+  
+        .action {
+          .flexbox;
+          flex-direction: row-reverse;
+          align-items: center;
+          justify-content: space-between;
+          margin-top: @margin-medium;
+          .btn{
+            border-radius: 0;
+          }
+  
+          @media (min-width: 420px) {
+            .btn {
+              padding: 6px 30px;
+            }
+          }
+        }
+
+        .title-login{
+            color: @placeholder-color;
+        }
+      }
+  
+      .rememberme {
+        padding: 0px @padding-login ;
+        .form-group{
+          margin: 0;
+          .remember-me {
+            text-transform: uppercase;
+      
+            input[type="checkbox"] {
+              top: -1px;
+            }
+          }
+        }
+        
+      }
+      
+  
+      
+  
+      .forgot-password a {
+        color: @brand-primary-color;
+        text-transform: uppercase;
+      }
+  
+      &.registration-block {
+        //registration view
+        margin-top: 30px;
+       
+        .login-body {
+            background-color: inherit;
+            border: 0;
+            padding: 0;
+            .title-login{
+                color: @placeholder-color;
+            }
+            .cookie-privacy {
+                font-size: 0.9em;
+                line-height: 1.2em;
+                padding-top: @padding-default;
+                color: @text-primary-color;
+    
+                a {
+                color: @black-color;
+                font-weight: bold;
+                }
+    
+                div[role='radiogroup'] {
+                .flexbox;
+                .flexbox-row;
+                align-items: center;
+                justify-content: space-between;
+    
+                .radio+.radio {
+                    //override forms.less
+                    margin: @margin-medium 0;
+                }
+    
+                .radio input[type='radio'] {
+                    //override forms.less
+                    margin-top: 2px;
+                }
+    
+                label {
+                    text-transform: uppercase;
+                }
+                }
+            }
+    
+            .recaptcha {
+                .flexbox;
+                justify-content: flex-end;
+                padding: 0 @padding-min;
+            }
+    
+            .action-block {
+                .flexbox;
+                flex-direction: row-reverse;
+                justify-content: space-between;
+                background-color: transparent;
+                padding-top: 15px;
+
+                button,
+                a {
+                margin: 0;
+                }
+                .btn-primary, .btn-navigation-primary{
+                border-radius: 0;
+                &:hover{
+                    border-radius: 0;
+                }
+                }
+            }
+        }
+  
+        +.reactivate-profile-block {
+          padding: 0  @padding-login @padding-login;
+          background: @white-color;
+          text-transform: uppercase;
+          margin-bottom: @margin-top-blocks;
+  
+          a {
+            color: contrast(@white-color);
+            font-weight: bold;
+          }
+        }
+  
+        @media (max-width: 419px) {
+          padding: 0 0 @padding-login;
+  
+          .login-body {
+            padding: 35px 10px @padding-login;
+  
+            iframe {
+              position: relative;
+              left: 3px;
+            }
+          }
+        }
+      }
+  
+      &.forgotpwd-block {
+        //forgot password view
+        padding-bottom: 35px;
+  
+        .action {
+          flex-direction: row-reverse;
+        }
+      }
+  
+      &.disablenotify-block {
+        //disable notification view
+        padding-bottom: 35px;
+  
+        .action {
+          flex-direction: row-reverse;
+        }
+      }
+  
+      &.reactivate-block {
+        padding-bottom: 35px;
+  
+        .form-group textarea.form-control {
+          padding: 6px;
+        }
+  
+        .action {
+          flex-direction: row-reverse;
+  
+          button,
+          a {
+            min-width: 120px;
+          }
+        }
+      }
+  
+      &.resetpwd-block {
+        //reset password view
+        padding-bottom: 35px;
+  
+        .eye-toggle-box,
+        .field-firstaccessform-password {
+          color: @white-color;
+          text-transform: uppercase;
+        }
+  
+        .cookie-privacy,
+        .cookie-privacy a {
+          color: @white-color;
+        }
+  
+        .action {
+          justify-content: flex-end;
+        }
+      }
+  
+      &.security-message {
+        //all messages after action
+        padding-bottom: 35px;
+  
+        p {
+          color: black;
+        }
+  
+        hr {
+          border-color: @white-color;
+        }
+  
+        .action {
+          justify-content: flex-end;
+        }
+  
+        a:not(.btn) {
+          color: contrast(white);
+          text-decoration: none;
+  
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+        a.btn{
+          
+            color: white;
+            text-decoration: none;
+    
+            &:hover {
+              text-decoration: none;
+              color: #333;
+            }
+          
+        }
+      }
+  
+      &.social-auth-spid {
+        //amos-social-auth spid
+        padding-bottom: 35px;
+  
+        &.ask-signup {
+          hr {
+            border-color: @white-color;
+            float: none;
+          }
+  
+          .action {
+            flex-direction: row;
+            text-align: center;
+            color: @white-color;
+          }
+        }
+      }
+    }
+  
+    .social-block {
+      margin-top: @margin-top-blocks;
+     
+      padding: 0 @padding-login @padding-login;
+  
+      &.social-register-block {
+        background: white;
+        margin-top: @margin-top-blocks;
+        padding: 0 25px 25px;
+        
+        
+      }
+  
+      +.spid-block {
+        margin-top: 0;
+      }
+  
+  
+      .social-buttons {
+        text-align: center;
+        display: inline-flex;
+        .flexbox-wrap(nowrap);
+        justify-content: space-between;
+  
+        .button-container .btn{
+          margin: 5px;
+          padding: 6px;
+        }
+        .btn-apple, .btn-farmlab {
+          border: 1px solid black;
+        }
+        @media (max-width: 480px) {
+          .flexbox-wrap;
+        }
+  
+        .btn+.btn {
+          margin-left: 0;
+        }
+  
+        .btn {
+          width: 95%;
+          padding: 6px 0;
+          font-weight: normal;
+          font-size: 1.1em;
+          line-height: 1.2em;
+  
+          span.am {
+            //padding-right: 5px;
+          }
+  
+          span.text {
+            text-align: center;
+          }
+        }
+      }
+    }
+  
+    .spid-block {
+        background: rgb(255, 255, 255);
+        padding: @padding-login;
+        margin-top: 0;
+  
+        .btn.btn-spid {
+            //single button to spid login
+            background-color: @spid;
+            color: contrast(@spid);
+            border-color: @spid;
+            border-radius: 0;
+            width: 100%;
+            font-size: 1em;
+            line-height: 1;
+            padding: 7px 0;
+            white-space: normal;
+    
+            >span:last-child {
+            text-transform: initial;
+            font-size: 1em;
+            white-space: nowrap;
+            border-right: 1px solid @white-color;
+            padding-right: @padding-min;
+            }
+    
+            @media (max-width: 360px) {
+            font-size: 11px;
+            }
+        }
+    
+        .spid-text {
+            color: contrast(@black-color);
+            font-size: 0.9em;
+            line-height: 1.2em;
+        }
+
+        .title-login{
+            color: @placeholder-color;
+        }
+    }
+  
+    .register-block {
+      margin-top: @margin-top-blocks;
+      margin-bottom: @margin-top-blocks;
+      background: @white-color;
+      padding: @padding-login;
+  
+      .title-login {
+        margin: 0;
+        text-transform: uppercase;
+        font-weight: 700;
+       
+  
+        >a {
+          text-transform: none;
+          font-weight: normal;
+          color: inherit;
+  
+          &:hover {
+            color: @brand-primary-color;
+          }
+        }
+      }
+    }
+  
+}
+
+//PARTE RECONCILIATION IDPC
+.reconciliation-page{
+    
+    .subtitle{
+        font-size: 18px;
+        line-height: 27px;
+        letter-spacing: -0.31px;
+        color: #333333;
+    }
+    .two-column-section{
+        .row{
+            .col-md-6{
+                .internal-container{
+                    position: relative;
+                    .arrow-right{
+                        position: absolute;
+                        top: 0;
+                        bottom: -100px;
+                        left: auto;
+                        right: -16px;
+                        @media (max-width:991px){
+                            display: none;
+                        }
+                     
+                      
+                    }
+                    .single-section-title{
+                        font-size: 32px;
+                        line-height: 48px;
+                        border-bottom: 2px solid #979797;
+                    }
+                    .info-container{
+                        padding: 20px 0;
+                        opacity: 50%;
+                        .info-label{
+                            font-weight: bold;
+                            color: #5A768A;
+                            font-size: 14px;
+                            line-height: 20px;
+                        }
+                        .info-content{
+                            //max-width: 80%;
+                            font-size: 20px;
+                            line-height: 31px;
+                            color: #17324D;
+                            border-bottom: 2px solid #5C6F82;
+                            font-weight: bold;
+                            align-items: baseline;
+                            justify-content: space-between;
+                            p:not(.tooltip){
+                                max-width: 90%;
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                margin: 0;
+                                
+                            }
+                            .tooltip  {
+                              overflow: visible;
+                              width: 100% !important;
+                              //max-width: 100% !important;
+                              opacity: 1 !important;
+                              display: flex !important;
+                              justify-content: center;
+                              margin: auto;
+                              color: white !important;
+                              z-index: 10 !important;;
+                              .tooltip-inner{
+                                max-width: 100% !important;
+                                opacity: 1 !important;
+                                color: white !important;
+                                z-index: 10 !important;;
+
+                              }
+                              span{
+                                width: 100% !important;
+                                opacity: 1 !important;
+                                color: white !important;
+                                z-index: 10 !important;;
+                               
+                              }
+                              
+                              
+                            }
+                            span:not(.tooltip){
+                                color: #008255;
+                            }
+                            @media (max-width:575px){
+                                max-width:100%;
+                            }
+                            
+                        }
+                    }
+                    
+                }
+                .btn-spid{
+                    margin-top: 20px;
+                    border-color: #0066CC;
+                    background-color: #0066CC;
+                    color: white;
+                    width: 100%;
+                    padding: 12px;
+                    @media (max-width:360px){
+                      font-size: 11px;
+                    }
+                }
+                .idpc-reconciliation-img{
+                    max-width: 80%;
+                    margin: 20px auto;
+                }
+               
+            }
+            .col-md-6:nth-child(1){
+                @media (min-width:992px){
+                    padding-right: 0;
+                } 
+                .internal-container{
+                    @media (min-width:992px){
+                        padding-right: 20%;
+                    }   
+                }
+               
+            }
+            .col-md-6:nth-child(2){
+                @media (max-width:991px){
+                  margin-top: 20px;
+                }
+                @media (min-width:992px){
+                    padding-left: 0;
+                } 
+                .internal-container{
+                    display: flex;
+                    flex-direction: column;
+                    @media (min-width:992px){
+                        padding-left: 20%;
+                    }   
+                }
+               
+            }
+            .skip-button-container{
+                margin-top: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .btn-navigation-secondary{
+                    border: 1px solid #e1e4e2;
+                    border-radius: 4px;
+                    color: #297A38;
+                }
+            }
+        }
+    }
+}
+
+//PARTE MODALE IDPC
+#modal-dl-semplification{
+  .modal-content{
+    padding: 15px;
+  }
+  .modal-header{
+    border-bottom: 0;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: flex-start;
+    &::before, &::after{
+      display: none;
+    }
+    h2{
+      font-size: 15px;
+      letter-spacing: 0.5px;
+      color: #17324D;
+      opacity: 0.7;
+      font-weight: bold;
+    }
+    .close{
+      margin-top: -5px;
+    }
+  }
+  .modal-body{
+    padding-top: 0;
+    font-size: 16px;
+    letter-spacing: -0.28px;
+    line-height: 24px;
+    a{
+      font-weight: bold;
+    }
+  }
+}

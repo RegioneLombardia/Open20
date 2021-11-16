@@ -1,0 +1,4 @@
+/composer.lock
+/phpunit.xml
+/vendor/
+tests/GeckoPackages/DiffOutputBuilder/Tests/Integration/out

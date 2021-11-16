@@ -1,0 +1,94 @@
+/* AMOS-LAYOUT */
+
+/*ACCORDION DEFAULT VARIABLES*/
+@accordion-background-header-color: @primary-color;
+@accordion-text-header-color: contrast(@primary-color);
+@accordion-border-color: @primary-color;
+
+//TODO where are used?
+.panel-group {
+  .panel-heading {
+    background-color: @secondary-color;
+    border: solid @secondary-color 1px;
+    color: contrast(@secondary-color);
+    cursor: pointer;
+  }
+  span.am {
+    float: right;
+  }
+  button {
+    margin-bottom: 5px;
+  }
+}
+
+.first-accordion{ /* used for mix accordion and form section space */
+  margin-top: 50px; /* same as h2.subtitle-form */
+}
+
+/**
+ YII ACCORDION
+ */
+.ui-accordion.ui-widget {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  //margin-top: 20px;
+  //margin-bottom: 20px;
+  input,
+  select{
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    border-radius: 0;
+    min-height: 34px;
+  }
+  *[class*="ui-corner"]{
+    border-radius: 0;
+  }
+  .ui-accordion-header {
+    background: none; /* override */
+    background-color: @accordion-background-header-color;
+    color: @accordion-text-header-color;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: @padding-medium 7px;
+    border: none; /* override */
+    &.ui-state-active{
+      border: none; /* override */
+    }
+    .dash{
+      margin-right: @margin-min;
+      color: @accordion-text-header-color;
+    }
+  }
+  .ui-accordion-content.ui-widget-content{
+    border: 1px solid @accordion-border-color;
+    border-top: none;
+    padding: 10px 15px;
+
+    h4{
+      font-size: 1.25em;
+      margin-top: 12px;
+    }
+    button{
+      font-family: inherit;
+      font-size: inherit;
+    }
+  }
+  .ui-icon-amos{ /* override ui-icon standard yii accordion class */
+    background: none;
+    margin-top: 0;
+    text-indent: 0;
+    overflow: inherit;
+    vertical-align: unset;
+
+    position: relative; /* fix for old platform with old yii2 and jquery version */
+    left: inherit; /* fix for old platform with old yii2 and jquery version */
+    top: inherit; /* fix for old platform with old yii2 and jquery version */
+    float: right;
+
+  }
+  + .ui-accordion.ui-widget:last-child{
+    margin-bottom: @margin-default;
+  }
+}

@@ -1,0 +1,22 @@
+{
+    "name": "softcommerce/yii2-knob",
+    "description": "jQuery Knob for Yii2.",
+    "keywords": ["yii", "extension", "widget", "knob", "jquery"],
+    "type": "yii2-extension",
+    "proscription": "GPL v2",
+    "authors": [
+        {
+            "name": "Oleg Ilyushyn",
+            "email": "oleg@softcommerce.com.ua",
+            "homepage": "http://softcommerce.com.ua"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "softcommerce\\knob\\": ""
+        }
+    }
+}

@@ -1,0 +1,143 @@
+/* AMOS-LAYOUT */
+
+/* WORKFLOW DEFAULT VARIABLES */
+@workflow-background-color: lighten(desaturate(@primary-color, 50%), 50%);
+@workflow-state-descriptor-text-color: @workflow-alert-color;
+
+/* WORKFLOW TRANSITION WIDGET
+show current status and buttons on top page in create/update view
+*/
+.workflow-transition-widget {
+  background-color: @workflow-background-color;
+  width: 100%;
+  float: left;
+  padding: 5px;
+  button {
+    margin: 5px 0;
+  }
+  .message {
+    margin-left: 10px;
+    h4, h3 {
+      margin: 0;
+    }
+  }
+  hr {
+    margin-top: 0;
+    margin-bottom: 0px;
+    border: 0;
+    border-top: 1px dashed @border-color-default;
+    clear: both;
+  }
+}
+
+/* WORKFLOW TRANSITION TRANSITION STATE DESCRIPTOR WIDGET
+show current status on top page in create/update view
+*/
+.workflow-transition-state-descriptor-widget {
+  background-color: @white-color;
+  color: @workflow-state-descriptor-text-color;
+  padding: @padding-default;
+  text-transform: uppercase;
+  width: 100%;
+  float: left;
+  border-left: 15px solid @workflow-state-descriptor-text-color;
+  border-bottom: 1px solid @border-color-default;
+  margin-bottom: @margin-large;
+
+}
+
+/* WORKFLOW TRANSITION BUTTON WIDGET
+workflow buttons on bottom page in create/update view
+*/
+.workflow-transition-button-widget {
+  margin-top: @margin-large;
+  margin-bottom: @margin-default;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+
+
+
+  .workflow-button-container .btn { //reset button not into container
+    margin-top: @margin-medium;
+  }
+  >.workflow-button-container{
+    @media (max-width:430px){
+      display: flex;
+      justify-content: center;
+    }
+    .btn{
+      @media (max-width:430px){
+        width: 100%;
+        max-width: 200px;
+      }
+      
+    }
+  }
+  .workflow-buttons-container {
+    display: inline-flex;
+    .flexbox-row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    order: 1;
+    @media (max-width:991px){
+      flex-direction: column;
+    }
+  
+    @media (max-width:430px){
+      justify-content: center;
+
+    }
+    //width: 100%;
+    text-align: center;
+    .workflow-button-descriptor {
+      display: block;
+    }
+    .workflow-button-container {
+      //flex: 1; //comment because incompatible with IE11
+      padding: 0 @padding-medium;
+      max-width: 240px; //for only one btn in create view
+      //max-width fix for button togli dalla pubblicazione
+      min-width: 220px;
+      border-right: 1px solid @border-color-default;
+      @media (max-width:991px){
+        border-right: none;
+        padding: 0 !important;
+      }
+    
+      @media (max-width:430px){
+        
+        border-right: none;
+        padding: 0;
+        
+
+        
+      }
+      &:last-child {
+        border-right: none;
+        padding-right: 0;
+      }
+      &:first-child {
+        padding-left: 0;
+      }
+      .btn {
+        width: 100%;
+        margin-top: 10px;
+        //fix for button togli dalla pubblicazione
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        
+        &:hover{
+          border-radius: 4px;
+        }
+      }
+      p {
+        line-height: 1.2em;
+        font-size: 0.9em;
+      }
+    }
+  }
+
+}

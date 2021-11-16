@@ -1,0 +1,4 @@
+.tooltip .tooltip-inner{
+    background-color: $tooltip-bg;
+    @extend .shadow-sm;
+}

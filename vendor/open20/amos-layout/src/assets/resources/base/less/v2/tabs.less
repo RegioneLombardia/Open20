@@ -1,0 +1,131 @@
+/* AMOS-LAYOUT */
+
+/*TABS DEFAULT VARIABLES*/
+@nav-tabs-padding: @padding-default;
+@nav-tabs-active-color: @brand-primary-color;
+@nav-tabs-no-active-color: @text-primary-color;
+@nav-tabs-background-color: @white-color;
+@nav-tabs-border-color: @border-color-default;
+@font-size-tabs: 1.0rem;
+@font-weight-tabs: 500;
+@font-weight-active-tabs: 700;
+@font-weight-hover-tabs: 700;
+@line-height-tabs: 1.3;
+
+.tabHover {
+  background-color: lighten(@brand-primary-color, 50%);
+  color: @brand-primary-color;
+  border: none;
+  border-bottom: 2px solid @brand-primary-color;
+  opacity: 1;
+  font-weight: @font-weight-tabs;
+}
+
+.tabActive {
+  background-color: lighten(@nav-tabs-active-color, 50%);
+  color: @nav-tabs-active-color;
+  border: none;
+  border-bottom: 2px solid @nav-tabs-active-color;
+  opacity: 1;
+  font-weight: @font-weight-tabs;
+}
+
+.nav-tabs {
+  width: 100%;
+  position: relative;
+  border: none;
+
+  @media screen and(min-width:1200px) {
+    display: flex;
+    justify-content: start;
+  }
+
+  >li {
+    background-color: transparent;
+    flex-grow: 1;
+    margin-bottom: 0;
+
+    >a {
+      border: none;
+      border-radius: 0;
+      border-bottom: 2px solid @nav-tabs-border-color;
+      background-color: @nav-tabs-background-color;
+      color: @nav-tabs-no-active-color;
+      opacity: 0.7;
+      margin: 0;
+      text-align: center;
+      text-transform: none;
+      font-size: @font-size-tabs;
+      line-height: @line-height-tabs;
+      font-weight: @font-weight-tabs;
+      padding: @nav-tabs-padding;
+      text-decoration: none;
+
+      &:hover,
+      &:focus {
+        .tabHover;
+      }
+    
+
+      .badge {
+        //badge position into nav-tabs
+        padding: 3px 6px;
+        top: 3px;
+      }
+    }
+
+    &.active,
+    &.active:hover {
+      >a, >a:focus {
+        .tabActive;
+      }
+
+    }
+  }
+
+  .dropdown {
+    .dropdown-menu li a {
+      position: relative;
+    }
+
+    .dropdown-toggle .caret {
+      border-top: 8px dashed !important;
+      border-right: 5px solid transparent !important;
+      border-left: 5px solid transparent !important;
+    }
+  }
+
+
+  /* if there is only one tab, hide it. Not for mobile */
+  @media(min-width: 320px) {
+    .dropdown+li:last-child {
+      display: none;
+    }
+  }
+
+}
+
+.tab-content {
+  //TODO where is used?
+  width: 100%;
+  float: left;
+  padding: @padding-default 0;
+  background: #fff;
+  h4{
+    font-size: 1.25em;
+    margin-top: 12px;
+  }
+  h3 {
+    margin-top: 25px;
+  }
+  h2.subtitle-form{
+    margin-top: 25px !important;
+  }
+  input{
+    margin-right: 5px;
+  }
+  label{
+    margin-right: 10px;
+  }
+}
+

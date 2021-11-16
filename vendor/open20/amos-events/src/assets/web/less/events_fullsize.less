@@ -1,0 +1,435 @@
+/**
+IMPORT AMOS-LAYOUT VARIABLES
+ */
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/v2/variables.less";
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/v2/utility.less";
+
+/**
+IMPORT STYLE-CUSTOM
+ */
+@import (optional) "../../backend/web/less/style_custom.less";
+
+///////////// INVITATION REGISTER CONFIRM //////////////
+.container-mod {
+  padding: 0 3%;
+}
+
+.event-form {
+  position: relative;
+  clear: both;
+}
+
+.header-form {
+  height: 365px;
+  overflow: hidden;
+  position: relative;
+  margin: -5px 15px 0px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .header-form_caption {
+    position: absolute;
+    bottom: 0;
+    padding: 0 3%;
+    display: flex;
+    color: #fff;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+
+    >div {
+      padding: @padding-min @padding-medium;
+    }
+
+    .form_caption_date {
+      background-color: @primary-color;
+      height: fit-content;
+
+      .event-day {
+        margin: 0;
+        font-size: 3em;
+        font-weight: bold;
+        line-height: 1em;
+      }
+
+      .event-month {
+        margin: 0;
+        font-size: 1.7em;
+        padding-bottom: @padding-min;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      .event-year {
+        margin: 0;
+        font-size: 1.2em;
+        letter-spacing: 3px;
+        padding-top: @padding-min;
+      }
+    }
+
+    .form_caption_title {
+      span {
+        font-size: 1.65em;
+      }
+
+      h2 {
+        font-size: 2.5em;
+        font-weight: bold;
+        margin: 0;
+      }
+    }
+  }
+}
+
+.event-confirm-form {
+  >.row {
+    padding: 15px 15px 5px 15px;
+    ;
+    background-color: #ededed;
+    margin-bottom: calc(@margin-default * 2);
+  }
+
+  input {
+    border: none !important;
+  }
+
+  label {
+    text-transform: uppercase !important;
+    color: #595959 !important;
+  }
+
+  h3 {
+    font-weight: bold;
+  }
+}
+
+.event-confirm-description {
+  margin: 15px 0 5px 0;
+
+  h2 {
+    font-weight: bold;
+    margin-top: 50px;
+  }
+
+  h4 {
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+}
+
+///////////// END INVITATION REGISTER CONFIRM //////////////
+
+.icon-calendar-intro {
+  float: left;
+  margin-right: 10px;
+}
+
+.save-draft-icon,
+.publish-icon {
+  background: transparent;
+  border: 0;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.save-draft-icon {
+  color: #888787;
+
+  >span {
+    color: #888787;
+  }
+
+  .icon-text {
+    color: #888787;
+    font-weight: bold;
+  }
+}
+
+.publish-icon {
+  >span {
+    color: @primary-color;
+  }
+
+  .icon-text {
+    color: @primary-color;
+    font-weight: bold;
+  }
+}
+
+.boxed-data {
+  font-weight: bold;
+}
+
+#tab-staff .container-tools,
+#tab-participants .container-tools {
+  margin: 0;
+  padding: 10px 15px;
+}
+
+.inline-boxed>div {
+  padding: 0 5px;
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  &:last-child {
+    padding-right: 0;
+  }
+
+  @media (max-width: 991px) {
+    padding: 0;
+  }
+}
+
+/* WIDGET GRAFICO */
+.box-widget .wrap-event {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+
+  .wrap-img {
+    width: 100%;
+    max-height: 400px;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .abstract {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 40px 40px;
+    color: #fff;
+    background: rgba(22, 22, 22, 0);
+    background: -moz-linear-gradient(to bottom, rgba(22, 22, 22, 0) 0%, #161616 100%);
+    background: -webkit-linear-gradient(to bottom, rgba(22, 22, 22, 0) 0%, #161616 100%);
+    background: linear-gradient(to bottom, rgba(22, 22, 22, 0) 0%, #161616 100%);
+
+    a {
+      color: #fff
+    }
+
+    h2.box-widget-subtitle {
+      font-size: 2em;
+    }
+  }
+
+}
+
+#eventsOwlCarousel {
+  .owl-nav:not(.disabled) {
+    position: absolute;
+    top: 68px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    pointer-events: none;
+
+    .owl-next,
+    .owl-prev {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #333333;
+      color: @white-color;
+      font-size: 3rem;
+      line-height: 3rem;
+      opacity: .7;
+      cursor: pointer;
+      pointer-events: auto;
+      position: relative;
+    }
+
+    /* nascondo per evitare sovrapposizioni con il view-all */
+    /*.owl-prev {
+      opacity: 0;
+      pointer-events: none;
+    }*/
+  }
+}
+
+
+
+/**
+
+ */
+.event_signUp {
+  background-color: #ffffff;
+
+  .header-form {
+    height: 25vw;
+    margin: 0;
+  }
+
+  .header-form_caption {
+    color: #fff;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 0 15px;
+    display: flex;
+
+    >div {
+      padding: @padding-min @padding-medium;
+    }
+
+    .form_caption_date {
+      background-color: @primary-color;
+      height: fit-content;
+
+      .event-day {
+        margin: 0;
+        font-size: 3em;
+        font-weight: bold;
+        line-height: 1em;
+      }
+
+      .event-month {
+        margin: 0;
+        font-size: 1.7em;
+        padding-bottom: @padding-min;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+
+      .event-year {
+        margin: 0;
+        font-size: 1.2em;
+        letter-spacing: 3px;
+        padding-top: @padding-min;
+      }
+    }
+
+    .form_caption_title {
+      span {
+        font-size: 1.65em;
+      }
+
+      h2 {
+        font-size: 2.5em;
+        font-weight: bold;
+        margin: 0;
+      }
+    }
+  }
+
+  .wrap-description {
+    padding-bottom: 30px;
+  }
+
+  .event-confirm-form p {
+    margin: 20px 0;
+  }
+
+  form {
+    padding: 0;
+
+    .form-control {
+      border: 1px solid #d4d4d4;
+      border-bottom-color: #959494;
+    }
+  }
+}
+
+.event-description {
+  background-color: #ececec;
+  padding: 5px 0 30px;
+  font-size: 1.2em;
+  line-height: 1.5em;
+
+  +.sub-dashboard-graphics {
+    margin-top: 0;
+  }
+}
+
+@widget-background-color-default: #ececec;
+
+.community-page {
+  background-color: darken(@widget-background-color-default, 10%);
+
+  .breadcrumb {
+    background-color: @widget-background-color-default;
+    padding: 30px 10% 15px;
+    border-radius: 0;
+  }
+}
+
+/**
+EVENT VIEW TMP FIX
+ */
+.event-view {
+  .tab-content {
+    padding: @padding-default;
+  }
+
+  .bk-btnFormContainer {
+    background: @white-color;
+    padding: @padding-default;
+    margin-bottom: @margin-large;
+  }
+}
+
+/**
+EVENT CALENDAR VIEW
+*/
+.event-calendars-view {
+  margin-top: 30px;
+
+  small {
+    font-size: 1em;
+    padding: 0 @padding-medium;
+    background-color: @brand-primary-color;
+    color: contrast(@brand-primary-color);
+
+    +h2 {
+      margin-top: @margin-min;
+      line-height: 1;
+    }
+  }
+
+  .description {
+    font-size: 1.5em;
+    line-height: 1.2;
+  }
+
+  .gestione-slot-legenda {
+    .flexbox;
+    .flexbox-row;
+    align-items: center;
+    justify-content: space-between;
+
+    h3 {
+      margin: 0;
+    }
+
+    .dash,
+    .am {
+      margin-right: @margin-min;
+      border: 1px solid @border-color-default;
+      padding: @padding-min;
+    }
+    .am{
+      padding: 3px 6px;
+    }
+  }
+}

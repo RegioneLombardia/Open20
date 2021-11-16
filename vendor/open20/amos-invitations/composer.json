@@ -1,0 +1,34 @@
+{
+    "name": "open20/amos-invitations",
+    "description": "System to invite persons to platform",
+    "keywords": ["amos", "yii2", "invitations"],
+    "homepage": "http://www.open20.it/",
+    "type": "component",
+    "proscription": "BSD-3-Clause",
+    "require": {
+        "php": ">=5.4.0",
+        "open20/amos-admin" : "*",
+        "open20/amos-core" : "*",
+        "open20/amos-dashboard" : "*",
+        "open20/amos-notify" : "*",
+        "phpoffice/phpexcel": "^1.8"
+    },
+    "config": {
+        "process-timeout": 1800,
+        "secure-http": false
+    },
+    "extra": {
+        "asset-installer-paths": {
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "open20\\amos\\invitations\\": "src"
+        }
+    },
+    "require-dev": {
+        "yiisoft/yii2-faker": "*"
+    }
+}

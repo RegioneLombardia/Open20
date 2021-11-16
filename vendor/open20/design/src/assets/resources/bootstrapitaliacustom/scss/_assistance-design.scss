@@ -1,0 +1,32 @@
+.assistance {
+  @extend .btn;
+  @extend .btn-info;
+  @extend .shadow-lg;
+  position: fixed;
+  bottom: -4px !important;
+  right: 25px !important;
+  -webkit-transform: translateX(90%);
+  transform: translateX(90%);
+  -webkit-transition: 0.7s cubic-bezier(0.29, 0.85, 0.5, 0.99);
+  transition: 0.7s cubic-bezier(0.29, 0.85, 0.5, 0.99);
+
+  a {
+    color: $white;
+    text-decoration: none;
+
+    &:hover {
+      color: $white;
+    }
+
+    .icon-assistance {
+      margin-right: 20px;
+    }
+  }
+
+  &:hover {
+    -webkit-transform: translateX(10%);
+    transform: translateX(10%);
+    -webkit-transition: 0.7s cubic-bezier(0.29, 0.85, 0.5, 0.99);
+    transition: 0.7s cubic-bezier(0.29, 0.85, 0.5, 0.99);
+  }
+}

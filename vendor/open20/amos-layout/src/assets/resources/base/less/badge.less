@@ -1,0 +1,59 @@
+/* AMOS-LAYOUT */
+
+/*BADGE DEFAULT VARIABLES*/
+@badge-font-size: 1em;
+@badge-font-weight: bold;
+@badge-color: #cd3a28;
+@badge-radius: 21px;
+
+/*BADGE UTILITIES*/
+/* set badge font */
+.badge-font(@size:@badge-font-size;@weight:@badge-font-weight;@transform:uppercase) {
+  font-size: @size;
+  font-weight: @weight;
+  text-transform: @transform;
+}
+/* set badge color */
+.badge-color(@color:@badge-color) {
+  color: contrast(@color);
+  background-color: @color;
+}
+/* set badge border radius */
+.badge-border(@rad:@badge-radius;) {
+  -webkit-border-radius: @rad;
+  -moz-border-radius: @rad;
+  border-radius: @rad;
+}
+/* set badge position */
+.badge-position(@pos:absolute;@top:inherit;@right:inherit;@bottom:inherit;@left:inherit;@z-ind:10){
+  position: @pos;
+  top: @top;
+  right:@right;
+  bottom:@bottom;
+  left:@left;
+  z-index: @z-ind;
+}
+
+/*BADGE CLASSES*/
+/*badge is default badge class: extend bootstrap class*/
+.badge{
+  .badge-font;
+  .badge-color;
+  .badge-position;
+  .badge-border(21px);
+  padding: 5px 8px;
+}
+
+/* Badge into PublishedContentWidget */
+.panel-default > .panel-heading { //override bootstrap
+  position: relative;
+  .badge{
+    margin-left: 5px;
+    bottom: 8px;
+  }
+}
+
+/*TODO added class amos-notify::NewsWidget into plugins _icon view*/
+.badge-left{
+  .badge-position(inherit,5px,auto,inherit,5px);
+}

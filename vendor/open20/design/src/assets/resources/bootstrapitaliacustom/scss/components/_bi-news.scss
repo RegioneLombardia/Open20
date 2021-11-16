@@ -1,0 +1,46 @@
+.container-news {
+    .card-calendar {
+        top: 0;
+        left: 20px;
+        height: 85px;
+        width: 60px;
+    }
+
+    .card-body {
+        .card-category {
+            width: -webkit-fit-content;
+            width: -moz-fit-content;
+            width: fit-content;
+        }
+
+        .card-text {
+            font-family: inherit;
+        }
+
+        a.read-more {
+            position: relative;
+            bottom: 0;
+        }
+    }
+
+    .other-info-item {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: flex;
+    }
+}
+
+// NEWS VISTA A LISTA
+.news-item-list-wrapper {
+    .card {
+        &::after {
+            content: inherit;
+        }
+
+        .read-more {
+            position: relative;
+            bottom: inherit;
+        }
+    }
+}

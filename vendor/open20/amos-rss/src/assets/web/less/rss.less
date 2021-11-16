@@ -1,0 +1,297 @@
+/**
+IMPORT AMOS-LAYOUT VARIABLES
+ */
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/variables.less";
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/utility.less";
+/**
+IMPORT STYLE-CUSTOM
+ */
+@import (optional) "../../backend/web/less/style_custom.less";
+
+//-----------------------------------------------
+// DASHBOARD WIDGET GRAPHIC ULTIME RSS
+//-----------------------------------------------
+@owl-height: 120px;
+@owl-background-color-nav: @black-color;
+@owl-color-nav: @white-color;
+
+@owl-background-color-title-active: @primary-color;
+@owl-color-active: contrast(@owl-background-color-title-active);
+
+.rss-custom-height {
+  min-height: 400px;
+  @media (max-width: 767px) {
+    min-height: 500px;
+  }
+}
+
+.latest-rss {
+  section.clearfixplus {
+    padding: 0;
+    height: 83%;
+    margin: @margin-min @margin-medium;
+  }
+  .rss-owl-carousel.owl-carousel {
+    .owl-nav {
+      top: 0;
+      width: 100%;
+      > button {
+        position: absolute;
+        top: 0;
+        &.owl-prev {
+          left: 0;
+        }
+        &.owl-next {
+          right: 0;
+        }
+        &.owl-prev,
+        &.owl-next {
+          background-color: @owl-background-color-nav;
+          color: @owl-color-nav;
+          font-size: 3em;
+          height: @owl-height;
+          > span {
+            position: relative;
+            bottom: 5px;
+            margin: 5px;
+          }
+        }
+      }
+    }
+    .owl-item {
+      height: @owl-height;
+      .owl-item-content {
+        border: 1px solid @border-color-default;
+        height: @owl-height;
+        > div {
+          height: auto;
+        }
+        > .access {
+          height: (@owl-height / 5);
+          .access-link {
+            vertical-align: middle;
+            color: @secondary-color;
+            padding-left: @padding-min;
+            text-decoration: none;
+          }
+        }
+        > .rss-infos {
+          height: (@owl-height / 5) * 3;
+          .rss-image {
+            height: 50%;
+            border-bottom: 1px solid @border-color-default;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 5px;
+            .img-responsive {
+              max-height: (@owl-height / 2) - 20px;
+              width: auto;
+            }
+          }
+          .rss-title {
+            height: 50%;
+            padding-left: @padding-min;
+          }
+        }
+        > .rss-footer {
+          height: (@owl-height / 5);
+          .btn {
+            float: right;
+            padding: 0 @padding-min;
+            text-transform: initial;
+            position: relative;
+            bottom: 2px;
+            right: 4px;
+            border-radius: 0;
+            font-weight: normal;
+          }
+        }
+        &.active {
+          background-color: @owl-background-color-title-active;
+          > .access { /* if item is active */
+            height: (@owl-height / 5);
+            .access-link {
+              color: @owl-color-active;
+            }
+          }
+          > .rss-infos {
+            height: (@owl-height / 5) * 3;
+            background-color: @white-color;
+            border-right: 10px solid @owl-background-color-title-active;
+            border-left: 10px solid @owl-background-color-title-active;
+            display: flex;
+            align-items: center;
+            .rss-image {
+              border: none;
+            }
+            .rss-title {
+              display: none;
+            }
+          }
+          > .rss-footer {
+            text-align: center;
+            color: @owl-color-active;
+            vertical-align: middle;
+            margin-top: 2px;
+          }
+        }
+      }
+    }
+  }
+  .list-items {
+    .tab-content {
+      padding: @padding-default;
+      border: 2px solid @primary-color;
+      border-top: none;
+      .single-item {
+        border-bottom: 1px solid @border-color-default;
+        &:not(:last-child) {
+          margin-bottom: @margin-medium;
+        }
+        .date {
+          @media (min-width: 992px) {
+            float: right;
+            margin: 0;
+          }
+        }
+        .title {
+          color: @black-color;
+          font-weight: bold;
+          font-size: 1.2em;
+        }
+      }
+    }
+  }
+}
+
+//-----------------------------------------------
+// DASHBOARD WIDGET GRAPHIC NEWS CATEGORY (RC-167)
+//-----------------------------------------------
+
+@rss-category-color: @primary-color;
+@rss-second-category-color: @light-background-color;
+@rss-category-item-color: @white-color;
+
+.news-category-rss {
+  &.box-widget .box-widget-toolbar{
+    height: auto;
+    .box-widget-title{
+      float: none;
+      margin: 9px 0px;
+    }
+  }
+  .rss-content {
+    .flexbox;
+    .flexbox-row;
+    .flexbox-wrap;
+    justify-content: space-between;
+    padding: @padding-default;
+    .rss-infos {
+      background: @rss-category-color;
+      color: contrast(@rss-category-color);
+      &.rss-two-infos { //two category rss
+        width: 49%;
+        .rss-body .single-item {
+          width: 48%;
+        }
+      }
+      .rss-head {
+        border-bottom: 2px solid contrast(@rss-category-color);
+        h2 {
+          width: auto;
+          float: left;
+          margin: @margin-min 0;
+          font-size: 1.5em;
+        }
+        a {
+          color: contrast(@rss-category-color);
+          position: absolute;
+          top: 7px;
+          right: 10px;
+          text-transform: uppercase;
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
+          .am-play {
+            margin-left: @margin-min;
+            font-size: 1.5em;
+            position: relative;
+            top: 2px;
+          }
+        }
+      }
+      .rss-body {
+        .flexbox;
+        .flexbox-row;
+        .flexbox-wrap;
+        justify-content: space-between;
+        padding: @padding-min @padding-medium;
+        .single-item {
+          padding: @padding-default;
+          background: @rss-category-item-color;
+          color: contrast(@rss-category-item-color);
+          margin: @margin-min;
+          border-radius: 10px;
+          width: 24%;
+          .date {
+            color: @secondary-color;
+            position: relative;
+            bottom: 10px;
+          }
+          .title {
+            color: contrast(@rss-category-item-color);
+            text-decoration: none;
+            font-size: 1.2em;
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+          .text {
+            color: @secondary-color;
+            margin-top: 0;
+          }
+        }
+      }
+      + .rss-infos {
+        background: @rss-second-category-color;
+        .rss-head h2,
+        .rss-head a {
+          color: contrast(@rss-second-category-color);
+        }
+      }
+      @media (max-width: 1199px) {
+        .rss-body .single-item {
+          width: 48%;
+          @media (max-width: 767px) {
+            width: 100%;
+          }
+        }
+
+        &.rss-two-infos {
+          width: 100%;
+          margin-bottom: @margin-min;
+          .rss-body .single-item {
+            width: 48%;
+            @media (max-width: 767px) {
+              width: 100%;
+            }
+          }
+        }
+      }
+      @media (max-width: 620px) {
+        .rss-head {
+          h2 {
+            width: 100%;
+          }
+          a {
+            position: relative;
+            top: 0;
+            right: 0;
+          }
+        }
+      }
+    }
+  }
+}

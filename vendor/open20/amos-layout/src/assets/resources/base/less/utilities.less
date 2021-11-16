@@ -1,0 +1,581 @@
+//-----------------------------------------------
+// Utility classes
+//-----------------------------------------------
+
+.bold {
+  font-weight: bold;
+}
+
+.italic { //TODO TEST remove
+  font-style: italic;
+}
+
+.uppercase { //TODO TEST remove
+  text-transform: uppercase;
+}
+
+.font08 { //TODO TEST remove
+  font-size: 0.8em;
+}
+
+/*.font13 { TODO not used
+  font-size: 1.3em;
+}*/
+
+/*.font2 { TODO not used
+  font-size: 2em;
+}*/
+
+.ellipsis {
+  max-width: 100%;
+  font-family: inherit;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ellipsis-text {
+  .ellipsis;
+  &:before {
+    font-family: 'Amos-Font';
+  }
+}
+
+.m-b-0 {
+  margin-bottom: 0 !important;
+}
+
+.m-b-5 {
+  margin-bottom: 5px !important;
+}
+
+.m-b-10 {
+  margin-bottom: 10px !important;
+}
+
+.m-b-15 {
+  margin-bottom: 15px !important;
+}
+
+.m-b-20 {
+  margin-bottom: 20px !important;
+}
+
+.m-b-25 {
+  margin-bottom: 25px !important;
+}
+
+.m-b-30 {
+  margin-bottom: 30px !important;
+}
+
+.m-b-35 {
+  margin-bottom: 35px !important;
+}
+
+.m-t-0 {
+  margin-top: 0 !important;
+}
+
+.m-t-5 {
+  margin-top: 5px !important;
+}
+
+.m-t-10 {
+  margin-top: 10px !important;
+}
+
+.m-t-15 {
+  margin-top: 15px !important;
+}
+
+.m-t-20 {
+  margin-top: 20px !important;
+}
+
+.m-t-25 {
+  margin-top: 25px !important;
+}
+
+.m-t-30 {
+  margin-top: 30px !important;
+}
+
+.m-t-35 {
+  margin-top: 35px !important;
+}
+
+.m-r-0 {
+  margin-right: 0 !important;
+}
+
+.m-r-5 {
+  margin-right: 5px !important;
+}
+
+.m-r-10 {
+  margin-right: 10px !important;
+}
+
+.m-r-15 {
+  margin-right: 15px !important;
+}
+
+.m-r-20 {
+  margin-right: 20px !important;
+}
+
+.m-r-25 {
+  margin-right: 25px !important;
+}
+
+.m-r-30 {
+  margin-right: 30px !important;
+}
+
+.m-l-0 {
+  margin-left: 0 !important;
+}
+
+.m-l-5 {
+  margin-left: 5px !important;
+}
+
+.m-l-10 {
+  margin-left: 10px !important;
+}
+
+.m-l-15 {
+  margin-left: 15px !important;
+}
+
+.m-l-20 {
+  margin-left: 20px !important;
+}
+
+.m-l-25 {
+  margin-left: 25px !important;
+}
+
+.m-l-30 {
+  margin-left: 30px !important;
+}
+
+.nom {
+  margin: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.nom-l {
+  margin-left: 0 !important;
+}
+
+.nom-r {
+  margin-right: 0 !important;
+}
+
+.nom-t {
+  margin-top: 0 !important;
+}
+
+.nom-b {
+  margin-bottom: 0 !important;
+}
+
+.m-15-0 {
+  margin: 15px 0;
+}
+
+.nop {
+  padding-bottom: 0;
+  padding-top: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.nopl {
+  padding-left: 0 !important;
+}
+
+.nopr {
+  padding-right: 0 !important;
+}
+
+.p-t-0 {
+  padding-top: 0 !important;
+}
+
+.p-t-5 {
+  padding-top: 5px !important;
+}
+
+.p-t-10 {
+  padding-top: 10px !important;
+}
+
+.p-t-15 {
+  padding-top: 15px !important;
+}
+
+.p-t-20 {
+  padding-top: 20px !important;
+}
+
+.p-t-25 {
+  padding-top: 25px !important;
+}
+
+.p-t-30 {
+  padding-top: 30px !important;
+}
+
+.p-t-35 {
+  padding-top: 35px !important;
+}
+
+.p-b-0 {
+  padding-bottom: 0 !important;
+}
+
+.p-b-5 {
+  padding-bottom: 5px !important;
+}
+
+.p-b-10 {
+  padding-bottom: 10px !important;
+}
+
+.p-b-15 {
+  padding-bottom: 15px !important;
+}
+
+.p-b-20 {
+  padding-bottom: 20px !important;
+}
+
+.p-b-25 {
+  padding-bottom: 25px !important;
+}
+
+.p-b-30 {
+  padding-bottom: 30px !important;
+}
+
+.p-b-35 {
+  padding-bottom: 35px !important;
+}
+
+/*.bordered-box { TODO remove not used
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 15px;
+}*/
+
+/*.no-border-radius { TODO remove - one check in amos-core/forms/editors/view/imageField (ex: not used in news _form)
+  border-radius: 0 !important;
+}*/
+
+/*.underline { TODO remove - link are already underlined
+  text-decoration: underline;
+}*/
+
+/*.modified { TODO remove not used
+  background-color: @primary-color;
+  color: contrast(@primary-color);
+  box-shadow: none;
+}*/
+
+/*.rotate-right-90 { TODO remove not used
+  transform: rotate(90deg);
+}*/
+
+/*@media (max-width: 991px) { TODO remove not used
+  .form-input-note {
+    margin: -25px 0 30px 0;
+  }
+}*/
+
+//-----------------------------------------------
+// OVERRIDE CLASS
+//-----------------------------------------------
+.element-to-toggle { //search and order menu
+  //opacity:0;
+  display: none;
+  clear: both;
+  height: 0;
+  overflow: hidden;
+
+  -webkit-transition: all .3s ease .15s;
+  -moz-transition: all .3s ease .15s;
+  -o-transition: all .3s ease .15s;
+  -ms-transition: all .3s ease .15s;
+  transition: all .3s ease .15s;
+
+  -webkit-box-shadow: 0 5px 13px 0px @box-shadow-default;
+  -moz-box-shadow: 0 5px 13px 0px @box-shadow-default;
+  box-shadow: 0 5px 13px 0px @box-shadow-default;
+
+  &.toggleIn{
+    display: inherit;
+    height: auto;
+    margin-bottom: 30px;
+    padding: 10px 15px;
+  }
+}
+
+.alert-danger {
+  color: @black-color;
+}
+
+.success {
+  color: @success-color;
+  .modal-content {
+    color: @text-primary-color;
+  }
+}
+
+.input-group-addon {
+  background-color: transparent;
+  border: 0;
+}
+
+.overlay {
+  background: @black-color;
+  bottom: 0;
+  left: 0;
+  opacity: 0.6;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 300;
+}
+
+.focused {
+  border-color: @primary-color;
+  outline: 0;
+
+  animation: pulse 2s;
+  animation-iteration-count: 1;
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px fade(@primary-color, 100%);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px fade(@primary-color, 100%);
+  }
+  100% {
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px fade(@primary-color, 0%);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px fade(@primary-color, 0%);
+  }
+}
+
+
+//-----------------------------------------------
+// WIDGET BACKGROUND
+//-----------------------------------------------
+.color-admin {
+  background: @setting-color-icons none repeat scroll 0 0 !important;
+}
+
+.color-primary {
+  background: @primary-color-icons none repeat scroll 0 0 !important;
+}
+
+.color-lightPrimary {
+  background: @light-primary-color-icons none repeat scroll 0 0 !important;
+}
+
+.color-darkPrimary {
+  background: @dark-primary-color-icons none repeat scroll 0 0 !important;
+}
+
+.color-third {
+  background: @third-color-icons none repeat scroll 0 0 !important;
+}
+
+.color-grey {
+  background: @admin-color-icons none repeat scroll 0 0 !important;
+}
+
+.color-darkGrey {
+  background: @dark-admin-color-icons none repeat scroll 0 0 !important;
+}
+
+.color-secondary {
+  background: @secondary-color-icons none repeat scroll 0 0 !important;
+}
+
+//-----------------------------------------------
+// WIDGET COLOR
+//-----------------------------------------------
+.color-text-admin {
+  color: @setting-color-icons !important;
+}
+
+.color-text-base {
+  color: @primary-color-icons !important;
+}
+
+.color-text-lightBase {
+  color: @light-primary-color-icons !important;
+}
+
+.color-text-darkBase {
+  color: @dark-primary-color-icons !important;
+}
+
+.color-text-mediumBase {
+  color: @third-color-icons !important;
+}
+
+.color-text-greyColor {
+  color: @admin-color-icons !important;
+}
+
+.color-text-darkGrey {
+  color: @dark-admin-color-icons !important;
+}
+
+.color-text-secondColor {
+  color: @secondary-color-icons !important;
+}
+
+//-----------------------------------------------
+// WIDGET BORDER
+//-----------------------------------------------
+@size: 1px;
+@style: solid;
+
+.text-border(@color, @size, @style) {
+  color: @color !important;
+  border: @size @style @color;
+}
+
+.color-border-admin {
+  .text-border(@setting-color-icons, @size, @style);
+}
+
+.color-border-base {
+  .text-border(@primary-color-icons, @size, @style);
+}
+
+.color-border-lightBase {
+  .text-border(@light-primary-color-icons, @size, @style);
+}
+
+.color-border-darkBase {
+  .text-border(@dark-primary-color-icons, @size, @style);
+}
+
+.color-border-mediumBase {
+  .text-border(@third-color-icons, @size, @style);
+}
+
+.color-border-greyColor {
+  .text-border(@admin-color-icons, @size, @style);
+}
+
+.color-border-darkGrey {
+  .text-border(@dark-admin-color-icons, @size, @style);
+}
+
+.color-border-secondColor {
+  .text-border(@secondary-color-icons, @size, @style);
+}
+
+
+/*.input-group-addon { TODO remove double
+  background-color: transparent;
+  border: 0;
+}*/
+
+//.flexbox-wrap, //TODO remove not used
+/*.plugin-list #dataViewListContainer > div {
+  .flexbox;
+  .flexbox-wrap;
+  .flex-column-item {
+    .flexbox;
+    .flexbox-column;
+  }
+}*/
+
+/*.favorite {  // TODO remove (not used)
+  color: #fbcf27;
+}*/
+
+//-----------------------------------------------
+// ROUNDED LIST NUMBER
+// TODO remove (only check in amos-admin/src/assets/web/less/admin.less refer to wizard admin)
+//-----------------------------------------------
+/*.rounded-number {
+  counter-reset: item;
+  list-style: none;
+  list-style-position: outside;
+
+  li {
+    counter-increment: item;
+    margin-bottom: 11px;
+    padding-left: 2em;
+    text-indent: -2.8em;
+
+    &:before {
+      margin-right: 10px;
+      content: counter(item);
+      background: #fff;
+      font-weight: bold;
+      border-radius: 100%;
+      border: 2px solid @primary-color;
+      padding: 1px 6px 1px 6px;
+      color: @primary-color;
+      text-align: center;
+    }
+  }
+}*/
+
+//-----------------------------------------------
+// PRIVACY
+//-----------------------------------------------
+/*#bk-formDefaultPrivacy { // TODO remove (not used)
+  margin: 0 auto;
+  text-align: center;
+}*/
+
+/*.privacy{ // TODO remove (not used)
+  margin-top:15px;
+}*/
+
+/*.informativa{ // TODO remove (not used)
+  text-align:justify;
+}*/
+
+//-----------------------------------------------
+// PRIVACY
+// TODO remove (not used)
+//-----------------------------------------------
+/*.new-message{
+  z-index: 999999;
+  position: relative;
+  font-family: Amos-Font;
+  font-weight: bold;
+  color: red;
+}*/
+
+//-----------------------------------------------
+// info-box-bordered
+// TODO remove (only check in amos-admin/src/views/user-profile/_form.php commented)
+//-----------------------------------------------
+/*
+@box-info: #e9d421;
+@box-info-background: lighten(#e9d421, 30%);
+.info-box-bordered {
+  background-color: @box-info-background;
+  padding: 15px;
+  text-transform: uppercase;
+  width: 100%;
+  float: left;
+  border-left: 15px solid @box-info;
+  border-bottom: 1px solid @box-info;
+  border-top: 1px solid @box-info;
+}*/

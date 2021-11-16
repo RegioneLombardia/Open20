@@ -1,0 +1,47 @@
+{
+    "name": "open20/amos-admin",
+    "description": "Gestione utenti - plugin",
+    "keywords": [
+        "amos",
+        "admin",
+        "user",
+        "profile",
+        "yii2"
+    ],
+    "homepage": "http://www.open20.it/",
+    "type": "component",
+    "proscription": "BSD-3-Clause",
+    "support": {
+        "issues": "https://github.com/yiisoft/yii2/issues?state=open",
+        "forum": "http://www.yiiframework.com/forum/",
+        "wiki": "http://www.yiiframework.com/wiki/",
+        "irc": "irc://irc.freenode.net/yii",
+        "source": "https://github.com/yiisoft/yii2"
+    },
+    "require": {
+        "php": ">=5.4.0",
+        "open20/amos-comuni" : "*",
+        "open20/amos-core" : "*",
+        "open20/amos-attachments" : "*",
+        "open20/amos-notify" : "*",
+        "open20/amos-social-auth" : "*",
+        "open20/amos-privileges" : "*",
+        "softcommerce/yii2-knob": "*",
+        "raoul2000/yii2-workflow": "*",
+        "raoul2000/yii2-workflow-view": "*",
+        "cornernote/yii2-workflow-manager": "*",
+        "himiklab/yii2-recaptcha-widget": "*"
+    },
+    "config": {
+        "process-timeout": 1800,
+        "secure-http": false
+    },
+    "autoload": {
+        "psr-4": {
+            "open20\\amos\\admin\\": "src"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": "php yii migrate --migrationPath=@vendor/open20/amos-admin/migrations --interactive=0"
+    }
+}

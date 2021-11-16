@@ -1,0 +1,30 @@
+{
+    "vars": [
+        {
+            "var": "id",
+            "label": "Id",
+            "description": "",
+            "type": "zaa-text"
+        },{
+            "var": "table",
+            "label": "Table",
+            "description": "",
+            "type": "zaa-text"
+        },{
+            "var": "submitlabel",
+            "label": "Submit label",
+            "description": "",
+            "type": "zaa-text"
+        },{
+            "var": "description",
+            "label": "Description",
+            "description": "",
+            "type": "zaa-text"
+        }
+    ],
+    "cfgs": [
+        
+    ],
+    "defaults": {
+    }
+}

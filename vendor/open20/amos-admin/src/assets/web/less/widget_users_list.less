@@ -1,0 +1,234 @@
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/v2/variables.less";
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/v2/utility.less";
+
+@avatar-size: 5/4*@min-tappable-area;
+@avatar-size-dsk: 2*@min-tappable-area;
+@user-box_min-height: 3/2*@avatar-size;
+@user-box_min-height-dsk: @avatar-size-dsk;
+@border-spacer-mbl: 2/5*@min-tappable-area;
+@border-spacer-dsk: @min-tappable-area;
+@widget-font-size-name: 1rem;
+@widget-font-size-name-dsk: 1.5rem;
+@widget-font-size-btn: 1.2rem;
+@widget-font-size-profile: 1rem;
+@widget-font-size-profile-dsk: 1.1rem;
+
+.box-widget.latest-users {
+    .search-buttons {
+        display: flex;
+        justify-content: space-evenly;
+        margin-bottom: 3/2*@min-tappable-area;
+        align-items: center;
+        flex-grow: 0;
+
+        .btn {
+            margin: 0;
+            font-weight: normal;
+            font-size: @widget-font-size-btn;
+        }
+    }
+
+    .list-items {
+        padding-top: 0;
+        transition: opacity .5s ease-in-out;
+        
+        &.loading {
+            opacity: .1;
+        }
+
+        [data-role='list-view'] {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0;
+
+            .list-item {
+                flex-basis: calc(~'50% - @{border-spacer-mbl}');
+                box-sizing: border-box;
+                border-bottom: solid 1px @border-color-default;
+                padding: @border-spacer-mbl/2 0;
+                margin: 0 @border-spacer-mbl/2;
+
+                &:not(:nth-child(-n+4)) {
+                    border-bottom: 0;
+                }
+
+                .user-box {
+                    min-height: @user-box_min-height;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    box-sizing: border-box;
+                    border-right: solid 1px @border-color-default;
+                    margin: 0 -@border-spacer-mbl/2;
+                    padding: 0 @border-spacer-mbl/2;
+                }
+
+                &:nth-child(2n) .user-box {
+                    border-right: 0;
+                }
+            }
+
+            .profile-icon {
+                width: @avatar-size;
+                flex-basis: @avatar-size;
+                height: @avatar-size;
+                border: 0;
+            }
+
+            .profile-info {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                flex-grow: 1;
+                color: @black-color;
+                font-size: @widget-font-size-profile;
+                line-height: 1.2;
+                padding-left: @min-tappable-area/4;
+                flex-basis: calc(~'100% - 9/4*@{min-tappable-area}');
+
+                .name.surname,
+                .company {
+                    font-weight: bold;
+                }
+
+                .name.surname {
+                    font-size: @widget-font-size-name;
+                    margin-bottom: @min-tappable-area/4;
+                }
+            }
+        }
+    }
+
+    .pagination {
+        display: none;
+    }
+
+    .shortPager {
+        display: flex;
+        margin: 0;
+        height: 2*@min-tappable-area;
+        align-items: center;
+        justify-content: center;
+
+        & > li, 
+        & > li.active, 
+        & > li.prev, 
+        & > li.next {
+            & > a,
+            & > span {
+                background-color: transparent;
+                border: 0 transparent;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: @widget-font-size-btn;
+                color: @secondary-color;
+            }
+        }
+
+        & > li.active > a {
+            color: @white-color;
+            background-color: @brand-primary-color;
+            border-color: @brand-third-color;
+        }
+    }
+
+    section {
+        position: relative; 
+        display: flex;
+        flex-direction: column-reverse;
+    }
+}
+
+@media screen and (min-width: @tablet) {
+    .box-widget.latest-users {
+        .list-items [data-role='list-view'] .list-item {
+            flex-basis: calc(~'50% - @{border-spacer-dsk}');
+            padding: @border-spacer-dsk/2 0;
+            margin: 0 @border-spacer-dsk/2;
+
+            .user-box {
+                margin: 0 -@border-spacer-dsk/2;
+                padding: 0 @border-spacer-dsk/2;
+                min-height: @user-box_min-height-dsk;
+
+                .profile-icon {
+                    flex-basis: @avatar-size-dsk;
+                    height: @avatar-size-dsk;
+                }
+
+                .profile-info {
+                    font-size: @widget-font-size-profile-dsk;
+                    flex-basis: calc(~'100% - 5/4*@{avatar-size-dsk}');
+
+                    .name.surname {
+                        font-size: @widget-font-size-name-dsk;
+                    }
+                }
+            }
+        }
+
+        .shortPager {
+            margin-left: 16%;
+        }
+
+        .search-buttons {
+            justify-content: flex-end;
+            margin-bottom: 0;
+            padding-top: @min-tappable-area/2;
+            padding-right: @min-tappable-area/2;
+
+            .btn:not(:last-of-type) {
+                margin-right: 10px;
+            }
+        }
+
+        section {
+            display: block;
+            flex-direction: none;
+        }
+    }
+}
+
+@media screen and (min-width: @desktop-only) {
+    .box-widget.latest-users {
+        .list-items [data-role='list-view'] .list-item {
+            flex-basis: calc(~'100%/3 - @{border-spacer-dsk}');
+
+            &:not(:nth-child(-n+4)) {
+                border-bottom: solid 1px @border-color-default;
+            }
+            
+            &:not(:nth-child(-n+3)) {
+                border-bottom: 0;
+            }
+
+            &:nth-child(2n) .user-box {
+                border-right: solid 1px @border-color-default;
+            }
+
+            &:nth-child(3n) .user-box {
+                border-right: 0;
+            }
+        }
+
+        .shortPager {
+            & > li, 
+            & > li.active, 
+            & > li.prev, 
+            & > li.next {
+                & > a,
+                & > span {
+                    width: @min-tappable-area/2;
+                    height: @min-tappable-area/2;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: @desktop-large) {
+    .box-widget.latest-users .shortPager {
+      margin-left: 12%;
+    }
+}

@@ -1,0 +1,130 @@
+/* AMOS-LAYOUT VARIABLES */
+
+/* default amos-layout base color */
+// @regione-color: #297a38;
+
+/* default variables for platform customizations
+override into main.less on bottom */
+@custom-color: #ddd;
+
+/* default color variables for brand customize */
+@brand-primary-color: #297a38;
+@brand-secondary-color: #878787;
+@brand-third-color: desaturate(lighten(@brand-primary-color, 20%), 20%);
+
+
+/*platform text based color*/
+@text-main-color:#000000;
+/*apply to most text tags*/
+@text-primary-color: lighten(@text-main-color,35%); //#4d4d4d instead of #514b4b
+
+
+/* default color platform basic interface*/
+@primary-color: @brand-primary-color;
+@secondary-color: #5E7887;
+@tertiary-color: #003354;
+
+/* default backend background color and image */
+@main-background-color: #ffffff;
+/* ../ because it's referred to assets directory in head tag */
+@image-background-default: unset;
+@footer-color: rgba(255, 255, 255, 1);
+
+/* default background content parts color */
+@light-background-color: lighten(@secondary-color, 40%);
+@light-background-primary-color: lighten(spin(@primary-color, -0.3750), 60);
+
+/* default border color */
+@border-color-default: lighten(@secondary-color, 30%);
+
+/* default box-shadow */
+@box-shadow-default: rgba(0,0,0,0.5);
+
+@cookiebar-background-color: #435a70;
+
+
+/* utility color */
+@white-color: #ffffff; //ex @utility-clear
+@black-color: #000000;
+
+/* status color */
+@danger-color: #A61919;
+@disabled-color: #545454;
+@info-color: #5c6f82;
+@success-color: #008758;
+@warning-color: #a66300;
+
+/* social color */
+@linkedin: #0177B5;
+@facebook: #4867AA;
+@google: #EA4335;
+@twitter: #32CCFE;
+@youtube: #be1b1e;
+@spid: #0066CC;
+@apple: #000000;
+
+/* plugin custom color */
+@workflow-alert-color: #93278f;
+
+//== Padding
+@padding-element-default: 20px; //TODO search in platform and replace width large
+@padding-large: 20px;
+@padding-default: 15px;
+@padding-medium: 10px;
+@padding-min: 5px;
+
+//== Margin
+@margin-large: 20px;
+@margin-default: 15px; // = padding default
+@margin-medium: 10px; // = padding medium
+@margin-min: 5px; // = padding min
+
+//== COLORS ICONS
+@setting-color-icons: @white-color; //color-admin
+@primary-color-icons: lighten(saturate(spin(@primary-color, -0.3353), 0.0000), 10.7843); //#009788; //color-primary
+@secondary-color-icons: lighten(desaturate(spin(@primary-color, -42.3750), 53.1250), 18.8235); //#338d45; //color-secondary
+@third-color-icons: lighten(desaturate(spin(@primary-color, 10.1964), 16.0000), 5.6863); //#0A6B73; //color-third //TODO NOT USED?
+@light-primary-color-icons: lighten(desaturate(spin(@primary-color, 1.6250), 63.0542), 41.3725); //#74BFBA; //color-lightPrimary
+@dark-primary-color-icons: lighten(desaturate(spin(@primary-color, 10.1964), 16.0000), 5.6863); //#0A6B73; //color-darkPrimary
+@admin-color-icons: lighten(desaturate(spin(@secondary-color, 0.0000), 0.4184), 20.1961);//#bbbbbb; //color-grey
+@dark-admin-color-icons: @secondary-color;//#888787; //color-darkGrey
+
+@widget-background-color-default: #ececec;
+@widget-background-color-odd: lighten(@brand-primary-color, 10%);
+@widget-background-color-even: darken(@brand-primary-color, 10%);
+
+@color-plugin: #272a33;
+
+
+// Breakpoints
+@tablet: 768px;
+@desktop: 1024px;
+@desktop-large: 1280px;
+
+@smartphone-only: 767px;
+@tablet-only: 768px;
+@desktop-only: 1025px;
+
+@min-tappable-area: 40px;
+
+@global-padding-mbl: 4%;
+@global-padding-tab: 6%;
+@global-padding-dsk: 10%;
+
+@global-margin-mbl: 4%;
+@global-margin-tab: 6%;
+@global-margin-dsk: 10%;
+
+
+@square-box-margin: 4px;
+@square-box-factor-mbl: 2;
+@square-box-factor-tab: 4;
+@square-box-factor-dsk: 6;
+@square-box-factor-dsk-large: 8; 
+@square-box-factor-mbl-landscape: 3;
+
+@square-box-width-mbl: calc(~'100%/@{square-box-factor-mbl}');
+@square-box-width-tab: calc(~'100%/@{square-box-factor-tab}');
+@square-box-width-dsk: calc(~'100%/@{square-box-factor-dsk}');
+@square-box-width-dsk-large: calc(~'100%/@{square-box-factor-dsk-large}');
+@square-box-width-mbl-landscape: calc(~'100%/@{square-box-factor-mbl-landscape}');

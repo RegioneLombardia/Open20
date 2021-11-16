@@ -1,0 +1,497 @@
+/**
+IMPORT AMOS-LAYOUT VARIABLES
+ */
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/v2/variables.less";
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/v2/utility.less";
+
+/**
+  IMPORT STYLE-CUSTOM
+   */
+@import (optional) "../../frontend/web/less/style_custom.less";
+
+.sondaggi-item-list-wrapper {
+    .row {
+        margin-right: -6px;
+        margin-left: -6px;
+        align-content: stretch;
+        flex-wrap: wrap;
+
+        @media (min-width:768px) {
+            display: flex;
+        }
+
+        div[class^="col-"] {
+            padding-left: 6px;
+            padding-right: 6px;
+        }
+    }
+
+    .card-body {
+        border-bottom: 1px solid #e9e6f2;
+        padding: 24px 0;
+
+        .content-date-img {
+            display: flex;
+            text-align: center;
+            line-height: 1;
+            height: 100%;
+            position: relative;
+
+            .date-start {
+                border-left: 10px solid @primary-color;
+                padding: 0 6px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-transform: uppercase;
+
+                .lead {
+                    margin: 0;
+                }
+
+                span {
+                    padding: 0 2px;
+                    line-height: 1;
+
+                }
+            }
+
+            .img-sondaggio {
+                width: 100%;
+
+                img {
+                    object-fit: cover;
+                    height: 100%;
+                    width: 100%;
+                    max-height: 130px;
+                }
+            }
+        }
+
+        .content-text-sondaggi {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+
+            .desc-poll{
+                p{
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    margin-bottom: 10px; 
+                }
+            }
+
+            @media (max-width:767px) {
+                margin-top: 24px;
+            }
+
+            .date-end-poll {
+                text-transform: uppercase;
+            }
+
+            .list-title {
+                display: flex;
+
+                .ml-auto {
+                    margin-left: auto;
+                    display: flex;
+
+                    span {
+                        font-size: 20px;
+                    }
+                }
+            }
+
+            .footer-list {
+                font-size: 0.7777777778em;
+                text-transform: uppercase;
+                margin-top: auto;
+                display: flex;
+                justify-content: space-between;
+                flex-direction: row;
+                width: 100%;
+
+                .change_status_workflow {
+                    background-color: transparent;
+                    border: none;
+                    text-transform: uppercase;
+                    text-decoration: underline;
+                    color: @primary-color;
+                }
+
+                span:not(:last-child) {
+                    margin-right: 12px;
+                }
+
+                @media (min-width:768px) {
+                    .partecipanti-poll {
+                        width: 30%;
+                    }
+
+                    .status-poll {
+                        width: 50%;
+                    }
+                }
+                a.assign-compiler-menu{
+                    width: 100%;
+                    font-weight: bold;
+                }
+                a.read-more{
+                    width: 100%;
+                    text-align: right;
+                }
+
+            }
+        }
+
+
+    }
+
+
+
+    a.read-more {
+        position: relative;
+        bottom: 0;
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 0.9px;
+        font-size: 0.7777777778rem;
+    }
+
+    a.assign-compiler-menu{
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 0.9px;
+        font-size: 0.7777777778rem;
+    }
+
+
+
+    .card::after {
+        display: none;
+    }
+
+    .partecipanti-stato {
+        width: 100%;
+    }
+}
+
+.sondaggi-index .am {
+    font-size: 22px;
+}
+
+.sondaggi-index {
+    .icon-view>.row div[role="listbox"]>div {
+        @media (min-width:576px) {
+            width: 50%;
+        }
+
+        @media (min-width:768px) {
+            width: 33%;
+        }
+    }
+}
+
+.sondaggi-index.sondaggi-success {
+    margin: 50px 0;
+    h3 {
+        margin-bottom: 30px;
+    }
+    a.undo-edit{
+        margin-bottom: 50px;
+    }
+}
+
+
+
+.sondaggi-item-list-wrapper.container-card-sondaggi {
+    .card-body {
+        .content-date-img {
+            .date {
+                position: absolute;
+                width: 100%;
+                top: 40%;
+                padding: 0;
+                margin: 0;
+                text-transform: uppercase;
+                font-size: 18px;
+                color: #fff;
+            }
+
+            .date-start {
+                border: 0;
+                padding: 5px 0;
+                flex-direction: row;
+                align-items: baseline;
+            }
+
+            .date-end-poll {
+                display: none;
+            }
+
+            .img-sondaggio {
+                background-color: #2a7a38;
+
+                img {
+                    opacity: 20%;
+                    filter: grayscale(100%);
+                }
+            }
+        }
+
+        .content-text-sondaggi {
+            @media (min-width:768px) {
+                margin-top: 12px;
+            }
+
+            h5 {
+                font-size: 1.333rem;
+            }
+        }
+
+        .manage {
+            position: absolute;
+            top: 0;
+            right: 0;
+            color: #fff;
+            z-index: 100;
+
+            .manage-menu {
+                color: #fff;
+            }
+        }
+    }
+}
+
+.sondaggi-dashboard{
+    .bg-light{
+        background-color:#E3E3E3;
+    }
+    .p-l-20{
+        padding-left: 20px;
+    }
+    .p-r-20{
+        padding-right: 20px;
+    }
+    .sondaggi-report-container{
+        h5{
+            font-size: 1.15rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+        }
+        p {
+            line-height: 2rem;
+        }
+    }
+}
+
+// WIDGET SONDAGGI LIVE
+.sondaggio-live-wrapper {
+    box-shadow: 0 2px 20px 0 rgba(0, 0, 0, .10);
+    display: flex;
+    margin-bottom: 24px;
+
+    .linguetta-laterale {
+        background-color: @tertiary-color;
+        min-width: 65px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 5%;
+
+        span {
+            color: contrast(@tertiary-color);
+            font-size: 32px;
+        }
+    }
+
+    .sondaggio-body {
+        padding: 24px;
+        width: 95%;
+
+        .control-label {
+            font-size: 24px;
+        }
+
+        .bk-btnFormContainer {
+            padding-bottom: 0 !important;
+        }
+    }
+}
+
+.btn.btn-secondary,
+.btn.btn-navigation-primary {
+    font-size: 16px;
+}
+
+.bk-btnFormContainer {
+    display: block;
+    margin-top: 50px;
+}
+
+.sondaggi-compilazione {
+    .radio {
+        margin-right: 20px;
+    }
+
+    .radio+.radio {
+        margin-top: 10px;
+
+    }
+
+    .sondaggi-form {
+        float: none !important;
+
+        .sondaggi-page_immage{
+            img{
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        h3 {
+            font-size: 2em;
+            font-weight: normal;
+            margin-top: 40px;
+        }
+
+        h4{
+            font-weight: normal;
+            font-size: 1.215em;
+            margin-bottom: 50px;
+        }
+
+        .control-label {
+            font-weight: bold;
+            width: 100%;
+            text-transform: uppercase;
+            margin-top: 40px;
+
+            +div {
+                text-align: left;
+                margin-top: 10px;
+            }
+            fieldset{
+                text-align: right;
+                .sortable-response{
+                    text-align: left;
+                }
+            }
+        }
+
+        .testo-introduttivo {
+            background: @light-background-primary-color;
+            border-left: 15px solid @brand-primary-color;
+            font-weight: normal;
+            margin-top: 25px;
+        }
+
+        .sondaggi-content_domanda{
+            padding-bottom: 25px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+
+            .control-label{
+                margin-top: 0;
+            }
+
+            .testo-introduttivo.testo-vincolato{
+                margin-top: 0;
+                margin-bottom: 25px;
+                padding: 0;
+                font-weight: 100;
+                font-style: italic;
+            }
+
+            .attachments-list{
+                .attachment-list-item-action {
+                    a{
+                        text-decoration: none;
+                    }
+                }    
+            }
+
+            .form-group{
+                margin-bottom: 0;
+            }
+        }
+
+        label{
+            font-size: 1em;
+            line-height: 22px;
+            padding-left: 0;
+            margin-right: 15px;
+            font-weight: normal;
+            input[type="checkbox"]{
+                margin: 5px 7px 0 0;
+                position: relative;
+            }
+        }    
+        .radio-inline{
+            input[type="radio"]{
+                position: relative;
+                margin: 5px 5px 0 0;
+            }
+        }
+        .radio{
+            input[type="radio"]{
+                position: relative;
+                margin: 5px 5px 0 0;
+            }
+        }
+        .input-group {
+            .form-control{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                padding-left: 10px;
+            }
+        }
+        
+        .select2-selection{
+            padding-left: 10px !important;
+        }
+
+        @media screen and (min-width:992px) {
+            form>.row {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+        }
+    }
+
+    &.fullsize-forced-js {
+
+        @media screen and (min-width:992px) {
+            form>.row {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+
+                >div[id^="div-domanda"] {
+                    width: 100% !important;
+                }
+            }
+
+            .form-group {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+
+                >.control-label {
+                    width: 50%;
+
+                    +div {
+                        margin-top: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+

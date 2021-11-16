@@ -1,0 +1,43 @@
+<?php
+
+/**
+ * Lombardia Informatica S.p.A.
+ * OPEN 2.0
+ *
+ * @see http://example.com Developers'community
+ * @license GPLv3
+ * @license https://opensource.org/licenses/gpl-3.0.html GNU General Public License version 3
+ *
+ * @package    elitedivision\amos\events\migrations
+ * @category   CategoryName
+ * @author     Lombardia Informatica S.p.A.
+ */
+
+use elitedivision\amos\core\migration\AmosMigrationPermissions;
+use elitedivision\amos\events\rules\DeleteOwnEventsRule;
+use elitedivision\amos\events\rules\UpdateOwnEventsRule;
+use yii\rbac\Permission;
+
+/**
+ * Class m190605_191901_update_events_permissions
+ */
+class m190605_191901_update_events_permissions extends AmosMigrationPermissions
+{
+    /**
+     * Use this function to map permissions, roles and associations between permissions and roles. If you don't need to
+     * to add or remove any permissions or roles you have to delete this method.
+     */
+    protected function setAuthorizations()
+    {
+        $this->authorizations = [
+            [
+                'name' => 'EVENT_UPDATE',
+                'update' => true,
+                'newValues' => [
+                    'addParents' => [\elitedivision\amos\events\rules\EventsUpdateRule::className()]
+                ],
+            ],
+        ];
+    }
+
+}

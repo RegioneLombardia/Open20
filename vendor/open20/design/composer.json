@@ -1,0 +1,16 @@
+{
+    "name": "open20/design",
+    "description": "Amos Basic Layout",
+    "keywords": ["amos", "yii2", "less", "css", "layout"],
+    "homepage": "https://bitbucket.org/open20/amos-layout",
+    "type": "component",
+    "require": {
+        "php": ">=5.6.0",
+        "open20/amos-core" : "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "open20\\design\\": "src"
+        }
+    }
+}

@@ -1,0 +1,54 @@
+//-----------------------------------------------
+// GENERAL RESPONSIVE RULES
+// custom layout for mobile table - class table_switch
+//-----------------------------------------------
+@include media-breakpoint-down(sm) {
+  .table_switch {
+
+    table,
+    tbody,
+    th,
+    td,
+    tr {
+      display: block;
+      float: left;
+      width: 100%;
+    }
+
+    table.table {
+      >thead {
+        display: none;
+      }
+
+      >tbody {
+        >tr {
+          >td {
+            border: none;
+            border-bottom: 1px solid #ccc;
+            position: relative;
+            padding-left: 40%;
+            min-height: 40px;
+            white-space: normal;
+
+            &:before {
+              /* get table header attribute and insert before */
+              content: attr(title);
+              font-weight: bold;
+              position: absolute;
+              top: 1em;
+              left: 6px;
+              width: 45%;
+              padding-right: 10px;
+            }
+
+            @media (max-width: 500px) {
+              &:not(:last-child) {
+                padding-left: 50%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

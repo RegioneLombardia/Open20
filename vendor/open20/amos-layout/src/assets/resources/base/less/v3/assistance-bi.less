@@ -1,0 +1,32 @@
+.bi-assistance {
+  position: fixed;
+  right: 16px;
+  bottom: 64px;
+  margin-bottom:-48px;
+  transition: all 0.2s ease-in-out, transform 0.25s cubic-bezier(0.75, -0.5, 0, 1.75), visibility 0.3s linear, opacity 0.3s ease-in-out;
+  z-index:1031;
+  
+  &.push-up {
+    margin-bottom: 0;
+    transition: all 0.2s ease-in-out, transform 0.25s cubic-bezier(0.75, -0.5, 0, 1.75), visibility 0.3s linear, opacity 0.3s ease-in-out;
+  }
+  @media (min-width: 1200px){
+    bottom: 80px;
+    right: 32px;
+  }
+
+  a {
+    width: 40px;
+    height: 40px;
+    background-color: #FFF;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid @brand-primary-color;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+    border-radius: 50% !important;
+    // @media (min-width:576px){
+    //   width: 40px;
+    //   height: 40px;
+    // }
+  }
+}

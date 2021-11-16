@@ -1,0 +1,123 @@
+.event-container {
+    .time-event {
+        font-size: 16px;
+
+        @include media-breakpoint-up(sm) {
+            font-size: 22px;
+        }
+
+        .date {
+            .day-event {
+                @extend .h2;
+            }
+
+            .month-event {
+                @extend .h4;
+            }
+
+            .year-event {
+                @extend .h5;
+            }
+        }
+
+    }
+
+    &.light-theme {
+        .time-event {
+            background: $tertiary;
+
+            .date {
+                @include get-color-contrast($tertiary);
+            }
+
+            .hour {
+                background: $secondary;
+                @include get-color-contrast($secondary);
+
+                .icon {
+                    @extend .icon-white;
+                }
+            }
+        }
+
+    }
+
+    &.dark-theme {
+        color: #FFF;
+
+        .time-event {
+            background: #FFF;
+
+            .date {
+                @include get-color-contrast(#FFF);
+            }
+
+            .hour {
+                background: $secondary;
+                @include get-color-contrast($secondary);
+
+                .icon {
+                    @extend .icon-white;
+                }
+            }
+        }
+
+        .link-list-title {
+            @include get-color-contrast($tertiary);
+        }
+    }
+
+
+    &.date-dark {
+        @include media-breakpoint-up(md) {
+            background-color: $white;
+        }
+
+        >p {
+            @include media-breakpoint-down(sm) {
+                @include get-color-contrast($tertiary);
+            }
+        }
+
+    }
+
+    // .date {
+    //     @include media-breakpoint-down(sm) {
+    //         background-color: transparent;
+    //     }
+    // }
+    .external-image-container {
+        position: relative;
+        .image-wrapper {
+            img {
+                object-position: center;
+                object-fit: cover;
+            }
+
+        }
+
+        .other-info-item {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+        }
+    }
+
+}
+
+.event-list-item-container {
+    a:hover {
+        h5 {
+            text-decoration: underline;
+        }
+    }
+
+}
+
+.event-calendar {
+    //box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1), 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+    width: 60px;
+    @include get-color-contrast($secondary);
+
+}

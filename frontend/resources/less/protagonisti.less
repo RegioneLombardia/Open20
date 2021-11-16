@@ -1,0 +1,62 @@
+.section-protagonisti {
+    overflow: hidden;
+
+    .uk-section {
+        padding: 0;
+        margin: 70px 0px;
+    }
+
+    .box-protagonisti {
+        align-items: flex-start;
+        .vertical-title  {
+           h3 {
+            color: #000;
+            // min-height: 450px;
+        } 
+        }
+
+    
+
+        .list-protagonist .list-view{
+            div:not(:first-child){
+                padding-bottom: 1em;
+            }
+            div {
+                transform: translateY(0px) !important;
+            }
+            .summary{
+                display: none;
+            }
+            .img{
+                border-radius: 50%;
+                overflow: hidden;
+                img {
+                    object-fit: cover;
+                    width: 100%;
+                
+                }
+            }
+            .text{
+                @media (max-width:639px){
+                    text-align: center;
+                }
+                padding-top:1em;
+                min-height: 8em;
+                p{
+                    margin: 0;
+                    font-size: 26px;
+                    &:last-child {
+                        font-size: 22px;
+                    }
+                }
+                p:nth-child(1){
+                    font-size:26px;
+                }
+                p:nth-child(2){
+                    font-size:22px;
+                }
+            }
+        }
+    }
+}
+

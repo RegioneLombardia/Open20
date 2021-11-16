@@ -1,0 +1,314 @@
+@landing-bg-background-form:#25629f;
+@landing-pb-background-form:#2d6faa;
+@landing-op-background-form:#4f1a41;
+
+.green-blu-form{
+  background-color: @landing-bg-background-form;
+  form {  
+    .social-container span,
+    .social-container span strong,
+    label,
+    label>a,
+    span.help-block,
+    span.am-help,
+    .control-label {
+      color: contrast(@landing-bg-background-form);
+    }
+    label>a {
+      color: contrast(@landing-bg-background-form) !important;
+    }
+    input.form-control {
+      border-bottom:1px solid contrast(@landing-bg-background-form) !important;
+      color:contrast(@landing-bg-background-form)
+    }
+    .btn.btn-primary {
+      background-color: contrast(@landing-bg-background-form);
+      border-color: contrast(@landing-bg-background-form);
+      color: @landing-bg-background-form;
+
+      &:hover {
+        background-color: @landing-bg-background-form;
+        border-color: contrast(@landing-bg-background-form);
+        color: contrast(@landing-bg-background-form);
+      }
+    }
+    .social-container .btn-login-social > span {
+      color: @landing-bg-background-form !important;
+  }
+  }
+  
+}
+
+.purple-blu-form{
+  background-color: @landing-pb-background-form;
+  form {  
+    .social-container span,
+    .social-container span strong,
+    label,
+    label>a,
+    span.help-block,
+    span.am-help,
+    .control-label {
+      color: contrast(@landing-pb-background-form);
+    }
+    label>a {
+      color: contrast(@landing-pb-background-form) !important;
+    }
+    input.form-control {
+      border-bottom:1px solid contrast(@landing-pb-background-form) !important;
+      color:contrast(@landing-pb-background-form)
+    }
+    .btn.btn-primary {
+      background-color: contrast(@landing-pb-background-form);
+      border-color: contrast(@landing-pb-background-form);
+      color: @landing-pb-background-form;
+
+      &:hover {
+        background-color: @landing-pb-background-form;
+        border-color: contrast(@landing-pb-background-form);
+        color: contrast(@landing-pb-background-form);
+      }
+    }
+    .social-container .btn-login-social > span {
+      color: @landing-pb-background-form !important;
+  }
+  }
+}
+
+.orange-pink-form{
+  background-color: @landing-op-background-form;
+  form {  
+    .social-container span,
+    .social-container span strong,
+    label,
+    label>a,
+    span.help-block,
+    span.am-help,
+    .control-label {
+      color: contrast(@landing-op-background-form);
+    }
+    label>a {
+      color: contrast(@landing-op-background-form) !important;
+    }
+    input.form-control {
+      border-bottom:1px solid contrast(@landing-op-background-form) !important;
+      color:contrast(@landing-op-background-form)
+    }
+    .btn.btn-primary {
+      background-color: contrast(@landing-op-background-form);
+      border-color: contrast(@landing-op-background-form);
+      color: @landing-op-background-form;
+
+      &:hover {
+        background-color: @landing-op-background-form;
+        border-color: contrast(@landing-op-background-form);
+        color: contrast(@landing-op-background-form);
+      }
+    }
+    .social-container .btn-login-social > span {
+      color: @landing-op-background-form !important;
+  }
+  }
+}
+
+.section-landing-cms-form {
+
+  .social-container .btn-login-social {
+   
+    color: transparent !important;
+    width:30px !important;
+    height: 30px !important;
+    .social-buttons a {
+
+      margin-right: 0 !important;
+      margin-left: 0 !important;
+    
+    
+}
+
+
+}
+    
+  .social-container .btn-login-social.btn-facebook:hover,
+  .social-container .btn-login-social.btn-twitter:hover,
+  .social-container .btn-login-social.btn-linkedin:hover
+   {
+    background-color: transparent !important;
+    opacity: 1 !important;
+    border: 1px solid white !important;
+}
+
+    h3{
+        color:white;
+        text-transform: uppercase;
+        font-size: 3.5em;
+        font-weight: 600;
+        line-height: 1;
+    }
+
+    .Nome_item, .Cognome_item, .Email_item{
+        width: 49% !important;
+        display: inline-block !important;
+    }
+
+    .Sesso_item, .Eta_item, .Comune_item{
+      width: 30% !important;
+      display: inline-block !important;
+      margin:0;
+    }
+
+    .Email_item{
+      width: 100% !important;
+  }
+
+
+  .Eta_item{
+    margin: 0 4%;
+    
+  }
+  .select2-search--dropdown{display: none !important;}
+  .Sesso_item{
+    
+    .radio{
+      margin:10px 0 !important;
+    }
+    .radio:nth-child(2){
+      margin-left:10px !important;
+    }
+  }
+
+    .Nome_item {
+        margin:0;
+        
+    }
+
+    .Cognome_item {
+        margin-top:0;
+        margin-bottom:0;
+        margin-left:1%;
+        margin-right:0;
+    }
+
+    #recorddynamicmodel-sesso{
+      display:flex;
+    }
+
+    .Email_item {
+        margin:0;
+        
+    }
+
+    .Privacy_item {
+        margin:5% 0;
+        
+    }
+
+    #social-container{
+        display:flex;
+        flex-direction: row;
+        margin-bottom: 20px;
+        margin-top: 50px;
+        text-align: left;
+        flex-wrap: wrap;
+        span{
+            width:60%;
+        }
+        .social-buttons{
+            text-align: left !important;
+       
+        }
+    }
+
+    form {
+ 
+  
+      .help-block.help-block-error {
+        color: orange;
+      }
+  
+      label,
+      label>a {
+        font-weight: 700;
+      }
+  
+     
+  
+      .social-container {
+        margin-bottom: 30px;
+  
+        span.am {
+          padding: 0;
+          bottom: 1px;
+          position: relative;
+        }
+      }
+  
+      .userSocial_item,
+      .datiRecuperatiDaSocial_item,
+      .socialScelto_item,
+      .associaNuovoAccountSocial_item {
+        display: none;
+      }
+      
+      .help-block{
+          margin-top:0;
+      }
+
+      input.form-control {
+        background: transparent;
+        box-shadow: none;
+        border: none;
+       
+        border-radius: 0 !important;
+      }
+  
+      .form-group {
+        >div.row {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          flex-wrap: wrap;
+  
+          >div {
+            &:nth-child(1) {
+              //label
+              width: auto;
+              order: 1;
+            }
+  
+            &:nth-child(2) {
+              //field
+              order: 3;
+              flex-grow: 1;
+              width: 100%;
+            }
+  
+            &:nth-child(3) {
+              //tooltip and error
+              width: auto;
+              order: 2;
+              display: flex;
+              flex-direction: row-reverse;
+            }
+          }
+        }
+      }
+  
+      label em {
+        font-size: 16px;
+        line-height: 1;
+        display: block;
+        font-weight: normal;
+      }
+  
+      .uk-form-controls {
+        text-align: center;
+        margin-top: 30px;
+  
+        .btn.btn-primary {
+          font-size: 1.5em;
+        
+        }
+      }
+    }
+  }

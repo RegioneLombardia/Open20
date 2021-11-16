@@ -1,0 +1,8 @@
+{
+    "css": [
+        "../scss/login.scss"
+    ],
+    "js": [
+        "../js/login.js"
+    ]
+}

@@ -1,0 +1,108 @@
+.owl-carousel-design {
+  .owl-carousel {
+    //Aggiunta per carousel HP per IE
+    @media #{map-get($device-media-queries, onlyIe)} {
+      .owl-item {
+        img {
+          width: auto;
+        }
+      }
+    }
+
+    .owl-stage {
+      display: flex;
+
+      .it-single-slide-wrapper {
+        height: 100%;
+      }
+    }
+
+    .owl-nav {
+      @include media-breakpoint-down(md) {
+        margin-top: 0;
+      }
+
+      display: block;
+      font-size: 50px !important;
+
+      .owl-prev,
+      .owl-next {
+        position: absolute;
+        top: 45%;
+        transform: translateY(-50%);
+
+        span {
+          color: $primary;
+        }
+      }
+
+      .owl-prev {
+        left: -1rem;
+      }
+
+      .owl-next {
+        right: -1rem;
+      }
+    }
+
+    .owl-dots {
+      margin-top: 20px;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      button.active {
+        border-radius: 100%;
+        border: 2px solid $primary;
+        width: 20px;
+        height: 20px;
+        background: $card-preference-bg;
+      }
+
+      .owl-dot {
+        transition: inherit;
+
+        &.active {
+          span {
+            background-color: $primary;
+            margin: 2px 3px;
+          }
+        }
+
+        span {
+          width: 10px;
+          height: 10px;
+          display: block;
+          -webkit-backface-visibility: visible;
+          transition: opacity 0.2s ease;
+          border-radius: 30px;
+        }
+      }
+    }
+  }
+
+  // CAROUSEL NEWS
+  &.it-carousel-landscape-abstract-one-cols{
+    .container-news {
+      .card-wrapper {
+        height: 100%;
+
+        .card {
+          .img-responsive-wrapper,
+          .card-body {
+            @include media-breakpoint-up(xl) {
+              width: 50%;
+              @extend .mx-2;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// CAROUSEL CALENDARIO
+.calendar-section .it-carousel-wrapper .owl-stage {
+  display: flex;
+}

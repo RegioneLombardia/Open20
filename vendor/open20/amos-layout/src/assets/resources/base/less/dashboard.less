@@ -1,0 +1,190 @@
+/* AMOS-LAYOUT */
+
+/*DASHBOARD DEFAULT VARIABLES*/
+@default-plugin-color: #77a3f5;
+@font-size-dashboard: 1.25em;
+@line-height-dashboard: 1.3;
+@letter-spacing-dashboard: 1.25px;
+
+.dashboard-content {
+  .plugin {
+    margin: 0;
+  }
+
+  > .container {
+    padding-bottom: 60px;
+    padding-top: 10px;
+  }
+
+  .container > div:not(#dashboard-edit-toolbar):not(#bk-pluginGrafici) {
+    p {
+      background: #ffffff;
+      padding: 10px;
+      border-radius: 0;
+      margin-top: 0;
+    }
+
+  }
+
+  nav {
+    padding-top: 50px;
+    background-color: transparent;
+  }
+
+}
+
+//-----------------------------------------------
+// ICON PLUGINS
+//-----------------------------------------------
+.plugin-list {
+  float: left;
+  width: 100%;
+  list-style: none;
+  padding: 0;
+
+  #dataViewListContainer > div { // widget manager list
+    .flexbox;
+    .flexbox-wrap;
+    .flex-column-item {
+      .flexbox;
+      .flexbox-column;
+    }
+  }
+
+  .item-widget {
+    font-size: 0.80em;
+    text-transform: uppercase;
+    padding: 0 5px;
+    margin-bottom: @margin-default;
+    text-align: center;
+    float: left;
+    width: 100%;
+
+    a {
+      position: relative;
+      color: #fff;
+      display: block;
+      clear: both;
+      height: 120px;
+      padding: 0;
+      width: 100%;
+      text-decoration: none;
+
+      &:hover, &:focus {
+        text-decoration: none;
+      }
+
+      &:hover {
+        opacity: @text-link-hover-opacity;
+      }
+
+      @media (min-width: 320px) and (max-width: 420px) {
+        height: 110px;
+      }
+
+    }
+
+    span.plugin-list {
+      width: 100%;
+      display: block;
+      padding: @padding-medium;
+      clear: both;
+      height: 120px;
+      border: none;
+      background-color: @default-plugin-color;
+    }
+
+    span.dash, //TODO - CLASSE PIU GENERALE
+    span.am {
+      font-size: 3.2em;
+      color: @white-color;
+    }
+
+    .multiple-plugin {
+      span.dash, //TODO - CLASSE PIU GENERALE
+      span.am {
+        font-size: 5em;
+        color: @white-color;
+      }
+    }
+
+    .icon-dashboard-name {
+      background: #fff;
+      color: #000;
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      bottom: 0;
+      padding: @padding-min;
+      width: 100%;
+      min-height: 34px;
+      font-weight: 700;
+      font-size: 1.05em;
+      line-height: 13px;
+      text-transform: uppercase;
+      display: block;
+      font-family: @main-font;
+      @media (min-width: 320px) and (max-width: 420px) {
+        font-size: 0.85em;
+        line-height: 11px;
+        padding: 5px 2px;
+      }
+    }
+
+    .badge {
+      .badge-position(absolute; -7px; -6px;);
+    }
+
+  }
+
+  .bk-backgroundIcon {
+    position: relative;
+    width: 100%;
+    display: block;
+    padding: 0;
+    clear: both;
+    height: 120px;
+    border: none;
+    text-transform: uppercase;
+    color: @white-color;
+    padding-top: @padding-default;
+
+    //TODO to remove
+    &.color-disabled {
+      border: none;
+      background: #ffffff;
+      color: @danger-color;
+      cursor: not-allowed;
+    }
+    @media (min-width: 320px) and (max-width: 420px) {
+      height: 110px;
+    }
+  }
+}
+
+.plugin-list table .bk-backgroundIcon {
+  height: 50px;
+}
+
+.actions-dashboard-container {
+  .col-custom {
+    position: relative;
+    width: 50%;
+
+    @media (min-width: 320px) and (max-width: 767px) {
+      width: 33.33%;
+    }
+
+    @media (min-width: 768px) {
+      width: 20%;
+    }
+
+    @media (min-width: 992px) {
+      width: 16.66666667%;
+    }
+
+    @media (min-width: 1200px) {
+      width: 12.5%;
+    }
+  }
+}

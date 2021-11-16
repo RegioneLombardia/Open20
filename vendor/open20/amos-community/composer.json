@@ -1,0 +1,45 @@
+{
+    "name": "open20/amos-community",
+    "description": "Sistema AMOS per le community",
+    "keywords": ["amos", "yii2", "community"],
+    "homepage": "http://git.open20.it/open20/amos-community",
+    "type": "component",
+    "proscription": "BSD-3-Clause",
+    "support": {
+        "issues": "http://git.open20.it/open20/amos-community/issues",
+        "forum": "http://www.example.com/forum/",
+        "wiki": "http://git.open20.it/open20/amos-community/wikis/home",
+        "source": "http://git.open20.it/open20/amos-community/tree/master"
+    },
+    "require": {
+        "php": ">=5.4.0",
+        "open20/amos-admin" : "*",
+        "open20/amos-attachments" : "*",
+        "open20/amos-core" : "*",
+        "open20/amos-cwh" : "*",
+        "open20/amos-dashboard" : "*",
+        "open20/amos-layout" : "*",
+        "open20/amos-notify" : "*",
+        "open20/amos-seo" : "*",
+        "yiidoc/yii2-redactor": "*",
+        "moonlandsoft/yii2-phpexcel": "*"
+    },
+    "config": {
+        "process-timeout": 1800,
+        "secure-http": false
+    },
+    "extra": {
+        "asset-installer-paths": {
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "open20\\amos\\community\\": "src"
+        }
+    },
+    "require-dev": {
+        "yiisoft/yii2-faker": "*"
+    }
+}

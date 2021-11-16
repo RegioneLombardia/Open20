@@ -1,0 +1,60 @@
+.agid-carousel-container{
+    .it-carousel-wrapper.it-carousel-landscape-abstract{
+        .owl-stage-outer{
+            padding-top: 0;
+            .it-single-slide-wrapper{
+                .it-text-slider-wrapper-outside{
+                    .card{
+                        padding-bottom: 60px;
+                        .card-body {
+                            padding-left: 3px;
+                            a{
+                                text-decoration: none;
+                                &:hover{
+                                    text-decoration: underline;
+                                }
+                            }
+                            h5.card-title.big-heading{
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                display: -webkit-box;
+                                -webkit-line-clamp: 2;
+                                -webkit-box-orient: vertical;
+                            }
+                            .card-text{
+                                margin-bottom: 0.5rem;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                display: -webkit-box;
+                                -webkit-line-clamp: 2;
+                                -webkit-box-orient: vertical;
+                            }
+                            .chip-container{
+                                .chip.chip-simple{
+                                    margin: 0 4px 0 0;
+                                }
+                            }
+                            a.read-more{
+                                float: initial;
+                                margin-top: 0.5rem;
+                            }
+                            
+                        }
+                    }
+                }  
+                
+            } 
+        }
+        .owl-dots{
+            left:0;
+            bottom: 55px;
+            z-index: 5;
+            margin-left: 0;
+            .owl-dot:nth-child(1){
+                margin-left: 3px;
+            }
+        }
+      
+        
+    }
+}

@@ -1,0 +1,118 @@
+/**
+IMPORT AMOS-LAYOUT VARIABLES
+ */
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/variables.less";
+/**
+IMPORT STYLE-CUSTOM
+ */
+@import (optional) "../../backend/web/less/style_custom.less";
+
+//-----------------------------------------------
+// DASHBOARD WIDGET GRAPHIC
+//-----------------------------------------------
+
+.latest-discussions {
+  height: inherit;
+  /*  overflow: hidden;
+    display: block;
+    background-color: #fff;*/
+  section{
+    height: 83%;
+    overflow:hidden;
+  }
+  .widget-listbox-option {
+    article {
+      display:flex;
+      flex-direction: row;
+      .listbox-date{
+        p {
+          margin: 0;
+        }
+      }
+      .container-img {
+        width: 15%;
+        margin-right:10px;
+      }
+    }
+    .footer-listbox {
+      position: relative !important;
+      border-bottom: 1px solid @border-color-default;
+      p {
+        margin: 0;
+        font-size: 0.8em;
+        position: absolute;
+        bottom: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 939px) and (min-width: 320px) {
+  .latest-discussions .widget-listbox-option article .container-img{
+    width: 11%;
+  }
+}
+
+/**
+DISCUSSIONI TOPIC VIEW
+ */
+.discussioni-topic-view {
+  .header-widget{
+    position: relative;
+    margin: @margin-medium 0;
+    .post-header .publication-date{
+      text-align: right;
+    }
+    .manage{ /* override */
+      margin-top: 0;
+    }
+    .amos-tooltip{
+      float: right;
+    }
+    .reportflag-widget{
+      float: right;
+      a{
+        margin: 0px 12px;
+        position: relative;
+        bottom: 2px;
+      }
+    }
+  }
+  .header {
+    background-color: @light-background-color;
+    margin-bottom: @margin-default;
+    overflow: hidden;
+    max-height: 350px;
+    .img-responsive {
+      margin: 0 auto;
+    }
+    .title{
+      background-color: rgba(255,255,255,0.8);
+      position: absolute;
+      bottom: 0px;
+      min-height: 80px;
+      h2{
+        font-weight: bold;
+        max-width: 80%;
+        margin-top: @margin-medium;
+        color: @black-color;
+      }
+    }
+    .manage{ /* override */
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .amos-tooltip{ /* override */
+      font-size: 1.65em;
+      margin-top: @margin-default;
+      position: absolute;
+      right: 60px;
+      top: 0;
+      color: @secondary-color;
+    }
+  }
+}
+
+
+

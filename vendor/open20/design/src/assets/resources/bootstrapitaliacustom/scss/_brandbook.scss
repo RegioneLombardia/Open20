@@ -1,0 +1,69 @@
+/* BRANDBOOK RL 25-7-19 */
+
+/* COLORS */
+$brandbook-primary-color: #297a38;
+$brandbook-secondary-color: #003354;
+
+$brandbook-neutral-1-color: #e6e9f2;
+$brandbook-neutral-2-color: #fcfcff;
+$brandbook-neutral-3-color: $brandbook-secondary-color;
+
+$brandbook-triadic-1-color: #a66300;
+$brandbook-triadic-2-color: #008758;
+$brandbook-triadic-3-color: #d92828;
+
+$brandbook-btn-primary-color: $brandbook-primary-color;
+$brandbook-btn-secondary-color: white;
+$brandbook-btn-tertiary-color: #5e7887;
+
+/* SIZE */
+$height-header-slim-wrapper-d: 58px; // height desktop
+$height-header-slim-wrapper-m: 56px; // height mobile
+$height-it-small-header-d: 94px; // height desktop
+$height-it-small-header-m: 94px; // height mobile
+
+/* LOGHI RL */
+$global-height-logo: 54px;
+$space-between-logo: 24px;
+$height-logo-RL: $global-height-logo;
+$width-logo-RL: 194px;
+$height-logo-ARIA: $global-height-logo;
+$width-logo-ARIA: auto;
+$height-logo-RL-top: 38px;
+$width-logo-RL-top: 184px;
+
+/* THEME COLOR */
+$brandbook-theme-colors: () !default;
+
+$brandbook-theme-colors: (
+    "brandbook-primary": $brandbook-primary-color,
+    "brandbook-secondary": $brandbook-secondary-color,
+    "brandbook-neutral-1": $brandbook-neutral-1-color,
+    "brandbook-neutral-2": $brandbook-neutral-2-color,
+    "brandbook-neutral-3": $brandbook-neutral-3-color,
+    "brandbook-triadic-1": $brandbook-triadic-1-color,
+    "brandbook-triadic-2": $brandbook-triadic-2-color,
+    "brandbook-triadic-3": $brandbook-triadic-3-color,
+    "brandbook-btn-primary": $brandbook-btn-primary-color,
+    "brandbook-btn-secondary": $brandbook-btn-secondary-color,
+    "brandbook-btn-tertiary": $brandbook-btn-tertiary-color,
+);
+
+.logo-RL-design > .it-brand-text > img {
+    width: $width-logo-RL;
+    height: $height-logo-RL;
+}
+.logo-RL-top-design > img {
+    width: $width-logo-RL-top;
+    max-height: $height-logo-RL-top;
+}
+.logo-ARIA-design > .it-brand-text > img {
+    width: $width-logo-ARIA;
+    height: $height-logo-ARIA;
+}
+.logo-text-platform-design {
+    color: $brandbook-btn-tertiary-color !important; //todo check brandbook
+}
+a.logo-text-platform-design:hover {
+    text-decoration: underline !important;
+}

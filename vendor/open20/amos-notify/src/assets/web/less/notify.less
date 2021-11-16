@@ -1,0 +1,31 @@
+/**
+IMPORT AMOS-LAYOUT VARIABLES
+ */
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/variables.less";
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/utility.less";
+/**
+IMPORT STYLE-CUSTOM
+ */
+@import (optional) "../../backend/web/less/style_custom.less";
+
+
+/**
+NOTIFY
+ */
+.modal-utility.modal-send-test-newsletter {
+  .modal-dialog .modal-content .modal-body {
+    .notify-textinput-class {
+      width: 100%;
+      white-space: normal;
+    }
+  }
+}
+
+.newsletter-can-be-sent {
+  font-weight: bold;
+  color: #29b043;
+}
+.newsletter-cannot-be-sent {
+  font-weight: bold;
+  color: #ff0000;
+}

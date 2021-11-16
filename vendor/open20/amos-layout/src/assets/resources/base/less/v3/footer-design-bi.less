@@ -1,0 +1,190 @@
+#footerContent {
+  margin-top: auto;
+  .bullet-navbar {
+    display: none !important;
+  }
+}
+
+.it-footer {
+  .bullet-parent {
+    display: none;
+  }
+
+  p {
+    color: contrast(@tertiary-color);
+  }
+
+  .container-title {
+    padding: 24px 0;
+
+    .footer-title {
+      font-size: 24px;
+      line-height: 28px;
+    }
+  }
+
+  .it-footer-main {
+    font-size: 18px;
+    background-color: @tertiary-color;
+    padding: 24px 0;
+
+    // A COSA SERVE QUESTO CODICE RICCARDO??
+    // @media (min-width: 768px) {
+    //   .link-list-wrapper {
+    //     .flexbox;
+    //     .flexbox-row;
+    //     .flexbox-wrap;
+    //     align-items: flex-start;
+    //     justify-content: flex-start;
+
+    //     ul {
+    //       -ms-flex-preferred-size: 0;
+    //       flex-basis: 0;
+    //       -webkit-box-flex: 1;
+    //       -ms-flex-positive: 1;
+    //       flex-grow: 1;
+    //       min-width: 0;
+    //       max-width: 100%;
+    //       position: relative;
+    //       width: 100%;
+    //     }
+    //   }
+    // }
+
+    .link-list-wrapper {
+      padding: 24px 0;
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      @media (min-width: 768px) { 
+        flex-direction: row;
+      } 
+      ul {
+        list-style-type: none;
+        padding: 0;
+        width: 100%;
+        flex-grow: 1;
+
+        li {
+
+          .list-item,
+          .nav-link {
+            max-width: max-content;
+            text-decoration: none;
+            color: contrast(@tertiary-color);
+            padding-bottom: 16px;
+            display: block;
+
+            @media (max-width: 575.98px) {
+              text-decoration: underline;
+            }
+
+            &.active {
+              color: contrast(@tertiary-color);
+              //font-weight: bold; tenere commentato finchè non abbiamo active sulle voci dei plugin
+            }
+
+            &:hover {
+              text-decoration: underline;
+            }
+
+            .icon-myopen {
+              margin-left: 6px;
+            }
+          }
+
+          @media (max-width: 767.98px) {
+            &:not(:last-child) a.nav-link:after {
+              content: " | ";
+              display: inline-block;
+              padding-left: 8px;
+              padding-right: 8px;
+              font-weight: normal;
+            }
+          }
+        }
+
+
+      }
+
+      &.footer-social {
+        ul {
+          li {
+            a {
+              &:hover {
+                opacity: 0.7;
+              }
+
+              &.social-icon {
+                padding: 0;
+                width: 32px;
+                height: 32px;
+                background-color: contrast(@tertiary-color);
+                border-radius: 100px !important;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 8px 0;
+
+                span {
+                  display: inline-block;
+                  font-size: 16px;
+                  vertical-align: middle;
+                  color: @tertiary-color;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .content-info {
+    padding: 24px 0;
+  }
+
+  @media (max-width: 767px) {
+    .container-title {
+      .footer-title {
+        padding-top: 25px;
+      }
+    }
+
+    .it-footer-main {
+      .link-list-wrapper {
+        &.footer-social {
+          ul {
+            flex-direction: row;
+            display: flex;
+
+            li {
+              margin-right: 5px;
+
+              a {
+                .icon {
+                  width: 32px;
+                  height: 32px;
+                  padding: 6px;
+                }
+              }
+            }
+          }
+        }
+
+        ul {
+          li {
+            display: inline-block;
+          }
+
+          li:not(:last-child) a.list-item:after {
+            content: " | ";
+            display: inline-block;
+            padding-left: 6px;
+            padding-right: 6px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,157 @@
+/* AMOS-LAYOUT */
+
+/* TOOLBAR DEFAULT VARIABLES */
+@toolbar-background-color: transparent;
+
+/* CONTAINER TOOLS
+toolbar used for search and add element in create/update view
+used by M2Mwidget and M2Mwidgetmini
+es: amos-admin/user-profile/update/ tab net
+es: amos-cwh recipients-check
+*/
+.container-tools {
+  background-color: @toolbar-background-color;
+  padding: @padding-min @padding-default;
+  margin-bottom: @margin-default;
+  float: left;
+  width: 100%;
+  .btn-search-admin,
+  .btn-search-recipients-check,
+  .m2mwidget-search-mini { 
+    padding: 0 15px;//TODO include input + search + delete into update views
+    .flexbox;
+    .btn-tools-secondary, //search button
+    .btn-danger-inverse { //x button
+      padding-top: 7px;
+      height: 34px;
+      width: 34px;
+      min-height: 34px;
+      min-width: 34px;
+    }
+    .btn:first-of-type {
+      margin-left: 5px;
+    }
+  }
+  .btn + .btn {
+    //margin-left: 3px;
+  }
+}
+
+/* CONTAINER CHANGE VIEW
+toolbar on views used for add element, order, download, search, change view, higtlights
+*/
+.container-change-view {
+  background-color: @toolbar-background-color;
+  padding: @padding-medium @padding-default;
+  margin-bottom: @margin-min; // same as [data-toggle-element^="form"] margin-top
+  float: left;
+  width: 100%;
+
+  #change-view-dropdown-download { // into grid view
+    margin-right: 3px;
+    .caret {
+      display: none;
+    }
+    .btn.btn-tools-primary.dropdown-toggle { //export button
+      padding: 0 10px;
+    }
+    .open > .dropdown-menu{
+      left: auto;
+      right: 0;
+    }
+  }
+
+  & + div[class$="-index"] { //order and search div
+    float: left;
+    width: 100%;
+
+    [data-toggle-element^="form"] {
+      padding: @padding-default 0;
+      border: 2px solid @toolbar-background-color;
+      background-color: #ffffff;
+      margin-top: -@margin-min; //same as .container-change-view margin-bottom
+      margin-bottom: @margin-default;
+
+      h2 {
+        text-transform: uppercase;
+        color: @primary-color;
+      }
+    }
+  }
+
+  .btn-tools-container {
+    width: 100%;
+    float: left;
+    padding: @padding-default 0;
+
+    > .btn + .btn,
+    > .btn-group + .btn { /*all btn not in tools-right*/
+       margin-left: 3px;
+     }
+
+    .btn-group div.btn-tools-primary { /*change view like button style*/
+      .btn-color(contrast(@primary-color); @primary-color);
+      .btn-hover-change-color(@primary-color;contrast(@primary-color));
+      border: 1px solid @primary-color;
+      border-radius: 4px;
+      .btn-hover-change-color(@primary-color, contrast(@primary-color));
+      &:hover{
+        background-color: darken(@primary-color, 10%) !important;
+        border-color: darken(@primary-color, 10%);
+        color: contrast(@primary-color);
+        border-radius: 4px;
+      }
+      padding-bottom: 0;
+      padding-top: 6px;
+      height: 32px;
+      span {
+        &:first-child {
+          float: left;
+          line-height: 0.9;
+          &:before {
+            font-size: 1.3em;
+          }
+        }
+      }
+      p {
+        font-size: calc(@btn-font-size - 0.20em);
+        float: right;
+        margin: 0 0 0 6px; //override bootstrap margin
+        > span { //TODO some change view buttons are different because span not exist (used error ::t instead of correct ::tHtml thad add span)
+          margin-top: 3px;
+        }
+      }
+
+    }
+
+    .tools-right {
+      float: right;
+      .btn-tools-primary + .btn-tools-primary{
+        margin-left: 3px;
+      }
+    }
+
+    .dropdown-menu-change-view li { //change view
+      a, a:hover {
+        text-decoration: none;
+      }
+      p {
+        display: inline;
+        padding-left: 3px;
+      }
+    }
+
+    .content-settings-menu { //highlights menu
+      .am-chevron-down{
+        font-size: 1.2em;
+      }
+      + .dropdown-menu li {
+        a, a:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+}
+
