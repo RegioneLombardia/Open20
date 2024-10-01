@@ -1,10 +1,41 @@
 Change Log: `yii2-export`
 =========================
 
+## version 1.4.2
+
+**Date:** 03-Nov-2021
+
+- (enh #353): Enhancements to support Bootstrap v5.x.
+- (enh #333): Correct `stripHtml`.
+- (enh #330): Sanitize file names in a better way.
+- (enh #328, #329): Allow closure for contentOptions.
+
+## version 1.4.1
+
+**Date:** 27-Jul-2020
+
+- (enh #326): Correct PDF writer export for latest PHP Spreadsheet release.
+- (enh #323): Void return added for PHPSpreadsheet save method.
+- (enh #321): Update Greek Translations.
+- (enh #319): Enhancements of export column selector.
+- (enh #318): Correct icons for bootstrap 4.
+- (enh #317): Get export type function.
+- (enh #309): Fix the loss of the first page if batchSize.
+- (enh #304): Activating Open Collective.
+
+## version 1.4.0
+
+**Date:** 25-May-2019
+
+- (enh #296): Create model via instance method.
+- (enh #292): Clean output buffers before readfile dump to browser.
+- Implement stale bot.
+
 ## version 1.3.9
 
 **Date:** 19-Dec-2018
 
+- (enh #292): Clean output buffers before readfile dump to browser.
 - (enh #288): Correct export column selection when `asDropdown` is `false`.
 - (enh #276): Ability to configure explicit cell formats (header, footer, content, before, after).
    Explicit cell formats must be one of the `PhpOffice\PhpSpreadsheet\Cell\DataType::TYPE_` constants.

@@ -3,7 +3,7 @@
 /**
  * @package yii2-widgets
  * @subpackage yii2-widget-touchspin
- * @version 1.2.3
+ * @version 1.2.4
  */
 
 namespace kartik\touchspin;

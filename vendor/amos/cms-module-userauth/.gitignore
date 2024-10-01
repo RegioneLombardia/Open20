@@ -1,0 +1,8 @@
+.vscode/sftp.json
+.vscode/
+.idea/
+.vscode/sftp.json
+/nbproject/private/
+nbproject/project.properties
+nbproject/project.xml
+.remote-sync.json

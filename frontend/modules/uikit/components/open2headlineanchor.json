@@ -1,0 +1,55 @@
+{
+    "vars": [{
+            "var": "content",
+            "label": "Contenuto del titolo della sezione",
+            "description": "Inserisci il contenuto testuale del titolo della sezione.",
+            "initvalue": "",
+            "type": "zaa-text",
+            "image" : "/img/index-headline-anchor/headline-anchor.png"
+        }, {
+            "var": "title_element",
+            "label": "Tipo di titolo",
+            "description": "Il componente permette di creare un titolo, che viene indicizzato all'interno dell'indice delle sezioni pagina se presente il componente 'Indice sezioni pagina'. N.B.: Il tipo di intestazione deve corrispondere con quella specificata nell'indice.",
+            "initvalue": "h1",
+            "options": [{
+                        "value": "h1",
+                        "label": "Intestazione 1"
+                    },
+                    {
+                        "value": "h2",
+                        "label": "Intestazione 2"
+                    },
+                    {
+                        "value": "h3",
+                        "label": "Intestazione 3"
+                    },
+                    {
+                        "value": "h4",
+                        "label": "Intestazione 4"
+                    },
+                    {
+                        "value": "h5",
+                        "label": "Intestazione 5"
+                    },
+                    {
+                        "value": "h6",
+                        "label": "Intestazione 6"
+                    }
+                    
+            ],
+            "type": "zaa-select"
+        }
+    ],
+    "cfgs": [ 
+        {
+            "var": "class",
+            "label": "Classe css",
+            "description": "Classe css associata al componente.",
+            "initValue": "",
+            "type": "zaa-text"
+        }
+    ],
+    "defaults": {
+        "title_element": "h1"
+    }
+}

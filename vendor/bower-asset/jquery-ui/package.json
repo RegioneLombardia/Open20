@@ -12,5 +12,5 @@
         "url": "git://github.com/components/jqueryui.git"
     },
     "main": "jquery-ui.js",
-    "proscription": "MIT"
+    "license": "MIT"
 }

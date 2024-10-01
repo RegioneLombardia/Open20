@@ -54,11 +54,12 @@ class Bar {}
 
     /**
      * {@inheritdoc}
+     *
+     * Must run before HeaderCommentFixer, PhpdocAlignFixer.
+     * Must run after AlignMultilineCommentFixer, CommentToPhpdocFixer, PhpdocIndentFixer, PhpdocScalarFixer, PhpdocToCommentFixer, PhpdocTypesFixer.
      */
     public function getPriority()
     {
-        // should be run before the SingleBlankLineBeforeNamespaceFixer.
-        // should be run after the NoWhitespaceInBlankLineFixer.
         return -20;
     }
 
@@ -68,15 +69,17 @@ class Bar {}
     protected function applyFix(\SplFileInfo $file, Tokens $tokens)
     {
         static $forbiddenSuccessors = [
-            T_DOC_COMMENT,
+            T_BREAK,
             T_COMMENT,
-            T_WHITESPACE,
+            T_CONTINUE,
+            T_DECLARE,
+            T_DOC_COMMENT,
+            T_GOTO,
+            T_NAMESPACE,
             T_RETURN,
             T_THROW,
-            T_GOTO,
-            T_CONTINUE,
-            T_BREAK,
-            T_DECLARE,
+            T_USE,
+            T_WHITESPACE,
         ];
 
         foreach ($tokens as $index => $token) {

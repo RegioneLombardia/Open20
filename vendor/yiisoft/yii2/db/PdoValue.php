@@ -13,7 +13,7 @@ namespace yii\db;
  * [':name' => 'John', ':profile' => new PdoValue($profile, \PDO::PARAM_LOB)]`.
  * ```
  *
- * To see possible types, check [PDO::PARAM_* constants](https://secure.php.net/manual/en/pdo.constants.php).
+ * To see possible types, check [PDO::PARAM_* constants](https://www.php.net/manual/en/pdo.constants.php).
  *
  * @since 2.0.14
  */

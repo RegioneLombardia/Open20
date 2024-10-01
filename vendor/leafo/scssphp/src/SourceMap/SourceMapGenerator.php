@@ -13,7 +13,7 @@ use Leafo\ScssPhp\Exception\CompilerException;
 /**
  * Source Map Generator
  *
- * {@internal Derivative of oyejorge/less.php's lib/SourceMap/Generator.php, reproscriptiond with permission. }}
+ * {@internal Derivative of oyejorge/less.php's lib/SourceMap/Generator.php, relicensed with permission. }}
  *
  */
 class SourceMapGenerator
@@ -132,9 +132,7 @@ class SourceMapGenerator
         // directory does not exist
         if (! is_dir($dir)) {
             // FIXME: create the dir automatically?
-            throw new CompilerException(
-                sprintf('The directory "%s" does not exist. Cannot save the source map.', $dir)
-            );
+            throw new CompilerException(sprintf('The directory "%s" does not exist. Cannot save the source map.', $dir));
         }
 
         // FIXME: proper saving, with dir write check!

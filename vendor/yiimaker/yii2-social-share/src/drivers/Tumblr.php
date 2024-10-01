@@ -5,14 +5,15 @@
 namespace ymaker\social\share\drivers;
 
 use yii\base\InvalidConfigException;
-use ymaker\social\share\base\Driver;
+use ymaker\social\share\base\AbstractDriver;
 
 /**
  * Driver for Tumblr.
  *
+ *
  * @since 1.4.0
  */
-class Tumblr extends Driver
+class Tumblr extends AbstractDriver
 {
     const POST_TYPE_LINK    = 'link';
     const POST_TYPE_TEXT    = 'text';
@@ -25,25 +26,31 @@ class Tumblr extends Driver
      */
     public $postType = self::POST_TYPE_LINK;
     /**
-     * @var string Share URL for type of post `link`.
+     * Share URL for type of post `link`.
+     *
+     * @var string
      */
     public $shareUrl;
     /**
-     * @var array Share photos list for type of post `photo`.
+     * Share photos list for type of post `photo`.
+     *
+     * @var array|string
      */
     public $sharePhotos = [];
     /**
-     * @var string Share URL or embed code for type of post `video`.
+     * Share URL or embed code for type of post `video`.
+     *
+     * @var string
      */
     public $shareVideoUrl;
     /**
-     * @var array
+     * @var array|string
      */
     public $tags = [];
 
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function init()
     {
@@ -55,13 +62,15 @@ class Tumblr extends Driver
             self::POST_TYPE_VIDEO,
         ];
 
-        if (!in_array($this->postType, $types)) {
+        if (!\in_array($this->postType, $types)) {
             throw new InvalidConfigException('Invalid post type: "' . $this->postType . '"');
         }
-        if ($this->postType === self::POST_TYPE_PHOTO && empty($this->sharePhotos)) {
+
+        if (self::POST_TYPE_PHOTO === $this->postType && empty($this->sharePhotos)) {
             throw new InvalidConfigException('Photos list cannot be blank!');
         }
-        if ($this->postType === self::POST_TYPE_VIDEO && $this->shareVideoUrl === null) {
+
+        if (self::POST_TYPE_VIDEO === $this->postType && null === $this->shareVideoUrl) {
             throw new InvalidConfigException('You should to set share video URL or embed code!');
         }
 
@@ -69,47 +78,7 @@ class Tumblr extends Driver
     }
 
     /**
-     * @inheritdoc
-     */
-    public function getLink()
-    {
-        $this->_link = 'https://www.tumblr.com/widgets/share/tool?canonicalUrl={url}';
-
-        $this->addUrlParam('posttype', $this->postType);
-
-        if ($this->postType === self::POST_TYPE_TEXT) {
-            $this->addUrlParam('title', '{title}');
-        } else {
-            $this->addUrlParam('caption', '{title}');
-        }
-
-        switch ($this->postType) {
-            case self::POST_TYPE_LINK:
-                $url = $this->shareUrl === null
-                    ? '{url}'
-                    : $this->shareUrl;
-                $this->addUrlParam('content', $url);
-                break;
-            case self::POST_TYPE_PHOTO:
-                $this->addUrlParam('content', implode(',', $this->sharePhotos));
-                break;
-            case self::POST_TYPE_VIDEO:
-                $this->addUrlParam('content', $this->shareVideoUrl);
-                break;
-            default:
-                $this->addUrlParam('content', '{description}');
-                break;
-        }
-
-        if (!empty($this->tags)) {
-            $this->addUrlParam('tags', implode(',' , $this->tags));
-        }
-
-        return parent::getLink();
-    }
-
-    /**
-     * Method should process the share data for current driver.
+     * {@inheritdoc}
      */
     protected function processShareData()
     {
@@ -119,20 +88,49 @@ class Tumblr extends Driver
 
         switch ($this->postType) {
             case self::POST_TYPE_LINK:
-                if (is_string($this->shareUrl)) {
-                    $this->shareUrl = static::encodeData($this->shareUrl);
-                }
+                $this->appendToData(
+                    'content',
+                    null === $this->shareUrl ? $this->url : $this->shareUrl,
+                    null !== $this->shareUrl
+                );
                 break;
             case self::POST_TYPE_PHOTO:
-                $this->sharePhotos = static::encodeData($this->sharePhotos);
+                $this->appendToData('content', \implode(',', $this->sharePhotos));
                 break;
             case self::POST_TYPE_VIDEO:
-                $this->shareVideoUrl = static::encodeData($this->shareVideoUrl);
+                $this->appendToData('content', $this->shareVideoUrl);
+                break;
+            default:
+                $this->appendToData('content', $this->description, false);
                 break;
         }
 
         if (!empty($this->tags)) {
-            $this->tags = static::encodeData($this->tags);
+            $this->appendToData('tags', \implode(',', $this->tags));
         }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function buildLink()
+    {
+        $link = 'https://www.tumblr.com/widgets/share/tool?canonicalUrl={url}';
+
+        $this->addUrlParam($link, 'posttype', $this->postType);
+
+        if (self::POST_TYPE_TEXT === $this->postType) {
+            $this->addUrlParam($link, 'title', '{title}');
+        } else {
+            $this->addUrlParam($link, 'caption', '{title}');
+        }
+
+        $this->addUrlParam($link, 'content', '{content}');
+
+        if (!empty($this->tags)) {
+            $this->addUrlParam($link, 'tags', '{tags}');
+        }
+
+        return $link;
     }
 }

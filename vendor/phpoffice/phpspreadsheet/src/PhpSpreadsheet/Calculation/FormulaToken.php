@@ -8,7 +8,7 @@ namespace PhpOffice\PhpSpreadsheet\Calculation;
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software
  * and associated documentation files (the "Software"), to deal in the Software without restriction,
- * including without limitation the rights to use, copy, modify, merge, publish, distribute, subproscription,
+ * including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
  * and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so,
  * subject to the following conditions:
  *
@@ -76,16 +76,16 @@ class FormulaToken
     /**
      * Create a new FormulaToken.
      *
-     * @param string $pValue
-     * @param string $pTokenType Token type (represented by TOKEN_TYPE_*)
-     * @param string $pTokenSubType Token Subtype (represented by TOKEN_SUBTYPE_*)
+     * @param string $value
+     * @param string $tokenType Token type (represented by TOKEN_TYPE_*)
+     * @param string $tokenSubType Token Subtype (represented by TOKEN_SUBTYPE_*)
      */
-    public function __construct($pValue, $pTokenType = self::TOKEN_TYPE_UNKNOWN, $pTokenSubType = self::TOKEN_SUBTYPE_NOTHING)
+    public function __construct($value, $tokenType = self::TOKEN_TYPE_UNKNOWN, $tokenSubType = self::TOKEN_SUBTYPE_NOTHING)
     {
         // Initialise values
-        $this->value = $pValue;
-        $this->tokenType = $pTokenType;
-        $this->tokenSubType = $pTokenSubType;
+        $this->value = $value;
+        $this->tokenType = $tokenType;
+        $this->tokenSubType = $tokenSubType;
     }
 
     /**
@@ -103,7 +103,7 @@ class FormulaToken
      *
      * @param string $value
      */
-    public function setValue($value)
+    public function setValue($value): void
     {
         $this->value = $value;
     }
@@ -123,7 +123,7 @@ class FormulaToken
      *
      * @param string $value
      */
-    public function setTokenType($value)
+    public function setTokenType($value): void
     {
         $this->tokenType = $value;
     }
@@ -143,7 +143,7 @@ class FormulaToken
      *
      * @param string $value
      */
-    public function setTokenSubType($value)
+    public function setTokenSubType($value): void
     {
         $this->tokenSubType = $value;
     }

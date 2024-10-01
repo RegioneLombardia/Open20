@@ -1,0 +1,94 @@
+.dashboard-content {
+  .square-box {
+    .dashboard-menu-item {
+
+      .ic,
+      .am,
+      .dash {
+        &:before {
+          font-size: 40px !important;
+        }
+      }
+      .language-item, .pluginName {
+        font-size: 14px !important;
+        //hyphens: auto;
+        line-height: 1.3; 
+        letter-spacing: -0.3px; 
+      }
+      .badge {
+        border-radius: 100px;
+        background: @danger-color;
+        font-size: 0; //nascosti numeri su befe
+        &:empty {
+          display: inline-flex !important;
+          height: 14px;
+          width: 14px;
+          padding: 0;
+        }
+      }
+    }
+  }
+
+  .wrap-graphic-widget {
+    .box-widget-header {
+      .box-widget-title {
+
+        .ic,
+        .am,
+        .dash {
+          &:before {
+            font-size: 30px !important;
+          }
+        }
+
+        .language-item {
+          font-size: 13px !important;
+        }
+      }
+      .read-all {
+        a {
+          font-size: 13px !important;
+          line-height: 1.3;
+        }
+      }
+    }
+  }
+}
+
+/**
+cambio grafica plugin community
+*/
+.dashboard-content {
+  .community-dashboard-container {
+      background-color: transparent;
+  }
+
+  .square-box {
+      .dashboard-menu-item {
+          background-color: @white-color;
+          border: 3px solid @brand-third-color;
+
+          .am,
+          .dash,
+          .ic,
+          .language-item,
+          .pluginName {
+              color: @brand-third-color;
+          }
+
+          &:hover {
+              background-color: @brand-primary-color;
+              border-color: lighten(@brand-primary-color, 10%);
+
+              .am,
+              .dash,
+              .ic,
+              .language-item,
+              .pluginName {
+                  color: @white-color;
+              }
+          }
+      }
+  }
+
+}

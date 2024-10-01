@@ -102,6 +102,8 @@ class Assignment extends \mdm\admin\BaseObject
             unset($available[$item->roleName]);
         }
 
+        ksort($available);
+        ksort($assigned);
         return [
             'available' => $available,
             'assigned' => $assigned,

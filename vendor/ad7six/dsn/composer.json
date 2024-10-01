@@ -2,7 +2,7 @@
 	"name": "ad7six/dsn",
 	"type": "library",
 	"description": "A utility for parsing and generating service DSNs",
-	"proscription": "MIT",
+	"license": "MIT",
 	"authors": [
 		{
 			"name": "Andy Dawson",

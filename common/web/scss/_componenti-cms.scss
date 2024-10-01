@@ -1,0 +1,103 @@
+.wrap-modules {
+    @media (min-width: 992px) {
+        .it-hero-wrapper .it-hero-text-wrapper {
+            padding-left: 0;
+        }
+    }
+}
+
+.left-page-menu-container{
+    top: 120px;
+    position: sticky;
+    @media(max-width:768px){
+        position: initial;
+    }
+    .left-page-menu{
+        list-style: square;
+        @extend .pl-4;
+        @extend .mt-3;
+        a{
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .icon-current{
+            position: absolute;
+            right: -25px;
+            top: -15px;
+            z-index: 1;
+        }
+        hr.menu-line{
+            border-bottom: 1px dashed $fl-color-secondary;
+            @extend .m-0;
+        }
+        .lvl-1{
+            color: $fl-color-primary;
+            a{
+                color: $fl-color-primary;
+            }
+        }
+        .lvl-1{
+            @include left-menu-page(1);
+        }
+        .lvl-2{
+            @include left-menu-page(2);
+        }
+        .lvl-3{
+            @include left-menu-page(3);
+        }
+       
+        .lvl-2, .lvl-3{
+            color: #95C100;
+            a{
+                color: #95C100;
+            }
+        }
+        .lvl-current{
+            color: $fl-color-secondary;
+            a{
+                color: $fl-color-secondary;
+            }
+        }
+    
+    }
+    &.dropdown-style-menu{
+        ul{
+            list-style: none;
+            @extend .pl-0;
+            li{
+                padding: 0;
+                font-weight: 600;
+                text-transform: uppercase;
+                border-bottom: 1px solid #d3d3d3;
+                white-space: initial !important;
+                .inner-link{
+                    padding: 0.5rem 24px
+                }
+                a{
+                    color: #00567b !important;
+                    text-transform: uppercase;
+                    font-weight: 600 !important;
+                }
+                .collapse-inner{
+                    background-color: #f5f5f5;
+                }
+            }
+        }
+    }
+}
+
+/*BANNER FAQ*/
+.section-banner-faq {
+    .banner-faq {
+      background-color: #f1fdfe;
+      padding: 30px 20px;
+      color: $primary;
+  
+      .image-block {
+        img {
+          bottom: -80px;
+          right: 0;
+        }
+      }
+    }
+  }

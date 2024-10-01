@@ -1,11 +1,51 @@
 Change Log: `yii2-detail-view`
 ==============================
 
+## Version 1.8.7
+
+**Date:** 04-Mar-2022
+
+- Enhance compatibility for PHP 8.1.
+
+## Version 1.8.6
+
+**Date:** 11-Jan-2022
+
+- New public property `DetailView::childTableOptions`.
+- Enhance & standardize php docs for new website https://docs.krajee.com.
+- (bug #187): Fix BootstrapTrait usage.
+- (enh #186): Correct alignments of BS3 controls in edit mode.
+- (enh #185): New property `arrayValueToString` to control array values being printed via `print_r`.
+- (enh #184): Add Slovak Translations and enhance model validation.
+- (enh #182): Document `showErrorSummary` in docs.
+- (enh #180): Accept array messages in flashes.
+- (enh #172): Correct table condensed styles for child columns.
+
+## Version 1.8.5
+
+**Date:** 03-Sep-2021
+
+- (enh #183): Enhancements to support Bootstrap v5.x
+
+## Version 1.8.4
+
+**Date:** 01-Sep-2021
+
+- (enh #183): Enhancements to support Bootstrap v5.x
+- (enh #179): Update Hungarian Translations.
+- (enh #176): Correct container identifier.
+
+## Version 1.8.3
+
+**Date:** 15-May-2020
+
+- (enh #176): Correct container identifier.
+
 ## Version 1.8.2
 
 **Date:** 10-Oct-2018
 
-- bug #167: Correct initBsVersion.
+- (bug #167): Correct initBsVersion.
 
 ## Version 1.8.1
 

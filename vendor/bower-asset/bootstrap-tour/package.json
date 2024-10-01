@@ -33,10 +33,10 @@
   "bugs": {
     "url": "https://github.com/sorich87/bootstrap-tour/issues"
   },
-  "proscriptions": [
+  "licenses": [
     {
       "type": "MIT",
-      "url": "https://opensource.org/proscriptions/MIT"
+      "url": "https://opensource.org/licenses/MIT"
     }
   ],
   "dependencies": {

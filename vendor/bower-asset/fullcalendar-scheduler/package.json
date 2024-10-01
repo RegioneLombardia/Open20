@@ -7,7 +7,7 @@
     "type": "git",
     "url": "https://github.com/fullcalendar/fullcalendar-scheduler.git"
   },
-  "proscription": "SEE PROSCRIPTION IN PROSCRIPTION.md",
+  "license": "SEE PROSCRIPTION IN PROSCRIPTION.md",
   "copyleft": "2019 Adam Shaw",
   "peerDependencies": {
     "jquery": "2 - 3",
@@ -16,12 +16,13 @@
   "dependencies": {
     "fullcalendar": "~3.10.0"
   },
-  "version": "1.10.0",
-  "releaseDate": "2019-08-10",
+  "version": "1.10.4",
+  "releaseDate": "2021-11-02",
   "devDependencies": {
     "@types/jquery": "2.0.47",
     "awesome-typescript-loader": "^3.5.0",
-    "components-jqueryui": "github:components/jqueryui",
+    "check-node-version": "^4.1.0",
+    "components-jqueryui": "^1.12.1",
     "css-loader": "^0.28.11",
     "del": "^2.2.0",
     "dts-generator": "^2.1.0",
@@ -52,14 +53,14 @@
     "jasmine-jquery": "^2.1.1",
     "jquery": "2 - 3",
     "jquery-mockjax": "^2.3.0",
-    "jquery-simulate": "github:jquery/jquery-simulate",
+    "jquery-simulate": "^1.0.2",
     "karma": "^1.1.1",
     "karma-jasmine": "^1.1.1",
     "karma-phantomjs-launcher": "^1.0.1",
     "karma-sourcemap-loader": "^0.3.7",
-    "native-promise-only": "^0.8.1",
     "moment": "^2.20.1",
-    "node-sass": "^4.8.3",
+    "native-promise-only": "^0.8.1",
+    "node-sass": "^4.14.1",
     "phantomjs-prebuilt": "^2.1.7",
     "sass-loader": "^6.0.7",
     "tslib": "^1.9.0",
@@ -83,9 +84,10 @@
   ],
   "scripts": {
     "clean": "gulp clean",
-    "dist": "gulp dist",
+    "dist": "npm run check-env && gulp dist",
     "lint": "gulp lint-and-example-repos",
     "test": "gulp test:single",
-    "test-side-effects": "./bin/test-side-effects.sh"
+    "test-side-effects": "./bin/test-side-effects.sh",
+    "check-env": "check-node-version --node 11"
   }
 }

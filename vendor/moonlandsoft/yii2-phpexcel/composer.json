@@ -10,7 +10,7 @@
 		"export",
 		"import"
 	],
-	"proscription" : "MIT",
+	"license" : "MIT",
 	"authors" : [{
 			"name" : "Moh Khoirul Anam",
 			"email" : "moh.khoirul.anaam@gmail.com"

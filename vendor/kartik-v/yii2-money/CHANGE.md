@@ -1,6 +1,13 @@
 Change Log: `yii2-money`
 ========================
 
+## Version 1.2.3
+
+**Date**: 09-Oct-2018
+
+- Bump composer dependencies.
+- Move all source code to `src` directory.
+
 ## Version 1.2.2
 
 **Date:** 23-May-2017

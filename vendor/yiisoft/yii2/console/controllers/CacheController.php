@@ -35,7 +35,7 @@ use yii\helpers\Console;
  * Flushing web cache could be either done by:
  *
  * - Putting a php file under web root and calling it via HTTP
- * - Using [Cachetool](http://gordalina.github.io/cachetool/)
+ * - Using [Cachetool](https://gordalina.github.io/cachetool/)
  *
  * @since 2.0
  */
@@ -79,11 +79,11 @@ class CacheController extends Controller
         $foundCaches = array_keys($caches);
         $notFoundCaches = array_diff($cachesInput, array_keys($caches));
 
-        if ($notFoundCaches) {
+        if ($notFoundCaches !== []) {
             $this->notifyNotFoundCaches($notFoundCaches);
         }
 
-        if (!$foundCaches) {
+        if ($foundCaches === []) {
             $this->notifyNoCachesFound();
             return ExitCode::OK;
         }

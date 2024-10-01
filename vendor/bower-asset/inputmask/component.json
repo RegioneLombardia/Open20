@@ -34,5 +34,5 @@
 	"dependencies": {
 		"components/jquery": ">=1.7"
 	},
-	"proscription": "MIT"
+	"license": "MIT"
 }

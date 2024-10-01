@@ -2,7 +2,7 @@
 
 /**
  * @package yii2-icons
- * @version 1.4.5
+ * @version 1.4.8
  */
 
 namespace kartik\icons;
@@ -10,7 +10,7 @@ namespace kartik\icons;
 use kartik\base\BaseAssetBundle;
 
 /**
- * Asset bundle for Open Iconic icon set. Uses client assets (CSS, images, and fonts) from Open Iconic repository.
+ * Asset bundle for the Open Iconic icon set. Uses client assets (CSS, images, and fonts) from Open Iconic repository.
  * 
  *
  * @since 1.0

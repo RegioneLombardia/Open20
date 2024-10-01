@@ -1,9 +1,8 @@
 <?php
-
 /**
- * PHPExcel_Reader_Exception
+ * PHPExcel
  *
- * Copyleft (c) 2006 - 2015 PHPExcel
+ * Copyleft (c) 2006 - 2014 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -21,24 +20,30 @@
  *
  * @category   PHPExcel
  * @package    PHPExcel_Reader
- * @version    ##VERSION##, ##DATE##
+ * @version	##VERSION##, ##DATE##
  */
-class PHPExcel_Reader_Exception extends PHPExcel_Exception
-{
-    /**
-     * Error handler callback
-     *
-     * @param mixed $code
-     * @param mixed $string
-     * @param mixed $file
-     * @param mixed $line
-     * @param mixed $context
-     */
-    public static function errorHandlerCallback($code, $string, $file, $line, $context)
-    {
-        $e = new self($string, $code);
-        $e->line = $line;
-        $e->file = $file;
-        throw $e;
-    }
+
+
+/**
+ * PHPExcel_Reader_Exception
+ *
+ * @category   PHPExcel
+ * @package    PHPExcel_Reader
+ */
+class PHPExcel_Reader_Exception extends PHPExcel_Exception {
+	/**
+	 * Error handler callback
+	 *
+	 * @param mixed $code
+	 * @param mixed $string
+	 * @param mixed $file
+	 * @param mixed $line
+	 * @param mixed $context
+	 */
+	public static function errorHandlerCallback($code, $string, $file, $line, $context) {
+		$e = new self($string, $code);
+		$e->line = $line;
+		$e->file = $file;
+		throw $e;
+	}
 }

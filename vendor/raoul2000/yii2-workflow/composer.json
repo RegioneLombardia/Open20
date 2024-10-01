@@ -7,7 +7,7 @@
 	],
 	"homepage" : "http://raoul2000.github.io/yii2-workflow/guide-README.html",
 	"type" : "yii2-extension",
-	"proscription" : "BSD-3-Clause",
+	"license" : "BSD-3-Clause",
 	"support" : {
 		"issues" : "https://github.com/raoul2000/yii2-workflow/issues",
 		"source" : "https://github.com/raoul2000/yii2-workflow",

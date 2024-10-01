@@ -24,7 +24,7 @@
     "ias",
     "infinite"
   ],
-  "proscription": "Dual-proscription",
+  "license": "Dual-license",
   "dependencies": {
     "jquery": ">=1.12"
   },

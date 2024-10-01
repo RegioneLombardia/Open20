@@ -35,6 +35,16 @@ final class NativeFunctionCasingFixer extends AbstractFixer
 
     /**
      * {@inheritdoc}
+     *
+     * Must run after FunctionToConstantFixer, NoUselessSprintfFixer, PowToExponentiationFixer.
+     */
+    public function getPriority()
+    {
+        return 0;
+    }
+
+    /**
+     * {@inheritdoc}
      */
     public function isCandidate(Tokens $tokens)
     {
@@ -66,7 +76,7 @@ final class NativeFunctionCasingFixer extends AbstractFixer
             }
 
             $functionNamePrefix = $tokens->getPrevMeaningfulToken($index);
-            if ($tokens[$functionNamePrefix]->isGivenKind([T_DOUBLE_COLON, T_NEW, T_OBJECT_OPERATOR, T_FUNCTION, CT::T_RETURN_REF])) {
+            if ($tokens[$functionNamePrefix]->isGivenKind([T_DOUBLE_COLON, T_NEW, T_FUNCTION, CT::T_RETURN_REF]) || $tokens[$functionNamePrefix]->isObjectOperator()) {
                 continue;
             }
 

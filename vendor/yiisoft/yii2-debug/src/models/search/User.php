@@ -69,6 +69,7 @@ class User extends Model
 
     /**
      * {@inheritdoc}
+     * @throws \yii\base\InvalidConfigException
      */
     public function search($params)
     {
@@ -83,6 +84,7 @@ class User extends Model
      * Search method for ActiveRecord
      * @param array $params the data array to load model.
      * @return ActiveDataProvider
+     * @throws \yii\base\InvalidConfigException
      */
     private function searchActiveDataProvider($params)
     {

@@ -1,0 +1,81 @@
+/**
+IMPORT AMOS-LAYOUT VARIABLES
+ */
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/variables.less";
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/utility.less";
+/**
+IMPORT STYLE-CUSTOM
+ */
+@import (optional) "../../backend/web/less/style_custom.less";
+
+/**
+COMMENTS WIDGET
+ */
+
+.contribute { /* form add comments */
+  .ui-accordion.ui-widget .ui-accordion-content.ui-widget-content {
+    height: auto !important;
+    // @media (max-width: 991px) {
+    //   height: 400px;
+    // }
+    // @media (max-width: 420px) {
+    //   height: 500px;
+    // }
+    .contribute-container {
+      label {
+        margin: @margin-medium 0;
+      }
+      @media (min-width: 992px) {
+        + div {
+          padding-left: @padding-default;
+        }
+      }
+    }
+  }
+}
+
+.subtitle-comments { /* comments */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  .icon-link-black {
+    color: black;
+  }
+  h2 {
+    margin: 0;
+  }
+  .subtitle-text-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+
+.answer .answer-details .comment-reply-container {
+  .file-input {
+    margin: @margin-min 0;
+    + label {
+      margin-left: @margin-min;
+    }
+  }
+}
+
+@media (max-width: 620px) {
+  .contribute {
+    .ui-accordion.ui-widget .ui-accordion-content.ui-widget-content {
+      height: 500px;
+    }
+  }
+}
+
+/**
+COMMENT FORM
+ */
+.comment-form {
+  .attachment-section {
+    margin-top: 25px;
+  }
+}

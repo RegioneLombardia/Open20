@@ -5,17 +5,17 @@
 namespace yii\debug\panels;
 
 use Yii;
-use yii\debug\Panel;
+use yii\base\InvalidConfigException;
 use yii\debug\models\timeline\Search;
 use yii\debug\models\timeline\Svg;
-use yii\base\InvalidConfigException;
+use yii\debug\Panel;
 
 /**
  * Debugger panel that collects and displays timeline data.
  *
  * @property array $colors
- * @property float $duration This property is read-only.
- * @property float $start This property is read-only.
+ * @property-read float $duration
+ * @property-read float $start
  * @property array $svgOptions
  *
  * @since 2.0.7
@@ -67,6 +67,7 @@ class TimelinePanel extends Panel
 
     /**
      * {@inheritdoc}
+     * @throws InvalidConfigException
      */
     public function init()
     {
@@ -213,11 +214,12 @@ class TimelinePanel extends Panel
     /**
      * @return Svg
      * @since 2.0.8
+     * @throws InvalidConfigException
      */
     public function getSvg()
     {
         if ($this->_svg === null) {
-            $this->_svg = Yii::createObject($this->_svgOptions,[$this]);
+            $this->_svg = Yii::createObject($this->_svgOptions, [$this]);
         }
         return $this->_svg;
     }

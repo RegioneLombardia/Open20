@@ -8,9 +8,9 @@
 
 namespace Imagine\Gmagick;
 
+use Imagine\Driver\InfoProvider;
 use Imagine\Effects\EffectsInterface;
 use Imagine\Exception\InvalidArgumentException;
-use Imagine\Exception\NotSupportedException;
 use Imagine\Exception\RuntimeException;
 use Imagine\Image\Palette\Color\ColorInterface;
 use Imagine\Utils\Matrix;
@@ -18,7 +18,7 @@ use Imagine\Utils\Matrix;
 /**
  * Effects implementation using the Gmagick PHP extension.
  */
-class Effects implements EffectsInterface
+class Effects implements EffectsInterface, InfoProvider
 {
     /**
      * @var \Gmagick
@@ -33,6 +33,16 @@ class Effects implements EffectsInterface
     public function __construct(\Gmagick $gmagick)
     {
         $this->gmagick = $gmagick;
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @since 1.3.0
+     */
+    public static function getDriverInfo($required = true)
+    {
+        return DriverInfo::get($required);
     }
 
     /**
@@ -56,10 +66,7 @@ class Effects implements EffectsInterface
      */
     public function negative()
     {
-        if (!method_exists($this->gmagick, 'negateimage')) {
-            throw new NotSupportedException('Gmagick version 1.1.0 RC3 is required for negative effect');
-        }
-
+        static::getDriverInfo()->requireFeature(DriverInfo::FEATURE_NEGATEIMAGE);
         try {
             $this->gmagick->negateimage(false, \Gmagick::CHANNEL_ALL);
         } catch (\GmagickException $e) {
@@ -76,7 +83,7 @@ class Effects implements EffectsInterface
     public function grayscale()
     {
         try {
-            $this->gmagick->setImageType(2);
+            $this->gmagick->setimagetype(defined('Gmagick::IMGTYPE_GRAYSCALE') ? \Gmagick::IMGTYPE_GRAYSCALE : 2);
         } catch (\GmagickException $e) {
             throw new RuntimeException('Failed to grayscale the image', $e->getCode(), $e);
         }
@@ -90,7 +97,7 @@ class Effects implements EffectsInterface
      */
     public function colorize(ColorInterface $color)
     {
-        throw new NotSupportedException('Gmagick does not support colorize');
+        static::getDriverInfo()->requireFeature(DriverInfo::FEATURE_COLORIZEIMAGE);
     }
 
     /**
@@ -99,7 +106,7 @@ class Effects implements EffectsInterface
      */
     public function sharpen()
     {
-        throw new NotSupportedException('Gmagick does not support sharpen yet');
+        static::getDriverInfo()->requireFeature(DriverInfo::FEATURE_SHARPENIMAGE);
     }
 
     /**
@@ -109,7 +116,7 @@ class Effects implements EffectsInterface
     public function blur($sigma = 1)
     {
         try {
-            $this->gmagick->blurImage(0, $sigma);
+            $this->gmagick->blurimage(0, $sigma);
         } catch (\GmagickException $e) {
             throw new RuntimeException('Failed to blur the image', $e->getCode(), $e);
         }
@@ -148,16 +155,13 @@ class Effects implements EffectsInterface
      */
     public function convolve(Matrix $matrix)
     {
-        if (!method_exists($this->gmagick, 'convolveimage')) {
-            // convolveimage has been added in gmagick 2.0.1RC2
-            throw new NotSupportedException('The version of Gmagick extension is too old: it does not support convolve.');
-        }
+        static::getDriverInfo()->requireFeature(DriverInfo::FEATURE_CONVOLVEIMAGE);
         if ($matrix->getWidth() !== 3 || $matrix->getHeight() !== 3) {
             throw new InvalidArgumentException(sprintf('A convolution matrix must be 3x3 (%dx%d provided).', $matrix->getWidth(), $matrix->getHeight()));
         }
         try {
             $this->gmagick->convolveimage($matrix->getValueList());
-        } catch (\ImagickException $e) {
+        } catch (\GmagickException $e) {
             throw new RuntimeException('Failed to convolve the image');
         }
 

@@ -1,0 +1,135 @@
+{
+    "vars": [
+        {
+            "var": "link_type",
+            "label": "Tipologia di elemento",
+            "description": "Selezionare se il componente sarà un link (quindi del testo semplice cliccabile) o un bottone.",
+            "initvalue": "link",
+            "options": [
+               {
+                    "value": "button",
+                    "image" : "/img/linkpanel/btn.PNG"
+
+                },{
+                    "value": "link",
+                    "image" : "/img/linkpanel/link.PNG"
+                }
+            ],
+            "type": "zaa-radio-image"
+        },
+        {
+            "var": "button_filling",
+            "label": "Stile del bottone",
+            "description": "Da selezionare solo se il campo 'tipologia di elemento' è stato compilato con bottone. Permette didecidere se il bottone è pieno oppure con sfondo bianco e testo e bordi colorati .",
+            "initvalue": "",
+            "options": [ 
+                {
+                    "value": "",
+                    "image" : "/img/linkpanel/btn-style-pieno.PNG"
+                }, {
+                    "value": "outline",
+                    "image" : "/img/linkpanel/btn-style-outline.PNG"
+                }],
+                "type": "zaa-radio-image"
+            }, 
+        {
+            "var": "button_style",
+            "label": "Colore predefinito",
+            "description": "Da selezionare solo se il campo 'tipologia di elemento' è stato compilato con bottone. Se compilato non va compilato colore di sfondo. Se lo stile del bottone è pieno questo sarà il colore di sfondo, altrimenti sarà il colore del testo e dei bordi.",
+            "initvalue": "",
+            "options": [           
+                {
+                    "value": "primary",
+                    "image" : "/img/linkpanel/btn-filling-primary.PNG"
+
+                }, {
+                    "value": "secondary",
+                    "image" : "/img/linkpanel/btn-filling-secondary.PNG"
+                }, {
+                    "value": "tertiary",
+                    "image" : "/img/linkpanel/btn-filling-tertiary.PNG"
+                }],
+            "type": "zaa-radio-image"
+        }, 
+        {
+            "var": "button_background",
+            "label": "Colore personalizzato",
+            "description": "Da selezionare solo se non è stato compilato il campo 'Colore predefinito' e se 'Tipologia di elemento' è bottone. Se lo stile del bottone è pieno questo sarà il colore di sfondo, altrimenti sarà il colore del testo e dei bordi.",
+            "initValue": "",
+            "type": "zaa-color"
+        },
+        {
+            "var": "button_size",
+            "label": "Dimensione del bottone",
+            "description": "Da selezionare solo se il campo 'tipologia di elemento' è stato compilato con bottone. Imposta la dimensione del bottone.",
+            "initvalue": "default",
+            "options": [{
+                "value": "xs",
+                "image" : "/img/linkpanel/dimesione_bottoni-mini.PNG"
+                },
+                {
+                    "value": "sm",
+                    "image" : "/img/linkpanel/dimesione_bottoni-small.PNG"
+                    }, {
+                    "value": "",
+                    "image" : "/img/linkpanel/dimesione_bottoni-standard.PNG"
+                }, {
+                    "value": "lg",
+                    "image" : "/img/linkpanel/dimesione_bottoni-big.PNG"
+                }],
+            "type": "zaa-radio-image"
+        },{
+            "var": "text_content",
+            "label": "Testo del link/bottone",
+            "description": "Imposta il testo del link o del bottone.",
+            "initValue": "",
+            "type": "zaa-text"
+        },{
+            "var": "icon_name",
+            "label": "Nome dell'icona",
+            "description": "Seleziona il nome dell'icona da visualizzare. Si può trovare un elenco di icone più completo: https://materialdesignicons.com/",
+            "initValue": "",
+            "image" : "/img/set-icone.PNG",
+            "type": "zaa-text"
+        },{
+            "var": "link",
+            "label": "Link",
+            "description": "Seleziona il link di destinazione del link/bottone.",
+            "initvalue": "",
+            "placeholder": "http:\/\/",
+            "type": "zaa-link"
+        },{
+            "var": "is_disabled",
+            "label": "Disabilita bottone",
+            "description": "Da selezionare solo se il campo 'tipologia di elemento' è stato compilato con bottone. Se selezionato disabilita il bottone.",
+            "initvalue": "",
+            "type": "zaa-checkbox"
+        }
+           
+    ],
+    "cfgs": [
+        {
+            "var": "class",
+            "label": "Classe css",
+            "description": "Classe css associata al componente.",
+            "initValue": "",
+            "type": "zaa-text"
+        },{
+            "var": "HTML_type",
+            "label": "Tipo del tag HTML",
+            "description": "Non obbligatorio, di default sarà <a>.",
+            "initvalue": "a",
+            "options": [ 
+                {
+                    "value": "a",
+                    "label": "a"
+                },
+                {
+                    "value": "button",
+                    "label": "button"
+                }],
+            "type": "zaa-select"
+        }
+    ]
+    
+}

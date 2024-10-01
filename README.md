@@ -13,7 +13,7 @@ La manualistica contenuta è puramente tecnica e per tanto **deve essere letta e
  - Abilitare la connessione a **internet** per il download dei pacchetti necessari
     - export http_proxy=http://reglomb.proxy:8080
     - export https_proxy=http://reglomb.proxy:8080
- - Verificare che la versione di **PHP** Rispetti I requisiti (7.0.x * nei sistemi operativi RedHat potrebbe essere necessario collegare repository non ufficiali. *)
+ - Verificare che la versione di **PHP** Rispetti I requisiti (8.x.x * nei sistemi operativi RedHat potrebbe essere necessario collegare repository non ufficiali. *)
    - php -v
  - Verificare che la versione di **Mysql** Rispetti I requisiti (5.7)
    - php -v
@@ -21,24 +21,29 @@ La manualistica contenuta è puramente tecnica e per tanto **deve essere letta e
    - apache2 –v
 
 ## Installazione Requisiti
- - **PHP 7.0**
-   - yum install rh-php70-php-intl.x86_64
-   - yum install rh-php70-php-mbstring.x86_64
-   - yum install rh-php70-php-bcmath.x86_64
-   - yum install rh-php70-php-xml.x86_64
-   - yum install rh-php70-php.x86_64
-   - yum install rh-php70-intl.x86_64
-   - yum install rh-php70-php-gd.x86_64
-   - yum install rh-php70-php-zip.x86_64
-   - yum install rh-php70-php-mysqlnd.x86_64
+ - **PHP 8.2**
+  - apcu
+  - bcmath
+  - curl
+  - fpm
+  - gd
+  - imagick
+  - intl
+  - ldap
+  - mbstring
+  - mysql
+  - soap
+  - xml
+  - zip
    
  - **GIT**
    - yum install git.x86_64
 
  - **Composer**
-   - wget https://getcomposer.org/download/1.8.5/composer.phar
-   - php composer-setup.php --install-dir=/usr/bin/
-   - mv /usr/bin/composer.phar /usr/bin/composer
+   - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+   - php -r "if (hash_file('sha384', 'composer-setup.php') === 'dac665fdc30fdd8ec78b38b9800061b4150413ff2e3b6f88543c636f7cd84f6db9189d43a81e5503cda447da73c7e5b6') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+   - php composer-setup.php
+   - php -r "unlink('composer-setup.php');"
    - chmod +x /usr/bin/composer
    - composer –help
    
@@ -55,31 +60,23 @@ Queste configurazioni devono essere eseguite per ovviare ad alcune mancanze sull
    - RewriteRule (.*) index.php?$1 [PT,L,QSA]
    
  - **Abilitazione Modulo PHP**
-   - ln -s /opt/rh/httpd24/root/etc/httpd/modules/librh-php70-php7.so /etc/httpd/modules/
+   - ln -s /opt/rh/httpd24/root/etc/httpd/modules/librh-php82-php8.so/etc/httpd/modules/
    - vi /etc/httpd/conf.modules.d/00-base.conf
    - vi /etc/httpd/conf/httpd.conf
    - apachectl restart
    
 - **Configurazione PHP**
-  - Configurazioni in /opt/rh/php70/root/etc/php/7.0/apache/php.ini
+  - Configurazioni in /etc/php/8.2/apache2/php.ini
     - memory_limit = 4G
     - upload_max_filesize = 300M
     - post_max_size = 300M
     
 ## Installazione Piattaforma
-- **Creare la directory platform nella directory www**
-  - cd /opt/rh/httpd24/root/var/www/html/platform
-  - cd /opt/rh/httpd24/root/var/www/html/platform
-  
-- **Creare la directory basic-template nella directory www**
-    - cd /opt/rh/httpd24/root/var/www/html/basic-template
-    - chown -R apache:apache /opt/rh/httpd24/root/var/www/
-    - git clone https://github.com/regionelombardia-open20/basic-template.git, per scaricare la piattaforma base Open20/
-    - php init –-root=/opt/rh/httpd24/root/var/www/html/platform
-    - **composer update**
-      - si richiede l'installazione dei plug in
-    - **php yii migrate**
-      - si richiede l'installazione del db
+- **Git Pull**
+  - Clonare il repository della piattaforma.
+
+- **Importare la struttura base delle banche dati**
+  - Utilizzare il file "open2github_struttura.sql" per importazione banche dati.
       
 - **Configurazione Piattaforma**
   - vi common/config/main-local.php
@@ -96,20 +93,9 @@ Queste configurazioni devono essere eseguite per ovviare ad alcune mancanze sull
    - vi common/config/params-local.php si modificano le email di sistema
    
 ## Aggiornamento Piattaforma
-- **cd /opt/rh/httpd24/root/var/www/html/basic-template**
-  - ci si sposta nella directory di installazione
 - **git pull**
-  - si richiede l'aggiornamento della piattaforma
-- **composer update**
-  - si richiede l'aggiornamento dei plug in
-- **php yii migrate**
-  - si richiede l'aggiornamento del db
+  - Aggiornamenti disponibili dal repository della piattaforma.
 - **cd backend/runtime**
   - ci si sposta nella directory della caches
 - **rm -R**
-  - si rimuovo tutte le caches
-
-
-
-
-
+  - si rimuovono tutte le caches

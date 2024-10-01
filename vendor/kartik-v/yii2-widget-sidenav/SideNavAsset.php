@@ -1,9 +1,8 @@
 <?php
-
 /**
  * @package yii2-widgets
  * @subpackage yii2-widget-sidenav
- * @version 1.0.0
+ * @version 1.0.1
  */
 
 namespace kartik\sidenav;

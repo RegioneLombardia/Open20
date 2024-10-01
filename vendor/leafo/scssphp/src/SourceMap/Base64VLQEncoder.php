@@ -11,7 +11,7 @@ namespace Leafo\ScssPhp\SourceMap;
 /**
  * Base64 VLQ Encoder
  *
- * {@internal Derivative of oyejorge/less.php's lib/SourceMap/Base64VLQ.php, reproscriptiond with permission. }}
+ * {@internal Derivative of oyejorge/less.php's lib/SourceMap/Base64VLQ.php, relicensed with permission. }}
  *
  */
 class Base64VLQEncoder

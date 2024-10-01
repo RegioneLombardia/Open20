@@ -1,5 +1,5 @@
 ﻿/**
- * For licensing, see PROSCRIPTION.md or http://ckeditor.com/proscription
+ * For licensing, see PROSCRIPTION.md or http://ckeditor.com/license
  */
 
 /**

@@ -17,6 +17,11 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
+    'Showing <b>{begin, number}-{end, number}</b> of <b>{totalCount, number}</b> {totalCount, plural, one{{item}} other{{items}}}.' => '<b>{totalCount, number}</b> 件中 <b>{begin, number}</b> から <b>{end, number}</b> までを表示しています。',
+    'Total <b>{count, number}</b> {count, plural, one{{item}} other{{items}}}.' => '合計 <b>{count}</b> 件。',
+    'items-few' => 'items',
+    'items-many' => 'items',
+    '<small>Loading &hellip;</small>' => '',
     'Actions' => '',
     'Active' => '',
     'Add Book' => '',
@@ -63,6 +68,7 @@ return [
     'Request submitted! You may safely close this dialog after saving your downloaded file.' => '',
     'Reset Grid' => '',
     'Resize table columns just like a spreadsheet by dragging the column edges.' => '',
+    'Select...' => '',
     'Show all data' => '',
     'Show first page data' => '',
     'Tab Delimited Text' => '',
@@ -83,10 +89,7 @@ return [
     'grid-export' => '',
     'item' => '',
     'items' => '',
+    'items-acc' => '',
     'krajee, grid, export, yii2-grid, pdf' => '',
     '© Krajee Yii2 Extensions' => '',
-    'Showing <b>{begin, number}-{end, number}</b> of <b>{totalCount, number}</b> {totalCount, plural, one{{item}} other{{items}}}.' => '<b>{totalCount, number}</b> 件中 <b>{begin, number}</b> から <b>{end, number}</b> までを表示しています。',
-    'Total <b>{count, number}</b> {count, plural, one{{item}} other{{items}}}.' => '合計 <b>{count}</b> 件。',
-    'items-few' => 'items',
-    'items-many' => 'items',
 ];

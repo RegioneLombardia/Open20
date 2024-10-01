@@ -1,0 +1,17 @@
+{
+    "vars": [
+        {
+            "var": "title",
+            "label": "Titolo",
+            "description": "Titolo del widget",
+            "placeholder": "Titolo del widget",
+            "type": "zaa-text"
+        }
+    ],
+    "cfgs": [
+
+    ],
+    "defaults": {
+        "title": "Il mio profilo"
+    }
+}

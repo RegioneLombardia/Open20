@@ -1,0 +1,76 @@
+/* AMOS-LAYOUT */
+
+/*FOOTER DEFAULT VARIABLES*/
+
+/**
+FOOTER SPONSORS
+show sponsors logo in footer
+ */
+.footer-sponsor-container {
+  //height: 120px; /* space for footer position absolute */
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  .footer-sponsors {
+    //position: absolute;
+    //bottom: 0;
+    border-top: 3px solid @custom-color;
+    background-color: @footer-color;
+    padding: 2px 0 0;
+    .flexbox;
+    justify-content: center;
+    .flexbox-wrap;
+    .sponsor {
+      margin: @margin-default;
+      img {
+        height: 50px;
+        width: auto;
+      }
+    }
+    @media (max-width: 767px) {
+      position: relative;
+    }
+  }
+}
+
+/**
+FOOTER TEXT
+minimal configuration for textual footer
+ */
+.footer-space {
+  position: absolute;
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-end;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  .footer-text-container {
+    background-color: @primary-color;
+    bottom: 0;
+    width: 100%;
+    color: contrast(@primary-color);
+    height: 40px;
+    font-size: 12px;
+    .footer-text {
+      padding: 0;
+      text-align: center;
+    }
+  }
+}
+
+
+/**
+ COPYLEFT
+ */
+.copyleft {
+  background-color: @secondary-color;
+
+  p {
+    text-align: center;
+    color: contrast(@secondary-color);
+    font-size: 1.2em;
+    padding: 15px 0;
+  }
+}

@@ -1,0 +1,243 @@
+/**
+IMPORT AMOS-LAYOUT VARIABLES and UTILITY
+ */
+ @import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/v2/variables.less";
+ @import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/v2/utility.less";
+ /**
+  IMPORT STYLE-CUSTOM
+   */
+ @import (optional) "../../frontend/web/less/style_custom.less";
+
+ @folder: #FAD165;
+
+.widget-graphic-cms-bi-less-hierarchical-documents-community {
+  .bg-100 {
+    background-color: #e3e4e6 !important;
+    padding: 24px;
+  }
+  .hierarchical-documents-community-filter {
+    margin-bottom: 16px;
+    input[type="search"] {
+      border: none;
+      border-bottom: 1px solid #5c6f82;
+      border-radius: 0;
+      padding: 0.375rem 0.5rem;
+      outline: 0;
+      height: 2.5rem;
+      width: 100%;
+      box-shadow: none;
+      transition: 0.2s ease-out;
+      font-weight: normal;
+    }
+  }
+
+  .hierarchical-widget {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -6px;
+    margin-left: -6px;
+    .hierarchical-widget-address-bar {
+      /* margin-left: 8px;
+      margin-right: 8px; */
+      .hierarchical-element {
+        &.ml-2 {
+          margin-left: 8px;
+        }
+        &.ml-3 {
+          margin-left: 16px;
+        }
+        &.ml-4 {
+          margin-left: 24px;
+        }
+        &.ml-5 {
+          margin-left: 48px;
+        }
+        padding: 8px;
+        margin-bottom: 16px;
+        background-color: #fff;
+        &.active {
+          .hierarchical-link {
+            font-weight: bold !important;
+          }
+        }
+        .hierarchical-link {
+          color: #000;
+          text-decoration: none;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          &:hover {
+            opacity: 0.8;
+          }
+          p {
+            margin: 0;
+            display: flex;
+          }
+        }
+        .icon-arrow {
+          color: rgba(0,0,0,0.54);
+          /* font-size: 25px; */
+          font-size: 20px;
+          float: right;
+        }
+        .icon-folder {
+          color: #fad165;
+          margin-right: 4px;
+        }
+        .icon-secondary {
+          color: @secondary-color;
+        }
+      }
+    }
+  }
+
+  .documenti-list-wrapper {
+    position: relative;
+    padding-bottom: 16px;
+    .list-bg {
+      background: #fff;
+      padding: 4px 24px;
+      /* .documenti-list-info-container {
+          @include media-breakpoint-up(lg) {
+              padding-left: 40px;
+          }
+      } */
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: -6px;
+        margin-left: -6px;
+        align-items: center;
+      }
+      .title-three-line {
+        margin-bottom: 0;
+      }
+      .icon-title-container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        
+        .categoryicon-top {
+          position: relative;
+          .icon.mdi {
+            font-size: 30px;
+            margin-right: 4px;
+          }
+          .icon-overlay {
+              position: absolute;
+              width: 26px;
+              height: 26px;
+              top: -5px;
+              left: -7px;
+              border: 2px solid #fff;
+          }
+
+          .allegatiNum {
+            .icon {
+                &.icon-sm {
+                    width: 24px !important;
+                    height: 24px !important;
+                    margin-right: 0 !important;
+                }
+            }
+          }
+        }
+      }
+      .info-cta-manage-container {
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        .info-link {
+          margin-right: 16px;
+          color: #979899;
+          font-size: 22px;
+        }
+        a.read-more {
+          display: flex;
+          align-items: center;
+          text-transform: uppercase;
+          font-weight: bold;
+          letter-spacing: 0.9px;
+          font-size: 0.7777777778rem;
+          margin-right: auto;
+          color: @primary-color;
+          text-decoration: underline;
+          background-color: transparent;
+        }
+        .manage {
+          margin-left: 8px;
+          margin-left: 8px;
+          margin-right: 0;
+          padding: 0;
+          span.am.am-settings {
+            font-size: 18px !important;
+          }
+        }
+      }
+      .documenti-list-info-container {
+        align-items: center;
+        .mr-1 {
+          margin-right: 4px;
+        }
+        span.descrizione-sintetica{
+          width: 90%;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+
+    &.type-folder {
+        .list-bg {
+            background: lighten(@folder, 25%);
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 30px 0 0 30px;
+                border-color: @folder transparent transparent transparent;
+                margin: 0;
+            }
+        }
+    }
+
+    .info-doc {
+        position: absolute;
+        bottom: 24px;
+        right: 24px;
+    }
+  }
+}
+
+/* parte cartelle FE */
+.widget-graphic-cms-bi-less-fe.card-documenti {
+  .hierarchical-widget {
+    .hierarchical-widget-address-bar {
+      .hierarchical-element {
+        &.active {
+          .hierarchical-link {
+            font-weight: bold !important;
+          }
+        }
+        .hierarchical-link {
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+        .icon-arrow {
+          color: rgba(0,0,0,0.54);
+          font-size: 25px;
+          float: right;
+        }
+        .icon-folder {
+          color: #fad165;
+        }
+      }
+    }
+  }
+}

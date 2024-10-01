@@ -122,8 +122,14 @@ echo "\n  ... initialization completed.\n\n";
 function getFileList($root, $basePath = '')
 {
     $files = [];
-    $handle = opendir($root);
-    while (($path = readdir($handle)) !== false) {
+
+    if(($handle = opendir($root)) == false) {
+        echo "\n  ... FAILED TO INITIALIZE DIRECTORY $root.\n\n";
+
+        return [];
+    }
+
+    while (($path = readdir($handle)) != false) {
         if ($path === '.git' || $path === '.svn' || $path === '.' || $path === '..') {
             continue;
         }

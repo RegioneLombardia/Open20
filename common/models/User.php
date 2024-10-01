@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Lombardia Informatica S.p.A.
+ * Aria S.p.A.
  * OPEN 2.0
  *
  *
- * @package    lispa\amos\basic\template
+ * @package    open20\amos\basic\template
  * @category   CategoryName
  */
 
@@ -16,8 +16,8 @@ use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
-use lispa\amos\admin\models\UserProfile;
-use lispa\amos\core\record\Record;
+use open20\amos\admin\models\UserProfile;
+use open20\amos\core\record\Record;
 
 /**
  * User model

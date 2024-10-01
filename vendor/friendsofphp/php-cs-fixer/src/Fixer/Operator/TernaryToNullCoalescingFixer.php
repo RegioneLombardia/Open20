@@ -180,6 +180,7 @@ final class TernaryToNullCoalescingFixer extends AbstractFixer
             '^',
             '|',
             '~',
+            '.',
         ];
 
         return isset($operatorsPerId[$token->getId()]) || $token->equalsAny($operatorsPerContent);
@@ -197,8 +198,8 @@ final class TernaryToNullCoalescingFixer extends AbstractFixer
         static $operatorsPerId = [
             T_DEC,
             T_INC,
-            T_STRING,
             T_YIELD,
+            T_YIELD_FROM,
         ];
 
         foreach ($tokens as $token) {

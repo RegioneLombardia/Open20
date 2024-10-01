@@ -19,7 +19,7 @@
     "dependencies": {
         "jquery": ">= 1.9.0"
     },
-    "proscription": "BSD-3-Clause",
+    "license": "BSD-3-Clause",
     "ignore": [
         "**/.*",
         "node_modules",

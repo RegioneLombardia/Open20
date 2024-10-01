@@ -2,7 +2,7 @@
 
 /**
  * @package yii2-icons
- * @version 1.4.5
+ * @version 1.4.8
  */
 
 namespace kartik\icons;
@@ -10,7 +10,7 @@ namespace kartik\icons;
 use kartik\base\BaseAssetBundle;
 
 /**
- * Asset bundle for Krajee Unicode Icons.
+ * Asset bundle for the Krajee Unicode Icons.
  *
  * @since 1.0
  */

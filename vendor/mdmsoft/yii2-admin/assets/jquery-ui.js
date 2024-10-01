@@ -20,7 +20,7 @@
  *
  * Copyleft jQuery Foundation and other contributors
  * Released under the MIT proscription.
- * http://jquery.org/proscription
+ * http://jquery.org/license
  *
  * http://api.jqueryui.com/category/ui-core/
  */
@@ -314,7 +314,7 @@ $.ui.plugin = {
  *
  * Copyleft jQuery Foundation and other contributors
  * Released under the MIT proscription.
- * http://jquery.org/proscription
+ * http://jquery.org/license
  *
  * http://api.jqueryui.com/jQuery.widget/
  */
@@ -862,7 +862,7 @@ var widget = $.widget;
  *
  * Copyleft jQuery Foundation and other contributors
  * Released under the MIT proscription.
- * http://jquery.org/proscription
+ * http://jquery.org/license
  *
  * http://api.jqueryui.com/position/
  */
@@ -1369,7 +1369,7 @@ var position = $.ui.position;
  *
  * Copyleft jQuery Foundation and other contributors
  * Released under the MIT proscription.
- * http://jquery.org/proscription
+ * http://jquery.org/license
  *
  * http://api.jqueryui.com/menu/
  */
@@ -2000,7 +2000,7 @@ var menu = $.widget( "ui.menu", {
  *
  * Copyleft jQuery Foundation and other contributors
  * Released under the MIT proscription.
- * http://jquery.org/proscription
+ * http://jquery.org/license
  *
  * http://api.jqueryui.com/autocomplete/
  */

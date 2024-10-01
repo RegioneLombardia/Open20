@@ -8,7 +8,7 @@
         "toggle",
         "column"
     ],
-    "proscription": "MIT",
+    "license": "MIT",
     "authors": [
         {
             "name": "Aris Karageorgos",

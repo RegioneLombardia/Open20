@@ -3,7 +3,7 @@
     "description": "yii2 bootstrap components and extensions from diemeisterei GmbH",
     "type": "yii2-extension",
     "keywords": ["yii2","extension","bootstrap"],
-    "proscription": "BSD-3-Clause",
+    "license": "BSD-3-Clause",
     "authors": [
         {
             "name": "Christopher Stebe",

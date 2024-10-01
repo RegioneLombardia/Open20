@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Lombardia Informatica S.p.A.
+ * Aria S.p.A.
  * OPEN 2.0
  *
  *
- * @package    lispa\amos\basic\template
+ * @package    open20\amos\basic\template
  * @category   CategoryName
  */
 
@@ -14,8 +14,7 @@ $common = require(__DIR__ . '/../../common/config/main.php');
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 $modules = array_merge(
     $common['modules'],
-    require(__DIR__ . '/modules-others.php'),
-    require(__DIR__ . '/modules-amos.php')
+    require(__DIR__ . '/modules.php')
 );
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -28,38 +27,38 @@ $bootstrap = array_merge(
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 $components = array_merge(
     $common['components'],
-    require(__DIR__ . '/components-others.php'),
-    require(__DIR__ . '/components-amos.php')
+    require(__DIR__ . '/components.php'),
+    require(__DIR__ . '/components-local.php')
 );
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 $params = array_merge(
-    $common['params'],
     require(__DIR__ . '/params.php'),
     require(__DIR__ . '/params-local.php')
 );
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 return [
+    'name' => 'Open 2.0',
     'id' => 'app-console',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'console\controllers',
     'controllerMap' => [
         'migrate' => [
-            'class' => 'lispa\amos\core\migration\MigrateController',
-            'migrationLookup' => array_merge(
-                require(__DIR__ . '/migrations-amos.php'),
-                require(__DIR__ . '/migrations-others.php')
-            ),
+            'class' => 'open20\amos\core\migration\MigrateController',
+            'migrationLookup' => require(__DIR__ . '/migrations.php'),
         ],
         'language' => [
-            'class' => 'lispa\amos\core\commands\LanguageSourceController',
+            'class' => 'open20\amos\core\commands\LanguageSourceController',
         ],
         'userutility' => [
-            'class' => 'lispa\amos\admin\commands\UserUtilityController',
+            'class' => 'open20\amos\admin\commands\UserUtilityController',
         ],
         'utility' => [
-            'class' => 'lispa\amos\utility\commands\UtilityController',
+            'class' => 'open20\amos\utility\commands\UtilityController',
+        ],
+        'attach' => [
+            'class' => 'open20\amos\attachments\commands\AttachController',
         ],
     ],
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,92 @@
+.index-left-container {
+    aside {
+        a[aria-expanded="false"] {
+            svg {
+                -webkit-transform: scaleY(-1);
+                transform: scaleY(-1);
+                transition-duration: 0.3s;
+            }
+        }
+
+        a[aria-expanded="true"] {
+            svg {
+                -webkit-transform: scaleY(1);
+                transform: scaleY(1);
+                transition-duration: 0.3s;
+            }
+        }
+
+        #titolo-indice {
+            font-size: 16px;
+
+            @media screen and (max-width:992px) {
+                border-bottom: 4px solid #b1b1b3;
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+            }
+
+            &::after {
+                @media screen and (max-width:992px) {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    bottom: -4px;
+                    width: 40px;
+                    height: 4px;
+                    background-color: #a66300;
+                }
+            }
+        }
+
+        position: sticky;
+        top:100px;
+        margin-bottom: 32px;
+
+        @media screen and (max-width:767px) {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 8px !important;
+        }
+
+        .navbar.it-navscroll-wrapper {
+            .menu-wrapper {
+                padding-bottom: 0 !important;
+                padding-top: 0 !important;
+
+                ul.link-list.collapse {
+                    li.nav-item {
+                        a {
+                            &:hover {
+                                font-weight: bold !important;
+                            }
+                        }
+                    }
+                }
+
+                @media screen and (max-width:768px) {
+                    width: 100%;
+                }
+            }
+
+            #lista-paragrafi {
+                @media screen and (min-width:768px) {
+                    border-bottom: 0;
+                }
+
+                @media screen and (max-width:768px) {
+                    border-bottom: 1px solid #b1b1b3;
+                }
+
+            }
+        }
+    }
+}
+
+#menu-sinistro {
+    .navbar.it-navscroll-wrapper {
+        .menu-wrapper {
+            padding-bottom: 0 !important;
+            padding-top: 0 !important;
+        }
+    }
+}

@@ -1,0 +1,101 @@
+/* AMOS-LAYOUT */
+
+/*PAGINATOR DEFAULT VARIABLES*/
+@paginator-color: @primary-color;
+@paginator-background-color: @white-color;
+@paginator-border-color: @primary-color;
+
+
+.pagination {
+  display: table;
+  margin: @margin-default auto;
+  clear: left;
+  > li {
+    margin: 0 2px;
+    display: inline-block;
+    vertical-align: top;
+    cursor: pointer;
+
+    &:first-child > a,
+    &:first-child > span { // prev
+      border-top-left-radius: 50%;
+      border-bottom-left-radius: 50%;
+      border: none;
+      line-height: 1em;
+      font-size: 2em;
+      &:focus:not, &:hover {
+        color: @paginator-background-color;
+        background-color: @white-color;
+        border-color: @white-color;
+      }
+    }
+
+    &:last-child > a,
+    &:last-child > span { // next
+      border-top-right-radius: 50%;
+      border-bottom-right-radius: 50%;
+      border: none;
+      line-height: 1em;
+      font-size: 2em;
+      &:focus:not, &:hover {
+        color: @paginator-background-color;
+        background-color: @white-color;
+        border-color: @white-color;
+      }
+    }
+
+    > a,
+    > span {
+      padding: 0;
+      width: 34px;
+      height: 34px;
+      line-height: 1.6em;
+      text-align: center;
+      font-size: 1.5em;
+      z-index: 1;
+      cursor: pointer;
+      //background-clip: padding-box;
+      color: @paginator-color;
+      background-color: @paginator-background-color;
+      border-color: @paginator-border-color;
+      border-radius: 50%;
+      &:focus:not, &:hover {
+        color: @paginator-background-color;
+        background-color: @paginator-color;
+        border-color: lighten(@paginator-color, 10%);
+      }
+    }
+
+    &.active > a,
+    &.active > a:focus,
+    &.active > a:hover,
+    &.active > span,
+    &.active > span:focus,
+    &.active > span:hover {
+      color: @paginator-background-color;
+      background-color: @paginator-color;
+      border-color: lighten(@paginator-color, 10%);
+    }
+
+  }
+
+}
+
+//TODO remove (not used?)
+//.lg-pagination {
+//  width: 100%;
+//  text-align: center;
+//  padding: 40px 0;
+//  margin: 0;
+//}
+
+//TODO remove (old)
+//.pagination > li > a > .am, .pagination > li > span > .am {
+//  font-size: 22px;
+//  line-height: 39px;
+//}
+
+//TODO remove (not used?)
+//.pagination-details {
+//  margin-top: 10px;
+//}

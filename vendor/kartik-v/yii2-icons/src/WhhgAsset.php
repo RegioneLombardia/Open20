@@ -2,7 +2,7 @@
 
 /**
  * @package yii2-icons
- * @version 1.4.5
+ * @version 1.4.8
  */
 
 namespace kartik\icons;
@@ -10,7 +10,7 @@ namespace kartik\icons;
 use kartik\base\BaseAssetBundle;
 
 /**
- * Asset bundle for Web Hosting Hub Glyphs. Uses client assets (CSS, images, and fonts) from WHHG repository.
+ * Asset bundle for the Web Hosting Hub Glyphs. Uses client assets (CSS, images, and fonts) from WHHG repository.
  *
  *
  * @since 1.0

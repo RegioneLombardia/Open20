@@ -29,14 +29,6 @@ final class UseTransformer extends AbstractTransformer
     /**
      * {@inheritdoc}
      */
-    public function getCustomTokens()
-    {
-        return [CT::T_USE_TRAIT, CT::T_USE_LAMBDA];
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function getPriority()
     {
         // Should run after CurlyBraceTransformer and before TypeColonTransformer
@@ -89,6 +81,14 @@ final class UseTransformer extends AbstractTransformer
                 $tokens[$index] = new Token([CT::T_USE_TRAIT, $token->getContent()]);
             }
         }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getCustomTokens()
+    {
+        return [CT::T_USE_TRAIT, CT::T_USE_LAMBDA];
     }
 
     /**

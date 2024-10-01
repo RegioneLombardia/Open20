@@ -103,6 +103,14 @@ class Status extends WorkflowBaseObject implements StatusInterface
 		}
 		return $this->getSource()->getTransitions($this->getId());
 	}
+	
+	public function getAllTransitions()
+	{
+		if( $this->getSource() === null) {
+			throw new WorkflowException('no workflow source component available');
+		}
+		return $this->getSource()->getAllTransitions($this->getId());
+	}
 	/**
 	 */
 	public function getWorkflow()

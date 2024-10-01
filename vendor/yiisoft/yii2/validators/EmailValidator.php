@@ -27,6 +27,17 @@ class EmailValidator extends Validator
      */
     public $fullPattern = '/^[^@]*<[a-zA-Z0-9!#$%&\'*+\\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&\'*+\\/=?^_`{|}~-]+)*@(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?>$/';
     /**
+     * @var string the regular expression used to validate the part before the @ symbol, used if ASCII conversion fails to validate the address.
+     * @since 2.0.42
+     */
+    public $patternASCII = '/^[a-zA-Z0-9!#$%&\'*+\\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&\'*+\\/=?^_`{|}~-]+)*$/';
+    /**
+     * @var string the regular expression used to validate email addresses with the name part before the @ symbol, used if ASCII conversion fails to validate the address.
+     * This property is used only when [[allowName]] is true.
+     * @since 2.0.42
+     */
+    public $fullPatternASCII = '/^[^@]*<[a-zA-Z0-9!#$%&\'*+\\/=?^_`{|}~-]+(?:\.[a-zA-Z0-9!#$%&\'*+\\/=?^_`{|}~-]+)*$/';
+    /**
      * @var bool whether to allow name in the email address (e.g. "John Smith <john.smith@example.com>"). Defaults to false.
      */
     public $allowName = false;
@@ -43,6 +54,12 @@ class EmailValidator extends Validator
      * otherwise an exception would be thrown.
      */
     public $enableIDN = false;
+    /**
+     * @var bool whether [[enableIDN]] should apply to the local part of the email (left side
+     * of the `@`). Only applies if [[enableIDN]] is `true`.
+     * @since 2.0.43
+     */
+    public $enableLocalIDN = true;
 
 
     /**
@@ -70,14 +87,16 @@ class EmailValidator extends Validator
             $valid = false;
         } else {
             if ($this->enableIDN) {
-                $matches['local'] = $this->idnToAscii($matches['local']);
+                if ($this->enableLocalIDN) {
+                    $matches['local'] = $this->idnToAsciiWithFallback($matches['local']);
+                }
                 $matches['domain'] = $this->idnToAscii($matches['domain']);
                 $value = $matches['name'] . $matches['open'] . $matches['local'] . '@' . $matches['domain'] . $matches['close'];
             }
 
             if (strlen($matches['local']) > 64) {
                 // The maximum total length of a user name or other local-part is 64 octets. RFC 5322 section 4.5.3.1.1
-                // http://tools.ietf.org/html/rfc5321#section-4.5.3.1.1
+                // https://datatracker.ietf.org/doc/html/rfc5321#section-4.5.3.1.1
                 $valid = false;
             } elseif (strlen($matches['local'] . '@' . $matches['domain']) > 254) {
                 // There is a restriction in RFC 2821 on the length of an address in MAIL and RCPT commands
@@ -85,7 +104,7 @@ class EmailValidator extends Validator
                 // upper limit on address lengths should normally be considered to be 254.
                 //
                 // Dominic Sayers, RFC 3696 erratum 1690
-                // http://www.rfc-editor.org/errata_search.php?eid=1690
+                // https://www.rfc-editor.org/errata_search.php?eid=1690
                 $valid = false;
             } else {
                 $valid = preg_match($this->pattern, $value) || ($this->allowName && preg_match($this->fullPattern, $value));
@@ -167,5 +186,21 @@ class EmailValidator extends Validator
         }
 
         return $options;
+    }
+
+    /**
+     * @param string $value
+     * @return string|bool returns string if it is valid and/or can be converted, bool false if it can't be converted and/or is invalid
+     */
+    private function idnToAsciiWithFallback($value)
+    {
+        $ascii = $this->idnToAscii($value);
+        if ($ascii === false) {
+            if (preg_match($this->patternASCII, $value) || ($this->allowName && preg_match($this->fullPatternASCII, $value))) {
+                return $value;
+            }
+        }
+
+        return $ascii;
     }
 }

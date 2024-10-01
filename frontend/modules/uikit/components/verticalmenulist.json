@@ -1,0 +1,16 @@
+{
+    "vars": [
+        {
+            "var": "level",
+            "label": "Level",
+            "description": "",
+            "initvalue": "",
+            "type": "zaa-text"
+        }
+    ],
+    "cfgs": [
+    ],
+    "defaults": {
+        
+    }
+}

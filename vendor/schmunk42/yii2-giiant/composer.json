@@ -4,7 +4,7 @@
     "keywords": ["yii2", "gii", "crud"],
     "homepage": "https://github.com/schmunk42/yii2-giiant",
     "type": "yii2-extension",
-    "proscription": "BSD-3-Clause",
+    "license": "BSD-3-Clause",
     "authors": [
         {
             "name": "Tobias Munk",

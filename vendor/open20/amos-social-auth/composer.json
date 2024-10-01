@@ -1,0 +1,24 @@
+{
+    "name": "open20/amos-social-auth",
+    "description": "Social Auth",
+    "keywords": ["amos", "auth", "social", "yii2"],
+    "homepage": "https://bitbucket.org/open20/amos-social-auth",
+    "type": "component",
+    "require": {
+        "php": ">=5.4.0",
+        "open20/amos-admin" : "*",
+        "open20/amos-core" : "*",
+        "open20/amos-attachments" : "*",
+        "hybridauth/hybridauth": "^3.1.1",
+        "firebase/php-jwt": "^5.2.0",
+        "phpseclib/phpseclib": "^2.0.29",
+        "google/apiclient": "^2.0",
+        "yiisoft/yii2-authclient": "^2.1.0",
+        "conquer/oauth2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "open20\\amos\\socialauth\\": "src"
+        }
+    }
+}

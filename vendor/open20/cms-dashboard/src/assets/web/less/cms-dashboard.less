@@ -1,0 +1,60 @@
+/**
+IMPORT AMOS-LAYOUT VARIABLES
+ */
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/v2/variables.less";
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/v2/utility.less";
+/**
+ IMPORT STYLE-CUSTOM
+  */
+@import (optional) "../../frontend/web/less/style_custom.less";
+
+/** FORM PAGINE */
+.dashboards-page-create {
+  #modello-id {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+
+      .radio {
+          width: 100%;
+          margin: 0 !important;
+          padding: 12px;
+          @media(min-width:768px) {
+              width: 50%;
+          }
+          @media(min-width:992px) {
+              width: 33.333%;
+          }
+          label {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              justify-content: flex-start;
+              padding: 12px;
+              border-radius: 6px;
+              border: 1px solid #ccc;
+              min-height: 110px;
+              img {
+                  margin-right: 12px;
+                  width: 90px;
+                  height: auto;
+              }
+
+              input {
+                  margin-right: 12px;
+                  margin-left: 0;
+                  position: relative;
+              }
+              span {
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  display: block;
+              }
+          }
+      }
+
+
+  }
+}

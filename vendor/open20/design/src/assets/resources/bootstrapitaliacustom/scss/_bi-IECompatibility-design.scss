@@ -1,0 +1,25 @@
+@media #{map-get($device-media-queries, onlyIe)} {
+    *::-ms-backdrop, *:focus {
+        outline: none;
+        border-color: inherit;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    } /* IE11 */
+    .radio,
+    #event-event_location_entrance_id {
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: 15px;
+        }
+    }
+    .checkbox {
+        input[type="radio"],
+        input[type="checkbox"] {
+        margin-right: 15px;
+        }
+    }
+
+    .input-group-addon {
+        display: inline;
+    }
+}

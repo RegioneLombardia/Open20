@@ -1,9 +1,8 @@
 <?php
-
 /**
- * PHPExcel_Shared_Escher
+ * PHPExcel
  *
- * Copyleft (c) 2006 - 2015 PHPExcel
+ * Copyleft (c) 2006 - 2014 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -23,59 +22,67 @@
  * @package    PHPExcel_Shared_Escher
  * @version    ##VERSION##, ##DATE##
  */
+
+/**
+ * PHPExcel_Shared_Escher
+ *
+ * @category   PHPExcel
+ * @package    PHPExcel_Shared_Escher
+ */
 class PHPExcel_Shared_Escher
 {
-    /**
-     * Drawing Group Container
-     *
-     * @var PHPExcel_Shared_Escher_DggContainer
-     */
-    private $dggContainer;
+	/**
+	 * Drawing Group Container
+	 *
+	 * @var PHPExcel_Shared_Escher_DggContainer
+	 */
+	private $_dggContainer;
 
-    /**
-     * Drawing Container
-     *
-     * @var PHPExcel_Shared_Escher_DgContainer
-     */
-    private $dgContainer;
+	/**
+	 * Drawing Container
+	 *
+	 * @var PHPExcel_Shared_Escher_DgContainer
+	 */
+	private $_dgContainer;
 
-    /**
-     * Get Drawing Group Container
-     *
-     * @return PHPExcel_Shared_Escher_DgContainer
-     */
-    public function getDggContainer()
-    {
-        return $this->dggContainer;
-    }
+	/**
+	 * Get Drawing Group Container
+	 *
+	 * @return PHPExcel_Shared_Escher_DgContainer
+	 */
+	public function getDggContainer()
+	{
+		return $this->_dggContainer;
+	}
 
-    /**
-     * Set Drawing Group Container
-     *
-     * @param PHPExcel_Shared_Escher_DggContainer $dggContainer
-     */
-    public function setDggContainer($dggContainer)
-    {
-        return $this->dggContainer = $dggContainer;
-    }
+	/**
+	 * Set Drawing Group Container
+	 *
+	 * @param PHPExcel_Shared_Escher_DggContainer $dggContainer
+	 */
+	public function setDggContainer($dggContainer)
+	{
+		return $this->_dggContainer = $dggContainer;
+	}
 
-    /**
-     * Get Drawing Container
-     *
-     * @return PHPExcel_Shared_Escher_DgContainer
-     */
-    public function getDgContainer()
-    {
-        return $this->dgContainer;
-    }
+	/**
+	 * Get Drawing Container
+	 *
+	 * @return PHPExcel_Shared_Escher_DgContainer
+	 */
+	public function getDgContainer()
+	{
+		return $this->_dgContainer;
+	}
 
-    /**
-     * Set Drawing Container
-     *
-     * @param PHPExcel_Shared_Escher_DgContainer $dgContainer
-     */
-    public function setDgContainer($dgContainer)
-    {
-        return $this->dgContainer = $dgContainer;
-    }
+	/**
+	 * Set Drawing Container
+	 *
+	 * @param PHPExcel_Shared_Escher_DgContainer $dgContainer
+	 */
+	public function setDgContainer($dgContainer)
+	{
+		return $this->_dgContainer = $dgContainer;
+	}
+
 }

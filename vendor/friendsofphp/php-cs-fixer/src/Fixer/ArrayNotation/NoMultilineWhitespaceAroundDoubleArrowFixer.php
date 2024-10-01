@@ -34,10 +34,11 @@ final class NoMultilineWhitespaceAroundDoubleArrowFixer extends AbstractFixer
 
     /**
      * {@inheritdoc}
+     *
+     * Must run before BinaryOperatorSpacesFixer, TrailingCommaInMultilineFixer.
      */
     public function getPriority()
     {
-        // should be run before the TrailingCommaInMultilineArrayFixer and BinaryOperatorSpacesFixer.
         return 1;
     }
 

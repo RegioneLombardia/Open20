@@ -214,6 +214,8 @@ class BaseInflector
         'whiting' => 'whiting',
         'wildebeest' => 'wildebeest',
         'Yengeese' => 'Yengeese',
+        'software' => 'software',
+        'hardware' => 'hardware',
     ];
     /**
      * @var array fallback map for transliteration used by [[transliterate()]] when intl isn't available.
@@ -239,7 +241,7 @@ class BaseInflector
      * `huò qǔ dào dochira Ukraí̈nsʹka: g̀,ê, Srpska: đ, n̂, d̂! ¿Español?`.
      *
      * Used in [[transliterate()]].
-     * For detailed information see [unicode normalization forms](http://unicode.org/reports/tr15/#Normalization_Forms_Table)
+     * For detailed information see [unicode normalization forms](https://unicode.org/reports/tr15/#Normalization_Forms_Table)
      * @since 2.0.7
      */
     const TRANSLITERATE_STRICT = 'Any-Latin; NFKD';
@@ -252,7 +254,7 @@ class BaseInflector
      * `huo qu dao dochira Ukrainsʹka: g,e, Srpska: d, n, d! ¿Espanol?`.
      *
      * Used in [[transliterate()]].
-     * For detailed information see [unicode normalization forms](http://unicode.org/reports/tr15/#Normalization_Forms_Table)
+     * For detailed information see [unicode normalization forms](https://unicode.org/reports/tr15/#Normalization_Forms_Table)
      * @since 2.0.7
      */
     const TRANSLITERATE_MEDIUM = 'Any-Latin; Latin-ASCII';
@@ -266,7 +268,7 @@ class BaseInflector
      * `huo qu dao dochira Ukrainska: g,e, Srpska: d, n, d! Espanol?`.
      *
      * Used in [[transliterate()]].
-     * For detailed information see [unicode normalization forms](http://unicode.org/reports/tr15/#Normalization_Forms_Table)
+     * For detailed information see [unicode normalization forms](https://unicode.org/reports/tr15/#Normalization_Forms_Table)
      * @since 2.0.7
      */
     const TRANSLITERATE_LOOSE = 'Any-Latin; Latin-ASCII; [\u0080-\uffff] remove';
@@ -287,6 +289,9 @@ class BaseInflector
      */
     public static function pluralize($word)
     {
+        if (empty($word)) {
+            return (string) $word;
+        }
         if (isset(static::$specials[$word])) {
             return static::$specials[$word];
         }
@@ -306,6 +311,9 @@ class BaseInflector
      */
     public static function singularize($word)
     {
+        if (empty($word)) {
+            return (string) $word;
+        }
         $result = array_search($word, static::$specials, true);
         if ($result !== false) {
             return $result;
@@ -328,6 +336,9 @@ class BaseInflector
      */
     public static function titleize($words, $ucAll = false)
     {
+        if (empty($words)) {
+            return (string) $words;
+        }
         $words = static::humanize(static::underscore($words), $ucAll);
 
         return $ucAll ? StringHelper::mb_ucwords($words, self::encoding()) : StringHelper::mb_ucfirst($words, self::encoding());
@@ -344,6 +355,9 @@ class BaseInflector
      */
     public static function camelize($word)
     {
+        if (empty($word)) {
+            return (string) $word;
+        }
         return str_replace(' ', '', StringHelper::mb_ucwords(preg_replace('/[^\pL\pN]+/u', ' ', $word), self::encoding()));
     }
 
@@ -356,11 +370,14 @@ class BaseInflector
      */
     public static function camel2words($name, $ucwords = true)
     {
-        $label = mb_strtolower(trim(str_replace([
-            '-',
-            '_',
-            '.',
-        ], ' ', preg_replace('/(?<!\p{Lu})(\p{Lu})|(\p{Lu})(?=\p{Ll})/u', ' \0', $name))), self::encoding());
+        if (empty($name)) {
+            return (string) $name;
+        }
+        // Add a space before any uppercase letter preceded by a lowercase letter (xY => x Y)
+        // and any uppercase letter preceded by an uppercase letter and followed by a lowercase letter (XYz => X Yz)
+        $label = preg_replace('/(?<=\p{Ll})\p{Lu}|(?<=\p{L})\p{Lu}(?=\p{Ll})/u', ' \0', $name);
+
+        $label = mb_strtolower(trim(str_replace(['-', '_', '.'], ' ', $label)), self::encoding());
 
         return $ucwords ? StringHelper::mb_ucwords($label, self::encoding()) : $label;
     }
@@ -376,6 +393,9 @@ class BaseInflector
      */
     public static function camel2id($name, $separator = '-', $strict = false)
     {
+        if (empty($name)) {
+            return (string) $name;
+        }
         $regex = $strict ? '/\p{Lu}/u' : '/(?<!\p{Lu})\p{Lu}/u';
         if ($separator === '_') {
             return mb_strtolower(trim(preg_replace($regex, '_\0', $name), '_'), self::encoding());
@@ -394,6 +414,9 @@ class BaseInflector
      */
     public static function id2camel($id, $separator = '-')
     {
+        if (empty($id)) {
+            return (string) $id;
+        }
         return str_replace(' ', '', StringHelper::mb_ucwords(str_replace($separator, ' ', $id), self::encoding()));
     }
 
@@ -404,6 +427,9 @@ class BaseInflector
      */
     public static function underscore($words)
     {
+        if (empty($words)) {
+            return (string) $words;
+        }
         return mb_strtolower(preg_replace('/(?<=\\pL)(\\p{Lu})/u', '_\\1', $words), self::encoding());
     }
 
@@ -415,6 +441,9 @@ class BaseInflector
      */
     public static function humanize($word, $ucAll = false)
     {
+        if (empty($word)) {
+            return (string) $word;
+        }
         $word = str_replace('_', ' ', preg_replace('/_id$/', '', $word));
         $encoding = self::encoding();
 
@@ -432,6 +461,9 @@ class BaseInflector
      */
     public static function variablize($word)
     {
+        if (empty($word)) {
+            return (string) $word;
+        }
         $word = static::camelize($word);
 
         return mb_strtolower(mb_substr($word, 0, 1, self::encoding())) . mb_substr($word, 1, null, self::encoding());
@@ -446,6 +478,9 @@ class BaseInflector
      */
     public static function tableize($className)
     {
+        if (empty($className)) {
+            return (string) $className;
+        }
         return static::pluralize(static::underscore($className));
     }
 
@@ -464,7 +499,14 @@ class BaseInflector
      */
     public static function slug($string, $replacement = '-', $lowercase = true)
     {
-        $parts = explode($replacement, static::transliterate($string));
+        if (empty($string)) {
+            return (string) $string;
+        }
+        if ((string)$replacement !== '') {
+            $parts = explode($replacement, static::transliterate($string));
+        } else {
+            $parts = [static::transliterate($string)];
+        }
 
         $replaced = array_map(function ($element) use ($replacement) {
             $element = preg_replace('/[^a-zA-Z0-9=\s—–-]+/u', '', $element);
@@ -472,6 +514,9 @@ class BaseInflector
         }, $parts);
 
         $string = trim(implode($replacement, $replaced), $replacement);
+        if ((string)$replacement !== '') {
+            $string = preg_replace('#' . preg_quote($replacement) . '+#', $replacement, $string);
+        }
 
         return $lowercase ? strtolower($string) : $string;
     }
@@ -484,13 +529,16 @@ class BaseInflector
      * of the helper.
      *
      * @param string $string input string
-     * @param string|\Transliterator $transliterator either a [[\Transliterator]] or a string
+     * @param string|\Transliterator|null $transliterator either a [[\Transliterator]] or a string
      * from which a [[\Transliterator]] can be built.
      * @return string
      * @since 2.0.7 this method is public.
      */
     public static function transliterate($string, $transliterator = null)
     {
+        if (empty($string)) {
+            return (string) $string;
+        }
         if (static::hasIntl()) {
             if ($transliterator === null) {
                 $transliterator = static::$transliterator;
@@ -519,6 +567,9 @@ class BaseInflector
      */
     public static function classify($tableName)
     {
+        if (empty($tableName)) {
+            return (string) $tableName;
+        }
         return static::camelize(static::singularize($tableName));
     }
 
@@ -564,8 +615,8 @@ class BaseInflector
      * ```
      *
      * @param array $words the words to be converted into an string
-     * @param string $twoWordsConnector the string connecting words when there are only two
-     * @param string $lastWordConnector the string connecting the last two words. If this is null, it will
+     * @param string|null $twoWordsConnector the string connecting words when there are only two
+     * @param string|null $lastWordConnector the string connecting the last two words. If this is null, it will
      * take the value of `$twoWordsConnector`.
      * @param string $connector the string connecting words other than those connected by
      * $lastWordConnector and $twoWordsConnector

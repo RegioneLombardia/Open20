@@ -11,7 +11,7 @@
 
 namespace PhpCsFixer\Fixer\Operator;
 
-use PhpCsFixer\AbstractFixer;
+use PhpCsFixer\Fixer\AbstractIncrementOperatorFixer;
 use PhpCsFixer\FixerDefinition\CodeSample;
 use PhpCsFixer\FixerDefinition\FixerDefinition;
 use PhpCsFixer\Tokenizer\CT;
@@ -20,7 +20,7 @@ use PhpCsFixer\Tokenizer\Tokens;
 
 /**
  */
-final class StandardizeIncrementFixer extends AbstractFixer
+final class StandardizeIncrementFixer extends AbstractIncrementOperatorFixer
 {
     /**
      * @internal
@@ -52,11 +52,11 @@ final class StandardizeIncrementFixer extends AbstractFixer
 
     /**
      * {@inheritdoc}
+     *
+     * Must run before IncrementStyleFixer.
      */
     public function getPriority()
     {
-        // Must be run before IncrementStyleFixer in case user wants to
-        // post-increment instead
         return 1;
     }
 
@@ -91,7 +91,7 @@ final class StandardizeIncrementFixer extends AbstractFixer
                 continue;
             }
 
-            $startIndex = $this->findStart($tokens, $tokens->getPrevMeaningfulToken($operatorIndex));
+            $startIndex = $this->findStart($tokens, $operatorIndex);
 
             $this->clearRangeLeaveComments(
                 $tokens,
@@ -104,40 +104,6 @@ final class StandardizeIncrementFixer extends AbstractFixer
                 new Token($operator->isGivenKind(T_PLUS_EQUAL) ? [T_INC, '++'] : [T_DEC, '--'])
             );
         }
-    }
-
-    /**
-     * Find the start of a reference.
-     *
-     * @param int $index
-     *
-     * @return int
-     */
-    private function findStart(Tokens $tokens, $index)
-    {
-        while (!$tokens[$index]->equalsAny(['$', [T_VARIABLE]])) {
-            if ($tokens[$index]->equals(']')) {
-                $index = $tokens->findBlockStart(Tokens::BLOCK_TYPE_INDEX_SQUARE_BRACE, $index);
-            } elseif ($tokens[$index]->isGivenKind(CT::T_DYNAMIC_PROP_BRACE_CLOSE)) {
-                $index = $tokens->findBlockStart(Tokens::BLOCK_TYPE_DYNAMIC_PROP_BRACE, $index);
-            } elseif ($tokens[$index]->isGivenKind(CT::T_DYNAMIC_VAR_BRACE_CLOSE)) {
-                $index = $tokens->findBlockStart(Tokens::BLOCK_TYPE_DYNAMIC_VAR_BRACE, $index);
-            } elseif ($tokens[$index]->isGivenKind(CT::T_ARRAY_INDEX_CURLY_BRACE_CLOSE)) {
-                $index = $tokens->findBlockStart(Tokens::BLOCK_TYPE_ARRAY_INDEX_CURLY_BRACE, $index);
-            } else {
-                $index = $tokens->getPrevMeaningfulToken($index);
-            }
-        }
-
-        while ($tokens[$tokens->getPrevMeaningfulToken($index)]->equals('$')) {
-            $index = $tokens->getPrevMeaningfulToken($index);
-        }
-
-        if ($tokens[$tokens->getPrevMeaningfulToken($index)]->isGivenKind(T_OBJECT_OPERATOR)) {
-            return $this->findStart($tokens, $tokens->getPrevMeaningfulToken($index));
-        }
-
-        return $index;
     }
 
     /**

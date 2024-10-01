@@ -1,0 +1,221 @@
+/**
+IMPORT AMOS-LAYOUT VARIABLES
+ */
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/variables.less";
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/utility.less";
+/**
+IMPORT STYLE-CUSTOM
+ */
+@import (optional) "../../backend/web/less/style_custom.less";
+
+//-----------------------------------------------
+// DASHBOARD WIDGET GRAPHIC
+//-----------------------------------------------
+.latest-news {
+  height: 100%;
+  overflow: hidden;
+  display: block;
+  background-color: @white-color;
+  section {
+    padding: 0;
+    height: 83%;
+  }
+  .widget-listbox-option {
+    margin-top: @margin-medium;
+    article {
+      padding: 0;
+      border: 1px solid @border-color-default;
+      .container-img {
+        float: none;
+        width: 100%;
+        overflow: hidden;
+
+        @media (min-width: 640px) {
+          height: 100px;
+        }
+        img {
+          width: 100%;
+        }
+      }
+      .container-text {
+        float: none !important;
+        width: 100% !important;
+
+        @media (min-width: 640px) {
+          height: 125px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 939px) and (min-width: 640px) {
+  .latest-news {
+    .widget-listbox-option {
+      width: 33%;
+    }
+  }
+}
+
+.field-news-comments_enabled {
+  margin-top: 6px;
+  .comment-choice {
+    margin-top: 5px;
+  }
+}
+
+/**
+NEWS VIEW
+ */
+.news-view {
+  .header-widget {
+    position: relative;
+    margin: @margin-medium 0;
+    .post-header .publication-date {
+      text-align: right;
+    }
+    .manage { /* override */
+      margin-top: 0;
+    }
+    .amos-tooltip {
+      float: right;
+    }
+    .reportflag-widget {
+      float: right;
+      a {
+        margin: 0px 12px;
+        position: relative;
+        bottom: 2px;
+      }
+    }
+  }
+  .header {
+    background-color: @light-background-color;
+    margin-bottom: @margin-default;
+    overflow: hidden;
+    max-height: 350px;
+    .img-responsive {
+      margin: 0 auto;
+    }
+    .title {
+      background-color: rgba(255, 255, 255, 0.8);
+      position: absolute;
+      bottom: 0px;
+      min-height: 80px;
+      .title-text {
+        font-weight: bold;
+        margin-top: @margin-medium;
+        margin-bottom: @margin-min;
+        color: @black-color;
+        & + .subtitle-text {
+          margin-top: 0;
+          color: @black-color;
+          font-style: italic;
+          font-size: 1.3em;
+        }
+      }
+    }
+  }
+  .text-content {
+    iframe {
+      width: 100%;
+      min-height: 350px;
+      margin-top: 20px;
+    }
+  }
+}
+
+/**
+NEWS CARD
+ */
+@news-card-header-color: fade(@primary-color, 70%);
+@news-card-post-header-color: @light-background-primary-color;
+
+[data-role="list-view"]{
+  .grid-sizer,
+  .grid-item {
+    width: 32.5%;
+    @media screen and (min-width: 768px) and (max-width: 991px) {
+      width: 49%;
+    }
+    @media screen and (min-width: 320px) and (max-width: 767px) {
+      width: 100%;
+    }
+  }
+  .listview-container.grid-item { /* override amos-layout */
+    border: none;
+    border-bottom: 10px solid @primary-color;
+  }
+}
+
+.listview-container.news-item {
+  padding-bottom: 0;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+  .icon-header {
+    .top-header {
+      padding: @padding-min;
+      background-color: @news-card-header-color;
+      color: @white-color;
+      position: absolute;
+      //z-index: 9;
+      > span {
+        position: relative;
+        top: 1px;
+        .date {
+          text-transform: uppercase;
+        }
+      }
+      .manage {
+        margin-top: 0;
+        .manage-menu {
+          color: @white-color;
+        }
+      }
+      .new-badge {
+        right: 5px;
+        top: 35px;
+      }
+    }
+    .news-image {
+      height: 200px;
+      overflow: hidden;
+      .img-responsive {
+        margin: 0 auto;
+      }
+    }
+    .post-header {
+      background-color: @news-card-post-header-color;
+      padding: @padding-medium;
+      position: relative;
+      bottom: 20px;
+      margin: 0;
+    }
+  }
+  .icon-body {
+    .title {
+      color: @black-color;
+      font-weight: bold;
+      text-decoration: none;
+      h3 {
+        margin: 0;
+      }
+    }
+    .text-column {
+      padding-right: 10px;
+      .text {
+        margin-bottom: @margin-medium;
+        .read-all {
+          margin-left: @margin-min;
+          color: @black-color;
+          font-weight: bold;
+          text-decoration: none;
+          word-wrap: normal;
+        }
+      }
+    }
+  }
+}
+
+
+

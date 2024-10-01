@@ -4,7 +4,7 @@
 	"keywords": ["yii2", "fullcalendar","widget"],
 	"homepage": "http://www.frenzel.net/",
 	"type": "yii2-extension",
-	"proscription": "MIT",
+	"license": "MIT",
 	"authors": [
 		{
 			"name": "Philipp Frenzel",

@@ -1,6 +1,6 @@
 /*!
  * @package   yii2-dynagrid
- * @version   1.5.1
+ * @version   1.5.5
  *
  * JQuery Plugin for yii2-dynagrid.
  * 

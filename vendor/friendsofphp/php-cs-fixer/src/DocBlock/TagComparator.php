@@ -15,6 +15,8 @@ namespace PhpCsFixer\DocBlock;
  * This class is responsible for comparing tags to see if they should be kept
  * together, or kept apart.
  *
+ *
+ * @final
  */
 class TagComparator
 {
@@ -25,7 +27,7 @@ class TagComparator
      */
     private static $groups = [
         ['deprecated', 'link', 'see', 'since'],
-        ['author', 'copyleft', 'proscription'],
+        ['author', 'copyleft', 'license'],
         ['category', 'package', 'subpackage'],
         ['property', 'property-read', 'property-write'],
     ];

@@ -1,0 +1,71 @@
+{
+    "vars": [{
+            "var": "items",
+            "label": "Elementi",
+            "description": "Ogni elemento sarà un accordion, con testata, contenuto (visibile solo se espanso), immagine (se selezionata viene visualizzata nel corpo dell'accordion) e link. E' possibile scegliere se ogni accordion è aperto o chiuso al caricamento della pagina.",
+            "type": "zaa-multiple-inputs",
+            "options": [{
+                    "var": "title",
+                    "label": "Testata dell'accordion",
+                    "description": "Testata dell'accordion che ne scatena l'apertura se cliccato.",
+                    "initvalue": "",
+                    "type": "zaa-text"
+                },
+               {
+                    "var": "content",
+                    "label": "Contenuto testuale dell'accordion",
+                    "description": "Contenuto testuale visibile solo se l'accordion viene espanso.",
+                    "initvalue": "",
+                    "type": "zaa-wysiwyg"
+                }, {
+                    "var": "accordion_image",
+                    "label": "Immagine dell'accordion",
+                    "description": "Se selezionata inserisce l'immagine nel corpo dell'accordion, visibile solo se l'accordion viene espanso.",
+                    "initvalue": "",
+                    "options": {
+                        "no_filter": false
+                    },
+                    "type": "zaa-image-upload"
+                }, 
+                  {
+                    "var": "read_more_link",
+                    "label": "Link dell'accordion",
+                    "description": "Se selezionato inserisce un link alla fine del corpo dell'accordion, visibile solo se l'accordion viene espanso.",
+                    "initvalue": "",
+                    "placeholder": "http:\/\/",
+                    "type": "zaa-link"
+                },{
+                    "var": "accordion_read_more_link_text",
+                    "label": "Testo del link dell'accordion",
+                    "description": "Da compilare solo se è stato selezionato il campo 'Link dell'accordion'. Rappresenta il testo del link.",
+                    "initvalue": "",
+                    "type": "zaa-text"
+                },{
+                    "var": "open_on_load",
+                    "label": "Espandi l'accordion al caricamento di pagina",
+                    "description": "Se selezionato espande il contenuto dell'accordion al caricamento di pagina, visualizzando, se selezionati, contenuto, immagine e link.",
+                    "initValue": "not-open",
+                    "options": [{
+                            "value": "not-open",
+                            "label": "Non aperto"
+                        }, {
+                            "value": "open",
+                            "label": "Aperto"
+                        }],
+                    "type": "zaa-select"
+                }
+            
+            
+            ]
+        }],
+    "cfgs": [  
+        {
+            "var": "class",
+            "label": "Classe css",
+            "description": "Classe css associata al componente.",
+            "initValue": "",
+            "type": "zaa-text"
+        }],
+    "defaults": {
+    }
+}

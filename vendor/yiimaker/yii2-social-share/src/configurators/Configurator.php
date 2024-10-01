@@ -4,50 +4,107 @@
 
 namespace ymaker\social\share\configurators;
 
-use yii\base\Object;
+use yii\base\BaseObject;
 use yii\helpers\ArrayHelper;
 use ymaker\social\share\drivers\Facebook;
 use ymaker\social\share\drivers\GooglePlus;
 use ymaker\social\share\drivers\LinkedIn;
-use ymaker\social\share\drivers\other\Gmail;
-use ymaker\social\share\drivers\other\mobile\WhatsApp;
-use ymaker\social\share\drivers\other\Telegram;
+use ymaker\social\share\drivers\Gmail;
+use ymaker\social\share\drivers\Trello;
+use ymaker\social\share\drivers\WhatsApp;
+use ymaker\social\share\drivers\Telegram;
 use ymaker\social\share\drivers\Pinterest;
 use ymaker\social\share\drivers\Tumblr;
 use ymaker\social\share\drivers\Twitter;
 use ymaker\social\share\drivers\Vkontakte;
+use ymaker\social\share\drivers\Yahoo;
+use ymaker\social\share\drivers\Odnoklassniki;
 
 /**
  * Configurator for social network drivers.
  *
  * @since 1.0
  */
-class Configurator extends Object implements ConfiguratorInterface
+class Configurator extends BaseObject implements ConfiguratorInterface, IconsConfigInterface, SeoConfigInterface
 {
+    const DEFAULT_ICONS_MAP = [
+        Vkontakte::class     => 'si si-vk',
+        Facebook::class      => 'si si-facebook',
+        Twitter::class       => 'si si-twitter',
+        GooglePlus::class    => 'si si-google-plus',
+        LinkedIn::class      => 'si si-linkedin',
+        Pinterest::class     => 'si si-pinterest',
+        Telegram::class      => 'si si-telegram',
+        WhatsApp::class      => 'si si-whatsapp',
+        Gmail::class         => 'si si-gmail',
+        Tumblr::class        => 'si si-tumblr',
+        Yahoo::class         => 'si si-yahoo',
+        Odnoklassniki::class => 'si si-odnoklassniki',
+        Trello::class        => 'si si-trello',
+    ];
+
     /**
-     * @var array Configuration of social network drivers.
+     * Configuration of social network drivers.
+     *
+     * @var array
      */
     public $socialNetworks = [];
     /**
-     * @var array CSS options for share links.
+     * CSS options for share links.
+     *
+     * @var array
      */
     public $options = [];
     /**
-     * @var bool Enable SEO options for share links.
+     * Enable SEO options for share links.
+     *
+     * @var bool
      */
     public $enableSeoOptions = true;
     /**
-     * @var array HTML attributes from this option will be applyed if `enableSeoOptions` is true.
+     * HTML attributes from this option will be applied if `enableSeoOptions` is true.
+     *
+     * @var array
      */
     public $seoOptions = [];
     /**
-     * @var bool Enable default icons instead labels for social networks.
+     * Enable default icons instead labels for social networks.
+     *
+     * @var bool
+     *
+     * @deprecated since 2.3
      */
     public $enableDefaultIcons = false;
     /**
-     * @var array Configuration of icons for social network drivers.
+     * Enable icons instead of text labels.
+     *
+     * @var bool
+     *
+     * @since 2.3
+     */
+    public $enableIcons = false;
+    /**
+     * Enable default icons asset.
+     *
+     * @var bool
+     *
+     * @since 2.3
+     */
+    public $enableDefaultAsset = true;
+    /**
+     * Configuration of icons for social network drivers.
+     *
+     * @var array
      */
     public $icons = [];
+    /**
+     * Enable registering of drivers meta tags.
+     *
+     * @var bool
+     *
+     * @since 2.1
+     */
+    public $registerMetaTags = true;
 
 
     /**
@@ -55,40 +112,20 @@ class Configurator extends Object implements ConfiguratorInterface
      */
     public function init()
     {
-        if (empty($this->seoOptions)) {
+        if ($this->isSeoEnabled() && empty($this->seoOptions)) {
             $this->seoOptions = [
                 'target' => '_blank',
                 'rel'    => 'noopener',
             ];
         }
-        if ($this->enableDefaultIcons) {
-            $this->icons = ArrayHelper::merge($this->getDefaultIcons(), $this->icons);
+
+        if ($this->enableIcons || $this->enableDefaultIcons) {
+            $this->icons = ArrayHelper::merge(self::DEFAULT_ICONS_MAP, $this->icons);
         }
     }
 
     /**
-     * Returns map of default icons for social networks.
-     *
-     * @return array
-     */
-    private function getDefaultIcons()
-    {
-        return [
-            Vkontakte::class    => 'si si-vk',
-            Facebook::class     => 'si si-facebook',
-            Twitter::class      => 'si si-twitter',
-            GooglePlus::class   => 'si si-google-plus',
-            LinkedIn::class     => 'si si-linkedin',
-            Pinterest::class    => 'si si-pinterest',
-            Telegram::class     => 'si si-telegram',
-            WhatsApp::class     => 'si si-whatsapp',
-            Gmail::class        => 'si si-gmail',
-            Tumblr::class       => 'si si-tumblr',
-        ];
-    }
-
-    /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getSocialNetworks()
     {
@@ -96,23 +133,54 @@ class Configurator extends Object implements ConfiguratorInterface
     }
 
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function getOptions()
     {
-        return $this->enableSeoOptions
+        return $this->isSeoEnabled()
             ? ArrayHelper::merge($this->options, $this->seoOptions)
             : $this->options;
     }
 
     /**
-     * Returns icon selector by driver name.
+     * {@inheritdoc}
+     */
+    public function canRegisterMetaTags()
+    {
+        return $this->registerMetaTags;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function isIconsEnabled()
+    {
+        return $this->enableIcons || $this->enableDefaultIcons;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function isDefaultAssetEnabled()
+    {
+        return $this->enableDefaultAsset || $this->enableDefaultIcons;
+    }
+
+    /**
+     * {@inheritdoc}
      *
-     * @param string $driverName
-     * @return string
+     * @param string $driverName Class name of the needed driver.
      */
     public function getIconSelector($driverName)
     {
         return isset($this->icons[$driverName]) ? $this->icons[$driverName] : '';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function isSeoEnabled()
+    {
+        return $this->enableSeoOptions;
     }
 }

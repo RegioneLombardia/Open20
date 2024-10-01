@@ -2,7 +2,7 @@
 
 /**
  * @package   yii2-grid
- * @version   3.2.9
+ * @version   3.5.3
  */
 
 namespace kartik\grid\controllers;
@@ -29,7 +29,7 @@ class ExportController extends Controller
      * Download the exported file
      *
      * @return mixed
-     * @throws \yii\base\InvalidConfigException
+     * @throws InvalidConfigException
      */
     public function actionDownload()
     {
@@ -45,9 +45,12 @@ class ExportController extends Controller
         $mime = $request->post('export_mime', 'text/plain');
         $encoding = $request->post('export_encoding', 'utf-8');
         $bom = $request->post('export_bom', 1);
+        $hashConfig = $request->post('hash_export_config', 0);
+        $hashConfig = empty($hashConfig) ? 0 : 1;
         $config = $request->post('export_config', '{}');
+        $cfg = empty($hashConfig) ? '' : $config;
         $oldHash = $request->post('export_hash');
-        $newData = $moduleId . $name . $mime . $encoding . $bom . $config;
+        $newData = $moduleId.$name.$mime.$encoding.$bom.$hashConfig.$cfg;
         $security = Yii::$app->security;
         $salt = $module->exportEncryptSalt;
         $newHash = $security->hashData($newData, $salt);
@@ -57,27 +60,28 @@ class ExportController extends Controller
         }
         if ($type == GridView::PDF) {
             $config = Json::decode($config);
+
             return $this->generatePDF($content, "{$name}.pdf", $config);
         } elseif ($type == GridView::CSV || $type == GridView::TEXT) {
             if ($encoding != 'utf-8') {
                 $content = mb_convert_encoding($content, $encoding, 'utf-8');
             } elseif ($bom) {
-                $content = chr(239) . chr(187) . chr(191) . $content; // add BOM
+                $content = chr(239).chr(187).chr(191).$content; // add BOM
             }
         }
         $this->setHttpHeaders($type, $name, $mime, $encoding);
+
         return $content;
     }
 
     /**
      * Generates the PDF file
      *
-     * @param string $content the file content
-     * @param string $filename the file name
-     * @param array $config the configuration for yii2-mpdf component
+     * @param  string  $content  the file content
+     * @param  string  $filename  the file name
+     * @param  array  $config  the configuration for yii2-mpdf component
      *
      * @return Response
-     * @throws InvalidConfigException
      */
     protected function generatePDF($content, $filename, $config = [])
     {
@@ -87,16 +91,17 @@ class ExportController extends Controller
         $config['methods']['SetCreator'] = [Yii::t('kvgrid', 'Krajee Yii2 Grid Export Extension')];
         $config['content'] = $content;
         $pdf = new Pdf($config);
+
         return $pdf->render();
     }
 
     /**
      * Sets the HTTP headers needed by file download action.
      *
-     * @param string $type the file type
-     * @param string $name the file name
-     * @param string $mime the mime time for the file
-     * @param string $encoding the encoding for the file content
+     * @param  string  $type  the file type
+     * @param  string  $name  the file name
+     * @param  string  $mime  the mime time for the file
+     * @param  string  $encoding  the encoding for the file content
      */
     protected function setHttpHeaders($type, $name, $mime, $encoding = 'utf-8')
     {
@@ -108,7 +113,7 @@ class ExportController extends Controller
         $headers->set('Cache-Control', 'public, must-revalidate, max-age=0');
         $headers->set('Pragma', 'public');
         $headers->set('Expires', 'Sat, 26 Jul 1997 05:00:00 GMT');
-        $headers->set('Last-Modified', gmdate('D, d M Y H:i:s') . ' GMT');
+        $headers->set('Last-Modified', gmdate('D, d M Y H:i:s').' GMT');
         $headers->set('Content-Disposition', "attachment; filename={$name}.{$type}");
     }
 }

@@ -1,12 +1,14 @@
 <?php
-
 /**
  * @package   yii2-password
- * @version   1.5.3
+ * @version   1.5.7
  */
 
 namespace kartik\password;
 
+/**
+ * List of password rule presets
+ */
 return [
     StrengthValidator::SIMPLE => [
         'min' => 6,
@@ -16,6 +18,7 @@ return [
         'special' => 0,
         'hasUser' => false,
         'hasEmail' => false,
+        'haveIBeenPwned' => false,
     ],
     StrengthValidator::NORMAL => [
         'min' => 8,
@@ -25,6 +28,7 @@ return [
         'special' => 0,
         'hasUser' => true,
         'hasEmail' => true,
+        'haveIBeenPwned' => false,
     ],
     StrengthValidator::FAIR => [
         'min' => 10,
@@ -34,6 +38,7 @@ return [
         'special' => 1,
         'hasUser' => true,
         'hasEmail' => true,
+        'haveIBeenPwned' => false,
     ],
     StrengthValidator::MEDIUM => [
         'min' => 10,
@@ -43,6 +48,7 @@ return [
         'special' => 1,
         'hasUser' => true,
         'hasEmail' => true,
+        'haveIBeenPwned' => false,
     ],
     StrengthValidator::STRONG => [
         'min' => 12,
@@ -52,5 +58,6 @@ return [
         'special' => 2,
         'hasUser' => true,
         'hasEmail' => true,
+        'haveIBeenPwned' => false,
     ],
 ];

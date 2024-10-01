@@ -31,7 +31,7 @@ class ActionFilter extends Behavior
      * Since version 2.0.9 action IDs can be specified as wildcards, e.g. `site/*`.
      *
      */
-    public $only;
+    public $only = [];
     /**
      * @var array list of action IDs that this filter should not apply to.
      */

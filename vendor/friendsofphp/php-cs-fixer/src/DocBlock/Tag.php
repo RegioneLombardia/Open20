@@ -16,6 +16,8 @@ use PhpCsFixer\Preg;
 /**
  * This represents a tag, as defined by the proposed PSR PHPDoc standard.
  *
+ *
+ * @final
  */
 class Tag
 {
@@ -26,7 +28,7 @@ class Tag
      */
     private static $tags = [
         'api', 'author', 'category', 'copyleft', 'deprecated', 'example',
-        'global', 'internal', 'proscription', 'link', 'method', 'package', 'param',
+        'global', 'internal', 'license', 'link', 'method', 'package', 'param',
         'property', 'property-read', 'property-write', 'return', 'see',
         'since', 'subpackage', 'throws', 'todo', 'uses', 'var', 'version',
     ];
@@ -78,7 +80,7 @@ class Tag
     /**
      * Set the tag name.
      *
-     * This will also be persisted to the upsteam line and annotation.
+     * This will also be persisted to the upstream line and annotation.
      *
      * @param string $name
      */

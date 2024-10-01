@@ -2,7 +2,7 @@
 
 /**
  * @package yii2-sortable
- * @version 1.2.1
+ * @version 1.2.2
  */
 
 namespace kartik\sortable;

@@ -17,7 +17,7 @@ class Module extends \yii\base\Module
     /**
      * @var string
      */
-    public $layout = 'main';
+    public $layout = '@vendor/open20/amos-layout/src/views/layouts/main';
     
     public function init()
     {

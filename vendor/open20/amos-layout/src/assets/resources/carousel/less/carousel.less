@@ -1,0 +1,211 @@
+/**
+IMPORT AMOS-LAYOUT VARIABLES
+ */
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/variables.less";
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/utility.less";
+/**
+IMPORT STYLE-CUSTOM
+ */
+@import (optional) "../../backend/web/less/style_custom.less";
+
+/*CAROUSEL DEFAULT VARIABLES*/
+@background-color-carousel: @primary-color;
+@font-color-carousel: contrast(@background-color-carousel);
+
+/* Yii2 Carousel used for evidence list */
+.carousel-evidence {
+  background-color: @background-color-carousel;
+  color: @font-color-carousel;
+  padding: @padding-medium 50px;
+  margin-bottom: @margin-min;
+  height: 400px;
+  @media(max-width: 520px){
+    padding: @padding-medium 30px;
+  }
+  @media(max-width: 420px){
+    padding: 0;
+  }
+  .carousel-inner {
+    height: 350px;
+    .item {
+      /* not insert display:flex here*/
+      height: 100%;
+      > div {
+        height: 100%;
+        @media (max-width: 991px) {
+          /* total overflow 2nd div with background rgba */
+          height: 0;
+          min-height: 0;
+          &:nth-child(2) {
+            height: 101%;
+            padding: @padding-default @padding-medium;
+            background-color: rgba(0, 0, 0, 0.8);
+            @media (max-width: 520px) {
+              text-align: center;
+              justify-content: space-between;
+            }
+          }
+        }
+      }
+      .evidence-image {
+        //height: inherit;
+        background-color: @light-background-color;
+        .img-responsive {
+          margin: auto;
+          width: 100%;
+          height: auto;
+          overflow: hidden;
+        }
+      }
+      > :nth-child(2) {
+        .flexbox;
+        .flexbox-column;
+        height: 100%;
+        .evidence-header {
+          .flexbox;
+          .flexbox-row;
+          align-items: center;
+          justify-content: center;
+          @media (max-width: 520px) {
+            .flexbox-column;
+            > div {
+              width: 100%;
+            }
+          }
+          .evidence-data {
+            background-color: @font-color-carousel;
+            color: @background-color-carousel;
+            .flexbox;
+            .flexbox-column;
+            text-align: center;
+            width: 75%;
+            //margin: 0 auto;
+            padding: @padding-min 0;
+            > span {
+              margin-bottom: 2px;
+              &:nth-child(1) {
+                color: @black-color;
+              }
+              &:nth-child(2) {
+                font-weight: bold;
+                font-size: 2.5em;
+              }
+              &:nth-child(3) {
+                font-weight: bold;
+                text-transform: uppercase;
+              }
+              &:nth-child(4) {
+                margin-top: -@margin-min;
+                line-height: 0.8em;
+              }
+            }
+            @media (max-width: 1199px) {
+              width: 100%;
+              @media (max-width: 520px) {
+                .flexbox-row;
+                justify-content: center;
+                margin-bottom: @margin-default;
+                > span {
+                  margin-right: @margin-min;
+                  &:nth-child(2) {
+                    font-size: inherit;
+                  }
+                  &:nth-child(4) {
+                    margin-top: 0;
+                    line-height: inherit;
+                  }
+                }
+              }
+            }
+          }
+          .post-header {
+            //margin: 0 @margin-min 0 0;
+            margin: 0;
+            @media (max-width: 1199px) and (min-width: 521px) {
+              margin: 0 0 0 @margin-medium;
+            }
+            .creator {
+              @media (max-width: 1199px) {
+                /* override */
+                width: 100%;
+                max-width: 100%;
+              }
+              a {
+                color: @font-color-carousel;
+              }
+            }
+            .card-prevalent-partnership,
+            .card-creator-targets{
+              color: @font-color-carousel;
+            }
+          }
+        }
+        .evidence-body {
+          .title {
+            color: @font-color-carousel;
+            text-decoration: none;
+          }
+          .read-all {
+            color: @font-color-carousel;
+            font-weight: bold;
+            text-decoration: none
+          }
+          @media (max-width: 520px) {
+            height: 50%; /* align vertical center div */
+            .text {
+              display: none;
+            }
+          }
+          @media(max-width: 420px){
+            height: 60%;
+          }
+        }
+        .evidence-footer {
+          margin: auto auto 0 auto; /* align bottom flex item */
+          @media (max-width: 520px) {
+            margin: 0;
+          }
+          .stats-toolbar.toolbar-horizontal {
+            justify-content: space-between;
+            .item {
+              color: @font-color-carousel;
+              background-color: transparent;
+              padding: 0;
+              margin: 0;
+              width: auto; /* override */
+            }
+            @media (max-width: 520px) {
+              justify-content: space-around;
+            }
+          }
+        }
+      }
+    }
+  }
+  .carousel-indicators { /* override bootstrap */
+    position: absolute;
+    bottom: 9px;
+    width: 100%;
+    left: 0;
+    margin: 0;
+    @media(max-width: 420px){
+      display: none;
+    }
+  }
+  .carousel-control { /* override bootstrap */
+    background-image: none;
+    font-size: 5em;
+    color: @font-color-carousel;
+    opacity: unset;
+    top: 45%;
+    width: 5%;
+    text-decoration: none;
+    @media (max-width: 991px) {
+      width: 7%;
+    }
+    @media(max-width: 420px){
+          width: 20%;
+          top: 85%;
+      }
+  }
+}

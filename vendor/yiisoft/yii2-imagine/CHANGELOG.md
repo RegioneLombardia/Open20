@@ -1,6 +1,18 @@
 Yii Framework 2 imagine extension Change Log
 ================================================
 
+2.3.1 September 04, 2022
+------------------------
+
+- Enh #70: Make protected static methods `getThumbnailBox()`, `getBox()` and `isUpscaling()` public (nadar)
+
+
+2.3.0 December 23, 2020
+-----------------------
+
+- Enh #28: `Image::thumbnail()` now accepts flag `ImageInterface::THUMBNAIL_FLAG_UPSCALE` to allow thumbnail upscaling. Since this option is only supported in imagine/imagine v1.0.0 or later, support for older version was dropped (yuniorsk)
+
+
 2.2.0 June 04, 2019
 -------------------
 

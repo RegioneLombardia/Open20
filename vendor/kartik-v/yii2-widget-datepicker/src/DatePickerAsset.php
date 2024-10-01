@@ -3,7 +3,7 @@
 /**
  * @package yii2-widgets
  * @subpackage yii2-widget-datepicker
- * @version 1.4.6
+ * @version 1.4.8
  */
 
 namespace kartik\date;
@@ -23,7 +23,7 @@ class DatePickerAsset extends AssetBundle
     public function init()
     {
         $this->setSourcePath(__DIR__ . '/assets');
-        $bsCss = 'bootstrap-datepicker' . ($this->isBs4() ? '4' : '3');
+        $bsCss = 'bootstrap-datepicker' . ($this->isBs(3) ? '3' : '4');
         $this->setupAssets('css', ['css/' . $bsCss, 'css/datepicker-kv']);
         $this->setupAssets('js', ['js/bootstrap-datepicker', 'js/datepicker-kv']);
         parent::init();

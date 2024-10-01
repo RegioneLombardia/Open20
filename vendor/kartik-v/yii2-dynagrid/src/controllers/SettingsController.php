@@ -2,7 +2,7 @@
 
 /**
  * @package   yii2-dynagrid
- * @version   1.5.1
+ * @version   1.5.5
  */
 
 namespace kartik\dynagrid\controllers;
@@ -23,7 +23,7 @@ class SettingsController extends Controller
     /**
      * Fetch dynagrid setting configuration
      *
-     * @return mixed
+     * @return array|string[]
      * @throws  InvalidConfigException
      */
     public function actionGetConfig()
@@ -37,9 +37,10 @@ class SettingsController extends Controller
             if ($validate === true) {
                 $out = ['status' => 'success', 'content' => var_export($model->getDataConfig(), true)];
             } else {
-                $out = ['status' => 'error', 'content' => '<div class="alert alert-danger">' . $validate . '</div>'];
+                $out = ['status' => 'error', 'content' => '<div class="alert alert-danger">'.$validate.'</div>'];
             }
         }
+
         return $out;
     }
 }

@@ -11,7 +11,7 @@
  */
 abstract class Swift
 {
-    const VERSION = '6.2.3';
+    const VERSION = '6.3.0';
 
     public static $initialized = false;
     public static $inits = [];
@@ -52,7 +52,7 @@ abstract class Swift
         if (self::$inits && !self::$initialized) {
             self::$initialized = true;
             foreach (self::$inits as $init) {
-                call_user_func($init);
+                \call_user_func($init);
             }
         }
     }

@@ -1,0 +1,67 @@
+.partnership-profiles-create-project-group {
+  label {
+    display: block;
+
+    input {
+      margin-right: 10px;
+    }
+  }
+}
+
+/* LATEST PARTNERSHIP PROFILE GRAPHIC WIDGET */
+.latest-partnership-profiles {
+  height: inherit;
+
+  section{
+    height: 83%;
+  }
+
+  .badge {
+    position: relative;
+    float: left;
+    margin-right: 10px;
+    border-radius: 0;
+    padding: 3px 8px;
+    font-size: 0.8em;
+  }
+
+  .widget-listbox-option{
+    .published-by{ /* override PublishedBy widget */
+      font-size: 0.8em;
+      line-height: 1.4em;
+      margin: 0;
+      float: left;
+
+      label{ /* override label */
+        margin: 0;
+        font-weight: normal;
+      }
+    }
+
+    .container-text {
+      h2 {
+        margin-top: 5px;
+      }
+    }
+
+    .footer-listbox {
+      border-bottom: 1px solid #999;
+    }
+  }
+
+  @media (max-width: 1199px) and (min-width: 940px){
+    .box-widget-toolbar{
+      height: 50px;
+    }
+    section{
+      height: 79%;
+    }
+  }
+
+  @media (max-width: 369px) {
+    .box-widget-toolbar{
+      height: 50px;
+    }
+  }
+
+}

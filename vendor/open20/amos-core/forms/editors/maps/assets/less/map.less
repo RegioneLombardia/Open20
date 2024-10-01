@@ -1,0 +1,34 @@
+/**
+IMPORT AMOS-LAYOUT VARIABLES
+ */
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/variables.less";
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/utility.less";
+/**
+IMPORT STYLE-CUSTOM
+ */
+@import (optional) "../../frontend/web/less/style_custom.less";
+
+//-----------------------------------------------
+// DASHBOARD WIDGET GRAPHIC
+//-----------------------------------------------
+#map {
+    width: 100%; //100vw
+    //margin-left: calc(50% - 50vw);
+    height: 800px;
+    position: relative;
+    
+    > #map-canvas {
+        min-height: 100%;
+    }
+}
+
+.marker-card{
+    max-width:350px;
+}
+
+.map-index {
+    .btn.filter-map {
+        margin-top: 35px;
+        min-height: 45px;
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "name": "open20/agid-dataset",
+    "description": "AGID for municipalities - Agid Dataset",
+    "keywords": [
+        "amos",
+        "yii2",
+        "less",
+        "css",
+        "municipality"
+    ],
+    "homepage": "https://bitbucket.org/open20/agid-dataset",
+    "type": "component",
+    "require": {
+        "php": ">=5.4.0",
+        "open20/amos-core" : "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "open20\\agid\\dataset\\": "src"
+        }
+    }
+}

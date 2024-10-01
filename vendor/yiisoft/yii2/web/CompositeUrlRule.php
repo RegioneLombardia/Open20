@@ -10,8 +10,8 @@ use yii\base\BaseObject;
 /**
  * CompositeUrlRule is the base class for URL rule classes that consist of multiple simpler rules.
  *
- * @property null|int $createUrlStatus Status of the URL creation after the last [[createUrl()]] call. `null`
- * if rule does not provide info about create status. This property is read-only.
+ * @property-read int|null $createUrlStatus Status of the URL creation after the last [[createUrl()]] call.
+ * `null` if rule does not provide info about create status.
  *
  * @since 2.0
  */
@@ -125,7 +125,7 @@ abstract class CompositeUrlRule extends BaseObject implements UrlRuleInterface
      * For multiple rules statuses will be combined by bitwise `or` operator
      * (e.g. `UrlRule::CREATE_STATUS_PARSING_ONLY | UrlRule::CREATE_STATUS_PARAMS_MISMATCH`).
      *
-     * @return null|int Status of the URL creation after the last [[createUrl()]] call. `null` if rule does not provide
+     * @return int|null Status of the URL creation after the last [[createUrl()]] call. `null` if rule does not provide
      * info about create status.
      * @since 2.0.12
      */

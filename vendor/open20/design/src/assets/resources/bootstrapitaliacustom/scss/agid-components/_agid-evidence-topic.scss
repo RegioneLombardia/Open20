@@ -1,0 +1,10 @@
+.agid-evidence-topic-container{
+    .box-card{
+        a{
+            text-decoration: none;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}

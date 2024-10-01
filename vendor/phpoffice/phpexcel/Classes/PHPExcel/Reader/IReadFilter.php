@@ -1,9 +1,8 @@
 <?php
-
 /**
- * PHPExcel_Reader_IReadFilter
+ * PHPExcel
  *
- * Copyleft (c) 2006 - 2015 PHPExcel
+ * Copyleft (c) 2006 - 2014 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -23,15 +22,23 @@
  * @package    PHPExcel_Reader
  * @version    ##VERSION##, ##DATE##
  */
+
+
+/**
+ * PHPExcel_Reader_IReadFilter
+ *
+ * @category   PHPExcel
+ * @package    PHPExcel_Reader
+ */
 interface PHPExcel_Reader_IReadFilter
 {
-    /**
-     * Should this cell be read?
-     *
-     * @param    $column           Column address (as a string value like "A", or "IV")
-     * @param    $row              Row number
-     * @param    $worksheetName    Optional worksheet name
-     * @return   boolean
-     */
-    public function readCell($column, $row, $worksheetName = '');
+	/**
+	 * Should this cell be read?
+	 *
+	 * @param 	$column		String column index
+	 * @param 	$row			Row index
+	 * @param	$worksheetName	Optional worksheet name
+	 * @return	boolean
+	 */
+	public function readCell($column, $row, $worksheetName = '');
 }

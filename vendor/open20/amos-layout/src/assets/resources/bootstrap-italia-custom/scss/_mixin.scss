@@ -1,0 +1,48 @@
+//SET BACKGROUND AND FONT COLOR
+@mixin color-modifiers($colors) {
+
+  @each $name,
+  $hex in $colors {
+    &-#{$name} {
+      @include get-color-contrast($hex);
+      background: $hex;
+    }
+  }
+}
+
+//CONTRAST CALC
+@mixin get-color-contrast($background) {
+  $r: red($background);
+  $g: green($background);
+  $b: blue($background);
+
+  $color-calc: (($r * 299) + ($g * 587) + ($b * 114))/1000;
+
+  @if ($color-calc >=128) {
+    color: #000000;
+  }
+
+  @else {
+    color: #ffffff;
+  }
+}
+
+// HEIGHT HEADER
+$height-header-slim-wrapper-d: 58px; // height desktop
+$height-header-slim-wrapper-m: 56px; // height mobile
+$height-it-small-header-d: 94px; // height desktop
+$height-it-small-header-m: 64px; // height mobile
+@mixin height-header-slim-wrapper () {
+  height: $height-header-slim-wrapper-m;
+
+  @include media-breakpoint-up (lg) {
+    height: $height-header-slim-wrapper-d;
+  }
+}
+@mixin height-it-small-header () {
+  height: $height-it-small-header-m;
+
+  @include media-breakpoint-up (lg) {
+    height: $height-it-small-header-d;
+  }
+}

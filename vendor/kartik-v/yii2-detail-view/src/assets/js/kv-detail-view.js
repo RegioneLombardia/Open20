@@ -1,11 +1,11 @@
 /*!
  * @package   yii2-detail-view
- * @version   1.8.2
+ * @version   1.8.7
  *
  * Client extension for the yii2-detail-view extension 
  * 
  * Author: Kartik Visweswaran
- * Copyleft: 2014 - 2018, Kartik Visweswaran, Krajee.com
+ * Copyleft: 2014 - 2022, Kartik Visweswaran, Krajee.com
  * For more JQuery plugins visit http://plugins.krajee.com
  * For more Yii related demos visit http://demos.krajee.com
  */

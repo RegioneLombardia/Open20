@@ -4,7 +4,7 @@
 	"keywords": ["markdown", "gfm", "markdown-extra", "fast", "extensible"],
 	"homepage": "https://github.com/cebe/markdown#readme",
 	"type": "library",
-	"proscription": "MIT",
+	"license": "MIT",
 	"authors": [
 		{
 			"name": "Carsten Brandt",

@@ -1,0 +1,68 @@
+div[id^='accordionattachments'].uk-accordion {
+  margin-bottom: 10px;
+}
+div[id^='accordionattachments'].uk-accordion .el-item .uk-accordion-title {
+  background-color: #2f7f33;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 5px 15px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+}
+div[id^='accordionattachments'].uk-accordion .el-item .uk-accordion-title:after {
+  background-color: #fff;
+  border: 1px solid #2f7f33;
+}
+div[id^='accordionattachments'].uk-accordion .el-item .uk-accordion-title .el-image {
+  height: 22px;
+  margin: 0 5px 0 0;
+}
+div[id^='accordionattachments'].uk-accordion .el-item .uk-accordion-title p {
+  margin-bottom: 0;
+  width: 95%;
+}
+@media (max-width: 420px) {
+  div[id^='accordionattachments'].uk-accordion .el-item .uk-accordion-title {
+    padding-right: 45px;
+    position: relative;
+  }
+  div[id^='accordionattachments'].uk-accordion .el-item .uk-accordion-title::after {
+    position: absolute;
+    right: 10px;
+  }
+}
+div[id^='accordionattachments'].uk-accordion .el-item .uk-accordion-content {
+  background-color: #ebebeb;
+  color: #000000;
+  margin: 0;
+  padding: 15px;
+}
+div[id^='accordionattachments'].uk-accordion .el-item .uk-accordion-content > .el-image {
+  width: 30%;
+  float: left;
+}
+div[id^='accordionattachments'].uk-accordion .el-item .uk-accordion-content .attachments-detail > ul {
+  padding: 0;
+  text-indent: 10px;
+}
+div[id^='accordionattachments'].uk-accordion .el-item .uk-accordion-content .attachments-detail .attachments-detail__item::before {
+  content: '';
+  margin: 0;
+}
+div[id^='accordionattachments'].uk-accordion .el-item .uk-accordion-content .attachments-detail .attachments-detail__item > .el-title {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex !important;
+}
+div[id^='accordionattachments'].uk-accordion .el-item .uk-accordion-content .attachments-detail .attachments-detail__item > .el-title:hover {
+  color: #2f7f33;
+}
+div[id^='accordionattachments'].uk-accordion .el-item .uk-accordion-content .attachments-detail .attachments-detail__item > .el-title .news-allegato-name {
+  flex-grow: 1;
+}

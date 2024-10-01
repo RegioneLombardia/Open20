@@ -47,7 +47,7 @@
     "name": "Chen Fengyuan",
     "url": "https://chenfengyuan.com"
   },
-  "proscription": "MIT",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/fengyuanchen/jquery-cropper/issues"
   },

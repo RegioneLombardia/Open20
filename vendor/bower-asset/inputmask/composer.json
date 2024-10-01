@@ -5,7 +5,7 @@
   "type": "library",
   "keywords": ["jquery", "plugins", "input", "form", "inputmask", "mask"],
   "homepage": "http://robinherbots.github.io/Inputmask",
-  "proscription": "MIT",
+  "license": "MIT",
   "authors": [{
     "name": "Robin Herbots"
   }]

@@ -5,9 +5,9 @@
 namespace yii\debug\controllers;
 
 use Yii;
+use yii\debug\models\search\Debug;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\debug\models\search\Debug;
 use yii\web\Response;
 
 /**
@@ -52,6 +52,7 @@ class DefaultController extends Controller
 
     /**
      * {@inheritdoc}
+     * @throws \yii\web\BadRequestHttpException
      */
     public function beforeAction($action)
     {
@@ -59,6 +60,12 @@ class DefaultController extends Controller
         return parent::beforeAction($action);
     }
 
+    /**
+     * Index action
+     *
+     * @return string
+     * @throws NotFoundHttpException
+     */
     public function actionIndex()
     {
         $searchModel = new Debug();
@@ -66,6 +73,11 @@ class DefaultController extends Controller
 
         // load latest request
         $tags = array_keys($this->getManifest());
+
+        if (empty($tags)) {
+            throw new \Exception("No debug data have been collected yet, try browsing the website first.");
+        }
+
         $tag = reset($tags);
         $this->loadData($tag);
 
@@ -109,6 +121,13 @@ class DefaultController extends Controller
         ]);
     }
 
+    /**
+     * Toolbar action
+     *
+     * @param string $tag
+     * @return string
+     * @throws NotFoundHttpException
+     */
     public function actionToolbar($tag)
     {
         $this->loadData($tag, 5);
@@ -117,9 +136,17 @@ class DefaultController extends Controller
             'tag' => $tag,
             'panels' => $this->module->panels,
             'position' => 'bottom',
+            'defaultHeight' => $this->module->defaultHeight,
         ]);
     }
 
+    /**
+     * Download mail action
+     *
+     * @param string $file
+     * @return \yii\console\Response|Response
+     * @throws NotFoundHttpException
+     */
     public function actionDownloadMail($file)
     {
         $filePath = Yii::getAlias($this->module->panels['mail']->mailPath) . '/' . basename($file);
@@ -141,22 +168,7 @@ class DefaultController extends Controller
             if ($forceReload) {
                 clearstatcache();
             }
-            $indexFile = $this->module->dataPath . '/index.data';
-
-            $content = '';
-            $fp = @fopen($indexFile, 'r');
-            if ($fp !== false) {
-                @flock($fp, LOCK_SH);
-                $content = fread($fp, filesize($indexFile));
-                @flock($fp, LOCK_UN);
-                fclose($fp);
-            }
-
-            if ($content !== '') {
-                $this->_manifest = array_reverse(unserialize($content), true);
-            } else {
-                $this->_manifest = [];
-            }
+            $this->_manifest = $this->module->logTarget->loadManifest();
         }
 
         return $this->_manifest;
@@ -175,18 +187,7 @@ class DefaultController extends Controller
         for ($retry = 0; $retry <= $maxRetry; ++$retry) {
             $manifest = $this->getManifest($retry > 0);
             if (isset($manifest[$tag])) {
-                $dataFile = $this->module->dataPath . "/$tag.data";
-                $data = unserialize(file_get_contents($dataFile));
-                $exceptions = $data['exceptions'];
-                foreach ($this->module->panels as $id => $panel) {
-                    if (isset($data[$id])) {
-                        $panel->tag = $tag;
-                        $panel->load(unserialize($data[$id]));
-                    }
-                    if (isset($exceptions[$id])) {
-                        $panel->setError($exceptions[$id]);
-                    }
-                }
+                $data = $this->module->logTarget->loadTagToPanels($tag);
                 $this->summary = $data['summary'];
 
                 return;

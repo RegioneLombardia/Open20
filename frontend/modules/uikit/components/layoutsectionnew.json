@@ -1,0 +1,123 @@
+{
+    "vars": [
+        {
+            "var": "not_embed_container",
+            "label": "Layout Fullsize",
+            "description": "If not checked displays a fullsize layout without internal uk-container",
+            "initvalue": "",
+            "type": "zaa-checkbox"
+        },{
+            "var": "image",
+            "label": "Background Image",
+            "description": "Upload a background image.",
+            "initValue": "",
+            "options": {
+                "no_filter": false
+            },
+            "type": "zaa-image-upload"
+        }, {
+            "var": "image_size",
+            "label": "Background Image Size",
+            "description": "Determine whether the image will fit the section dimensions by clipping it or by filling the empty areas with the background color.",
+            "initValue": "",
+            "options": [{
+                    "value": "",
+                    "label": "Auto"
+                }, {
+                    "value": "cover",
+                    "label": "Cover"
+                }, {
+                    "value": "contain",
+                    "label": "Contain"
+                }],
+            "type": "zaa-select"
+        }, {
+            "var": "image_position",
+            "label": "Background Image Position",
+            "description": "Set the initial background position, relative to the section layer.",
+            "initValue": "center center",
+            "options": [{
+                    "value": "top left",
+                    "label": "Top Left"
+                }, {
+                    "value": "top center",
+                    "label": "Top Center"
+                }, {
+                    "value": "top right",
+                    "label": "Top Right"
+                }, {
+                    "value": "center left",
+                    "label": "Center Left"
+                }, {
+                    "value": "center center",
+                    "label": "Center Center"
+                }, {
+                    "value": "center right",
+                    "label": "Center Right"
+                }, {
+                    "value": "bottom left",
+                    "label": "Bottom Left"
+                }, {
+                    "value": "bottom center",
+                    "label": "Bottom Center"
+                }, {
+                    "value": "bottom right",
+                    "label": "Bottom Right"
+                }],
+            "type": "zaa-select"
+        }, {
+            "var": "image_repeat",
+            "label": "Background Image Repeat",
+            "description": "Set the initial background repeat",
+            "initValue": "center-center",
+            "type": "zaa-checkbox"
+        },{
+            "var": "visibility",
+            "label": "Visibilità del blocco",
+            "description": "Set visibility for all, only guest, only logged.",
+            "initValue": "",
+            "options": [{
+                    "value": "",
+                    "label": "Visibile a tutti"
+                }, {
+                    "value": "guest",
+                    "label": "Visibile solo agli utenti non loggati"
+                }, {
+                    "value": "logged",
+                    "label": "Visibile solo gli utenti loggati"
+                }],
+            "type": "zaa-select"
+        },{
+            "var": "cache",
+            "label": "Enable cache",  
+            "initvalue": "",
+            "type": "zaa-checkbox"
+        }],
+    "cfgs": [
+        {
+            "var": "class",
+            "label": "Class",
+            "description": "Define one or more class names for the element. Separate multiple classes with spaces.",
+            "initValue": "",
+            "type": "zaa-text"
+        }, {
+            "var": "rbac_permissions",
+            "label": "Permissions",
+            "description": "",
+            "initValue": "",
+            "placeholder": "",
+            "type": "zaa-multiple-inputs",
+            "options": [{
+                "var": "rbac_permission",
+                "label": "Permission",
+                "description": "",
+                "initvalue": "",
+                "type": "zaa-text"
+            }]
+        }
+    ],
+    "defaults": {
+        "image_position": "center-center",
+        "visibility": "all"
+    }
+}

@@ -4,7 +4,7 @@
     "keywords": ["class finder", "metaprogramming", "code generator", "minimizer"],
     "homepage": "https://github.com/hanneskod/classtools",
     "type": "library",
-    "proscription": "WTFPL",
+    "license": "WTFPL",
     "authors": [
         {
             "name": "Hannes Forsgård",
@@ -17,11 +17,8 @@
         }
     },
     "require": {
-        "php": ">=5.5.0",
-        "nikic/php-parser": "^3.0",
-        "symfony/finder": "^2.7|^3.0"
-    },
-    "require-dev": {
-        "hanneskod/readme-tester": "dev-master"
+        "php": ">=7.1",
+        "nikic/php-parser": "^4",
+        "symfony/finder": "^4|^5"
     }
 }

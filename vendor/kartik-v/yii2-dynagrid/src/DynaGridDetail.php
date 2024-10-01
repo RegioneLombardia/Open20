@@ -2,7 +2,7 @@
 
 /**
  * @package   yii2-dynagrid
- * @version   1.5.1
+ * @version   1.5.5
  */
 
 namespace kartik\dynagrid;
@@ -155,31 +155,30 @@ class DynaGridDetail extends Widget
     public function run()
     {
         $this->saveDetail();
-        $isBs4 = $this->isBs4();
+        $notBs3 = !$this->isBs(3);
         $params = ['title' => static::getCat($this->model->category, true)];
         $catIcon = 'icon' . ucfirst($this->model->category);
         $icon = $this->$catIcon;
         $title = Yii::t('kvdynagrid', 'Save / Edit Grid {title}', $params) ;
         /**
-         * @var \yii\bootstrap\Modal $modalClass
+         * @var Widget $modalClass
          */
-        $modalClass = $isBs4 ? 'yii\bootstrap4\Modal' : 'yii\bootstrap\Modal';
+        $modalClass = $this->getBSClass('Modal');
         $hdr = $icon . $title;
         $modalOpts =  ['toggleButton' => $this->toggleButton, 'options' => ['id' => $this->id]];
-        if ($isBs4) {
+        if ($notBs3) {
             $modalOpts['title'] = $hdr;
         } else {
             $modalOpts['header'] = '<h3 class="modal-title">' . $hdr . '</h3>';
         }
         $modalClass::begin($modalOpts);
-        $prefix = $this->getDefaultIconPrefix();
         echo $this->render(
             $this->_module->settingsView,
             [
                 'model' => $this->model,
                 'moduleId' => $this->moduleId,
                 'requestSubmit' => $this->_requestSubmit,
-                'isBs4' => $this->isBs4(),
+                'notBs3' => !$this->isBs(3),
                 'iconConfirm' => $this->iconConfirm,
                 'iconRemove' => $this->iconRemove
             ]

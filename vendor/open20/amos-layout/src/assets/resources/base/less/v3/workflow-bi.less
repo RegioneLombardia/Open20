@@ -1,0 +1,44 @@
+/* WORKFLOW TRANSITION BUTTON WIDGET
+workflow buttons on bottom page in create/update view
+*/
+.workflow-transition-state-descriptor-widget { 
+  float: none;
+  max-width: 1140px;
+  margin: 12px auto;
+}
+.workflow-transition-button-widget {
+  @media (max-width:767px) {
+    flex-wrap: wrap;
+  }
+
+  >.workflow-button-container {
+    @media (max-width:430px) {
+      display: inherit;
+      width: 100%;
+
+      .btn {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+  }
+
+  .workflow-buttons-container {
+    @media (max-width:430px) {
+      width: 100%;
+    }
+    @media (max-width:991px){
+      .flexbox-row;
+      .flexbox-wrap;
+      .workflow-button-container + .workflow-button-container{
+        margin-left: @margin-default;
+      }
+    }
+
+    .workflow-button-container {
+      @media (max-width:430px) {
+        max-width: 100%;
+      }
+    }
+  }
+}

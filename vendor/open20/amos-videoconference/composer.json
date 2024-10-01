@@ -1,0 +1,28 @@
+{
+    "name": "open20/amos-videoconference",
+    "description": "Amos Videoconference",
+    "keywords": [
+        "amos",
+        "video",
+        "conference"
+    ],
+    "homepage": "http://www.open20.it/",
+    "type": "component",
+    "require": {
+        "php": ">=5.4.0",
+        "open20/amos-core" : "*",
+        "open20/amos-notify" : "*",
+        "softark/yii2-dual-listbox": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "open20\\amos\\videoconference\\": "src"
+        }
+    },
+    "fxp-asset": {
+        "installer-paths": {
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower"
+        }
+    }
+}

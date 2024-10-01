@@ -1,38 +1,96 @@
 <?php
 
 /**
- * Lombardia Informatica S.p.A.
+ * Aria S.p.A.
  * OPEN 2.0
  *
  *
- * @package    lispa\amos\email
+ * @package    open20\amos\email
  * @category   CategoryName
  */
 
 
-use lispa\amos\admin\models\UserProfile;
+use open20\amos\admin\AmosAdmin;
+use open20\amos\admin\models\UserProfile;
+use open20\amos\notificationmanager\AmosNotify;
+
 
 $appLink = Yii::$app->urlManager->createAbsoluteUrl(['/']);
 $appName = Yii::$app->name;
+
+try {
+    /** @var AmosNotify $notifyModule */
+    $notifyModule = AmosNotify::instance();
+    $hasMailThemeColor = (!is_null($notifyModule) && $notifyModule->hasProperty('mailThemeColor'));
+} catch (\Exception $exception) {
+    $hasMailThemeColor = false;
+}
+
+if (isset(Yii::$app->params['layoutMailConfigurations']['bgPrimary'])) {
+    $bgPrimary = Yii::$app->params['layoutMailConfigurations']['bgPrimary'];
+} elseif ($hasMailThemeColor) {
+    $bgPrimary = $notifyModule->mailThemeColor['bgPrimary'];
+} else {
+    $bgPrimary = '#297A38';
+}
+if (isset(Yii::$app->params['layoutMailConfigurations']['textContrastBgPrimary'])) {
+    $textContrastBgPrimary = Yii::$app->params['layoutMailConfigurations']['textContrastBgPrimary'];
+} elseif ($hasMailThemeColor) {
+    $textContrastBgPrimary = $notifyModule->mailThemeColor['textContrastBgPrimary'];
+} else {
+    $textContrastBgPrimary = '#ffffff';
+}
+
+$privacyLinkRelative = (isset(\Yii::$app->params['linkConfigurations']['privacyPolicyLinkCommon']) ?
+    \Yii::$app->params['linkConfigurations']['privacyPolicyLinkCommon'] :
+    'site/privacy'
+);
+$privacyLink = Yii::$app->urlManager->createAbsoluteUrl($privacyLinkRelative);
+
 ?>
 <table width="600" border="0" cellpadding="0" cellspacing="0" align="center">
     <tr>
-        <td style="margin-bottom:10px;background-color:#297A38;height:15px"></td>
-        <td style="margin-bottom:10px;background-color:#297A38;height:15px"></td>
-        <td style="margin-bottom:10px;background-color:#297A38;height:15px"></td>
+        <td style="margin-bottom:10px;background-color:<?= $bgPrimary ?>;height:15px"></td>
+        <td style="margin-bottom:10px;background-color:<?= $bgPrimary ?>;height:15px"></td>
+        <td style="margin-bottom:10px;background-color:<?= $bgPrimary ?>;height:15px"></td>
     </tr>
     <tr>
         <td style="height:10px"></td>
     </tr>
-    <tr style="background-color:#ffffff;">
-        <td>
-            <?php if (isset(Yii::$app->params['logoMail'])) {
+    <tr style="background-color:<?= $textContrastBgPrimary ?>;">
+        <td style="display:flex;flex-direction:row;align-items:center;">
+            <?php if (isset(Yii::$app->params['layoutMailConfigurations']['logoMail']['logoImg'])) {
+                $logoMail = Yii::$app->urlManager->createAbsoluteUrl(Yii::$app->params['layoutMailConfigurations']['logoMail']['logoImg']);
+            } elseif (isset(Yii::$app->params['logoMail'])) {
                 $logoMail = $appLink . Yii::$app->params['logoMail'];
             } else {
                 $logoMail = '';
-            } ?>
-            <img style="max-width:500px; max-height:60px;" src="<?= $logoMail ?>" alt="logo">
+            }
+
+            if (isset(Yii::$app->params['layoutMailConfigurations']['logoMail']['logoImgAlt'])) {
+                $logoAlt = Yii::$app->params['layoutMailConfigurations']['logoMail']['logoImgAlt'];
+            } else {
+                $logoAlt = 'Logo';
+            }
+            if (isset(Yii::$app->params['layoutMailConfigurations']['logoMail']['logoImgWidth'])) {
+                $logoWidth = Yii::$app->params['layoutMailConfigurations']['logoMail']['logoImgWidth'];
+            } else {
+                $logoWidth = '420';
+            }
+            if (isset(Yii::$app->params['layoutMailConfigurations']['logoMail']['logoImgHeight'])) {
+                $logoHeight = Yii::$app->params['layoutMailConfigurations']['logoMail']['logoImgHeight'];
+            } else {
+                $logoHeight = 'auto';
+            }
+            ?>
+            <img width="<?= $logoWidth ?>" height="<?= $logoHeight?>" src="<?= $logoMail ?>" alt="<?= $logoAlt ?>">
+            <?php if (isset(Yii::$app->params['layoutMailConfigurations']['logoMail']['logoText'])): ?>
+                <span style="margin-left:24px;position: relative;top: -2px;font-size: 18px;font-weight: 700;color: #5e7887;"><?= Yii::$app->params['layoutMailConfigurations']['logoMail']['logoText'] ?></span>
+            <?php endif; ?>
         </td>
+    </tr>
+    <tr>
+        <td style="height:30px"></td>
     </tr>
 </table>
 
@@ -62,22 +120,16 @@ $appName = Yii::$app->name;
     <tr>
         <td>
             <!--            <div style="color:black; background-color:lightgrey; padding:10px; font-family:Arial;font-size:12px;line-height:150%;text-align:left">-->
-            <div style="font-style: italic; color: #b0b0b0; margin-top:10px;border-top: 2px solid #297a38;padding-top: 5px;font-size: 11px;line-height: normal;">
+            <div style="font-style: italic; color: #b0b0b0; margin-top:10px;border-top: 2px solid <?= $bgPrimary ?>;padding-top: 5px;font-size: 11px;line-height: normal;">
                 <?= Yii::t('amosplatform', '#footer_template_mail', [
                     'appName' => $appName,
                 ]) ?>
                 <p style="margin: 0px;">
-                    <a href="<?= $appLink ?>site/privacy"
+                    <a href="<?= $privacyLink; ?>"
                       title="<?= Yii::t('amosplatform', '#footer_template_mail_privacy_title') ?>"
                       target="_blank"><?= Yii::t('amosplatform', '#footer_template_mail_privacy') ?>
                     </a>
                     <br>
-                    <?php if(!empty(\Yii::$app->params['urlPersonalizedPrivacy'])) {?>
-                        <a href="<?= $appLink ?>"<?= \Yii::$app->params['urlPersonalizedPrivacy'] ?>
-                           title="<?= Yii::t('amosplatform', '#information_personalized') ?>"
-                           target="_blank"><?= Yii::t('amosplatform', '#information_personalized') ?>
-                        </a>
-                    <?php }  ?>
                 </p>
                 <br>
                 <?php if(!empty($this->params['profile'])) {
@@ -86,18 +138,29 @@ $appName = Yii::$app->name;
                     $token = md5($profile->user_id . $appName . $profile->user->username);
                 }?>
 
-                <?php if(!empty($token)) {?>
+                <?php if(!empty($token)) {
+                    $disableNotificationLink = Yii::$app->urlManager->createAbsoluteUrl([
+                        '/' . AmosAdmin::getModuleName() . '/security/disable-notifications',
+                        'token' => $token
+                    ]);
+                    ?>
                     <p style="margin: 0px; text-align: center">
-                        <a href="<?= $appLink ?>admin/security/disable-notifications?token=<?=$token?>"
+                        <a href="<?= $disableNotificationLink; ?>"
                            title="<?= Yii::t('amosplatform', '#footer_disable_notification') ?>"
                            target="_blank"><?= Yii::t('amosplatform', '#footer_disable_notification') ?>
                         </a>
                     </p>
                 <?php } ?>
-                <?php if(!empty($profile)) {?>
+                <?php if(!empty($profile)) {
+                    $updateProfileLink = Yii::$app->urlManager->createAbsoluteUrl([
+                        '/' . AmosAdmin::getModuleName() . '/user-profile/update',
+                        'id' => $profile->id,
+                        'tabActive' => 'tab-settings'
+                    ]);
+                    ?>
                     <p>
                         <?= Yii::t('amosplatform', 'Gestisci la frequenza delle email ricevute e la tua presenza nella piattaforma, ') ?>
-                        <a href="<?= $appLink ?>admin/user-profile/update?id=<?= $profile->id?>&tabActive=tab-settings"
+                        <a href="<?= $updateProfileLink; ?>"
                            title="<?= Yii::t('amosplatform', '#login_profile') ?>"
                            target="_blank"><?= Yii::t('amosplatform', '#login_profile') ?>
                         </a>

@@ -1,0 +1,93 @@
+{
+    "vars": [
+        {
+            "var": "share_label",
+            "label": "Share Label",
+            "description": "",
+            "initValue": "",
+            "type": "zaa-text"
+        }, {
+            "var": "share_label_class",
+            "label": "Share Label Class",
+            "description": "",
+            "initValue": "",
+            "type": "zaa-text"
+        },{
+            "var": "items",
+            "label": "Items",
+            "description": "",
+            "type": "zaa-multiple-inputs",
+            "options": [
+                {
+                    "var": "icon_type",
+                    "label": "Icon Type",
+                    "description": "Select iconset.",
+                    "initvalue": "",
+                    "options": [{
+                            "value": "1",
+                            "label": "Bootstrap Italia"
+                        }, {
+                            "value": "2",
+                            "label": "Material"
+                        }],
+                    "type": "zaa-select"
+                },{
+                    "var": "icon_name",
+                    "label": "Icon Name",
+                    "description": "",
+                    "initValue": "",
+                    "type": "zaa-text"
+                },{
+                    "var": "icon_class",
+                    "label": "Icon Css Class",
+                    "description": "",
+                    "initValue": "",
+                    "type": "zaa-text"
+                },
+                {
+                    "var": "content",
+                    "label": "Content",
+                    "description": "",
+                    "initValue": "",
+                    "type": "zaa-wysiwyg"
+                },{
+                    "var": "social",
+                    "label": "Social",
+                    "description": "Select social.",
+                    "initvalue": "",
+                    "options": [{
+                            "value": "facebook",
+                            "label": "Facebook"
+                        }, {
+                            "value": "twitter",
+                            "label": "Twitter"
+                        },{
+                            "value": "linkedin",
+                            "label": "Linkedin"
+                        }, {
+                            "value": "whatsapp",
+                            "label": "Whatsapp"
+                        }, {
+                            "value": "telegram",
+                            "label": "Telegram"
+                        }
+                    
+                    ],
+                    "type": "zaa-select"
+                }
+            ]
+        }
+        
+    ],
+    "cfgs": [
+        {
+            "var": "class",
+            "label": "Container Class",
+            "description": "Define one or more class names for the element. Separate multiple classes with spaces.",
+            "initValue": "",
+            "type": "zaa-text"
+        }
+    ],
+    "defaults": {
+    }
+}

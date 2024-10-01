@@ -1,0 +1,77 @@
+/**
+IMPORT AMOS-LAYOUT VARIABLES
+ */
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/variables.less";
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/utility.less";
+/**
+IMPORT STYLE-CUSTOM
+ */
+@import (optional) "../../backend/web/less/style_custom.less";
+
+
+.dashboard-content{
+  .container{
+    @media (max-width: 991px) {
+      width:100%
+    }
+  }
+}
+
+.graphics-dashboard-container{
+  margin-top:60px;
+  padding: 0 5px;
+}
+
+.grid .grid-item.grid-item-fullsize{
+  width: 100% !important;
+  .grid-item--fullwidth{
+    width: 100% !important;
+    top: 0!important
+  }
+}
+
+/**
+MODAL DASHBOARD 2 LEVEL
+ */
+@dash2lev-background-rgba: rgba(255,255,255,0.7);
+
+.modal-utility.modal-dashboard-2level {
+  .modal-dialog{
+    @media(max-width: 767px){
+      margin-top: 40px;
+    }
+    .modal-content{
+      width: 85%;
+      @media(max-width:767px){
+        width: 100%;
+      }
+      background-color: transparent;
+      .modal-header{
+        background-color: @dash2lev-background-rgba;
+        .modal-title{
+          color: @primary-color;
+          font-weight: 900;
+        }
+      }
+      .modal-body{
+        background-color: @dash2lev-background-rgba;
+        > .ajax-index-dashboard {
+          padding: 0;
+          > nav {
+            padding-top: 0; //override
+            > .actions-dashboard-container{
+              position: relative;
+              width: 100%;
+              float: left;
+              display: block;
+              .col-custom{
+                width: 33%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

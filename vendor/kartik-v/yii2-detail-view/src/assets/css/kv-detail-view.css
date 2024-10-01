@@ -1,11 +1,11 @@
 /*!
  * @package   yii2-detail-view
- * @version   1.8.2
+ * @version   1.8.7
  *
  * Styles for yii2-detail-view extension 
  * 
  * Author: Kartik Visweswaran
- * Copyleft: 2014 - 2018, Kartik Visweswaran, Krajee.com
+ * Copyleft: 2014 - 2022, Kartik Visweswaran, Krajee.com
  * For more JQuery plugins visit http://plugins.krajee.com
  * For more Yii related demos visit http://demos.krajee.com
  */
@@ -17,10 +17,6 @@
 .kv-container-bs4 .table-bordered .kv-child-table-cell td {
     border-top: none;
     border-bottom: none;
-}
-
-.kv-container-bs4 .form-group:not(.has-error) {
-    margin: 0;
 }
 
 .kv-container-bs4 .card > .kv-detail-view > .table-bordered > tbody > tr > td:first-child,
@@ -39,10 +35,11 @@
     border-bottom-left-radius: 0.25rem;
 }
 
-.kv-form-attribute .help-block {
-    margin-bottom: -15px;
+.kv-form-attribute .form-group, .kv-form-attribute .help-block {
+    margin-bottom: 0;
 }
 
+.kv-form-attribute > div:not(.has-error) .help-block,
 .kv-edit-mode .kv-edit-hidden,
 .kv-view-mode .kv-view-hidden {
     display: none;
@@ -72,10 +69,6 @@
 
 .kv-edit-mode .kv-detail-view {
     overflow-y: hidden;
-}
-
-.kv-form-attribute .row {
-    margin-bottom: -5px;
 }
 
 .kv-edit-mode table {
@@ -110,23 +103,21 @@
 
 }
 
-.table .kv-child-table > tbody > tr > td, .table .kv-child-table > tbody > tr > th {
+.kv-container-bs3 .table .kv-child-table > tbody > tr > td, .kv-container-bs3 .table .kv-child-table > tbody > tr > th {
     padding: 8px;
 }
 
-.table-condensed .kv-child-table > tbody > tr > td, .table-condensed .kv-child-table > tbody > tr > th {
+.kv-container-bs3 .table-condensed .kv-child-table > tbody > tr > td, .kv-container-bs3 .table-condensed .kv-child-table > tbody > tr > th {
     padding: 5px;
 }
 
 .kv-action-btn {
+    color: inherit;
     margin: 0 2px;
     padding: 0 5px;
     background: none;
     border: none;
     font-size: 16px;
-}
-
-.kv-action-btn {
     cursor: pointer;
 }
 
@@ -135,24 +126,16 @@
     cursor: not-allowed;
 }
 
-.kv-action-btn:focus {
-    outline: 0;
-}
-
 .kv-action-btn[disabled],
 .kv-action-btn.disabled {
     cursor: not-allowed;
 }
 
-.card .kv-action-btn {
-    color: #fff;
-}
-
-.card .kv-action-btn:focus,
-.card .kv-action-btn:hover {
-    color: #fff;
+.kv-action-btn:focus,
+.kv-action-btn:hover {
+    color: inherit;
     outline: 0;
-    opacity: 0.8;
+    opacity: 0.7;
 }
 
 .card.border-default .kv-action-btn {
@@ -162,44 +145,4 @@
 .card.border-default .kv-action-btn:focus,
 .card.border-default .kv-action-btn:hover {
     color: #333;
-}
-
-.panel-default .kv-action-btn {
-    color: #333;
-}
-
-.panel-primary .kv-action-btn:hover {
-    color: #c4e3f3;
-}
-
-.panel-info .kv-action-btn {
-    color: #31708f;
-}
-
-.panel-info .kv-action-btn:hover {
-    color: #245269;
-}
-
-.panel-warning .kv-action-btn {
-    color: #8a6d3b;
-}
-
-.panel-warning .kv-action-btn:hover {
-    color: #66512c;
-}
-
-.panel-danger .kv-action-btn {
-    color: #a94442;
-}
-
-.panel-danger .kv-action-btn:hover {
-    color: #843534;
-}
-
-.panel-success .kv-action-btn {
-    color: #3c763d;
-}
-
-.panel-success .kv-action-btn:hover {
-    color: #2b542c;
 }

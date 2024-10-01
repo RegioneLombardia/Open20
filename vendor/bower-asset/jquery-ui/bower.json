@@ -6,7 +6,7 @@
   ],
   "ignore": [
   ],
-  "proscription": "MIT",
+  "license": "MIT",
   "dependencies": {
     "jquery": ">=1.6"
   }

@@ -2,7 +2,7 @@
 
 /**
  * @package   yii2-grid
- * @version   3.2.9
+ * @version   3.5.3
  */
 
 namespace kartik\grid;
@@ -24,7 +24,7 @@ use kartik\base\Config;
  * 'columns' => [
  *     // ...
  *     [
- *         'class' => EditableColumn::className(),
+ *         'class' => EditableColumn::class,
  *         // you may configure additional properties here
  *     ],
  * ]
@@ -116,7 +116,7 @@ class EditableColumn extends DataColumn
         Html::addCssClass($options, $this->_css);
         $this->_editableOptions['containerOptions'] = $options;
         if ($this->grid->pjax && empty($this->_editableOptions['pjaxContainerId'])) {
-            $this->_editableOptions['pjaxContainerId'] = $this->grid->pjaxSettings['options']['id'];
+            $this->_editableOptions['pjaxContainerId'] = $this->grid->getPjaxContainerId();
         }
         if (!isset($key)) {
             throw new InvalidConfigException('Invalid or no primary key found for the grid data.');
@@ -151,7 +151,7 @@ class EditableColumn extends DataColumn
             $id = $this->grid->options['id'];
             $this->_view->registerJs("kvRefreshEC('{$id}','{$this->_css}');");
         }
-        $editableClass = ArrayHelper::remove($this->_editableOptions, 'class', Editable::className());
+        $editableClass = ArrayHelper::remove($this->_editableOptions, 'class', Editable::class);
         if (!isset($this->_editableOptions['inlineSettings']['options'])) {
             $this->_editableOptions['inlineSettings']['options']['class'] = 'skip-export';
         } else {

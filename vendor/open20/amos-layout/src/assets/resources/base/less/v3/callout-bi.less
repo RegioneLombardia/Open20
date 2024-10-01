@@ -1,0 +1,69 @@
+.callout {
+    padding: 1.5rem 2.222rem;
+    border: 1px solid @primary-color;
+    position: relative;
+    margin: 0 0 1rem;
+    border-radius: 8px;
+
+    .callout-title {
+        position: absolute;
+        font-size: 1rem;
+        padding: 0 1.389rem;
+        background: @white-color;
+        top: -.78em;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-right: 2.222rem;
+        letter-spacing: .06rem;
+        color: @primary-color;
+    }
+
+    &.callout-secondary {
+        border-color: @secondary-color;
+
+        .callout-title {
+            color: @secondary-color;
+        }
+    }
+
+    &.callout-tertiary {
+        border-color: @tertiary-color;
+
+        .callout-title {
+            color: @tertiary-color;
+        }
+    }
+
+    &.callout-success {
+        border-color: @success-color;
+
+        .callout-title {
+            color: @success-color;
+        }
+    }
+
+    &.callout-warning {
+        border-color: @warning-color;
+
+        .callout-title {
+            color: @warning-color;
+        }
+    }
+
+    &.callout-danger {
+        border-color: @danger-color;
+
+        .callout-title {
+            color: @danger-color;
+        }
+    }
+
+    &.callout-info {
+        border-color: @info-color;
+
+        .callout-title {
+            color: @info-color;
+        }
+    }
+    
+}

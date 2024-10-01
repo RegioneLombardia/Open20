@@ -14,8 +14,6 @@ namespace PhpCsFixer\FixerConfiguration;
 /**
  *
  * @internal
- *
- * @todo 3.0 Drop this class
  */
 final class AliasedFixerOption implements FixerOptionInterface
 {

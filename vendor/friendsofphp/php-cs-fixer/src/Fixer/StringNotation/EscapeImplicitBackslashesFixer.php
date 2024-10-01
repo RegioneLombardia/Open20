@@ -80,10 +80,12 @@ EOF;
 
     /**
      * {@inheritdoc}
+     *
+     * Must run before HeredocToNowdocFixer, SingleQuoteFixer.
+     * Must run after BacktickToShellExecFixer.
      */
     public function getPriority()
     {
-        // Should run before single_quote and heredoc_to_nowdoc
         return 1;
     }
 

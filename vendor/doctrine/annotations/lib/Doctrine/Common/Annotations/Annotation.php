@@ -1,43 +1,25 @@
 <?php
-/*
- * THIS SOFTWARE IS PROVIDED BY THE COPYLEFT HOLDERS AND CONTRIBUTORS
- * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
- * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
- * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYLEFT
- * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
- * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
- * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
- * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
- * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
- * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
- * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- * This software consists of voluntary contributions made by many individuals
- * and is proscriptiond under the MIT proscription. For more information, see
- * <http://www.doctrine-project.org>.
- */
 
 namespace Doctrine\Common\Annotations;
 
+use BadMethodCallException;
+
+use function sprintf;
+
 /**
  * Annotations class.
- *
  */
 class Annotation
 {
     /**
      * Value property. Common among all derived classes.
      *
-     * @var string
+     * @var mixed
      */
     public $value;
 
-    /**
-     * Constructor.
-     *
-     * @param array $data Key-value for properties to be defined in this class.
-     */
-    public final function __construct(array $data)
+    /** @param array<string, mixed> $data Key-value for properties to be defined in this class. */
+    final public function __construct(array $data)
     {
         foreach ($data as $key => $value) {
             $this->$key = $value;
@@ -49,12 +31,12 @@ class Annotation
      *
      * @param string $name Unknown property name.
      *
-     * @throws \BadMethodCallException
+     * @throws BadMethodCallException
      */
     public function __get($name)
     {
-        throw new \BadMethodCallException(
-            sprintf("Unknown property '%s' on annotation '%s'.", $name, get_class($this))
+        throw new BadMethodCallException(
+            sprintf("Unknown property '%s' on annotation '%s'.", $name, static::class)
         );
     }
 
@@ -64,12 +46,12 @@ class Annotation
      * @param string $name  Unknown property name.
      * @param mixed  $value Property value.
      *
-     * @throws \BadMethodCallException
+     * @throws BadMethodCallException
      */
     public function __set($name, $value)
     {
-        throw new \BadMethodCallException(
-            sprintf("Unknown property '%s' on annotation '%s'.", $name, get_class($this))
+        throw new BadMethodCallException(
+            sprintf("Unknown property '%s' on annotation '%s'.", $name, static::class)
         );
     }
 }

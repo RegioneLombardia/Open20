@@ -1,0 +1,118 @@
+.cookiebar {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    position: fixed;
+    width: 100%;
+    z-index: 1100;
+    background-color: @cookiebar-background-color;
+    padding: 24px 32px;
+  
+    &.cookiebar-top {
+      bottom: auto;
+      top: 0;
+    }
+  
+    &.show {
+      display: block;
+    }
+  
+    p {
+      font-size: 1rem;
+      line-height: 1.25em;
+      color: @white-color;
+      margin-bottom: 0;
+      br {
+        display: none;
+      }
+    }
+  
+    .cookiebar-buttons {
+      text-align: right;
+      margin-top: 32px;
+      padding: 0;
+      line-height: 1.25em;
+    }
+  
+    .cookiebar-btn {
+      background: transparent;
+      border: none;
+      padding: 0;
+      color: @white-color;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.875rem;
+      display: inline-block;
+      line-height: 1em;
+      &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
+      &:last-child {
+        margin-left: 32px;
+      }
+      &:not(.cookiebar-confirm) {
+        color: contrast(@cookiebar-background-color);
+      }
+      + .btn{
+          margin-left: 24px;
+      }
+    }
+  }
+  
+  //small - tablet
+  @media (min-width: 576px) {
+    .cookiebar {
+      p {
+        font-size: 0.889rem;
+      }
+      .cookiebar-btn {
+        font-size: 0.778rem;
+      }
+    }
+  }
+  
+  //Tablet vertical
+  @media (min-width: 768px) {
+    .cookiebar {
+      padding: 32px 48px;
+      &.show {
+        display: flex !important;
+        justify-content: space-between;
+        align-items: center;
+      }
+      p {
+        width: 60%;
+        margin-right: 24px;
+        br {
+          display: block;
+        }
+      }
+  
+      .cookiebar-buttons {
+        margin-top: 0;
+        width: 40%;
+      }
+    }
+  }
+  
+  //Tablet horizontal / small desktop
+  @media (min-width: 992px) {
+    .cookiebar {
+      max-width: 832px;
+      left: 50%;
+      right: auto;
+      transform: translateX(-50%);
+      border-radius: .25rem .25rem 0 0;
+      p {
+        width: 66%;
+      }
+      .cookiebar-buttons {
+        width: 34%;
+      }
+    }
+  }
+  
+  

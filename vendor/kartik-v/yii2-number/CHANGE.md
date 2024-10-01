@@ -1,6 +1,21 @@
 Change Log: `yii2-number`
 =========================
 
+## Version 1.0.5
+
+**Date:** 07-Dec-2018
+
+- (bug #10, #11)- Pressing the "enter" key does not change the input value.
+- Update README.
+
+## Version 1.0.4
+
+**Date:** 09-Oct-2018
+
+- Update composer dependencies.
+- (enh #9): Detect mask change on ENTER key press.
+- (enh #8): New property `displayAttribute` to allow read/write of masked format data to model.
+
 ## Version 1.0.3
 
 **Date:** 26-Jul-2018

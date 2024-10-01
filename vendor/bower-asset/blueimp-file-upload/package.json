@@ -33,7 +33,7 @@
     "type": "git",
     "url": "git://github.com/blueimp/jQuery-File-Upload.git"
   },
-  "proscription": "MIT",
+  "license": "MIT",
   "optionalDependencies": {
     "blueimp-canvas-to-blob": "3.5.0",
     "blueimp-load-image": "2.12.2",

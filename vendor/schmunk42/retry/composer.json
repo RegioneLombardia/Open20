@@ -2,7 +2,7 @@
     "name": "igorw/retry",
     "description": "A tiny library for retrying failing operations.",
     "keywords": ["failure"],
-    "proscription": "MIT",
+    "license": "MIT",
     "authors": [
         {
             "name": "Igor Wiedler",

@@ -1,0 +1,144 @@
+$sidebarComponentiWidth: 200px;
+$heightHeaderOpen2: 150px;
+$heightHeaderShrinkOpen2: 100px;
+$heightFooterOpen2: 150px;
+$cmsBgColor: #f8f9fa;
+
+body.cms-admin-layout-dxp {
+    .luya {
+        background-color: $cmsBgColor;
+        > .luya-main-wrapper {
+            @extend .m-0;
+            @extend .w-100;
+            max-width: 100%;
+            > .luya-main > .luya-content.luya-content-cmsadmin {
+                @extend .p-0;
+                > .cmsadmin {
+                    //@extend .mr-0;
+                    > .row > .col {
+                        @extend .pt-4;
+                        &:first-child {
+                            @extend .px-4;
+                            @extend .pl-5;
+                        }
+                        + .col.blockholder-column {
+                            /** SIDEBAR COMPONENTI */
+                            &:not(.blockholder-column-small) {
+                                width: $sidebarComponentiWidth;
+                                max-width: $sidebarComponentiWidth;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+body.cms-admin-layout-dxp {
+    /** COMPORTAMENTO SIDEBAR COMPONENTI CON HEADER SHRINK */
+    .luya
+        > .luya-main-wrapper
+        > .luya-main
+        > .luya-content.luya-content-cmsadmin
+        > .cmsadmin
+        > .row
+        > .col
+        + .col.blockholder-column {
+        height: calc(100vh - #{$heightHeaderOpen2});
+        .blockholder-group:last-of-type {
+            margin-bottom: $heightFooterOpen2;
+        }
+    }
+    &.shrink {
+        .luya
+            > .luya-main-wrapper
+            > .luya-main
+            > .luya-content.luya-content-cmsadmin
+            > .cmsadmin
+            > .row
+            > .col
+            + .col.blockholder-column {
+            height: calc(100vh - #{$heightHeaderShrinkOpen2});
+            margin-top: calc(#{$heightHeaderShrinkOpen2} - #{$heightHeaderOpen2});
+        }
+    }
+}
+
+body.cms-admin-layout-dxp {
+    /** NASCOSTO FOOTER NEL CMS */
+    #footerContent {
+        @extend .d-none;
+    }
+}
+
+body.cms-admin-layout-dxp {
+    /** SEO MODAL IN CMS */
+    #amos-seo-analyzer {
+        &.modal-in-cms {
+            .form-group {
+                &:not(:last-child) {
+                    margin-bottom: 0;
+                }
+                > label {
+                    position: relative;
+                }
+            }
+        }
+    }
+}
+
+body.cms-admin-layout-dxp {
+    /** TESTATA PAGINE NEL CMS */
+
+    #open2ButtonActions.btn-outline-primary {
+        &:hover {
+            background-color: #ccc;
+        }
+        + .dropdown-menu {
+            &::before {
+                left: auto;
+                right: 24px;
+            }
+            > li > a {
+                /** recupero da dropdown listati bs3 */
+                display: block;
+                padding: 8px 16px;
+                font-size: 16px;
+                text-decoration: none;
+                clear: both;
+                font-weight: 400;
+                line-height: 1.42857143;
+                color: #333333;
+                white-space: nowrap;
+                &:hover {
+                    text-decoration: underline;
+                    color: #262626;
+                    background-color: #f5f5f5;
+                }
+            }
+        }
+    }
+
+    .cmsadmin-nav-tabs {
+        .nav-item.nav-item-alternative {
+            .nav-link.btn.btn-outline-primary {
+                @extend .text-primary;
+                box-shadow: none;
+            }
+            .nav-link:hover::after {
+                @extend .d-none;
+            }
+        }
+    }
+
+    .btn.btn-tertiary.btn-seo-analyzer {
+        color: #fff !important;
+        font-size: 16px;
+        font-weight: 700;
+        &:hover {
+            color: #fff !important;
+            background-color: #002740;
+        }
+    }
+}

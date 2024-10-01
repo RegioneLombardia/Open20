@@ -3,7 +3,7 @@
     "description": "Customizable lightbox widget for Yii2",
     "keywords": ["yii2", "colorbox", "widget", "lightbox"],
     "type": "yii2-extension",
-    "proscription": "MIT",
+    "license": "MIT",
     "support": {
         "source": "https://github.com/himiklab/yii2-colorbox-widget",
         "issues": "https://github.com/himiklab/yii2-colorbox-widget/issues"

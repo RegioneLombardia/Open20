@@ -1,0 +1,16 @@
+
+.bg-dashboard-color-primary {
+    background-color: $dashboard-color-primary;
+}
+.dashboard-redattore {
+    .title-widget {
+        border-bottom: 0.5px dashed #000;
+        margin-bottom: 12px;
+    }
+    .container-padding-xxl {
+        padding: 18px;
+        @media (min-width:992px){
+            padding: 0 48px;
+        }
+    }
+}

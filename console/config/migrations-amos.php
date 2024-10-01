@@ -1,44 +1,51 @@
 <?php
 
 /**
- * Lombardia Informatica S.p.A.
+ * Aria S.p.A.
  * OPEN 2.0
  *
  *
- * @package    lispa\amos\basic\template
+ * @package    open20\amos\basic\template
  * @category   CategoryName
  */
 
 return[
-    '@vendor/lispa/amos-admin/src/migrations',
-    '@vendor/lispa/amos-audit/src/migrations',
-    '@vendor/lispa/amos-attachments/src/migrations',
-    '@vendor/lispa/amos-chat/src/migrations',
-    '@vendor/lispa/amos-comments/src/migrations',
-    '@vendor/lispa/amos-community/src/migrations',
-    '@vendor/lispa/amos-comuni/src/migrations',
-    '@vendor/lispa/amos-core/migrations',
-    '@vendor/lispa/amos-cwh/src/migrations',
-    '@vendor/lispa/amos-dashboard/src/migrations',
-    '@vendor/lispa/amos-discussioni/src/migrations',
-    '@vendor/lispa/amos-documenti/src/migrations',
-    '@vendor/lispa/amos-events/src/migrations',
-    '@vendor/lispa/amos-email-manager/src/migrations',
-    '@vendor/lispa/amos-invitations/src/migrations',
-    '@vendor/lispa/amos-my-activities/src/migrations',
-    '@vendor/lispa/amos-news/src/migrations',
-    '@vendor/lispa/amos-notify/src/migrations',
-    '@vendor/lispa/amos-organizzazioni/src/migrations',
-    '@vendor/lispa/amos-privileges/src/migrations',
-    '@vendor/lispa/amos-project-management/src/migrations',
-    '@vendor/lispa/amos-partnership-profiles/src/migrations',
-    '@vendor/lispa/amos-report/src/migrations',
-    '@vendor/lispa/amos-slideshow/src/migrations',
-    '@vendor/lispa/amos-sondaggi/src/migrations',
-    '@vendor/lispa/amos-tag/src/migrations',
-    '@vendor/lispa/amos-upload/src/migrations',
-    '@vendor/lispa/amos-utility/src/migrations',
-    '@vendor/lispa/amos-workflow/src/migrations',
-    '@vendor/lispa/amos-videoconference/src/migrations',
+    '@vendor/open20/amos-admin/src/migrations',
+    '@vendor/open20/amos-attachments/src/migrations',
+    '@vendor/open20/amos-build/src/migrations',
+    '@vendor/open20/amos-chat/src/migrations',
+    '@vendor/open20/amos-comments/src/migrations',
+    '@vendor/open20/amos-community/src/migrations',
+    '@vendor/open20/amos-comuni/src/migrations',
+    '@vendor/open20/amos-core/migrations',
+    '@vendor/open20/amos-cwh/src/migrations',
+    '@vendor/open20/amos-dashboard/src/migrations',
+    '@vendor/open20/amos-discussioni/src/migrations',
+    '@vendor/open20/amos-documenti/src/migrations',
+    '@vendor/open20/amos-email-manager/src/migrations',
+    '@vendor/open20/amos-eventi/src/migrations',
+    '@vendor/open20/amos-events/src/migrations',
+    '@vendor/open20/amos-faq/src/migrations',
+    '@vendor/open20/amos-favorites/src/migrations',
+    '@vendor/open20/amos-inforeq/src/migrations',
+    '@vendor/open20/amos-my-activities/src/migrations',
+    '@vendor/open20/amos-news/src/migrations',
+    '@vendor/open20/amos-notify/src/migrations',
+    '@vendor/open20/amos-organizzazioni/src/migrations',
+    '@vendor/open20/amos-privileges/src/migrations',
+    '@vendor/open20/amos-project-management/src/migrations',
+    '@vendor/open20/amos-proposte-collaborazione/src/migrations',
+    '@vendor/open20/amos-proposte-collaborazione-een/src/migrations',
+    '@vendor/open20/amos-report/src/migrations',
+    '@vendor/open20/amos-risultati/src/migrations',
+    '@vendor/open20/amos-slideshow/src/migrations',
+    '@vendor/open20/amos-sondaggi/src/migrations',
+    '@vendor/open20/amos-tag/src/migrations',
+    '@vendor/open20/amos-upload/src/migrations',
+    '@vendor/open20/amos-utility/src/migrations',
+    '@vendor/open20/amos-workflow/src/migrations',
+    '@vendor/open20/gamification/src/migrations',
     /****************DO NOT REMOVE****************/
+
+    '@frontend/modules/socialwall/migrations',
 ];

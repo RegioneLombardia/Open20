@@ -192,7 +192,7 @@ class BaseImage
      * original image. Note that calculated thumbnail dimension may vary depending on the source image in this case.
      *
      * If both dimensions are specified, resulting thumbnail would be exactly the width and height specified. How it's
-     * achieved depends on the mode.
+     * achieved depends on the mode defined via settings parameter.
      *
      * If `ImageInterface::THUMBNAIL_OUTBOUND` mode is used, which is default, then the thumbnail is scaled so that
      * its smallest side equals the length of the corresponding side in the original image. Any excess outside of
@@ -206,10 +206,10 @@ class BaseImage
      * @param string|resource|ImageInterface $image either ImageInterface, resource or a string containing file path
      * @param int $width the width in pixels to create the thumbnail
      * @param int $height the height in pixels to create the thumbnail
-     * @param string $mode mode of resizing original image to use in case both width and height specified
+     * @param int $settings settings for resizing original image, one or more of the ManipulatorInterface::THUMBNAIL_ flags (joined with |)
      * @return ImageInterface
      */
-    public static function thumbnail($image, $width, $height, $mode = ManipulatorInterface::THUMBNAIL_OUTBOUND)
+    public static function thumbnail($image, $width, $height, $settings = ManipulatorInterface::THUMBNAIL_OUTBOUND)
     {
         $img = self::ensureImageInterfaceInstance($image);
 
@@ -217,13 +217,14 @@ class BaseImage
         $sourceBox = $img->getSize();
         $thumbnailBox = static::getThumbnailBox($sourceBox, $width, $height);
 
-        if (self::isUpscaling($sourceBox, $thumbnailBox)) {
+        $allowUpscale = (bool) ($settings & ImageInterface::THUMBNAIL_FLAG_UPSCALE);
+        if (self::isUpscaling($sourceBox, $thumbnailBox) && !$allowUpscale) {
             return $img->copy();
         }
 
-        $img = $img->thumbnail($thumbnailBox, $mode);
+        $img = $img->thumbnail($thumbnailBox, $settings);
 
-        if ($mode == ManipulatorInterface::THUMBNAIL_OUTBOUND) {
+        if ($settings & ImageInterface::THUMBNAIL_OUTBOUND) {
             return $img;
         }
 
@@ -384,7 +385,7 @@ class BaseImage
      *
      * @since 2.0.4
      */
-    protected static function getThumbnailBox(BoxInterface $sourceBox, $width, $height)
+    public static function getThumbnailBox(BoxInterface $sourceBox, $width, $height)
     {
         if ($width !== null && $height !== null) {
             return new Box($width, $height);
@@ -411,7 +412,7 @@ class BaseImage
      *
      * @since 2.1.1
      */
-    protected static function getBox(BoxInterface $sourceBox, $width, $height, $keepAspectRatio = true)
+    public static function getBox(BoxInterface $sourceBox, $width, $height, $keepAspectRatio = true)
     {
         if ($width === null && $height === null) {
             throw new InvalidParamException('Width and height cannot be null at same time.');
@@ -446,7 +447,7 @@ class BaseImage
      * @param BoxInterface $destinationBox
      * @return bool
      */
-    protected static function isUpscaling(BoxInterface $sourceBox, BoxInterface $destinationBox)
+    public static function isUpscaling(BoxInterface $sourceBox, BoxInterface $destinationBox)
     {
         return ($sourceBox->getWidth() <= $destinationBox->getWidth() && $sourceBox->getHeight() <= $destinationBox->getHeight()) || (!$destinationBox->getWidth() && !$destinationBox->getHeight());
     }

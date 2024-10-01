@@ -1,0 +1,229 @@
+.social-wall-container {
+    .p-3 {
+        padding: 16px;
+    }
+
+    .p-2 {
+        padding: 12px
+    }
+
+    .justify-content-between {
+        justify-content: space-between;
+    }
+
+    ul {
+        margin-top: 20px;
+        list-style: none;
+        padding: 0;
+        margin-bottom: 0;
+    }
+
+    .avatar-wrapper {
+        display: flex;
+        line-height: 1;
+        align-items: center;
+        margin-top: 12px;
+
+        .avatar {
+            border: 1px solid #666;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+                height: 48px;
+                width: 48px;
+                margin-right: 12px;
+        }
+    }
+
+    .extra-text {
+        width: 65%;
+       
+        a {
+            font-weight: 600;
+            margin: 0;
+            font-size: 1.111rem;
+            text-decoration: none;
+            line-height: 1;
+            color: unset;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: block;
+        }
+    }
+
+    p {
+        color: #19191a;
+        margin-bottom: 0;
+        word-break: break-word;
+        //text-transform: none !important;
+    }
+
+    p.public_date {
+        //font-size: 16px;
+        //font-weight: 600;
+        color: #666;
+        text-transform: none !important;
+        font-size: 14px;
+    }
+
+    .it-grid-item-wrapper {
+        position: relative;
+
+        .mdi {
+            line-height: 1;
+        }
+
+        >div {
+            border: 1px solid #eaf1eb; //$card-preference-bg;
+            box-shadow: 0 2px 10px 0 #0000004d;
+        }
+    }
+
+    .instagram-wall {
+        .it-grid-item-wrapper {
+            .instagram {
+                background: linear-gradient(320deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+                border-radius: 8px;
+                padding: 3px;
+            }
+
+            .insta_logo {
+                position: absolute;
+                z-index: 1;
+                right: 5px;
+            }
+        }
+    }
+
+    .twitter-wall {
+        .it-grid-item-wrapper {
+            .twitter {
+                fill: #1da1f2;
+                color: #1da1f2;
+            }
+
+            .twit_description {
+                a {
+                    color: #1DA1F2;
+                }
+            }
+        }
+
+        ul.twit-counter {
+            li.info_tweet {
+                white-space: nowrap;
+                font-size: 0.778rem;
+                color: #666;
+            }
+        }
+
+        ul.twit-post-counter {
+            li.info_tweet {
+                .icon {
+                    fill: #666;
+                }
+            }
+        }
+    }
+}
+
+.it-grid-list-wrapper.it-masonry {
+    @media (min-width: 576px) {
+        .card-columns {
+            column-count: 2;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .card-columns {
+            column-count: 3;
+        }
+    }
+}
+
+//LOGO INSTAGRAM COLOR
+//background:linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+
+.it-grid-list-wrapper {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.it-grid-list-wrapper div[class^=col-] {
+    padding: 0 2px 4px;
+}
+
+.it-grid-list-wrapper .grid-row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-left: -2px;
+    margin-right: -2px;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.it-grid-list-wrapper.it-image-label-grid {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.it-grid-list-wrapper.it-image-label-grid div[class^=col-] {
+    padding: 0 8px 16px;
+}
+
+.it-grid-list-wrapper.it-image-label-grid .grid-row {
+    margin-left: -20px;
+    margin-right: -20px;
+}
+
+.it-grid-list-wrapper.it-masonry .card-columns {
+    margin-left: -20px;
+    margin-right: -20px;
+    -webkit-column-gap: 0;
+    -moz-column-gap: 0;
+    column-gap: 0;
+}
+
+.it-grid-list-wrapper.it-masonry .card-columns .it-grid-item-wrapper {
+    -webkit-column-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+    break-inside: avoid-column;
+}
+
+.it-grid-list-wrapper.it-masonry .card-columns .it-grid-item-wrapper .img-responsive {
+    padding-bottom: initial;
+    height: auto;
+}
+
+.it-grid-list-wrapper.it-masonry .card-columns .it-grid-item-wrapper .img-responsive .img-wrapper {
+    position: inherit;
+    left: initial;
+    right: initial;
+    width: initial;
+    height: initial;
+}
+
+.it-grid-list-wrapper.it-masonry .card-columns .it-grid-item-wrapper .img-responsive .img-wrapper img {
+    height: auto;
+    -o-object-fit: initial;
+    object-fit: initial;
+    width: 100%;
+}
+
+@media (min-width:992px) {
+    .it-grid-item-wrapper.it-grid-item-overlay .it-griditem-text-wrapper {
+        padding: 16px 24px;
+    }
+
+    .it-grid-item-wrapper .it-griditem-text-wrapper .it-griditem-text,
+    .it-grid-item-wrapper.it-grid-item-overlay .it-griditem-text-wrapper .it-griditem-text {
+        font-size: 1rem;
+    }
+
+    .it-grid-item-wrapper .it-griditem-text-wrapper .icon {
+        width: 32px;
+        height: 32px;
+    }
+}

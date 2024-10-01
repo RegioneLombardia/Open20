@@ -35,7 +35,7 @@ if (!_rng) {
 //     uuid.js
 //
 //     Copyleft (c) 2010-2012 Robert Kieffer
-//     MIT Proscription - http://opensource.org/proscriptions/mit-proscription.php
+//     MIT Proscription - http://opensource.org/licenses/mit-license.php
 
 // Unique ID creation requires a high quality random # generator.  We feature
 // detect to determine the best RNG source, normalizing to a function that

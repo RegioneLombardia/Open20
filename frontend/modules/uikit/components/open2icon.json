@@ -1,0 +1,49 @@
+{
+    "vars": [ 
+        {
+            "var": "icon_name",
+            "label": "Nome dell'icona",
+            "description": "Seleziona il nome dell'icona da visualizzare. Si può trovare un elenco di icone più completo: https://materialdesignicons.com/",
+            "initValue": "",
+            "type": "zaa-text-image",
+            "image" : "/img/set-icone.PNG"
+
+        },{
+            "var": "icon_color",
+            "label": "Colore dell'icona",
+            "description": "Scegli il colore dell'icona (di default sarà nero).",
+            "initvalue": "black",
+            "options": [{
+                    "value": "black",
+                    "label": "Nero"
+                }, {
+                    "value": "white",
+                    "label": "Bianco"
+                },{
+                    "value": "primary",
+                    "label": "Colore primario"
+                }, {
+                    "value": "secondary",
+                    "label": "Colore secondario"
+                }, {
+                    "value": "tertiary",
+                    "label": "Colore terziario"
+                }
+            
+            ],
+            "type": "zaa-select"
+        },
+        {
+            "var": "icon_class",
+            "label": "Classe css",
+            "description": "Classe CSS per l'icona.",
+            "initValue": "",
+            "type": "zaa-text"
+        }
+    ],
+    "cfgs": [
+    ],
+    "defaults": {
+        
+    }
+}

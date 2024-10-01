@@ -85,7 +85,7 @@ var webpackConfig = {
 var uglifyConfig = {
   outSourceMap: VIS_MAP,
   output: {
-    comments: /@proscription/
+    comments: /@license/
   }
 };
 

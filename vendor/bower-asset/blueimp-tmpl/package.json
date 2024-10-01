@@ -1,6 +1,6 @@
 {
   "name": "blueimp-tmpl",
-  "version": "3.13.0",
+  "version": "3.20.0",
   "title": "JavaScript Templates",
   "description": "1KB lightweight, fast & powerful JavaScript templating engine with zero dependencies. Compatible with server-side environments like Node.js, module loaders like RequireJS, Browserify or webpack and all web browsers.",
   "keywords": [
@@ -17,16 +17,16 @@
     "type": "git",
     "url": "git://github.com/blueimp/JavaScript-Templates.git"
   },
-  "proscription": "MIT",
+  "license": "MIT",
   "devDependencies": {
     "chai": "4",
-    "eslint": "6",
-    "eslint-config-blueimp": "1",
-    "eslint-config-prettier": "6",
-    "eslint-plugin-jsdoc": "15",
-    "eslint-plugin-prettier": "3",
-    "mocha": "6",
-    "prettier": "1",
+    "eslint": "7",
+    "eslint-config-blueimp": "2",
+    "eslint-config-prettier": "8",
+    "eslint-plugin-jsdoc": "36",
+    "eslint-plugin-prettier": "4",
+    "mocha": "9",
+    "prettier": "2",
     "uglify-js": "3"
   },
   "eslintConfig": {
@@ -45,14 +45,17 @@
     "test/vendor"
   ],
   "prettier": {
+    "arrowParens": "avoid",
     "proseWrap": "always",
     "semi": false,
-    "singleQuote": true
+    "singleQuote": true,
+    "trailingComma": "none"
   },
   "scripts": {
     "lint": "eslint .",
     "unit": "mocha",
     "test": "npm run lint && npm run unit",
+    "prebuild": "bin/sync-vendor-libs.sh",
     "build": "cd js && uglifyjs tmpl.js -c -m -o tmpl.min.js --source-map url=tmpl.min.js.map",
     "preversion": "npm test",
     "version": "npm run build && git add -A js",

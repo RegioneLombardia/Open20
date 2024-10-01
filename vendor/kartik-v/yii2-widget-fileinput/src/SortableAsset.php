@@ -3,7 +3,7 @@
 /**
  * @package yii2-widgets
  * @subpackage yii2-widget-fileinput
- * @version 1.0.8
+ * @version 1.1.1
  */
 
 namespace kartik\file;

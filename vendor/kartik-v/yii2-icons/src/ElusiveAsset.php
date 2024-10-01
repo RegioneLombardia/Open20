@@ -2,7 +2,7 @@
 
 /**
  * @package yii2-icons
- * @version 1.4.5
+ * @version 1.4.8
  */
 
 namespace kartik\icons;
@@ -10,10 +10,11 @@ namespace kartik\icons;
 use kartik\base\BaseAssetBundle;
 
 /**
- * Asset bundle for Elusive icon set. Uses client assets (CSS, images, and fonts) from Elusive Icons repository.
+ * Asset bundle for the Elusive icon set. Uses client assets (CSS, images, and fonts) from Elusive Icons repository.
  * 
  *
  * @since 1.0
+ *
  */
 class ElusiveAsset extends BaseAssetBundle
 {

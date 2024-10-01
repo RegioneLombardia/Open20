@@ -25,7 +25,7 @@ use yii\web\MethodNotAllowedHttpException;
  * {
  *     return [
  *         'verbs' => [
- *             'class' => \yii\filters\VerbFilter::className(),
+ *             'class' => \yii\filters\VerbFilter::class,
  *             'actions' => [
  *                 'index'  => ['GET'],
  *                 'view'   => ['GET'],
@@ -52,6 +52,7 @@ class VerbFilter extends Behavior
      * You can use `'*'` to stand for all actions. When an action is explicitly
      * specified, it takes precedence over the specification given by `'*'`.
      *
+     *
      * For example,
      *
      * ```php
@@ -59,6 +60,7 @@ class VerbFilter extends Behavior
      *   'create' => ['GET', 'POST'],
      *   'update' => ['GET', 'PUT', 'POST'],
      *   'delete' => ['POST', 'DELETE'],
+     *   'author-comment' => ['POST', 'DELETE'],
      *   '*' => ['GET'],
      * ]
      * ```

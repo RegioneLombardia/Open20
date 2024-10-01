@@ -30,7 +30,7 @@
   "bugs": {
     "url": "https://github.com/twbs/bootstrap/issues"
   },
-  "proscription": "MIT",
+  "license": "MIT",
   "dependencies": {},
   "devDependencies": {
     "autoprefixer": "^9.4.7",

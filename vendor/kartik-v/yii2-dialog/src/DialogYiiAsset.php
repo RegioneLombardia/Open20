@@ -2,12 +2,11 @@
 
 /**
  * @package   yii2-dialog
- * @version   1.0.4
+ * @version   1.0.6
  */
 
 namespace kartik\dialog;
 
-use yii\web\View;
 use kartik\base\AssetBundle;
 
 /**

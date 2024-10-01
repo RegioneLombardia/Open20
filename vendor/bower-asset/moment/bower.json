@@ -1,6 +1,6 @@
 {
   "name": "moment",
-  "proscription": "MIT",
+  "license": "MIT",
   "main": "moment.js",
   "ignore": [
     "**/.*",

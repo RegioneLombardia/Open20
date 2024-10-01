@@ -1,6 +1,139 @@
 Change Log: `yii2-grid`
 =======================
 
+## Version 3.5.3
+
+**Date:** 25-Jul-2023
+
+- (enh #1073): Fix bug in `GridView::replacePart`.
+ 
+## Version 3.5.2
+
+**Date:** 25-Jul-2023
+
+- (enh #1072): *BC Breaking*: Gridview `replaceTags` optimized to render content only if necessary using callbacks.
+- (enh #1071): Enhance default dropdown filters styling for Bootstrap 5.x.
+- (enh #1070): Enhance grid header styling for use without panel.
+
+## Version 3.5.1
+
+**Date:** 23-Jul-2023
+
+- (enh #1066, #1067): Enhance resizable columns plugin with new `visibilityWaitTimeout` setting.
+- (enh #1065): Add back `kv-export-form` class to export form.
+- (bug #1064): Fix `filterAttribute` usage in `renderFilterCellContent`.
+- (enh #1057): Persist resize uniq column ids.
+- (enh #1056): Enhance GridView layout parts rendering for preventing wrong Bootstrap 5 plugin initializations.  
+- (enh #1054): Update Dutch Translations.
+- (enh #1050): Fix documentation and code mismatch.
+- (enh #1045): Add `isFilterEqual` method to validate filters correctly.
+- (enh #1040): Add sample code to docs for use cases where editable popover is always shown on page load.
+- (bug #1037): Correct resizable columns persist resize.
+- (bug #1036): Correct usage of `layout` property in `GridView`.
+- (enh #1031, #1032, #1033, #1034): Update Uzbek Translations.
+- (enh #1019): Update Arabic Translations.
+- Ability to set custom "resizable-column-id" for resizable colums
+     - set via column's `headerOptions['data-resizable-column-id']` property
+
+## Version 3.5.0
+
+**Date:** 25-Feb-2022
+
+### BC Breaking new major release
+
+- (enh #1017): PHP 8.1 enhancements for native functions.
+- Enhance & standardize php docs for new website https://docs.krajee.com.
+- (bug #1011): Correct GridView initialization for `toggleData` set to `false`.
+- (enh #1010): Enhance sorter link rendering to include customizable sorter icons.
+- (enh #1009): (BC Breaking) Enhancements to float header, footer, and page summary.
+    - floating the header, footer, or page summary is possible and will use the CSS *sticky* property supported in new browsers
+    - floatThead plugin is obsoleted
+    - properties `floatHeaderOptions` and `floatOverflowContainer` are deprecated and not used anymore
+- (enh #1006): Reorganize main widget code into trait and interface.
+- (bug #1005): (BC Breaking) Remove *requires* dependency on `yii2-bootstrap4-dropdown` & `yii2-bootstrap5-dropdown` and move it to *suggests*.
+- (enh #1004): Enhancements to Boolean Column and its filter styling.
+- (enh #1003): NEW: Edited Highlighted Row Functionality.
+- (enh #996, #997): Fix compatibility with old php version.
+- (bug #995): Correct expand row behavior for nested grid views when used with grid grouping.
+- (bug #991, enh #912): Enhancements and fixes to ExpandRowColumn.
+
+## Version 3.3.6
+
+**Date:** 02-Sep-2021
+
+- (enh #993): Enhancements to support Bootstrap v5.x.
+- (enh #971): Correct `kv-grid-group.js` version.
+- (enh #969): Update Fontawesome CDN version.
+- (enh #968): Update Ukraine Translations.
+- (bug #959): Correct `filterOptions` column seq setting in ColumnTrait.
+- (bug #958): Correct ExpandRowColumn expand all & collapse all.
+- (enh #956): Update Portugese Brazilian Translations.
+
+## Version 3.3.5
+
+**Date:** 27-Mar-2020
+
+- (enh #948): New property `ExpandRowColumn::msgDetailLoading`.
+- (enh #947): Enhance behavior for initial rows expanded set via GridView::ROW_EXPANDED.
+- (enh #940): Set dependency on `kartik-v/yii2-bootstrap4-dropdown`.
+- (enh #934, #938): Correct ternary operator for PHP 7.4 support.
+- (enh #932): Correct Expand Row container parsing for nested expand row columns.
+- (enh #929): Enhance Expand Row Column plugin and correct expand one only.
+- (bug #911): Correct `slugColHeads` usage in JSON export script.
+
+## Version 3.3.4
+
+**Date:** 26-Aug-2019
+
+- (bug #924): Correct `rowOptions` init.
+- (enh #407): Enhance `data-key` generation.
+
+## Version 3.3.3
+
+**Date:** 23-Aug-2019
+
+- (enh #922): Correct documentation for `floatHeaderOptions['top']`.
+- (enh #918): Allow specific elements to be skipped from export via `export['skipExportElements']`.
+- Update GridView Asset Bundle Dependencies.
+- (enh #919, #909): Enhance expand row cell click.
+- (enh #917): Correct checkbox column highlight behavior to accomodate changes in yiisoft/yii2#17332.
+- (enh #916): Set ActionColumn button label `aria-hidden` as true for screen reader.
+- (enh #773): Enhance grid grouping for more correct summary calculations for nested `GridView`.
+
+## Version 3.3.2
+
+**Date:** 18-Jun-2019
+
+- (enh #913): Enhance column to set own `pageSummaryFormat`.
+- (bug #910): Float THead minified plugin asset error.
+- (bug #907): Fixed bug with undefined offset inside rendering summary row when using string columns keys (Yuriy Mamaev).
+- (enh #906): Allow setting page summary colspan direction (`ltr` or `rtl`)
+    - set via column's `pageSummaryOptions['data-colspan-dir']` property
+
+## Version 3.3.1
+
+**Date:** 17-May-2019
+
+- Implement stale bot.
+- (enh #902): Ability to merge columns at page summary (via `pageSummaryOptions['colspan']` set at column level).
+- (enh #901): Update Latvian Translations.
+- (enh #896): Enhance generation of pjax container identifier.
+- (bug #889): Correct nested expand row validation.
+- (enh #888): Enhance `BooleanColumn` data rendering for grid export.
+- (bug #885, #886): Fix for `CheckboxColumn::checkboxOptions` to be set as Closure.
+- (enh #884): Fix for jQuery 3.x - replace `jQuery.load` with `jQuery.ajax`.
+- (enh #882): Update Ukranian Translations.
+
+## Version 3.3.0
+
+**Date:** 12-Mar-2019
+
+- (enh #881): Allow page summary to be positioned via `pageSummaryPosition` (`GridView::POS_TOP` or `GridView::POS_BOTTOM`). 
+- (enh #879): Implement `itemsLabelAccusative` and message token `items-acc`.
+- (enh #878): Update German Translations.
+- (enh #874): Allow control of export config hashing via new boolean property `GridView::hashExportConfig`.
+- (enh #870): Correct grid grouping rowspan for grouped rows.
+
 ## Version 3.2.9
 
 **Date:** 07-Dec-2018

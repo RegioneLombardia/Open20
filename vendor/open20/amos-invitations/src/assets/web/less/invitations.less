@@ -1,0 +1,49 @@
+/**
+IMPORT AMOS-LAYOUT VARIABLES
+ */
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/variables.less";
+
+/**
+IMPORT STYLE-CUSTOM
+ */
+@import (optional) "../../backend/web/less/style_custom.less";
+
+/**
+INVITE GOOGLE
+ */
+.invite-google {
+  //.subtitle-wizard {
+  //  margin: 0;
+  //}
+  //.form-group.field-stepc-passstep {
+  //  margin: 0;
+  //}
+  .selected-users {
+    background-color: @light-background-color;
+    .field-googleinvitationform-selection .control-label { /* same as h3 */
+      color: @primary-color;
+      font-size: 1.645em;
+      font-weight: 500;
+      line-height: 1.1;
+      margin: 18px 0 15px 0;
+      word-wrap: break-word;
+      white-space: normal;
+    }
+    .table > thead > tr > th {
+      border-bottom-color: @white-color; //override tables
+    }
+    .empty { //default yii2 renderEmpty() class
+      position: absolute;
+    }
+  }
+  .search-users-index {
+    .btn {
+      margin-top: 6px;
+    }
+    h3{
+      text-transform: uppercase;
+      margin-top: 12px;
+    }
+  }
+}
+

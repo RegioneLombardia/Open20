@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Lombardia Informatica S.p.A.
+ * Aria S.p.A.
  * OPEN 2.0
  *
  *
- * @package    lispa\amos\comments\i18n\it-IT
+ * @package    open20\amos\comments\i18n\it-IT
  * @category   CategoryName
  */
 
@@ -59,7 +59,7 @@ return [
     '#footer_disable_notification' => 'Cancellazione notifiche',
     '#footer_template_mail_privacy_title' => 'Visualizza l\'informativa sul trattamento dei dati e sulla privacy',
     '#footer_template_mail_privacy' => 'Visualizza l\'informativa sul trattamento dei dati e sulla privacy',
-    '#footer_template_mail' => 'Questo messaggio ti è stato inviato automaticamente dalla piattaforma {appName}, a cui sei registrato.',
+    '#footer_template_mail' => 'Questo messaggio ti è stato inviato automaticamente dalla piattaforma {appName}.',
     '#footer_unsubscribe' => 'Disiscrizione dalla piattaforma',
     '#information_personalized' => 'Informativa',
     'Inserisci le credenziali per accedere' => 'Inserisci le credenziali per accedere',
@@ -98,4 +98,8 @@ return [
     'Utenza non attiva' => 'Utenza non attiva',
     'Verifica i {numeroRuoli} di {appName}' => 'Verifica i {numeroRuoli} di {appName}',
     'Wrong password reset token.' => 'Password reset token errato.',
+    '#error_contact_helpdesk' => "Contatta l'assistenza",
+    'Pagina non trovata' => "Pagina non trovata",
+    'Accesso negato' => "Accesso negato",
+    'Si è verificato un errore interno' => "Si è verificato un errore interno",
 ];

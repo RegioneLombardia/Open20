@@ -52,8 +52,8 @@ use yii\base\InvalidConfigException;
  *
  * For more details and usage information on Cache, see the [guide article on caching](guide:caching-overview).
  *
- * @property \Memcache|\Memcached $memcache The memcache (or memcached) object used by this cache component.
- * This property is read-only.
+ * @property-read \Memcache|\Memcached $memcache The memcache (or memcached) object used by this cache
+ * component.
  * @property MemCacheServer[] $servers List of memcache server configurations. Note that the type of this
  * property differs in getter and setter. See [[getServers()]] and [[setServers()]] for details.
  *
@@ -281,9 +281,7 @@ class MemCache extends Cache
      */
     protected function setValue($key, $value, $duration)
     {
-        // Use UNIX timestamp since it doesn't have any limitation
-        $expire = $duration > 0 ? $duration + time() : 0;
-
+        $expire = $this->normalizeDuration($duration);
         return $this->useMemcached ? $this->_cache->set($key, $value, $expire) : $this->_cache->set($key, $value, 0, $expire);
     }
 
@@ -296,8 +294,7 @@ class MemCache extends Cache
     protected function setValues($data, $duration)
     {
         if ($this->useMemcached) {
-            // Use UNIX timestamp since it doesn't have any limitation
-            $expire = $duration > 0 ? $duration + time() : 0;
+            $expire = $this->normalizeDuration($duration);
 
             // Memcached::setMulti() returns boolean
             return $this->_cache->setMulti($data, $expire) ? [] : array_keys($data);
@@ -317,9 +314,7 @@ class MemCache extends Cache
      */
     protected function addValue($key, $value, $duration)
     {
-        // Use UNIX timestamp since it doesn't have any limitation
-        $expire = $duration > 0 ? $duration + time() : 0;
-
+        $expire = $this->normalizeDuration($duration);
         return $this->useMemcached ? $this->_cache->add($key, $value, $expire) : $this->_cache->add($key, $value, 0, $expire);
     }
 
@@ -342,5 +337,26 @@ class MemCache extends Cache
     protected function flushValues()
     {
         return $this->_cache->flush();
+    }
+
+    /**
+     * Normalizes duration value
+     *
+     *
+     * @since 2.0.31
+     * @param int $duration
+     * @return int
+     */
+    protected function normalizeDuration($duration)
+    {
+        if ($duration < 0) {
+            return 0;
+        }
+
+        if ($duration < 2592001) {
+            return $duration;
+        }
+
+        return $duration + time();
     }
 }

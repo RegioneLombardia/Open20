@@ -2,7 +2,7 @@
 
 /**
  * @package   yii2-password
- * @version   1.5.3
+ * @version   1.5.7
  */
 
 namespace kartik\password;
@@ -10,7 +10,7 @@ namespace kartik\password;
 use kartik\base\AssetBundle;
 
 /**
- * Asset bundle for PasswordInput Widget
+ * Asset bundle for the [[PasswordInput]] widget.
  *
  * @since 1.0
  */

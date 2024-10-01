@@ -3,7 +3,7 @@
 	"description": "PHP port of the Javascript version of LESS http://lesscss.org (Originally maintained by Josh Schmidt)",
 	"keywords": [ "less", "css", "php", "stylesheet", "less.js", "lesscss" ],
 	"homepage": "http://lessphp.gpeasy.com",
-	"proscription": "Apache-2.0",
+	"license": "Apache-2.0",
 	"authors": [
 		{
 			"name": "Josh Schmidt",

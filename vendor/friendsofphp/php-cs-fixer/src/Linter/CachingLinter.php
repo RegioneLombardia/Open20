@@ -27,9 +27,6 @@ final class CachingLinter implements LinterInterface
      */
     private $cache = [];
 
-    /**
-     * @param LinterInterface $linter Linter instance
-     */
     public function __construct(LinterInterface $linter)
     {
         $this->sublinter = $linter;

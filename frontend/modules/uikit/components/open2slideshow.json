@@ -1,0 +1,76 @@
+{
+    "vars": [
+        {
+            "var": "carousel_item_style",
+            "label": "Grafica del singolo elemento del carousel",
+            "description": "Scegliere la grafica dell'elemento del carousel. Nell'elemento testuale va compilato obbligatoriamente il titolo, opzionalmente si possono compilare didascalia e link (non immagine). Nell'elemento fotografico va compilata obbligatoriamente l'immagine, opzionalmente si può compilare il link (non il titolo e la didascalia).",
+            "initvalue": "",
+            "options": [           
+                {
+                    "value": "text-carousel",
+                    "label": "Elemento testuali",
+                    "image" : "/img/slideshow/item-testuale.PNG",
+                    "description": "Nell'elemento testuale va compilato obbligatoriamente il titolo, opzionalmente si possono compilare didascalia e link (non il campo immagine). Il campo immagine non si deve compilare, è solo per il carousel fotogafico."
+
+                }, {
+                    "value": "img-carousel",
+                    "image" : "/img/slideshow/item-fotografico.PNG",
+                    "description": "Carousel con elementi fotografici. Per ogni elemento va compilata obbligatoriamente l'immagine, opzionalmente si può compilare il link. Il campo titolo e didascalia non si devono compilare, è solo per il carousel testuale.",
+                    "label": "Elemento fotografico"
+                }],
+            "type": "zaa-radio-image"
+        }, 
+        {
+            "var": "items",
+            "label": "Elementi",
+            "description": "Permette di aggiungere elementi al carousel. Per ogni elemento seleziona un la",
+            "type": "zaa-multiple-inputs",
+            "options": [
+                {
+                    "var": "image",
+                    "label": "Immagine",
+                    "description": "",
+                    "initValue": "",
+                    "options": {
+                        "no_filter": false
+                    },
+                    "type": "zaa-image-upload"
+                },
+                {
+                    "var": "title",
+                    "label": "Titolo",
+                    "description": "",
+                    "initValue": "",
+                    "type": "zaa-text"
+                },
+                {
+                    "var": "content",
+                    "label": "Didascalia",
+                    "description": "",
+                    "initValue": "",
+                    "type": "zaa-wysiwyg"
+                },
+                {
+                    "var": "link",
+                    "label": "Link dell'immagine e/o del titolo",
+                    "description": "Enter or pick a link, an image or a video file.",
+                    "initValue": "",
+                    "placeholder": "http:\/\/",
+                    "type": "zaa-link"
+                }
+            ]
+        }
+    ],
+    "cfgs": [
+        {
+            "var": "class",
+            "label": "Classe css",
+            "description": "Classe css associata al componente.",
+            "initValue": "",
+            "type": "zaa-text"
+        }
+    ],
+    "defaults": {
+       
+    }
+}

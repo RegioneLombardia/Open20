@@ -1,0 +1,50 @@
+{
+    "vars": [
+        
+        {
+            "var": "title",
+            "label": "Title",
+            "description": "",
+            "initValue": "",
+            "type": "zaa-text"
+        },{
+            "var": "content",
+            "label": "content",
+            "description": "",
+            "initValue": "",
+            "placeholder": "insert php code.",
+            "type": "zaa-textarea"
+        }
+           
+    ],
+    "cfgs": [
+        {
+            "var": "name",
+            "label": "Name",
+            "description": "Define a name to easily indentify this element inside the builder.",
+            "initValue": "",
+            "placeholder": "",
+            "type": "zaa-text"
+        }, {
+            "var": "id",
+            "label": "ID",
+            "description": "Define a unique identifier for the element.",
+            "initValue": "",
+            "type": "zaa-text"
+        }, {
+            "var": "class",
+            "label": "Class",
+            "description": "Define one or more class names for the element. Separate multiple classes with spaces.",
+            "initValue": "",
+            "type": "zaa-text"
+        }, {
+            "var": "css",
+            "label": "CSS",
+            "description": "Enter your own custom CSS. The following selectors will be prefixed automatically for this element: <code>.el-element<\/code>, <code>.el-item<\/code>, <code>.el-title<\/code>, <code>.el-content<\/code>, <code>.el-image<\/code>, <code>.el-link<\/code>",
+            "initValue": "",
+            "placeholder": "",
+            "type": "zaa-wysiwyg"
+        }
+    ]
+    
+}

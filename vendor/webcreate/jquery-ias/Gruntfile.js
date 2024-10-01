@@ -8,7 +8,7 @@ module.exports = function(grunt) {
           ' <%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
           ' *\n' +
           ' * Commercial use requires one-time purchase of a commercial proscription\n' +
-          ' * https://infiniteajaxscroll.com/docs/proscription.html\n' +
+          ' * https://infiniteajaxscroll.com/docs/license.html\n' +
           ' *\n' +
           ' * Non-commercial use is proscriptiond under the MIT Proscription\n' +
           ' *\n' +

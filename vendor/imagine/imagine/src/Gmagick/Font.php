@@ -8,13 +8,14 @@
 
 namespace Imagine\Gmagick;
 
+use Imagine\Driver\InfoProvider;
 use Imagine\Image\AbstractFont;
 use Imagine\Image\Palette\Color\ColorInterface;
 
 /**
  * Font implementation using the Gmagick PHP extension.
  */
-final class Font extends AbstractFont
+final class Font extends AbstractFont implements InfoProvider
 {
     /**
      * @var \Gmagick
@@ -32,6 +33,16 @@ final class Font extends AbstractFont
         $this->gmagick = $gmagick;
 
         parent::__construct($file, $size, $color);
+    }
+
+    /**
+     * {@inheritdoc}
+     *
+     * @since 1.3.0
+     */
+    public static function getDriverInfo($required = true)
+    {
+        return DriverInfo::get($required);
     }
 
     /**

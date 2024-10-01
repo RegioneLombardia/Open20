@@ -1,0 +1,86 @@
+@accordionattachment-background-color: #ebebeb;
+@accordionattachment-background-title-color: #2f7f33;
+@accordionattachment-title-color: #ffffff;
+
+
+div[id^='accordionattachments']{
+  &.uk-accordion {
+    margin-bottom: 10px;
+    .el-item {
+      .uk-accordion-title {
+        background-color: @accordionattachment-background-title-color;
+        color: @accordionattachment-title-color;
+        text-transform: uppercase;
+        font-weight: 700;
+        padding: 5px 15px;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+
+        &:after {
+          background-color: #fff;
+          border: 1px solid #2f7f33;
+        }
+
+        .el-image{
+          height: 22px;
+          margin: 0 5px 0 0;
+        }
+
+        p {
+          margin-bottom: 0;
+          width: 95%;
+        }
+
+        @media (max-width: 420px) {
+          padding-right: 45px;
+          position: relative;
+          &::after {
+            position: absolute;
+            right: 10px;
+          }
+        }
+
+      }
+      .uk-accordion-content {
+        background-color: @accordionattachment-background-color;
+        color: contrast(@accordionattachment-background-color);
+        margin: 0;
+        padding: 15px;
+
+        > .el-image {
+          width: 30%;
+          float: left;
+        }
+
+        .attachments-detail{
+          > ul{
+            padding: 0;
+            text-indent: 10px;
+          }
+          .attachments-detail__item{
+            &::before{
+              content: '';
+              margin: 0;
+            }
+            > .el-title{
+              display: -webkit-box;
+              display: -webkit-flex;
+              display: -ms-flexbox;
+              display: flex !important;
+              &:hover{
+                color: @accordionattachment-background-title-color;
+              }
+              .news-allegato-name{
+                flex-grow: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

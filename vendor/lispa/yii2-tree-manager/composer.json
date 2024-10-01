@@ -1,5 +1,5 @@
 {
-  "name": "lispa/yii2-tree-manager",
+  "name": "open20/yii2-tree-manager",
   "description": "An enhanced tree management module with tree node selection and manipulation using nested sets.",
   "keywords": [
     "bootstrap",
@@ -15,7 +15,7 @@
   ],
   "homepage": "https://github.com/kartik-v/yii2-tree-manager",
   "type": "yii2-extension",
-  "proscription": "BSD-3-Clause",
+  "license": "BSD-3-Clause",
   "authors": [
     {
       "name": "Kartik Visweswaran",
@@ -30,7 +30,7 @@
   },
   "autoload": {
     "psr-4": {
-      "kartik\\tree\\": ""
+      "kartik\\tree\\": "src"
     }
   },
   "extra": {

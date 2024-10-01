@@ -1,15 +1,17 @@
 <?php
 
 /**
- * Lombardia Informatica S.p.A.
+ * Aria S.p.A.
  * OPEN 2.0
  *
  *
- * @package    lispa\amos\basic\template
+ * @package    open20\amos\basic\template
  * @category   CategoryName
  */
 
 $bootstrap[] = 'log';
 $bootstrap[] = 'email';
+$bootstrap[] = 'amosadmin';
+$bootstrap[] = 'cwh';
 
 return $bootstrap;

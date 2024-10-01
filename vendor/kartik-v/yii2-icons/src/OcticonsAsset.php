@@ -1,7 +1,7 @@
 <?php
 /**
  * @package yii2-icons
- * @version 1.4.5
+ * @version 1.4.8
  */
 
 namespace kartik\icons;
@@ -9,7 +9,7 @@ namespace kartik\icons;
 use kartik\base\BaseAssetBundle;
 
 /**
- * Asset bundle for Octicons icon set. Uses client assets (CSS, images, and fonts) from Github Icons repository.
+ * Asset bundle for the Octicons icon set. Uses client assets (CSS, images, and fonts) from Github Icons repository.
  * 
  *
  * @since 1.0

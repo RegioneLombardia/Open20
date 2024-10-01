@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Lombardia Informatica S.p.A.
+ * Aria S.p.A.
  * OPEN 2.0
  *
  *
- * @package    lispa\amos\basic\template
+ * @package    open20\amos\basic\template
  * @category   CategoryName
  */
 
@@ -20,9 +20,7 @@ return [
             'enableSchemaCache' => true,
             'schemaCacheDuration' => 88000,
             'schemaCache' => 'schemaCache',
-            'attributes'=>[
-                PDO::ATTR_PERSISTENT => true
-            ]
+            //'attributes' => [PDO::ATTR_CASE => PDO::CASE_LOWER],//Enable on MySQL 8.X
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',

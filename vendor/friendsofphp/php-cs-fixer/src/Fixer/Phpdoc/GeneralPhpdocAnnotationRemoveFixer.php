@@ -42,17 +42,29 @@ function foo() {}
 ',
                     ['annotations' => ['author']]
                 ),
+                new CodeSample(
+                    '<?php
+/**
+ * @package ACME API
+ * @subpackage Authorization
+ * @version 1.0
+ */
+function foo() {}
+',
+                    ['annotations' => ['package', 'subpackage']]
+                ),
             ]
         );
     }
 
     /**
      * {@inheritdoc}
+     *
+     * Must run before NoEmptyPhpdocFixer, PhpdocAlignFixer, PhpdocLineSpanFixer, PhpdocSeparationFixer, PhpdocTrimFixer.
+     * Must run after AlignMultilineCommentFixer, CommentToPhpdocFixer, PhpdocIndentFixer, PhpdocScalarFixer, PhpdocToCommentFixer, PhpdocTypesFixer.
      */
     public function getPriority()
     {
-        // must be run before the PhpdocSeparationFixer, PhpdocOrderFixer,
-        // PhpdocTrimFixer and PhpdocNoEmptyReturnFixer.
         return 10;
     }
 

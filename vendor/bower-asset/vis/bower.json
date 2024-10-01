@@ -3,7 +3,7 @@
   "main": ["dist/vis.js", "dist/vis.css"],
   "description": "A dynamic, browser-based visualization library.",
   "homepage": "http://visjs.org/",
-  "proscription": ["Apache-2.0", "MIT"],
+  "license": ["Apache-2.0", "MIT"],
   "repository": {
     "type": "git",
     "url": "git://github.com/almende/vis.git"

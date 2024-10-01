@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Lombardia Informatica S.p.A.
+ * Aria S.p.A.
  * OPEN 2.0
  *
  *
- * @package    lispa\amos\comments\i18n\en-GB
+ * @package    open20\amos\comments\i18n\en-GB
  * @category   CategoryName
  */
 
@@ -59,7 +59,7 @@ return [
     '#footer_disable_notification' => 'Disable notifications',
     '#footer_template_mail_privacy_title' => 'View the information on the processing of data and privacy',
     '#footer_template_mail_privacy' => 'View the information on the processing of data and privacy',
-    '#footer_template_mail' => 'This message was automatically sent by the {appName} platform, to which you are registered.',
+    '#footer_template_mail' => 'This message was automatically sent by the {appName} platform.',
     '#footer_unsubscribe' => 'Unsubscribe from this platform',
     '#information_personalized' => 'Informativa',
     'Inserisci le credenziali per accedere' => 'Type your access details to enter',
@@ -97,4 +97,9 @@ return [
     'Update' => 'Update',
     'Utenza non attiva' => 'User inactive',
     'Wrong password reset token.' => 'Wrong password reset token.',
+    '#error_contact_helpdesk' => "Contact help desk",
+    'Pagina non trovata' => "Page not found",
+    'Accesso negato' => "Access denied",
+    'Si è verificato un errore interno' => "An internal error occurred",
+
 ];

@@ -1,0 +1,17 @@
+.wrap-modules {
+    /** HERO BANNER */
+    .uk-section.it-hero-wrapper {
+        > .uk-container {
+            max-width: 100%;
+            padding: 0;
+            .it-hero-text-wrapper {
+                padding-left:0;
+                .it-category {
+                    width: fit-content;
+                    width: -moz-fit-content;
+                    font-family: inherit;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "vars": [ {
+            "var": "icon_type",
+            "label": "Icon Type",
+            "description": "Select iconset.",
+            "initvalue": "",
+            "options": [{
+                    "value": "1",
+                    "label": "Bootstrap Italia"
+                }, {
+                    "value": "2",
+                    "label": "Material"
+                }],
+            "type": "zaa-select"
+        },{
+            "var": "icon_name",
+            "label": "Icon Name",
+            "description": "",
+            "initValue": "",
+            "type": "zaa-text"
+        },{
+            "var": "icon_class",
+            "label": "Css Class",
+            "description": "",
+            "initValue": "",
+            "type": "zaa-text"
+        }
+    ],
+    "cfgs": [
+    ],
+    "defaults": {
+        
+    }
+}

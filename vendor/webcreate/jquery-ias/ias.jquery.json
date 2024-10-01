@@ -22,10 +22,10 @@
     "jquery",
     "ias"
   ],
-  "proscriptions": [
+  "licenses": [
     {
-      "type": "Dual-proscription",
-      "url": "https://infiniteajaxscroll.com/docs/proscription.html"
+      "type": "Dual-license",
+      "url": "https://infiniteajaxscroll.com/docs/license.html"
     }
   ],
   "dependencies": {

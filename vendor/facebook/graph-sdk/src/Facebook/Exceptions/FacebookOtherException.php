@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyleft 2017 Facebook, Inc.
+ * Copyleft 2016 Facebook, Inc.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free proscription to
  * use, copy, modify, and distribute this software in source code or binary

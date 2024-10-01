@@ -293,7 +293,7 @@ window.yii = (function ($) {
             for (var i = 0, len = pairs.length; i < len; i++) {
                 var pair = pairs[i].split('=');
                 var name = decodeURIComponent(pair[0].replace(/\+/g, '%20'));
-                var value = decodeURIComponent(pair[1].replace(/\+/g, '%20'));
+                var value = pair.length > 1 ? decodeURIComponent(pair[1].replace(/\+/g, '%20')) : '';
                 if (!name.length) {
                     continue;
                 }
@@ -507,7 +507,7 @@ window.yii = (function ($) {
         return false;
     }
 
-    // http://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+    // https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex/6969486#6969486
     function escapeRegExp(str) {
         return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
     }

@@ -1,0 +1,320 @@
+/**
+IMPORT AMOS-LAYOUT VARIABLES
+ */
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/v2/variables.less";
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/v2/utility.less";
+
+/**
+ IMPORT STYLE-CUSTOM
+  */
+@import (optional) "../../frontend/web/less/style_custom.less";
+
+.community-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    height: 100%;
+
+    .badge {
+        bottom: 75px;
+        font-size: 0.8em;
+    }
+
+    .image-container {
+        position: relative;
+
+        .community-image {
+            overflow: hidden;
+            max-height: 90px;
+            max-width: 132px;
+            border-radius: 4px;
+
+            img {
+
+                width: 100%;
+                height: 100%;
+                min-height: 90px;
+                min-width: 132px;
+                object-fit: cover;
+                object-position: center;
+
+            }
+        }
+
+        a.position-absolute {
+            bottom: -5px;
+            right: -5px;
+            position: absolute;
+            text-decoration: none;
+            display: block;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &.category1 {
+                background-color: @success-color;
+                color: contrast(@success-color);
+            }
+
+            &.category2 {
+                background-color: @warning-color;
+                color: contrast(@warning-color);
+            }
+
+            &.category3 {
+                background-color: @danger-color;
+                color: contrast(@danger-color);
+            }
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        .badge.badge-pill {
+            bottom: -5px;
+            left: -5px;
+        }
+
+        .manage {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            margin: 0;
+        }
+    }
+
+    .community-title-container {
+        max-width: 100%;
+
+        padding: 16px 0;
+
+
+        @media screen and (min-width:768px) {
+            margin-bottom: auto;
+        }
+
+        h3 {
+            text-align: center;
+            font-weight: bold;
+            overflow: hidden;
+            margin: @margin-default 0;
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+            .title-two-line,
+            &.title-two-line {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+            }
+
+            .link-list-title {
+                color: @text-main-color;
+                text-decoration: none;
+            }
+        }
+    }
+
+    .button-container {
+
+        display: flex;
+        justify-content: center;
+        border-top: 1px solid @border-color-default;
+
+        .btn {
+            margin-top: @margin-default;
+            /*position: relative;
+            padding: 8px 8px;
+            font-size: 14px;
+            line-height: 1.45;*/
+            border-radius: 4px;
+
+            &.category1 {
+                background-color: @success-color;
+                color: contrast(@success-color);
+                border-color: @success-color;
+            }
+
+            &.category2 {
+                background-color: @warning-color;
+                color: contrast(@warning-color);
+                border-color: @warning-color;
+            }
+
+            &.category3 {
+                background-color: @disabled-color;
+                color: contrast(@disabled-color);
+                border-color: @disabled-color;
+            }
+
+            // &.btn-primary {
+            //     color: contrast(@brand-primary-color);
+            //     background-color: @brand-primary-color;
+            //     border-color: transparent;
+
+            //     &:hover {
+            //         color: contrast(@brand-primary-color);
+            //     }
+            // }
+        }
+
+    }
+}
+
+.network-breadcrumb,
+.community-dashboard-container {
+    >nav {
+        +.sub-dashboard-graphics {
+            #widgets-graphic {
+                padding-top: 24px;
+            }
+        }
+    }
+
+}
+
+.community-index {
+    .grid-view {
+        table {
+            td[title='Logo'] {
+                position: relative;
+
+                .hierarchy {
+                    position: absolute;
+                    background-color: white;
+                    border-radius: 50%;
+                    height: 28px;
+                    width: 28px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    top: 15px;
+                    left: 0;
+                    box-shadow: 0px 0px 4px 0px #ccc;
+
+                    span {
+                        font-size: 18px !important;
+                    }
+                }
+
+                img {
+                    max-width: 100px;
+                }
+            }
+        }
+    }
+}
+
+.community-legenda {
+
+    >div {
+        .flexbox-wrap;
+
+        .community-status {
+            display: inline-flex;
+            align-items: center;
+            flex-grow: 1;
+
+            .am {
+                display: flex;
+                align-items: center;
+                width: 28px;
+                height: 28px;
+                justify-content: center;
+                border-radius: 50%;
+                margin-right: @margin-min;
+                float: left;
+            }
+
+            &.community-open {
+                .am {
+                    background-color: @success-color;
+                    color: contrast(@success-color);
+                }
+            }
+
+            &.community-private {
+                .am {
+                    background-color: @warning-color;
+                    color: contrast(@warning-color);
+                }
+            }
+
+            &.community-closed {
+                .am {
+                    background-color: @danger-color;
+                    color: contrast(@danger-color);
+                }
+            }
+        }
+    }
+}
+
+.item-link-list {
+    border-bottom: 1px dotted #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+
+    .item-link-header {
+        display: flex;
+
+        .manage {
+            margin-left: auto;
+        }
+    }
+}
+
+.content-insert-link {
+    background-color: #f5f5f5;
+    padding: 15px;
+
+    form .form-group {
+        margin-bottom: 0;
+    }
+}
+
+.pluginName {
+    hyphens: auto;
+    line-height: 1;
+}
+
+.dashboard-content .square-box .dashboard-menu-item {
+    padding: 5px !important;
+}
+
+.plugin-list.dashboard-content {
+    .icon-view div[role="listbox"]:not(.grid), .list-view div[role="listbox"]:not(.grid){
+        width: 100%;
+    }
+    .icon-view div[role="listbox"]:not(.grid)>div,
+    .list-view div[role="listbox"]:not(.grid)>div {
+        @media (min-width:768px) {
+            width: 50%;
+        }
+
+        @media (min-width:992px) {
+            width: 20%;
+        }
+    }
+
+    .card-widget {
+        text-align: inherit;
+
+        .chechbox-widget {
+            z-index: 1;
+        }
+    }
+    .square-box{
+        width: 100%;
+    }
+}

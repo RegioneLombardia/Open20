@@ -1,0 +1,126 @@
+/**
+STRUTTURA CMS LAYOUTSECTION + COMPONENTE IMMAGINE
+*/
+
+$box-evidence-img-size: 100px;
+
+.section-box-evidence {
+    [class*="uk-width"] {
+        @extend .mb-4;
+    }
+    > div {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .box-evidence {
+        @extend .position-relative;
+        @extend .d-flex;
+        justify-content: center;
+        @extend .mb-4;
+        min-height: 80px;
+        background-color: $primary;
+        width: 49%;
+        height: auto;
+        padding: $v-gap * 2 $v-gap;
+        text-align: center;
+
+        @include media-breakpoint-up(md) {
+            padding: $v-gap;
+            justify-content: flex-start;
+            text-align: left;
+        }
+
+        figure {
+            @extend .d-inline-flex;
+            @extend .align-items-center;
+            @extend .mb-0;
+            flex-direction: column;
+
+            @include media-breakpoint-up(md) {
+                flex-direction: row;
+            }
+
+            > a,
+            > img {
+                @extend .stretched-link;
+                width: $box-evidence-img-size;
+                height: $box-evidence-img-size;
+                max-width: $box-evidence-img-size;
+                max-height: $box-evidence-img-size;
+                min-width: $box-evidence-img-size;
+                min-height: $box-evidence-img-size;
+                overflow: hidden;
+                @extend .rounded-circle;
+                @extend .d-inline-flex;
+                @extend .align-items-center;
+                @extend .justify-content-center;
+                box-sizing: content-box;
+                img {
+                    @extend .w-100;
+                    @extend .h-100;
+                    object-fit: cover;
+                    object-position: center;
+                }
+                &:hover {
+                    &::after {
+                        background-color: rgba($black, 0.2);
+                        mix-blend-mode: overlay;
+                    }
+                }
+            }
+
+            figcaption {
+                @extend .d-inline-block;
+                word-break: break-word;
+                hyphens: auto;
+                @extend .pl-0;
+                @include media-breakpoint-up(md) {
+                    @extend .pl-3;
+                }
+                p {
+                    @extend .mb-0;
+                    @extend .text-uppercase;
+                    @include get-color-contrast($primary);
+                    @extend .font-weight-semibold;
+                    @extend .small;
+                }
+            }
+        }
+    }
+    /**
+4 BOX PER RIGA
+*/
+    &.box-line-lg-4 {
+        .box-evidence {
+            @include media-breakpoint-up(xl) {
+                width: 24%;
+            }
+            figure {
+                > a,
+                > img {
+                    @include media-breakpoint-up(lg) {
+                        width: $box-evidence-img-size / 2;
+                        height: $box-evidence-img-size / 2;
+                        max-width: $box-evidence-img-size / 2;
+                        max-height: $box-evidence-img-size / 2;
+                        min-width: $box-evidence-img-size / 2;
+                        min-height: $box-evidence-img-size / 2;
+                    }
+                }
+            }
+        }
+    }
+    /**
+3 BOX PER RIGA
+*/
+    &.box-line-lg-3 {
+        .box-evidence {
+            @include media-breakpoint-up(lg) {
+                width: 32%;
+            }
+        }
+    }
+}

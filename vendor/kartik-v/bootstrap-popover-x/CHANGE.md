@@ -1,6 +1,59 @@
 Change Log: `bootstrap-popover-x`
 =================================
 
+## Version 1.5.4
+
+**Date:** 12-Mar-2024
+
+- (bug #51): Correct `isBs` method logic.
+
+## Version 1.5.3
+
+**Date:** 11-Mar-2024
+
+- (bug #50): Fix and correct jQuery deprecated methods.
+- 
+## Version 1.5.2
+
+**Date:** 23-Sep-2023
+
+- (bug #47): Fix breaking changes for Boostrap library version > 5.1.3.
+
+## Version 1.5.1
+
+**Date:** 25-Sep-2021
+
+- (bug #46): Correct android keyboard disappearing issue in popover-x embedded inputs.
+
+## Version 1.5.0
+
+**Date:** 19-Sep-2021
+
+- Simplify NPM module handling.
+
+## Version 1.4.9
+
+**Date:** 11-Sep-2021
+
+- (enh #45): Enhance popover-x to be initialized effectively via custom JS.
+  Popover-x can be initialized separately via custom javascript using the `popoverButton` plugin
+```js
+$('#myCustomButton').popoverButton({
+    target: '#myCustomDialog',
+    placement: 'auto'
+});
+```
+- (enh #44): Enhancements to popover-x to work effectively with bootstrap modals.
+- Enhance plugin to work better with NPM module.
+
+## Version 1.4.8
+
+**Date:** 05-Sep-2021
+
+- (enh #43): Enhancements to support Bootstrap v5.x.
+- (enh #41): Correct jQuery load.
+- (enh #40): Correct arrow CSS styles
+
 ## Version 1.4.7
 
 **Date:** 14-Sep-2018

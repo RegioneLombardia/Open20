@@ -2,7 +2,7 @@
 
 /**
  * @package   yii2-number
- * @version   1.0.3
+ * @version   1.0.5
  */
 
 namespace kartik\number;
@@ -36,6 +36,12 @@ class NumberControl extends InputWidget
      * - `label`: _string_, any label to be placed before the input. Will be only displayed if 'type' is 'text'.
      */
     public $options = [];
+
+    /**
+     * @var string the name of the model attribute to read/write the masked number format data and is applicable only
+     * when using with a model. If not set a normal native HTML text control will be generated as the display input.
+     */
+    public $displayAttribute;
 
     /**
      * @var array the HTML attributes for the displayed masked input
@@ -108,6 +114,9 @@ class NumberControl extends InputWidget
      */
     protected function getDisplayInput()
     {
+        if (!empty($this->displayAttribute) && $this->hasModel()) {
+            return Html::activeTextInput($this->model, $this->displayAttribute, $this->displayOptions);
+        }
         $name = ArrayHelper::remove($this->displayOptions, 'name', $this->displayOptions['id']);
         return Html::textInput($name, $this->value, $this->displayOptions);
     }

@@ -1,11 +1,11 @@
 <?php
 
 /**
- * Lombardia Informatica S.p.A.
+ * Aria S.p.A.
  * OPEN 2.0
  *
  *
- * @package    lispa\amos\basic\template
+ * @package    open20\amos\basic\template
  * @category   CategoryName
  */
 
@@ -42,8 +42,6 @@ return [
     'Demo' => [
         'path' => 'demo',
         'setWritable' => [
-            'backend/runtime',
-            'backend/web/assets',
             'common/uploads',
             'common/uploads/store',
             'common/uploads/temp',
@@ -54,15 +52,11 @@ return [
             'yii',
         ],
         'setCookieValidationKey' => [
-            'backend/config/main-local.php',
-            'frontend/config/main-local.php',
         ],
     ],
     'Local' => [
         'path' => 'local',
         'setWritable' => [
-            'backend/runtime',
-            'backend/web/assets',
             'common/uploads',
             'common/uploads/store',
             'common/uploads/temp',
@@ -74,15 +68,11 @@ return [
             'tests/codeception/bin/yii',
         ],
         'setCookieValidationKey' => [
-            'backend/config/main-local.php',
-            'frontend/config/main-local.php',
         ],
     ],
     'Development' => [
         'path' => 'dev',
         'setWritable' => [
-            'backend/runtime',
-            'backend/web/assets',
             'common/uploads',
             'common/uploads/store',
             'common/uploads/temp',
@@ -94,15 +84,11 @@ return [
             'tests/codeception/bin/yii',
         ],
         'setCookieValidationKey' => [
-            'backend/config/main-local.php',
-            'frontend/config/main-local.php',
         ],
     ],
     'Production' => [
         'path' => 'prod',
         'setWritable' => [
-            'backend/runtime',
-            'backend/web/assets',
             'common/uploads',
             'common/uploads/store',
             'common/uploads/temp',
@@ -113,8 +99,6 @@ return [
             'yii',
         ],
         'setCookieValidationKey' => [
-            'backend/config/main-local.php',
-            'frontend/config/main-local.php',
         ],
     ]
 ];

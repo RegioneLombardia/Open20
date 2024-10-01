@@ -118,7 +118,7 @@ class FixtureController extends Controller
             $foundFixtures = $this->findFixtures($fixtures);
             $notFoundFixtures = array_diff($fixtures, $foundFixtures);
 
-            if ($notFoundFixtures) {
+            if ($notFoundFixtures !== []) {
                 $this->notifyNotFound($notFoundFixtures);
             }
         } else {
@@ -134,7 +134,7 @@ class FixtureController extends Controller
             );
         }
 
-        if (!$fixturesToLoad) {
+        if ($fixturesToLoad === []) {
             $this->notifyNothingToLoad($foundFixtures, $except);
             return ExitCode::OK;
         }
@@ -194,23 +194,23 @@ class FixtureController extends Controller
             $foundFixtures = $this->findFixtures($fixtures);
             $notFoundFixtures = array_diff($fixtures, $foundFixtures);
 
-            if ($notFoundFixtures) {
+            if ($notFoundFixtures !== []) {
                 $this->notifyNotFound($notFoundFixtures);
             }
         } else {
             $foundFixtures = $this->findFixtures();
         }
 
-        $fixturesToUnload = array_diff($foundFixtures, $except);
-
-        if (!$foundFixtures) {
+        if ($foundFixtures === []) {
             throw new Exception(
                 'No files were found for: "' . implode(', ', $fixturesInput) . "\".\n" .
                 "Check that files exist under fixtures path: \n\"" . $this->getFixturePath() . '".'
             );
         }
 
-        if (!$fixturesToUnload) {
+        $fixturesToUnload = array_diff($foundFixtures, $except);
+
+        if ($fixturesToUnload === []) {
             $this->notifyNothingToUnload($foundFixtures, $except);
             return ExitCode::OK;
         }
@@ -221,7 +221,7 @@ class FixtureController extends Controller
 
         $fixtures = $this->getFixturesConfig(array_merge($this->globalFixtures, $fixturesToUnload));
 
-        if (!$fixtures) {
+        if ($fixtures === []) {
             throw new Exception('No fixtures were found in namespace: ' . $this->namespace . '".');
         }
 
@@ -445,7 +445,7 @@ class FixtureController extends Controller
         $fullFixturePath = FileHelper::normalizePath($fullFixturePath);
 
         $relativeName = substr($fullFixturePath, strlen($fixturesPath) + 1);
-        $relativeDir = dirname($relativeName) === '.' ? '' : dirname($relativeName) . DIRECTORY_SEPARATOR;
+        $relativeDir = dirname($relativeName) === '.' ? '' : dirname($relativeName) . '/';
 
         return $relativeDir . basename($fullFixturePath, 'Fixture.php');
     }

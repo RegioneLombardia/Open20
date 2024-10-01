@@ -4,31 +4,18 @@
 
 namespace ymaker\social\share\drivers;
 
-use ymaker\social\share\base\Driver;
+use ymaker\social\share\base\AbstractDriver;
 
 /**
  * Driver for Vkontakte.
  *
+ *
  * @since 1.0
  */
-class Vkontakte extends Driver
+class Vkontakte extends AbstractDriver
 {
     /**
-     * @inheritdoc
-     */
-    public function getLink()
-    {
-        $this->_link = 'http://vk.com/share.php?'
-                    . 'url={url}'
-                    . '&title={title}'
-                    . '&description={description}'
-                    . '&image={imageUrl}';
-
-        return parent::getLink();
-    }
-
-    /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function processShareData()
     {
@@ -36,5 +23,17 @@ class Vkontakte extends Driver
         $this->title = static::encodeData($this->title);
         $this->description = static::encodeData($this->description);
         $this->imageUrl = static::encodeData($this->imageUrl);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function buildLink()
+    {
+        return 'http://vk.com/share.php?'
+            . 'url={url}'
+            . '&title={title}'
+            . '&description={description}'
+            . '&image={imageUrl}';
     }
 }

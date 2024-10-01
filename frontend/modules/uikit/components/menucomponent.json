@@ -1,0 +1,18 @@
+{
+    "vars": [
+            {
+                "var": "menu",
+                "label": "Menu",
+                "description": "Select menu.",
+                "initvalue": "",
+                "options": [
+                ],
+                "type": "zaa-cms-page"
+            }
+    ],
+    "cfgs": [
+    ],
+    "defaults": {
+        
+    }
+}

@@ -11,7 +11,7 @@
         "php-date-formatter.js"
     ],
     "homepage": "https://github.com/kartik-v/php-date-formatter",
-    "proscription": "BSD-3-Clause",
+    "license": "BSD-3-Clause",
     "authors": [
         {
             "name": "Kartik Visweswaran",

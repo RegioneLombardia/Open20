@@ -24,7 +24,7 @@ class ModelsController extends Controller
     /**
      * The schemas definition file url pattern
      */
-    const DEFINITION_FILE = 'http://schema.org/version/%s/all-layers.jsonld';
+    const DEFINITION_FILE = 'https://schema.org/version/%s/schemaorg-current-http.jsonld';
 
     /**
      * {@inheritdoc}
@@ -157,10 +157,13 @@ class ModelsController extends Controller
             if (empty($label)) {
                 continue;
             }
-            $classUsages = ArrayHelper::remove($property, 'http://schema.org/domainIncludes', []);
-            $rangeIncludes = ArrayHelper::remove($property, 'http://schema.org/rangeIncludes');
+            $classUsages = ArrayHelper::remove($property, 'schema:domainIncludes', []);
+            $rangeIncludes = ArrayHelper::remove($property, 'schema:rangeIncludes');
             $comment = ArrayHelper::remove($property, 'rdfs:comment', '');
-            $see = ArrayHelper::remove($property, '@id');
+            if (is_array($comment) && isset($comment['@value'])) {
+                $comment = $comment['@value'];
+            }
+            $see = str_replace('schema:', 'https://schema.org/', ArrayHelper::remove($property, '@id'));
             if ($rangeIncludes === null) {
                 continue;
             }
@@ -196,7 +199,7 @@ class ModelsController extends Controller
         if (!empty($this->schemas)) {
             foreach ($classes as $key => $class) {
                 unset($classes[$key]);
-                $key = str_replace('http://schema.org/', '', $key);
+                $key = str_replace('schema:', '', $key);
                 $classes[$key] = $class;
             }
             $classes = ArrayHelper::filter($classes, $this->schemas);
@@ -218,12 +221,16 @@ class ModelsController extends Controller
             $this->stdout($this->namespace . '\\' . $className, Console::FG_YELLOW, Console::BOLD);
             $this->stdout("\n");
 
+            $comment = ArrayHelper::getValue($class, 'rdfs:comment', '');
+            if (is_array($comment) && isset($comment['@value'])) {
+                $comment = $comment['@value'];
+            }
             $contents = $this->renderPartial('class', [
                 'namespace' => $this->namespace,
                 'description' => preg_replace(
                     '#<br ?/?>#i',
                     '',
-                    ArrayHelper::getValue($class, 'rdfs:comment', '')
+                    $comment
                 ),
                 'className' => $className,
                 'label' => $label,
@@ -266,7 +273,7 @@ class ModelsController extends Controller
      */
     private function mapType($type)
     {
-        $type = str_replace('http://schema.org/', '', $type);
+        $type = str_replace('schema:', '', $type);
 
         switch ($type) {
             case 'URL':

@@ -1,0 +1,15 @@
+/* Rules for sizing the icon. */
+.mdi {line-height: 1;}
+.mdi.md-18 { font-size: 18px; }
+.mdi.md-24 { font-size: 24px; }
+.mdi.md-36 { font-size: 36px; }
+.mdi.md-48 { font-size: 48px; }
+.mdi.md-56 { font-size: 56px; }
+
+/* Rules for using icons as black on a light background. */
+.mdi.md-dark { color: rgba(0, 0, 0, 0.54); }
+.mdi.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+/* Rules for using icons as white on a dark background. */
+.mdi.md-light { color: rgba(255, 255, 255, 1); }
+.mdi.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }

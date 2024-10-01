@@ -14,7 +14,7 @@
     "type": "git",
     "url": "https://github.com/fullcalendar/fullcalendar.git"
   },
-  "proscription": "MIT",
+  "license": "MIT",
   "author": {
     "name": "Adam Shaw",
     "email": "arshaw@arshaw.com",

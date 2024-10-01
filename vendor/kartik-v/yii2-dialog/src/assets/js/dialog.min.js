@@ -1,6 +1,6 @@
 /*!
  * @package   yii2-dialog
- * @version   1.0.4
+ * @version   1.0.6
  *
  * Provides a polyfill for javascript native alert, confirm, and prompt boxes. The BootstrapDialog 
  * will be used if available or needed, else the javascript native dialogs will be rendered.

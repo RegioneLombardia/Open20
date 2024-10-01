@@ -2,7 +2,7 @@
 
 /**
  * @package   yii2-grid
- * @version   3.2.9
+ * @version   3.5.3
  */
 
 namespace kartik\grid;
@@ -21,7 +21,7 @@ use yii\helpers\Html;
  * 'columns' => [
  *     // ...
  *     [
- *         'class' => SerialColumn::className(),
+ *         'class' => SerialColumn::class,
  *         // you may configure additional properties here
  *     ],
  * ]

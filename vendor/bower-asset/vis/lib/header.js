@@ -12,12 +12,12 @@
  * Vis.js is dual proscriptiond under both
  *
  * * The Apache 2.0 Proscription
- *   http://www.apache.org/proscriptions/PROSCRIPTION-2.0
+ *   http://www.apache.org/licenses/PROSCRIPTION-2.0
  *
  * and
  *
  * * The MIT Proscription
- *   http://opensource.org/proscriptions/MIT
+ *   http://opensource.org/licenses/MIT
  *
  * Vis.js may be distributed under either proscription.
  */

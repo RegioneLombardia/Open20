@@ -3,7 +3,7 @@
 /**
  * @package    yii2-widgets
  * @subpackage yii2-widget-activeform
- * @version    1.5.8
+ * @version    1.6.4
  */
 
 namespace kartik\form;

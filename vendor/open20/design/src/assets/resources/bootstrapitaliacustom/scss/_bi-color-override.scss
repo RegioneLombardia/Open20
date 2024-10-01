@@ -1,0 +1,28 @@
+/* PRIMARY-COLOR OVERRIDE*/
+$primary-h: 131;
+$primary-s: 66;
+$primary-b: 48;
+
+/* THEME COLOR */
+$primary: $brandbook-primary-color;
+$secondary: $brandbook-btn-tertiary-color;
+$tertiary: $brandbook-secondary-color;
+
+/* UTILITY */
+$red-accessible: $brandbook-triadic-3-color;
+$green-accessible: $brandbook-triadic-2-color;
+$orange-accessible: $brandbook-triadic-1-color;
+
+$theme-colors: (
+  "primary": $primary,
+  "secondary": $secondary,
+  "tertiary": $tertiary,
+  "danger": $red-accessible,
+  "success": $green-accessible,
+  "warning": $orange-accessible,
+);
+
+$theme-colors: map-merge($theme-colors, $components-colors);
+$theme-colors: map-merge($theme-colors, $text-colors);
+$theme-colors: map-merge($theme-colors, $social-colors);
+$theme-colors: map-merge($theme-colors, $file-colors);

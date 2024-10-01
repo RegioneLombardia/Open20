@@ -1,0 +1,68 @@
+{
+    "vars": [
+        {
+            "var": "text_type",
+            "label": "Disposizione del contenuto",
+            "description": "Seleziona la disposizione del contenuto (etichetta e data).",
+            "initvalue": "disposizione-1",
+            "options": [
+                {
+                    "value": "disposizione-1",
+                    "label": "Etichetta con sotto la data di aggiornamento",
+                    "image" : "/img/disposizione-1.PNG"
+                }, {
+                    "value": "disposizione-2",
+                    "label": "Etichetta con di fianco la data di aggiornamento",
+                    "image" : "/img/disposizione-2.PNG"
+                }
+            ],
+                "type": "zaa-radio"
+        },
+        {
+            "var": "update_label",
+            "label": "Etichetta",
+            "description": "Determina il testo visualizzato prima della data di aggiornamento. Non è obbligatoria, se non inserita viene visualizzato il testo 'Ultimo aggiornamento'.",
+            "initvalue": "",
+            "type": "zaa-text"
+        },
+        {
+            "var": "hour",
+            "label": "Visualizza ora nella data",
+            "description": "Se selezionato visualizza anche l'ora di ultima modifica, quindi la data di ultimo aggiornamento avrà formato dd/mm/yyyy hh:mm. Di default non è selezionato, quindi il formato sarà dd/mm/yyyy.",
+            "initvalue": "1",
+            "type": "zaa-checkbox"
+        },{
+            "var": "text_align",
+            "label": "Allineamento del testo",
+            "description": "Seleziona l'allineamento del contenuto (etichetta e data).",
+            "initvalue": "left",
+            "options": [
+                {
+                    "value": "left",
+                    "label": "Allineamento a sinistra",
+                    "image" : "/img/allineamento-1.PNG"
+                }, {
+                    "value": "center",
+                    "label": "Allineamento al centro",
+                    "image" : "/img/allineamento-centro.PNG"
+                }, {
+                    "value": "right",
+                    "label": "Allineamento a destra",
+                    "image" : "/img/allineamento-right.PNG"
+                }
+            ],
+                "type": "zaa-radio"
+        }
+    
+    ],
+    "cfgs": [
+        {
+            "var": "class",
+            "label": "Classe css",
+            "description": "Classe css associata al componente.",
+            "initValue": "",
+            "type": "zaa-text"
+        }
+    ]
+    
+}

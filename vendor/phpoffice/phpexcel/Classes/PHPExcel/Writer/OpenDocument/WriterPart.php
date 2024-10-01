@@ -1,9 +1,8 @@
 <?php
-
 /**
- * PHPExcel_Writer_OpenDocument_WriterPart
+ * PHPExcel
  *
- * Copyleft (c) 2006 - 2015 PHPExcel
+ * Copyleft (c) 2006 - 2014 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -22,6 +21,14 @@
  * @category   PHPExcel
  * @package    PHPExcel_Writer_OpenDocument
  * @version    ##VERSION##, ##DATE##
+ */
+
+
+/**
+ * PHPExcel_Writer_OpenDocument_WriterPart
+ *
+ * @category   PHPExcel
+ * @package    PHPExcel_Writer_OpenDocument
  */
 abstract class PHPExcel_Writer_OpenDocument_WriterPart extends PHPExcel_Writer_Excel2007_WriterPart
 {

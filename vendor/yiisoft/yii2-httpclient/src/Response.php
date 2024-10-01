@@ -10,8 +10,8 @@ use yii\web\HeaderCollection;
 /**
  * Response represents HTTP request response.
  *
- * @property bool $isOk Whether response is OK. This property is read-only.
- * @property string $statusCode Status code. This property is read-only.
+ * @property-read bool $isOk Whether response is OK.
+ * @property-read string $statusCode Status code.
  *
  * @since 2.0
  */
@@ -25,7 +25,7 @@ class Response extends Message
         $data = parent::getData();
         if ($data === null) {
             $content = $this->getContent();
-            if (!empty($content)) {
+            if (is_string($content) && strlen($content) > 0) {
                 $data = $this->getParser()->parse($this);
                 $this->setData($data);
             }

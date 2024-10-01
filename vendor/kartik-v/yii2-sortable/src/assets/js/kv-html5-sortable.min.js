@@ -1,6 +1,6 @@
 /*!
  * @package yii2-sortable
- * @version 1.2.1
+ * @version 1.2.2
  *
  * jQuery Plugin Wrapper for HTML5 Sortable
  *

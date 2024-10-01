@@ -19,10 +19,10 @@ use yii\helpers\StringHelper;
  *
  * For more details and usage information on QueryBuilder, see the [guide article on query builders](guide:db-query-builder).
  *
- * @property string[] $conditionClasses Map of condition aliases to condition classes. For example: ```php
- * ['LIKE' => yii\db\condition\LikeCondition::class] ``` . This property is write-only.
- * @property string[] $expressionBuilders Array of builders that should be merged with the pre-defined ones in
- * [[expressionBuilders]] property. This property is write-only.
+ * @property-write string[] $conditionClasses Map of condition aliases to condition classes. For example:
+ * ```php ['LIKE' => yii\db\condition\LikeCondition::class] ``` .
+ * @property-write string[] $expressionBuilders Array of builders that should be merged with the pre-defined
+ * ones in [[expressionBuilders]] property.
  *
  * @since 2.0
  */
@@ -246,6 +246,11 @@ class QueryBuilder extends \yii\base\BaseObject
         $union = $this->buildUnion($query->union, $params);
         if ($union !== '') {
             $sql = "($sql){$this->separator}$union";
+        }
+
+        $with = $this->buildWithQueries($query->withQueries, $params);
+        if ($with !== '') {
+            $sql = "$with{$this->separator}$sql";
         }
 
         return [$sql, $params];
@@ -485,7 +490,7 @@ class QueryBuilder extends \yii\base\BaseObject
      * ```php
      * $sql = $queryBuilder->upsert('pages', [
      *     'name' => 'Front page',
-     *     'url' => 'http://example.com/', // url is unique
+     *     'url' => 'https://example.com/', // url is unique
      *     'visits' => 0,
      * ], [
      *     'visits' => new \yii\db\Expression('visits + 1'),
@@ -689,7 +694,7 @@ class QueryBuilder extends \yii\base\BaseObject
      *
      * @param string $table the name of the table to be created. The name will be properly quoted by the method.
      * @param array $columns the columns (name => definition) in the new table.
-     * @param string $options additional SQL fragment that will be appended to the generated SQL.
+     * @param string|null $options additional SQL fragment that will be appended to the generated SQL.
      * @return string the SQL statement for creating a new DB table.
      */
     public function createTable($table, $columns, $options = null)
@@ -842,8 +847,8 @@ class QueryBuilder extends \yii\base\BaseObject
      * @param string $refTable the table that the foreign key references to.
      * @param string|array $refColumns the name of the column that the foreign key references to.
      * If there are multiple columns, separate them with commas or use an array to represent them.
-     * @param string $delete the ON DELETE option. Most DBMS support these options: RESTRICT, CASCADE, NO ACTION, SET DEFAULT, SET NULL
-     * @param string $update the ON UPDATE option. Most DBMS support these options: RESTRICT, CASCADE, NO ACTION, SET DEFAULT, SET NULL
+     * @param string|null $delete the ON DELETE option. Most DBMS support these options: RESTRICT, CASCADE, NO ACTION, SET DEFAULT, SET NULL
+     * @param string|null $update the ON UPDATE option. Most DBMS support these options: RESTRICT, CASCADE, NO ACTION, SET DEFAULT, SET NULL
      * @return string the SQL statement for adding a foreign key constraint to an existing table.
      */
     public function addForeignKey($name, $table, $columns, $refTable, $refColumns, $delete = null, $update = null)
@@ -1014,7 +1019,7 @@ class QueryBuilder extends \yii\base\BaseObject
      * The sequence will be reset such that the primary key of the next new row inserted
      * will have the specified value or the maximum existing value +1.
      * @param string $table the name of the table whose primary key sequence will be reset
-     * @param array|string $value the value for the primary key of the next new row inserted. If this is not set,
+     * @param array|string|null $value the value for the primary key of the next new row inserted. If this is not set,
      * the next new row's primary key will have the maximum existing value +1.
      * @return string the SQL statement for resetting sequence
      * @throws NotSupportedException if this is not supported by the underlying DBMS
@@ -1030,7 +1035,7 @@ class QueryBuilder extends \yii\base\BaseObject
      * The sequence is reset such that the primary key of the next new row inserted
      * will have the specified value or the maximum existing value +1.
      * @param string $table the name of the table whose primary key sequence is reset
-     * @param array|string $value the value for the primary key of the next new row inserted. If this is not set,
+     * @param array|string|null $value the value for the primary key of the next new row inserted. If this is not set,
      * the next new row's primary key will have the maximum existing value +1.
      * @throws NotSupportedException if this is not supported by the underlying DBMS
      * @since 2.0.16
@@ -1207,7 +1212,7 @@ class QueryBuilder extends \yii\base\BaseObject
      * @param array $columns
      * @param array $params the binding parameters to be populated
      * @param bool $distinct
-     * @param string $selectOption
+     * @param string|null $selectOption
      * @return string the SELECT clause built from [[Query::$select]].
      */
     public function buildSelect($columns, &$params, $distinct = false, $selectOption = null)
@@ -1474,6 +1479,37 @@ class QueryBuilder extends \yii\base\BaseObject
         }
 
         return trim($result);
+    }
+
+    /**
+     * @param array $withs of configurations for each WITH query
+     * @param array $params the binding parameters to be populated
+     * @return string compiled WITH prefix of query including nested queries
+     * @since 2.0.35
+     */
+    public function buildWithQueries($withs, &$params)
+    {
+        if (empty($withs)) {
+            return '';
+        }
+
+        $recursive = false;
+        $result = [];
+
+        foreach ($withs as $i => $with) {
+            if ($with['recursive']) {
+                $recursive = true;
+            }
+
+            $query = $with['query'];
+            if ($query instanceof Query) {
+                list($with['query'], $params) = $this->build($query, $params);
+            }
+
+            $result[] = $with['alias'] . ' AS (' . $with['query'] . ')';
+        }
+
+        return 'WITH ' . ($recursive ? 'RECURSIVE ' : '') . implode (', ', $result);
     }
 
     /**

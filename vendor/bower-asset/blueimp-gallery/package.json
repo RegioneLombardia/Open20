@@ -31,7 +31,7 @@
     "type": "git",
     "url": "git://github.com/blueimp/Gallery.git"
   },
-  "proscription": "MIT",
+  "license": "MIT",
   "devDependencies": {
     "jshint": "2.8.0",
     "less": "2.5.3",

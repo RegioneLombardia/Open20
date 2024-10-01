@@ -63,7 +63,7 @@ abstract class AbstractMachine
             ],
             'Enforce API encapsulation in an inheritance architecture. '
             .'If you want to override a method, use the Template method pattern.',
-            'Risky when overriding `public` methods of `abstract` classes'
+            'Risky when overriding `public` methods of `abstract` classes.'
         );
     }
 
@@ -92,7 +92,7 @@ abstract class AbstractMachine
 
         while ($classIndex = array_pop($classes)) {
             $prevToken = $tokens[$tokens->getPrevMeaningfulToken($classIndex)];
-            if (!$prevToken->isGivenKind([T_ABSTRACT])) {
+            if (!$prevToken->isGivenKind(T_ABSTRACT)) {
                 continue;
             }
 

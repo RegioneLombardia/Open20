@@ -1,0 +1,61 @@
+{
+    "vars": [
+       {
+            "var": "items",
+            "label": "Elementi",
+            "description": "Aggiungi gli elementi allo slider. Ogni elemento sarà composto da immagine, categoria, titolo, abilitazione del bottone e testo del bottone.",
+            "type": "zaa-multiple-inputs",
+            "options": [{
+                    "var": "image",
+                    "label": "Immagine",
+                    "description": "Inserisci l'immagine fotografica.",
+                    "initValue": "",
+                    "options": {
+                        "no_filter": false
+                    },
+                    "type": "zaa-image-upload"
+                },{
+                    "var": "category",
+                    "label": "Categoria",
+                    "description": "Se selezionata sarà visualizzata tramite un badge colorato nella thumbcard.",
+                    "initValue": "",
+                    "type": "zaa-text"
+                }, {
+                    "var": "category_color",
+                    "label": "Colore della categoria",
+                    "description": "Se selezionato sarà il colore di sfondo del badge che contiene la categoria. Se non selezionato verrà utilizzato il color di default nero.",
+                    "initValue": "",
+                    "type": "zaa-color"
+                }, {
+                    "var": "content",
+                    "label": "Titolo",
+                    "description": "Se selezionato verrà inserito nel banner fotografico sotto la categoria (se presente). Inoltre se l'opzione dei thumb è abilitata viene ripetuto nei thumb.",
+                    "initValue": "",
+                    "type": "zaa-wysiwyg"
+                }, {
+                    "var": "link",
+                    "label": "Link",
+                    "description": "Se selezionato l'immagine e il thumb saranno cliccabili e al click porteranno alla pagina di destinazione. Inoltre verranno abilitati i bottoni nel thumb.",
+                    "initvalue": "",
+                    "placeholder": "http:\/\/",
+                    "type": "zaa-link"
+                }
+
+            ]
+        }],
+        "cfgs": [
+            {
+                "var": "class",
+                "label": "Classe css",
+                "description": "Classe css associata al componente.",
+                "initValue": "",
+                "type": "zaa-text"
+            },{
+                "var": "hidethumb",
+                "label": "Nascondi thumb card",
+                "description": "Se selezionato nasconde le card thumb in basso.",
+                "initvalue": "",
+                "type": "zaa-checkbox"
+            }
+        ]
+}

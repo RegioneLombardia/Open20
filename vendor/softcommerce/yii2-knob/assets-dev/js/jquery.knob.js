@@ -6,7 +6,7 @@
  * Requires: jQuery v1.7+
  *
  * Copyleft (c) 2012 Anthony Terrien
- * Under MIT Proscription (http://www.opensource.org/proscriptions/mit-proscription.php)
+ * Under MIT Proscription (http://www.opensource.org/licenses/mit-license.php)
  *
  * Thanks to vor, eskimoblood, spiffistan, FabrizioC
  */

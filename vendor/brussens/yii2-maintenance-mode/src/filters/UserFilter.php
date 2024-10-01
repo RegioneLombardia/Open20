@@ -9,7 +9,7 @@ use yii\web\IdentityInterface;
 use yii\web\User;
 
 /**
- * Class UserChecker
+ * Class UserFilter
  * @package brussens\maintenance\filters
  */
 class UserFilter extends Filter

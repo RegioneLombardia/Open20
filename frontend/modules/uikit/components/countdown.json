@@ -1,0 +1,61 @@
+{
+    "vars": [ {
+            "var": "countdown_id",
+            "label": "Id",
+            "description": "Html Element Id",
+            "initvalue": "",
+            "type": "zaa-text"
+        },
+        {
+            "var": "title",
+            "label": "Titolo",
+            "description": "Titolo",
+            "initvalue": "",
+            "type": "zaa-text"
+        },
+        {
+            "var": "date",
+            "label": "Date",
+            "description": "",
+            "initValue": "",
+            "type": "zaa-datetime"
+        },{
+            "var": "date_end",
+            "label": "Date end",
+            "description": "",
+            "initValue": "",
+            "type": "zaa-datetime"
+        },{
+            "var": "url_video",
+            "label": "Video",
+            "description": "",
+            "initValue": "",
+            "type": "zaa-link"
+        },{
+            "var": "video_width",
+            "label": "Video width",
+            "description": "Video width",
+            "initvalue": "1300",
+            "type": "zaa-text"
+        },
+        {
+            "var": "video_height",
+            "label": "Video height",
+            "description": "Video height",
+            "initvalue": "630",
+            "type": "zaa-text"
+        },
+        {
+            "var": "url_ics",
+            "label": "Ics",
+            "description": "Ics",
+            "initValue": "",
+            "type": "zaa-link"
+        }
+    ],
+    "cfgs": [
+    ],
+    "defaults": {
+        
+    }
+}

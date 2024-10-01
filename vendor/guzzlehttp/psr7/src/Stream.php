@@ -1,4 +1,5 @@
 <?php
+
 namespace GuzzleHttp\Psr7;
 
 use Psr\Http\Message\StreamInterface;
@@ -74,8 +75,10 @@ class Stream implements StreamInterface
     public function __toString()
     {
         try {
-            $this->seek(0);
-            return (string) stream_get_contents($this->stream);
+            if ($this->isSeekable()) {
+                $this->seek(0);
+            }
+            return $this->getContents();
         } catch (\Exception $e) {
             return '';
         }
@@ -191,7 +194,7 @@ class Stream implements StreamInterface
     public function seek($offset, $whence = SEEK_SET)
     {
         $whence = (int) $whence;
-        
+
         if (!isset($this->stream)) {
             throw new \RuntimeException('Stream is detached');
         }

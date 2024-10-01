@@ -55,10 +55,11 @@ EOT
 
     /**
      * {@inheritdoc}
+     *
+     * Must run after ExplicitStringVariableFixer.
      */
     public function getPriority()
     {
-        // should run after ExplicitStringVariableFixer
         return -10;
     }
 

@@ -1,0 +1,147 @@
+{
+    "vars": [
+        
+        {
+            "var": "title",
+            "label": "Title",
+            "description": "",
+            "initvalue": "",
+            "type": "zaa-text"
+        },{
+            "var": "subtitle",
+            "label": "Subtitle",
+            "description": "",
+            "initvalue": "",
+            "type": "zaa-text"
+        },{
+            "var": "category",
+            "label": "Category",
+            "description": "",
+            "initvalue": "",
+            "type": "zaa-text"
+        },{
+            "var": "startdate",
+            "label": "Start Date",
+            "description": "",
+            "initvalue": "",
+            "type": "zaa-date"
+        },{
+            "var": "enddate",
+            "label": "End Date",
+            "description": "",
+            "initvalue": "",
+            "type": "zaa-date"
+        },{
+            "var": "image",
+            "label": "Image",
+            "description": "",
+            "initvalue": "",
+            "options": {
+                "no_filter": false
+            },
+            "type": "zaa-image-upload"
+        },{
+            "var": "image_alt",
+            "label": "Image Alt",
+            "description": "",
+            "initvalue": "",
+            "type": "zaa-text"
+        },{
+            "var": "link",
+            "label": "Link",
+            "description": "Enter or pick a link, an image or a video file.",
+            "initvalue": "",
+            "placeholder": "http:\/\/",
+            "type": "zaa-link"
+        }, {
+            "var": "link_block",
+            "label": "Link block",
+            "description": "Link on the whole image block",
+            "initvalue": "",
+            "type": "zaa-checkbox"
+        }
+           
+    ],
+    "cfgs": [
+        {
+            "var": "name",
+            "label": "Name",
+            "description": "Define a name to easily indentify this element inside the builder.",
+            "initValue": "",
+            "placeholder": "",
+            "type": "zaa-text"
+        }, {
+            "var": "id",
+            "label": "ID",
+            "description": "Define a unique identifier for the element.",
+            "initValue": "",
+            "type": "zaa-text"
+        }, {
+            "var": "class",
+            "label": "Class",
+            "description": "Define one or more class names for the element. Separate multiple classes with spaces.",
+            "initValue": "",
+            "type": "zaa-text"
+        },{
+            "var": "link_text",
+            "label": "Link Text",
+            "description": "Enter the text for the link.",
+            "initvalue": "Read more",
+            "type": "zaa-text"
+        }, {
+            "var": "link_target",
+            "label": "Open in a new window",
+            "description": "",
+            "initvalue": "",
+            "type": "zaa-checkbox"
+        }, {
+            "var": "link_style",
+            "label": "Link Style",
+            "description": "Set the link style.",
+            "initvalue": "default",
+            "options": [{
+                    "value": "",
+                    "label": "Link"
+                }, {
+                    "value": "link-muted",
+                    "label": "Link Muted"
+                }, {
+                    "value": "link-text",
+                    "label": "Link Text"
+                }, {
+                    "value": "default",
+                    "label": "Button Default"
+                }, {
+                    "value": "primary",
+                    "label": "Button Primary"
+                }, {
+                    "value": "secondary",
+                    "label": "Button Secondary"
+                }, {
+                    "value": "danger",
+                    "label": "Button Danger"
+                }, {
+                    "value": "text",
+                    "label": "Button Text"
+                }],
+            "type": "zaa-select"
+        }, {
+            "var": "link_size",
+            "label": "Button Size",
+            "description": "Set the button size.",
+            "initvalue": "",
+            "options": [{
+                    "value": "small",
+                    "label": "Small"
+                }, {
+                    "value": "",
+                    "label": "Default"
+                }, {
+                    "value": "large",
+                    "label": "Large"
+                }],
+            "type": "zaa-select"
+        }
+    ]
+    
+}

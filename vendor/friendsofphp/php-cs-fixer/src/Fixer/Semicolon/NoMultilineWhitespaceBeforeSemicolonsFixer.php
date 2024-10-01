@@ -47,6 +47,16 @@ function foo () {
 
     /**
      * {@inheritdoc}
+     *
+     * Must run after SimplifiedIfReturnFixer.
+     */
+    public function getPriority()
+    {
+        return parent::getPriority();
+    }
+
+    /**
+     * {@inheritdoc}
      */
     public function getSuccessorsNames()
     {

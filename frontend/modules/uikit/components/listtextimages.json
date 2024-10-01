@@ -1,0 +1,83 @@
+{
+    "vars": [
+        {
+            "var": "items",
+            "label": "Elementi",
+            "description": "Permette di aggiungere elementi composti da immagine con testo nel listato.",
+            "type": "zaa-multiple-inputs",
+            "options": [
+                {
+                    "var": "link_image",
+                    "label": "Immagine dell'elemento",
+                    "description": "Permette di inserire un'immagine nell'elemento. Se selezionato viene inserito sulla sinistra.",
+                    "initvalue": "",
+                    "options": {
+                        "no_filter": false
+                    },
+                    "type": "zaa-image-upload"
+                },
+                {
+                "var" : "rounded_img",
+                    "label": "Immagine arrotondata",
+                    "description": "Visualizza l'immagine con i bordi arrotondati.",
+                    "type" : "zaa-checkbox"
+                },
+                {
+                    "var": "title",
+                    "label": "Titolo dell'elemento",
+                    "description": "Se selezionato viene visualizzato in grassetto sopra il contenuto dell'elemento.",
+                    "initValue": "",
+                    "type": "zaa-text"
+                },
+                {
+                    "var": "subtitle",
+                    "label": "Sottotitolo dell'elemento",
+                    "description": "Se selezionato viene visualizzato tra il titolo e il contenuto dell'elemento. Può essere utilizzato per esempio per scrivere date, luoghi a cui si vuole dare evidenza.",
+                    "initValue": "",
+                    "type": "zaa-text"
+                },
+                {
+                    "var": "content",
+                    "label": "Paragrafo dell'elemento",
+                    "description": "Testo dell'elemento. Viene visualizzato tra il titolo e il link (se selezionati) e di fianco all'immagine (se selezionata).",
+                    "initValue": "",
+                    "type": "zaa-wysiwyg"
+                },
+                {
+                    "var": "link",
+                    "label": "Link dell'elemento",
+                    "description": "Se selezionato è il link dell'elemento e viene visualizzato sotto il contenuto tesuale dell'elemento.",
+                    "initValue": "",
+                    "placeholder": "http:\/\/",
+                    "type": "zaa-link"
+                }, {
+                    "var": "link_target",
+                    "label": "Apri link in una nuova finestra",
+                    "description": "Se selezionato al click del link si aprirà il link di destinazione in una nuova finestra.",
+                    "initvalue": "",
+                    "type": "zaa-checkbox"
+                }
+             
+            ]
+        },
+        {
+            "var" : "vertical_element",
+            "label": "Disposizione verticale degli elementi",
+            "description": "Visualizza gli elementi con i componenti (immagine, titolo, testo e link) disposti uno sotto l'altro invece che uno di fianco all'altro.",
+            "initvalue": "",
+            "type": "zaa-checkbox"
+        }
+    ],
+    "cfgs": [
+        {
+            "var": "class",
+            "label": "Classe css",
+            "description": "Classe css associata al componente.",
+            "initValue": "",
+            "type": "zaa-text"
+        }
+    ],
+    "defaults": {
+       
+    }
+}

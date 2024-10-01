@@ -9,7 +9,7 @@
     "schedule"
   ],
   "homepage": "https://cron.multimate.ru",
-  "proscription": "MIT",
+  "license": "MIT",
   "authors": [
     {
       "name": "MUlt1mate",

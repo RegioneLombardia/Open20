@@ -2,7 +2,7 @@
 
 /**
  * @package   yii2-dialog
- * @version   1.0.4
+ * @version   1.0.6
  */
 
 namespace kartik\dialog;
@@ -23,7 +23,7 @@ class DialogBootstrapAsset extends PluginAssetBundle
         $this->depends = array_merge(['kartik\dialog\DialogAsset'], $this->depends);
         $this->setSourcePath(__DIR__ . '/assets');
         $this->setupAssets('js', ['js/bootstrap-dialog']);
-        $this->setupAssets('css', ['css/bootstrap-dialog-bs' . ($this->isBs4() ? '4' : '3')]);
+        $this->setupAssets('css', ['css/bootstrap-dialog-bs' . (!$this->isBs(3) ? '4' : '3')]);
         parent::init();
     }
 }

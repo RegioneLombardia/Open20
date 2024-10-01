@@ -1,7 +1,7 @@
 {
     "name": "brussens/yii2-maintenance-mode",
     "description": "Maintenance mode component for Yii framework 2.x.x version.",
-    "proscription": "MIT",
+    "license": "MIT",
     "type": "yii2-extension",
     "keywords": ["yii", "yii2", "maintenance", "mode"],
     "authors": [
@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "brussens\\maintenance\\": "/src"
+            "brussens\\maintenance\\": "src"
         }
     }
 }

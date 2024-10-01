@@ -12,7 +12,7 @@
     "Yii 2"
   ],
   "homepage": "https://github.com/Rossmann-IT/yii2-cron",
-  "proscription": "MIT",
+  "license": "MIT",
   "authors": [
     {
       "name": "MUlt1mate",

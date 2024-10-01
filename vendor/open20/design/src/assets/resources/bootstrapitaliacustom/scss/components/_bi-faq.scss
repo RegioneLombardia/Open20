@@ -1,0 +1,59 @@
+/**
+FAQ design item lists
+*/
+.bi-faq {
+    @extend .border-bottom-0;
+
+    button[data-toggle="collapse"]::before {
+        display: none;
+    }
+
+
+    &.collapse-background-active {
+        button[aria-expanded="true"] {
+            .icon {
+                @include get-color-contrast($primary, "fill");
+            }
+        }
+    }
+    &.collapse-background-hover {
+        button {
+            .icon {
+                fill: $primary;
+            }
+            &:hover {
+                .icon {
+                    @include get-color-contrast($primary, "fill");
+                }
+            }
+        }
+    }
+
+    &:not(.collapse-background-active),
+    &:not(.collapse-background-hover) {
+        .collapse-header {
+            button[aria-expanded="false"] {
+                color: $body-color;
+                &:hover {
+                    color: $link-color;
+                    .icon {
+                        fill: $primary;
+                    }
+                }
+            }
+            button[aria-expanded="true"] {
+                color: $link-color;
+                .icon {
+                    fill: $primary;
+                }
+            }
+        }
+
+
+    }
+}
+.list-Faq-container {
+    p {
+        margin-bottom: 0;
+    }
+}

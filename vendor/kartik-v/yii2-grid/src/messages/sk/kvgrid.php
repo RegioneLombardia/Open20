@@ -17,9 +17,6 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Failed to update editable data due to an unknown server error' => '',
-    'Krajee Solutions' => '',
-    'Krajee Yii2 Grid Export Extension' => '',
     'Actions' => 'Akcia',
     'Active' => 'Aktívne',
     'Add Book' => 'Pridať knihu',
@@ -63,6 +60,7 @@ return [
     'Request submitted! You may safely close this dialog after saving your downloaded file.' => 'Požiadavka bola spracovaná. Po uložení súboru môžete bezpečne zatvoriť toto okno.',
     'Reset Grid' => 'Obnoviť tabuľku',
     'Resize table columns just like a spreadsheet by dragging the column edges.' => 'Nastavte veľkosť stĺpca ťahaním myšky rovnako ako v excely.',
+    'Select...' => '',
     'Show all data' => 'Zobraziť všetky dáta',
     'Show first page data' => 'Zobraziť dáta prvej stránky',
     'Showing <b>{begin, number}-{end, number}</b> of <b>{totalCount, number}</b> {totalCount, plural, one{{item}} other{{items}}}.' => 'Zobrazujem <b>{begin, number}-{end, number}</b> z <b>{totalCount, number}</b> {totalCount, plural, one{{item}} few{{items-few}} many{{items-many}} other{{items}}}.',
@@ -89,4 +87,9 @@ return [
     'items-many' => 'záznamov',
     'krajee, grid, export, yii2-grid, pdf' => 'krajee, grid, export, yii2-grid, pdf',
     '© Krajee Yii2 Extensions' => '© Krajee Yii2 Extensions',
+    '<small>Loading &hellip;</small>' => '',
+    'Failed to update editable data due to an unknown server error' => '',
+    'Krajee Solutions' => '',
+    'Krajee Yii2 Grid Export Extension' => '',
+    'items-acc' => '',
 ];

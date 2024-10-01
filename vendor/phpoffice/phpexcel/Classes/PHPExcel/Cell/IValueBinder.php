@@ -1,9 +1,8 @@
 <?php
-
 /**
  * PHPExcel
  *
- * Copyleft (c) 2006 - 2015 PHPExcel
+ * Copyleft (c) 2006 - 2014 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -40,5 +39,5 @@ interface PHPExcel_Cell_IValueBinder
      * @param  mixed $value           Value to bind in cell
      * @return boolean
      */
-    public function bindValue(PHPExcel_Cell $cell, $value = null);
+    public function bindValue(PHPExcel_Cell $cell, $value = NULL);
 }

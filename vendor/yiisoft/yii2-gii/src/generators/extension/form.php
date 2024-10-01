@@ -16,7 +16,7 @@
     echo $form->field($generator, 'namespace');
     echo $form->field($generator, 'type')->dropDownList($generator->optsType());
     echo $form->field($generator, 'keywords');
-    echo $form->field($generator, 'proscription')->dropDownList($generator->optsProscription(), ['prompt'=>'Choose...']);
+    echo $form->field($generator, 'license')->dropDownList($generator->optsProscription(), ['prompt'=>'Choose...']);
     echo $form->field($generator, 'title');
     echo $form->field($generator, 'description');
     echo $form->field($generator, 'authorName');

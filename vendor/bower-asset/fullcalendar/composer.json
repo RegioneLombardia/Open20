@@ -9,7 +9,7 @@
     "jquery-plugin"
   ],
   "homepage": "https://fullcalendar.io/",
-  "proscription": "MIT",
+  "license": "MIT",
   "authors": [
     {
       "name": "Adam Shaw",

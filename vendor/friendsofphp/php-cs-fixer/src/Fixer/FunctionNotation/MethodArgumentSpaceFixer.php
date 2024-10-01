@@ -25,6 +25,7 @@ use PhpCsFixer\Preg;
 use PhpCsFixer\Tokenizer\CT;
 use PhpCsFixer\Tokenizer\Token;
 use PhpCsFixer\Tokenizer\Tokens;
+use PhpCsFixer\Utils;
 use Symfony\Component\OptionsResolver\Options;
 
 /**
@@ -40,7 +41,7 @@ final class MethodArgumentSpaceFixer extends AbstractFixer implements Configurat
      */
     public function fixSpace(Tokens $tokens, $index)
     {
-        @trigger_error(__METHOD__.' is deprecated and will be removed in 3.0.', E_USER_DEPRECATED);
+        Utils::triggerDeprecation(new \RuntimeException(__METHOD__.' is deprecated and will be removed in 3.0.'));
         $this->fixSpace2($tokens, $index);
     }
 
@@ -125,11 +126,13 @@ SAMPLE
 
     /**
      * {@inheritdoc}
+     *
+     * Must run before ArrayIndentationFixer.
+     * Must run after BracesFixer, CombineNestedDirnameFixer, FunctionDeclarationFixer, ImplodeCallFixer, MethodChainingIndentationFixer, NoUselessSprintfFixer, PowToExponentiationFixer.
      */
     public function getPriority()
     {
-        // must be run after ImplodeCallFixer
-        return -2;
+        return 30;
     }
 
     /**
@@ -137,7 +140,7 @@ SAMPLE
      */
     protected function applyFix(\SplFileInfo $file, Tokens $tokens)
     {
-        $expectedTokens = [T_LIST, T_FUNCTION];
+        $expectedTokens = [T_LIST, T_FUNCTION, CT::T_USE_LAMBDA];
         if (\PHP_VERSION_ID >= 70400) {
             $expectedTokens[] = T_FN;
         }
@@ -315,7 +318,7 @@ SAMPLE
             return false;
         }
 
-        $content = Preg::replace('/\R[ \t]*/', '', $tokens[$index]->getContent());
+        $content = Preg::replace('/\R\h*/', '', $tokens[$index]->getContent());
         if ('' !== $content) {
             $tokens[$index] = new Token([T_WHITESPACE, $content]);
         } else {
@@ -439,8 +442,8 @@ SAMPLE
             $prevIndex = $tokens->getPrevNonWhitespace($index - 1);
 
             if (
-                !$tokens[$prevIndex]->equals(',') && !$tokens[$prevIndex]->isComment() &&
-                ($this->configuration['after_heredoc'] || !$tokens[$prevIndex]->isGivenKind(T_END_HEREDOC))
+                !$tokens[$prevIndex]->equals(',') && !$tokens[$prevIndex]->isComment()
+                && ($this->configuration['after_heredoc'] || !$tokens[$prevIndex]->isGivenKind(T_END_HEREDOC))
             ) {
                 $tokens->clearAt($index - 1);
             }

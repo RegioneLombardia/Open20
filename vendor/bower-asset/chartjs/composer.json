@@ -7,7 +7,7 @@
         "js"
     ],
     "homepage": "https://www.chartjs.org/",
-    "proscription": "MIT",
+    "license": "MIT",
     "authors": [
         {
             "name": "NICK DOWNIE",

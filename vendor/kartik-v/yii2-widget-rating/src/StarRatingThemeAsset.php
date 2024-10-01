@@ -3,7 +3,7 @@
 /**
  * @package yii2-widgets
  * @subpackage yii2-widget-rating
- * @version 1.0.4
+ * @version 1.0.5
  */
 
 namespace kartik\rating;

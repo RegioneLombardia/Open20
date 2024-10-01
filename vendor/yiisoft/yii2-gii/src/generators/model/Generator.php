@@ -5,7 +5,7 @@
 namespace yii\gii\generators\model;
 
 use Yii;
-use yii\base\InvalidConfigException;
+use yii\base\NotSupportedException;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 use yii\db\Connection;
@@ -13,7 +13,7 @@ use yii\db\Schema;
 use yii\db\TableSchema;
 use yii\gii\CodeFile;
 use yii\helpers\Inflector;
-use yii\base\NotSupportedException;
+use yii\helpers\StringHelper;
 
 /**
  * This generator will generate one or multiple ActiveRecord classes for the specified database table.
@@ -36,6 +36,7 @@ class Generator extends \yii\gii\Generator
     public $generateLabelsFromComments = false;
     public $useTablePrefix = false;
     public $standardizeCapitals = false;
+    public $singularize = false;
     public $useSchemaName = true;
     public $generateQuery = false;
     public $queryNs = 'app\models';
@@ -80,7 +81,7 @@ class Generator extends \yii\gii\Generator
             [['queryBaseClass'], 'validateClass', 'params' => ['extends' => ActiveQuery::className()]],
             [['generateRelations'], 'in', 'range' => [self::RELATIONS_NONE, self::RELATIONS_ALL, self::RELATIONS_ALL_INVERSE]],
             [['generateLabelsFromComments', 'useTablePrefix', 'useSchemaName', 'generateQuery', 'generateRelationsFromCurrentSchema'], 'boolean'],
-            [['enableI18N', 'standardizeCapitals'], 'boolean'],
+            [['enableI18N', 'standardizeCapitals', 'singularize'], 'boolean'],
             [['messageCategory'], 'validateMessageCategory', 'skipOnEmpty' => false],
         ]);
     }
@@ -95,6 +96,7 @@ class Generator extends \yii\gii\Generator
             'db' => 'Database Connection ID',
             'tableName' => 'Table Name',
             'standardizeCapitals' => 'Standardize Capitals',
+            'singularize' => 'Singularize',
             'modelClass' => 'Model Class Name',
             'baseClass' => 'Base Class',
             'generateRelations' => 'Generate Relations',
@@ -130,6 +132,8 @@ class Generator extends \yii\gii\Generator
             table names like <code>SOME_TABLE</code> or <code>Other_Table</code> will have class names <code>SomeTable</code>
             and <code>OtherTable</code>, respectively. If not checked, the same tables will have class names <code>SOMETABLE</code>
             and <code>OtherTable</code> instead.',
+            'singularize' => 'This indicates whether the generated class names should be singularized. For example,
+            table names like <code>some_tables</code> will have class names <code>SomeTable</code>.',
             'baseClass' => 'This is the base class of the new ActiveRecord class. It should be a fully qualified namespaced class name.',
             'generateRelations' => 'This indicates whether the generator should generate relations based on
                 foreign key constraints it detects in the database. Note that if your database contains too many tables,
@@ -214,6 +218,7 @@ class Generator extends \yii\gii\Generator
             // model :
             $modelClassName = $this->generateClassName($tableName);
             $queryClassName = ($this->generateQuery) ? $this->generateQueryClassName($modelClassName) : false;
+            $tableRelations = isset($relations[$tableName]) ? $relations[$tableName] : [];
             $tableSchema = $db->getTableSchema($tableName);
             $params = [
                 'tableName' => $tableName,
@@ -223,7 +228,8 @@ class Generator extends \yii\gii\Generator
                 'properties' => $this->generateProperties($tableSchema),
                 'labels' => $this->generateLabels($tableSchema),
                 'rules' => $this->generateRules($tableSchema),
-                'relations' => isset($relations[$tableName]) ? $relations[$tableName] : [],
+                'relations' => $tableRelations,
+                'relationsClassHints' => $this->generateRelationsClassHints($tableRelations, $this->generateQuery),
             ];
             $files[] = new CodeFile(
                 Yii::getAlias('@' . str_replace('\\', '/', $this->ns)) . '/' . $modelClassName . '.php',
@@ -254,13 +260,34 @@ class Generator extends \yii\gii\Generator
     {
         $properties = [];
         foreach ($table->columns as $column) {
-            $columnPhpType = $column->phpType;
-            if ($columnPhpType === 'integer') {
-                $type = 'int';
-            } elseif ($columnPhpType === 'boolean') {
-                $type = 'bool';
-            } else {
-                $type = $columnPhpType;
+            switch ($column->type) {
+                case Schema::TYPE_SMALLINT:
+                case Schema::TYPE_INTEGER:
+                case Schema::TYPE_BIGINT:
+                case Schema::TYPE_TINYINT:
+                    $type = 'int';
+                    break;
+                case Schema::TYPE_BOOLEAN:
+                    $type = 'bool';
+                    break;
+                case Schema::TYPE_FLOAT:
+                case Schema::TYPE_DOUBLE:
+                case Schema::TYPE_DECIMAL:
+                case Schema::TYPE_MONEY:
+                    $type = 'float';
+                    break;
+                case Schema::TYPE_DATE:
+                case Schema::TYPE_TIME:
+                case Schema::TYPE_DATETIME:
+                case Schema::TYPE_TIMESTAMP:
+                case Schema::TYPE_JSON:
+                    $type = 'string';
+                    break;
+                default:
+                    $type = $column->phpType;
+            }
+            if ($column->allowNull){
+                $type .= '|null';
             }
             $properties[$column->name] = [
                 'type' => $type,
@@ -295,6 +322,37 @@ class Generator extends \yii\gii\Generator
         }
 
         return $labels;
+    }
+
+    /**
+     * Generates the relation class hints for the relation methods
+     * @param array $relations the relation array for single table
+     * @param bool $generateQuery generates ActiveQuery class (for ActiveQuery namespace available)
+     * @return array
+     * @since 2.1.4
+     */
+    public function generateRelationsClassHints($relations, $generateQuery){
+        $result = [];
+        foreach ($relations as $name => $relation){
+            // The queryNs options available if generateQuery is active
+            if ($generateQuery) {
+                $queryClassRealName = '\\' . $this->queryNs . '\\' . $relation[1];
+                if (class_exists($queryClassRealName, true) && is_subclass_of($queryClassRealName, '\yii\db\BaseActiveRecord')) {
+                    /** @var \yii\db\ActiveQuery $activeQuery */
+                    $activeQuery = $queryClassRealName::find();
+                    $activeQueryClass = $activeQuery::className();
+                    if (strpos($activeQueryClass, $this->ns) === 0){
+                        $activeQueryClass = StringHelper::basename($activeQueryClass);
+                    }
+                    $result[$name] = '\yii\db\ActiveQuery|' . $activeQueryClass;
+                } else {
+                    $result[$name] = '\yii\db\ActiveQuery|' . (($this->ns === $this->queryNs) ? $relation[1]: '\\' . $this->queryNs . '\\' . $relation[1]) . 'Query';
+                }
+            } else {
+                $result[$name] = '\yii\db\ActiveQuery';
+            }
+        }
+        return $result;
     }
 
     /**
@@ -710,8 +768,8 @@ class Generator extends \yii\gii\Generator
         if (!empty($key) && strcasecmp($key, 'id')) {
             if (substr_compare($key, 'id', -2, 2, true) === 0) {
                 $key = rtrim(substr($key, 0, -2), '_');
-            } elseif (substr_compare($key, 'id', 0, 2, true) === 0) {
-                $key = ltrim(substr($key, 2, strlen($key)), '_');
+            } elseif (substr_compare($key, 'id_', 0, 3, true) === 0) {
+                $key = ltrim(substr($key, 3, strlen($key)), '_');
             }
         }
         if ($multiple) {
@@ -898,11 +956,16 @@ class Generator extends \yii\gii\Generator
         if ($this->standardizeCapitals) {
             $schemaName = ctype_upper(preg_replace('/[_-]/', '', $schemaName)) ? strtolower($schemaName) : $schemaName;
             $className = ctype_upper(preg_replace('/[_-]/', '', $className)) ? strtolower($className) : $className;
-            return $this->classNames[$fullTableName] = Inflector::camelize(Inflector::camel2words($schemaName.$className));
+            $this->classNames[$fullTableName] = Inflector::camelize(Inflector::camel2words($schemaName.$className));
         } else {
-            return $this->classNames[$fullTableName] = Inflector::id2camel($schemaName.$className, '_');
+            $this->classNames[$fullTableName] = Inflector::id2camel($schemaName.$className, '_');
         }
 
+        if ($this->singularize) {
+            $this->classNames[$fullTableName] = Inflector::singularize($this->classNames[$fullTableName]);
+        }
+
+        return $this->classNames[$fullTableName];
     }
 
     /**

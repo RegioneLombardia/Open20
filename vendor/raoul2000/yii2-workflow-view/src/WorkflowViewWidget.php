@@ -105,8 +105,8 @@ class WorkflowViewWidget extends Widget
     			}
     		}
     		$nodeList[] = $n;
-    	
-    		$transitions = $node->getTransitions();
+    		
+    		$transitions = $node->getAllTransitions();
     		foreach($transitions as $transition){
     			$t = new \stdClass();
     			$t->from = $n->id;

@@ -1,7 +1,6 @@
 <?php
-
 /**
- * PHPExcel_IComparable
+ * PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -21,12 +20,21 @@
  * @package    PHPExcel
  * @version    ##VERSION##, ##DATE##
  */
+
+
+/**
+ * PHPExcel_IComparable
+ *
+ * @category   PHPExcel
+ * @package    PHPExcel
+ */
 interface PHPExcel_IComparable
 {
-    /**
-     * Get hash code
-     *
-     * @return string    Hash code
-     */
-    public function getHashCode();
+	/**
+	 * Get hash code
+	 *
+	 * @return string	Hash code
+	 */
+	public function getHashCode();
+
 }

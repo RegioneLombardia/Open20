@@ -1,0 +1,110 @@
+.wizard-steps {
+  margin-bottom: 30px;
+  overflow: hidden;
+  color: $secondary;
+  padding-left: 0px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+
+  &:after {
+    content: '';
+    width: calc(100% - 30px);
+    height: 2px;
+    background: $secondary;
+    position: absolute;
+    left: 12.5%;
+    width: 75%;
+    top: 50%;
+    z-index: 0;
+  }
+
+  li {
+    list-style-type: none;
+    width: 100%;
+    position: relative;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+
+    &.active-step {
+      &:before:first-child {
+        left: 50%;
+      }
+
+      div {
+        background-color: $tertiary;
+        color: $white;
+        border: 1px solid $tertiary;
+      }
+
+      &.current-step {
+        div {
+          width: 40px;
+          height: 40px;
+          font-weight: bold;
+        }
+
+      }
+    }
+
+    div {
+      z-index: 2;
+      width: 28px;
+      height: 28px;
+      line-height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      background: $lightgrey-c1;
+      border-radius: 50%;
+      border: 1px solid $secondary;
+      color: $secondary;
+      position: relative;
+      margin: auto;
+
+    }
+
+    &:last-child {
+
+      &:after {
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        position: absolute;
+        left: -50%;
+      }
+    }
+
+
+    &:first-child {
+      &:after {
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        position: absolute;
+        left: 50%;
+      }
+    }
+
+
+    &.active-step:after {
+      background: $tertiary;
+      z-index: 1;
+      content: '';
+      height: 2px;
+      position: absolute;
+      width: 100%;
+      top: 50%;
+
+      //FIX IE
+      @media all and (-ms-high-contrast: none) {
+        width: 0px;
+      }
+
+      @media #{map-get($device-media-queries, onlyIe)} {
+        -webkit-appearance: initial;
+      }
+    }
+  }
+}

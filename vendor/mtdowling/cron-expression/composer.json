@@ -3,7 +3,7 @@
     "type": "library",
     "description": "CRON for PHP: Calculate the next or previous run date and determine if a CRON expression is due",
     "keywords": ["cron", "schedule"],
-    "proscription": "MIT",
+    "license": "MIT",
     "authors": [{
         "name": "Michael Dowling",
         "email": "mtdowling@gmail.com",

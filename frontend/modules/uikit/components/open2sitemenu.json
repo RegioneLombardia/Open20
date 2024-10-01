@@ -1,0 +1,45 @@
+{
+    "vars": [
+        {
+            "var": "show_siblings",
+            "label": "Mostra le pagine dello stesso livello",
+            "description": "Se selezionato, verranno mostrate tutte le pagine pubblicate sullo stesso livello della pagina selezionata e che condividono con questa la stessa pagina genitore.",
+            "initvalue": "",
+            "type": "zaa-checkbox"
+        },
+        {
+            "var": "show_all_pages",
+            "label": "Mostra tutte le pagine",
+            "description": "Se selezionato, verranno mostrate tutte le pagine dell'alberatura sottostante alla pagina selezionata indipendentemente dalla scelta di visibilità impostata in esse.",
+            "initvalue": "",
+            "type": "zaa-checkbox"
+        },
+        {
+            "var": "menu_style",
+            "label": "Visualizzazione",
+            "description": "Seleziona la visualizzazione del menu.",
+            "initvalue": "",
+            "options": [{
+                "value": "",
+                "label": "Menu laterale con indice"
+            }, {
+                "value": "dropdown",
+                "label": "Dropdown"
+            }],
+            "type": "zaa-select"
+        },
+        {
+            "var": "select_page",
+            "label": "Seleziona pagina",
+            "description": "Seleziona la pagina che verrà utilizzata per mostrare il menù contestuale. Se non selezionato nulla verrà utilizzata in automatico la pagina corrente. Per una corretta visualizzazione del menù contestuale la pagina deve essere in stato Pubblicato.",
+            "initvalue": "",
+            "placeholder": "http:\/\/",
+            "type": "zaa-pages"
+        }
+    ],
+    "cfgs": [
+    ],
+    "defaults": {
+
+    }
+}

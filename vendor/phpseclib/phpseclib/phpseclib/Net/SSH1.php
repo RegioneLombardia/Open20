@@ -193,6 +193,10 @@ class SSH1
      * Dumps the content real-time to a file
      */
     const LOG_REALTIME_FILE = 4;
+    /**
+     * Make sure that the log never gets larger than this
+     */
+    const LOG_MAX_SIZE = 1048576; // 1024 * 1024
     /**#@-*/
 
     /**#@+
@@ -338,7 +342,7 @@ class SSH1
      * @var array
      * @access private
      */
-    var $protocol_flag_log = array();
+    var $protocol_flags_log = array();
 
     /**
      * Message Log
@@ -379,6 +383,16 @@ class SSH1
      * @access private
      */
     var $interactiveBuffer = '';
+
+    /**
+     * Current log size
+     *
+     * Should never exceed self::LOG_MAX_SIZE
+     *
+     * @var int
+     * @access private
+     */
+    var $log_size;
 
     /**
      * Timeout
@@ -770,6 +784,7 @@ class SSH1
      * Returns false on failure and the output, otherwise.
      *
      * @param string $cmd
+     * @param bool $block
      * @return mixed
      * @access public
      */
@@ -1075,6 +1090,9 @@ class SSH1
 
         while ($length > 0) {
             $temp = fread($this->fsock, $length);
+            if (strlen($temp) != $length) {
+                return false;
+            }
             $raw.= $temp;
             $length-= strlen($temp);
         }
@@ -1329,7 +1347,6 @@ class SSH1
      * named constants from it, using the value as the name of the constant and the index as the value of the constant.
      * If any of the constants that would be defined already exists, none of the constants will be defined.
      *
-     * @param array $array
      * @access private
      */
     function _define_array()
@@ -1362,7 +1379,7 @@ class SSH1
 
         switch (NET_SSH1_LOGGING) {
             case self::LOG_SIMPLE:
-                return $this->message_number_log;
+                return $this->protocol_flags_log;
                 break;
             case self::LOG_COMPLEX:
                 return $this->_format_log($this->message_log, $this->protocol_flags_log);
@@ -1528,7 +1545,8 @@ class SSH1
      *
      * Makes sure that only the last 1MB worth of packets will be logged
      *
-     * @param string $data
+     * @param int $protocol_flags
+     * @param string $message
      * @access private
      */
     function _append_log($protocol_flags, $message)

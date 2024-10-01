@@ -82,6 +82,27 @@ final class ProcessLinter implements LinterInterface
     }
 
     /**
+     * This class is not intended to be serialized,
+     * and cannot be deserialized (see __wakeup method).
+     *
+     * @return array
+     */
+    public function __sleep()
+    {
+        throw new \BadMethodCallException('Cannot serialize '.__CLASS__);
+    }
+
+    /**
+     * Disable the deserialization of the class to prevent attacker executing
+     * code by leveraging the __destruct method.
+     *
+     */
+    public function __wakeup()
+    {
+        throw new \BadMethodCallException('Cannot unserialize '.__CLASS__);
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function isAsync()
@@ -94,7 +115,7 @@ final class ProcessLinter implements LinterInterface
      */
     public function lintFile($path)
     {
-        return new ProcessLintingResult($this->createProcessForFile($path));
+        return new ProcessLintingResult($this->createProcessForFile($path), $path);
     }
 
     /**
@@ -102,7 +123,7 @@ final class ProcessLinter implements LinterInterface
      */
     public function lintSource($source)
     {
-        return new ProcessLintingResult($this->createProcessForSource($source));
+        return new ProcessLintingResult($this->createProcessForSource($source), $this->temporaryFile);
     }
 
     /**
@@ -134,7 +155,7 @@ final class ProcessLinter implements LinterInterface
     private function createProcessForSource($source)
     {
         if (null === $this->temporaryFile) {
-            $this->temporaryFile = tempnam('.', 'cs_fixer_tmp_');
+            $this->temporaryFile = tempnam(sys_get_temp_dir(), 'cs_fixer_tmp_');
             $this->fileRemoval->observe($this->temporaryFile);
         }
 

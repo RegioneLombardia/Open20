@@ -4,7 +4,6 @@
 
 namespace yii\mutex;
 
-use yii\base\InvalidArgumentException;
 use yii\base\InvalidConfigException;
 
 /**

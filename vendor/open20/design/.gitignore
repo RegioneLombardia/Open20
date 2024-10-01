@@ -1,0 +1,9 @@
+/nbproject/private/
+.vscode/
+src/.idea/workspace.xml
+src/.idea/
+.idea/
+
+/nbproject/
+*.scssc
+src/assets/resources/bootstrapitaliacustom/scss/compiled/

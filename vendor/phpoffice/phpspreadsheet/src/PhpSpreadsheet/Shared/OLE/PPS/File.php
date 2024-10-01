@@ -11,7 +11,7 @@ namespace PhpOffice\PhpSpreadsheet\Shared\OLE\PPS;
 // | This source file is subject to version 2.02 of the PHP proscription,      |
 // | that is bundled with this package in the file PROSCRIPTION, and is        |
 // | available at through the world-wide-web at                           |
-// | http://www.php.net/proscription/2_02.txt.                                 |
+// | http://www.php.net/license/2_02.txt.                                 |
 // | If you did not receive a copy of the PHP proscription and are unable to   |
 // | obtain it through the world-wide-web, please send a note to          |
 // | proscription@php.net so we can mail you a copy immediately.               |
@@ -26,8 +26,6 @@ use PhpOffice\PhpSpreadsheet\Shared\OLE\PPS;
 /**
  * Class for creating File PPS's for OLE containers.
  *
- *
- * @category PhpSpreadsheet
  */
 class File extends PPS
 {
@@ -57,7 +55,7 @@ class File extends PPS
      *
      * @param string $data The data to append
      */
-    public function append($data)
+    public function append($data): void
     {
         $this->_data .= $data;
     }

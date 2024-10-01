@@ -1,0 +1,46 @@
+.container-round-img-sm {
+  background-color: #f5f5f5;
+  .square-img {
+    object-fit: cover;
+    // width: 50px;
+    // height: 50px;
+  }
+
+  img {
+    object-fit: cover;
+    // width: 50px;
+    // height: 50px;
+  }
+}
+
+@avatar-base-size: 8px;
+
+.avatar-wrapper {
+  .avatar-box-img {
+    .avatar {
+      &.size-xs {
+        width: @avatar-base-size * 2;
+        height: @avatar-base-size * 2;
+      }
+
+      &.size-sm {
+        width: @avatar-base-size * 3;
+        height: @avatar-base-size * 3;
+      }
+
+      &.size-md {
+        width: @avatar-base-size * 4;
+        height: @avatar-base-size * 4;
+      }
+
+      &.size-lg {
+        width: @avatar-base-size * 5;
+        height: @avatar-base-size * 5;
+
+        &.am {
+          font-size: @avatar-base-size * 5;
+        }
+      }
+    }
+  }
+}

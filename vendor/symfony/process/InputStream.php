@@ -13,6 +13,8 @@ use Symfony\Component\Process\Exception\RuntimeException;
 /**
  * Provides a way to continuously write to the input of a Process until the InputStream is closed.
  *
+ *
+ * @implements \IteratorAggregate<int, string>
  */
 class InputStream implements \IteratorAggregate
 {
@@ -24,7 +26,7 @@ class InputStream implements \IteratorAggregate
     /**
      * Sets a callback that is called when the write buffer becomes empty.
      */
-    public function onEmpty(callable $onEmpty = null)
+    public function onEmpty(?callable $onEmpty = null)
     {
         $this->onEmpty = $onEmpty;
     }
@@ -41,7 +43,7 @@ class InputStream implements \IteratorAggregate
             return;
         }
         if ($this->isClosed()) {
-            throw new RuntimeException(sprintf('%s is closed', static::class));
+            throw new RuntimeException(sprintf('"%s" is closed.', static::class));
         }
         $this->input[] = ProcessUtils::validateInput(__METHOD__, $input);
     }
@@ -62,6 +64,10 @@ class InputStream implements \IteratorAggregate
         return !$this->open;
     }
 
+    /**
+     * @return \Traversable<int, string>
+     */
+    #[\ReturnTypeWillChange]
     public function getIterator()
     {
         $this->open = true;
@@ -74,9 +80,7 @@ class InputStream implements \IteratorAggregate
             $current = array_shift($this->input);
 
             if ($current instanceof \Iterator) {
-                foreach ($current as $cur) {
-                    yield $cur;
-                }
+                yield from $current;
             } else {
                 yield $current;
             }

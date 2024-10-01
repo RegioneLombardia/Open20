@@ -2,7 +2,7 @@
 
 /**
  * @package   yii2-number
- * @version   1.0.3
+ * @version   1.0.5
  */
 
 namespace kartik\number;

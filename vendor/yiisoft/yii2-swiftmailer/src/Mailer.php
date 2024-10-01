@@ -43,7 +43,7 @@ use yii\mail\BaseMailer;
  * ```php
  * 'transport' => [
  *     'class' => 'Swift_SmtpTransport',
- *     'constructArgs' => ['localhost', 25]
+ *     'constructArgs' => ['localhost', 25],
  *     'plugins' => [
  *         [
  *             'class' => 'Swift_Plugins_ThrottlerPlugin',
@@ -64,9 +64,8 @@ use yii\mail\BaseMailer;
  * ```
  *
  *
- * @property array|\Swift_Mailer $swiftMailer Swift mailer instance or array configuration. This property is
- * read-only.
- * @property array|\Swift_Transport $transport This property is read-only.
+ * @property-read \Swift_Mailer $swiftMailer Swift mailer instance.
+ * @property-read \Swift_Transport $transport
  *
  * @since 2.0
  */
@@ -94,7 +93,7 @@ class Mailer extends BaseMailer
 
 
     /**
-     * @return array|\Swift_Mailer Swift mailer instance or array configuration.
+     * @return \Swift_Mailer Swift mailer instance.
      */
     public function getSwiftMailer()
     {
@@ -124,7 +123,7 @@ class Mailer extends BaseMailer
     }
 
     /**
-     * @return array|\Swift_Transport
+     * @return \Swift_Transport
      */
     public function getTransport()
     {

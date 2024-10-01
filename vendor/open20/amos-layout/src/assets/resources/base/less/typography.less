@@ -1,0 +1,108 @@
+/* AMOS-LAYOUT */
+
+/* TYPOGRAPHY DEFAULT VARIABLES */
+
+/*font family: dir assets/resources/fonts */
+@family: 'titillium-web';
+@style: 'normal';
+@weight: 'normal';
+
+@main-font: @family, sans-serif;
+@main-line-height: 1.35em;
+@main-font-size: 1.3em;
+
+@headings-font-family: @family, sans-serif;
+
+/*platform text based color*/
+@text-main-color:#000000;
+
+/*apply to most text tags*/
+@text-primary-color: lighten(@text-main-color,35%);
+
+/*apply to infos text tags*/
+//@text-secondary-color: lighten(@text-main-color,35%); //#595959 instead of #999999 <- not axs
+
+/* heading tags*/
+@text-heading-color: inherit; //nb: inherit because change according to container
+
+@headings-font-family: inherit;
+@headings-font-weight: 500;
+@headings-line-height: 1.1;
+@headings-margin-top: 18px;
+@headings-margin-bottom: @margin-default;
+
+@font-size-h1: 2.36em;
+@font-size-h2: 1.93em;
+@font-size-h3: 1.645em;
+@font-size-h4: 1.215em;
+@font-size-h5: 0.93em;
+@font-size-h6: 0.852em;
+
+/* link */
+@text-link-color: @primary-color;
+@text-link-hover-opacity: 0.8;
+
+/* paragraph */
+@paragraph-margin: 5px 0;
+
+/* BODY */
+body{
+  font-family:    @main-font;
+  font-size:      @main-font-size;
+  color:          @text-primary-color;
+  line-height:    @main-line-height;
+}
+
+/* HEADINGS */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: @headings-font-family;
+  font-weight: @headings-font-weight;
+  line-height: @headings-line-height;
+  color:       @text-heading-color;
+  margin:      @headings-margin-top 0 @headings-margin-bottom 0;
+  word-wrap: break-word;
+  /*word-break: break-all; DEPRECATED*/
+  white-space: normal;
+}
+h1, .h1 { font-size: @font-size-h1; }
+h2, .h2 { font-size: @font-size-h2; }
+h3, .h3 { font-size: @font-size-h3; }
+h4, .h4 { font-size: @font-size-h4; }
+h5, .h5 { font-size: @font-size-h5; }
+h6, .h6 { font-size: @font-size-h6; }
+
+/* TEXT TAGS */
+p {
+  margin: @paragraph-margin;
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+a {
+  color: @primary-color;
+  cursor: pointer;
+
+  &:hover {
+    opacity: @text-link-hover-opacity;
+    color: @primary-color;
+  }
+
+  &:focus {
+    outline-color: darken(@primary-color, 10%);
+  }
+
+  &:not(.btn) {
+    text-decoration: underline;
+  }
+
+}
+
+/* OTHER TAGS */
+hr {
+  margin: @margin-min 0 @margin-min 0 ;
+  border: 0;
+  border-top: 2px solid @text-primary-color;
+  float: left;
+  width: 100%;
+}

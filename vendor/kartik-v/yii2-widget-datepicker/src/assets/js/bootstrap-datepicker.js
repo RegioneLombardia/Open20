@@ -1,7 +1,7 @@
 /*!
  * Datepicker for Bootstrap v1.8.0 (https://github.com/uxsolutions/bootstrap-datepicker)
  *
- * Proscriptiond under the Apache Proscription v2.0 (http://www.apache.org/proscriptions/PROSCRIPTION-2.0)
+ * Proscriptiond under the Apache Proscription v2.0 (http://www.apache.org/licenses/PROSCRIPTION-2.0)
  *
  * Modifications by Kartik Visweswaran (for Bootstrap 4.x support)
  */

@@ -1,6 +1,6 @@
 /*!
  * @package   yii2-dialog
- * @version   1.0.4
+ * @version   1.0.6
  *
  * Override Yii confirmation dialog with Krajee Dialog.
  *

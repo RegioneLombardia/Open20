@@ -1,8 +1,9 @@
 <?php
 /**
  * @package   yii2-dynagrid
- * @version   1.5.1
+ * @version   1.5.5
  */
+
 namespace kartik\dynagrid\migrations;
 
 use yii\db\Migration;
@@ -28,7 +29,7 @@ class m140101_100000_dynagrid extends Migration
             'id' => $this->string(100)->notNull(),
             'filter_id' => $this->string(100),
             'sort_id' => $this->string(100),
-            'data' => $this->text()
+            'data' => $this->text(),
         ], $tableOptions);
 
         $this->addPrimaryKey('dynagrid_PK', '{{%dynagrid}}', 'id');
@@ -38,7 +39,7 @@ class m140101_100000_dynagrid extends Migration
             'category' => $this->string(10)->notNull(),
             'name' => $this->string(150)->notNull(),
             'data' => $this->text(),
-            'dynagrid_id' => $this->string(100)->notNull()
+            'dynagrid_id' => $this->string(100)->notNull(),
         ], $tableOptions);
 
         $this->addPrimaryKey('dynagrid_dtl_PK', '{{%dynagrid_dtl}}', 'id');

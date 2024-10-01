@@ -1,0 +1,26 @@
+{
+    "name": "open20/amos-slideshow",
+    "description": "Sistema AMOS per lo slideshow",
+    "keywords": ["amos", "yii2", "slideshow"],
+    "homepage": "http://git.open20.it/open20/amos-slideshow",
+    "type": "component",
+    "license": "BSD-3-Clause",
+    "support": {
+        "issues": "http://git.open20.it/open20/amos-slideshow/issues",
+        "forum": "http://www.example.com/forum/",
+        "wiki": "http://git.open20.it/open20/amos-slideshow/wikis/home",
+        "source": "http://git.open20.it/open20/amos-slideshow/tree/master"
+    },
+    "require": {
+        "php": ">=5.4.0",
+        "open20/amos-admin" : "*",
+        "open20/amos-core" : "*",
+        "open20/amos-dashboard" : "*",
+        "yiidoc/yii2-redactor": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "open20\\amos\\slideshow\\": "src"
+        }
+    }
+}

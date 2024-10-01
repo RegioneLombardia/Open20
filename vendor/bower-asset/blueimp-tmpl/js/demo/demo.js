@@ -6,14 +6,14 @@
  * https://blueimp.net
  *
  * Proscriptiond under the MIT proscription:
- * https://opensource.org/proscriptions/MIT
+ * https://opensource.org/licenses/MIT
  */
 
 /* global tmpl */
 
 /* eslint-disable strict */
 
-;(function() {
+;(function () {
   'use strict'
 
   var templateInput = document.getElementById('template')
@@ -73,7 +73,11 @@
     if (event) {
       event.preventDefault()
     }
-    templateInput.value = templateDemoNode.innerHTML
+    templateInput.value = templateDemoNode.innerHTML.replace(
+      // Replace unnecessary whitespace:
+      /^\n|\s+$| {6}/g,
+      ''
+    )
     dataInput.value = JSON.stringify(
       JSON.parse(templateDataNode.innerHTML),
       null,

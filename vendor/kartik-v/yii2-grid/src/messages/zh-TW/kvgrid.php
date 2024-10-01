@@ -17,14 +17,6 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Failed to update editable data due to an unknown server error' => '',
-    'Invalid editable index or model form name' => '',
-    'Invalid or bad editable data' => '',
-    'Krajee Solutions' => '',
-    'Krajee Yii2 Grid Export Extension' => '',
-    'No valid editable model found' => '',
-    'item' => '',
-    'items' => '',
     'Actions' => '動作',
     'Active' => '以激活',
     'Add Book' => '新增書籍',
@@ -65,6 +57,7 @@ return [
     'Request submitted! You may safely close this dialog after saving your downloaded file.' => '請求已經提交,您可以在文件下載成功後關閉此對話.',
     'Reset Grid' => '重置表格',
     'Resize table columns just like a spreadsheet by dragging the column edges.' => '拖動表格邊緣來進行縮放',
+    'Select...' => '',
     'Show all data' => '顯示所有數據',
     'Show first page data' => '顯示第一頁數據',
     'Showing <b>{begin, number}-{end, number}</b> of <b>{totalCount, number}</b> {totalCount, plural, one{{item}} other{{items}}}.' => '第 <b>{begin, number}-{end, number}</b> 項，共 <b>{totalCount, number}</b> 項資料.',
@@ -89,4 +82,14 @@ return [
     'items-many' => 'items',
     'krajee, grid, export, yii2-grid, pdf' => 'krajee, grid, export, yii2-grid, pdf',
     '© Krajee Yii2 Extensions' => '© Krajee Yii2 Extensions',
+    '<small>Loading &hellip;</small>' => '',
+    'Failed to update editable data due to an unknown server error' => '',
+    'Invalid editable index or model form name' => '',
+    'Invalid or bad editable data' => '',
+    'Krajee Solutions' => '',
+    'Krajee Yii2 Grid Export Extension' => '',
+    'No valid editable model found' => '',
+    'item' => '',
+    'items' => '',
+    'items-acc' => '',
 ];

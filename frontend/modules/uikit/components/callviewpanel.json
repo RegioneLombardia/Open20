@@ -1,0 +1,19 @@
+{
+    "vars": [
+        {
+            "var": "viewName",
+            "label": "View Name",
+            "description": "",
+            "initvalue": "",
+            "type": "zaa-text"
+        },{
+            "var": "viewPath",
+            "label": "View Path",
+            "description": "",
+            "initvalue": "",
+            "type": "zaa-text"
+        }
+           
+    ]
+    
+}

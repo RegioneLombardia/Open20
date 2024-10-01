@@ -34,7 +34,7 @@ use yii\validators\StringValidator;
  *     {
  *         return [
  *             'typecast' => [
- *                 'class' => AttributeTypecastBehavior::className(),
+ *                 'class' => AttributeTypecastBehavior::class,
  *                 'attributeTypes' => [
  *                     'amount' => AttributeTypecastBehavior::TYPE_INTEGER,
  *                     'price' => AttributeTypecastBehavior::TYPE_FLOAT,
@@ -74,7 +74,7 @@ use yii\validators\StringValidator;
  *     {
  *         return [
  *             'typecast' => [
- *                 'class' => AttributeTypecastBehavior::className(),
+ *                 'class' => AttributeTypecastBehavior::class,
  *                 // 'attributeTypes' will be composed automatically according to `rules()`
  *             ],
  *         ];
@@ -117,7 +117,7 @@ class AttributeTypecastBehavior extends Behavior
      */
     public $owner;
     /**
-     * @var array attribute typecast map in format: attributeName => type.
+     * @var array|null attribute typecast map in format: attributeName => type.
      * Type can be set via PHP callable, which accept raw value as an argument and should return
      * typecast result.
      * For example:
@@ -128,7 +128,7 @@ class AttributeTypecastBehavior extends Behavior
      *     'price' => 'float',
      *     'is_active' => 'boolean',
      *     'date' => function ($value) {
-     *         return ($value instanceof \DateTime) ? $value->getTimestamp(): (int)$value;
+     *         return ($value instanceof \DateTime) ? $value->getTimestamp(): (int) $value;
      *     },
      * ]
      * ```
@@ -210,7 +210,7 @@ class AttributeTypecastBehavior extends Behavior
 
     /**
      * Typecast owner attributes according to [[attributeTypes]].
-     * @param array $attributeNames list of attribute names that should be type-casted.
+     * @param array|null $attributeNames list of attribute names that should be type-casted.
      * If this parameter is empty, it means any attribute listed in the [[attributeTypes]]
      * should be type-casted.
      */
@@ -342,7 +342,7 @@ class AttributeTypecastBehavior extends Behavior
     {
         $this->typecastAttributes();
     }
-    
+
     /**
      * Handles owner 'afterInsert' and 'afterUpdate' events, ensuring attribute typecasting.
      * @param \yii\base\Event $event event instance.

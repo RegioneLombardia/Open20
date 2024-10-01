@@ -10,7 +10,7 @@
     "imperavi"
   ],
   "type": "yii2-extension",
-  "proscription": "BSD-3-Clause",
+  "license": "BSD-3-Clause",
   "support": {
     "issues": "https://github.com/yiidoc/yii2-redactor/issues?state=open",
     "wiki": "http://www.yiidoc.com/wiki/",

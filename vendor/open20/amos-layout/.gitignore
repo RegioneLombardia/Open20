@@ -1,0 +1,48 @@
+# yii console command
+/yii
+
+# phpstorm project files
+.idea
+
+# netbeans project files
+nbproject
+
+# zend studio for eclipse project files
+.buildpath
+.project
+.settings
+
+# windows thumbnail cache
+Thumbs.db
+
+# composer vendor dir
+/vendor
+
+# composer itself is not needed
+composer.phar
+
+# Mac DS_Store Files
+.DS_Store
+
+# phpunit itself is not needed
+phpunit.phar
+# local phpunit config
+/phpunit.xml
+
+composer.lock
+src/assets/resources/icons/icon-ic/OLD/style.css
+src/assets/resources/icons/icon-ic/OLD/selection.json
+src/assets/resources/icons/icon-ic/OLD/fonts/ic.woff
+src/assets/resources/icons/icon-ic/OLD/fonts/ic.ttf
+src/assets/resources/icons/icon-ic/OLD/fonts/ic.svg
+src/assets/resources/icons/icon-ic/OLD/fonts/ic.eot
+src/assets/resources/icons/icon-ic/OLD/demo.html
+src/assets/resources/icons/icon-ic/OLD/demo-files/demo.js
+src/assets/resources/icons/icon-ic/OLD/demo-files/demo.css
+src/assets/resources/icons/icon-ic/OLD/Read Me.txt
+.vscode/sftp.json
+.vscode/___sftp.json
+.vscode/__sftp.json
+.vscode/_sftp.json
+.vscode/____sftp.json
+.vscode/_intranet_sftp.json

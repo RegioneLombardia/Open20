@@ -1,0 +1,47 @@
+.page-content.page-content-error {
+  background-color: transparent;
+  .page-header{
+    display: none;
+  }
+  .error-content {
+    margin-top: @margin-medium;
+    .linear-gradient(to bottom,transparent,10px,@white-color,10px);
+    .text {
+      h1 {
+        text-transform: capitalize;
+      }
+      h2{
+        margin-top: 0;
+      }
+      .actions {
+        .flexbox;
+        .flexbox-row;
+        justify-content: space-between;
+      }
+    }
+    @media (min-width: 768px) {
+      .flexbox;
+      .flexbox-row;
+      .image {
+        width: 20%;
+        height: auto;
+      }
+      .text {
+        width: 80%;
+        .flexbox;
+        .flexbox-column;
+        justify-content: flex-end;
+        padding-bottom: @padding-default;
+      }
+      &.generic-error{
+        .image{
+          width: 30%;
+        }
+        .text{
+          width: 60%;
+        }
+      }
+    }
+  }
+
+}

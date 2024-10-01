@@ -1,0 +1,24 @@
+@font-face {
+  font-family: 'twitter-x-brand';
+  src:  url('../fonts/twitter-x-brand.eot?uk6btp');
+  src:  url('../fonts/twitter-x-brand.eot?uk6btp#iefix') format('embedded-opentype'),
+    url('../fonts/twitter-x-brand.ttf?uk6btp') format('truetype'),
+    url('../fonts/twitter-x-brand.woff?uk6btp') format('woff'),
+    url('../fonts/twitter-x-brand.svg?uk6btp#twitter-x-brand') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.mdi-2:before,
+.mdi-set {
+  display: inline-block;
+  font: normal normal normal 24px/1 "twitter-x-brand" !important;
+  font-size: inherit;
+  text-rendering: auto;
+  line-height: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.mdi-twitter-x-brand::before {
+  content: "\e900";
+}

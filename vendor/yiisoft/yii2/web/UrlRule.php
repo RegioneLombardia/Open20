@@ -21,8 +21,8 @@ use yii\base\InvalidConfigException;
  * ]
  * ```
  *
- * @property null|int $createUrlStatus Status of the URL creation after the last [[createUrl()]] call. `null`
- * if rule does not provide info about create status. This property is read-only.
+ * @property-read int|null $createUrlStatus Status of the URL creation after the last [[createUrl()]] call.
+ * `null` if rule does not provide info about create status.
  *
  * @since 2.0
  */
@@ -60,7 +60,7 @@ class UrlRule extends BaseObject implements UrlRuleInterface
     const CREATE_STATUS_PARAMS_MISMATCH = 4;
 
     /**
-     * @var string the name of this rule. If not set, it will use [[pattern]] as the name.
+     * @var string|null the name of this rule. If not set, it will use [[pattern]] as the name.
      */
     public $name;
     /**
@@ -69,7 +69,7 @@ class UrlRule extends BaseObject implements UrlRuleInterface
      */
     public $pattern;
     /**
-     * @var string the pattern used to parse and create the host info part of a URL (e.g. `http://example.com`).
+     * @var string|null the pattern used to parse and create the host info part of a URL (e.g. `https://example.com`).
      */
     public $host;
     /**
@@ -83,20 +83,20 @@ class UrlRule extends BaseObject implements UrlRuleInterface
      */
     public $defaults = [];
     /**
-     * @var string the URL suffix used for this rule.
+     * @var string|null the URL suffix used for this rule.
      * For example, ".html" can be used so that the URL looks like pointing to a static HTML page.
      * If not set, the value of [[UrlManager::suffix]] will be used.
      */
     public $suffix;
     /**
-     * @var string|array the HTTP verb (e.g. GET, POST, DELETE) that this rule should match.
+     * @var string|array|null the HTTP verb (e.g. GET, POST, DELETE) that this rule should match.
      * Use array to represent multiple verbs that this rule may match.
      * If this property is not set, the rule can match any verb.
      * Note that this property is only used when parsing a request. It is ignored for URL creation.
      */
     public $verb;
     /**
-     * @var int a value indicating if this rule should be used for both request parsing and URL creation,
+     * @var int|null a value indicating if this rule should be used for both request parsing and URL creation,
      * parsing only, or creation only.
      * If not set or 0, it means the rule is both request parsing and URL creation.
      * If it is [[PARSING_ONLY]], the rule is for request parsing only.
@@ -322,7 +322,7 @@ class UrlRule extends BaseObject implements UrlRuleInterface
         $this->pattern = '#^' . trim(strtr($this->_template, $tr), '/') . '$#u';
 
         // if host starts with relative scheme, then insert pattern to match any
-        if (strncmp($this->host, '//', 2) === 0) {
+        if ($this->host !== null && strncmp($this->host, '//', 2) === 0) {
             $this->pattern = substr_replace($this->pattern, '[\w]+://', 2, 0);
         }
 
@@ -526,7 +526,7 @@ class UrlRule extends BaseObject implements UrlRuleInterface
     /**
      * Returns status of the URL creation after the last [[createUrl()]] call.
      *
-     * @return null|int Status of the URL creation after the last [[createUrl()]] call. `null` if rule does not provide
+     * @return int|null Status of the URL creation after the last [[createUrl()]] call. `null` if rule does not provide
      * info about create status.
      * @since 2.0.12
      */

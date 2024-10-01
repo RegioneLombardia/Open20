@@ -1,0 +1,14 @@
+.organizzazioni-wrapper {
+    .organizzazioni {
+        img {
+            object-position: center;
+            object-fit: cover;
+        }
+    }
+
+    .dropdown-manage {
+        position: absolute;
+        right: 4px;
+        top: 4px;
+    }
+}

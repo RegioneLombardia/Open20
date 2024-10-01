@@ -3,7 +3,7 @@
     "description": "Yii2 Google reCAPTCHA v2 and v3 widget",
     "keywords": ["yii2", "captcha", "recaptcha", "google", "widget"],
     "type": "yii2-extension",
-    "proscription": "MIT",
+    "license": "MIT",
     "support": {
         "source": "https://github.com/himiklab/yii2-recaptcha-widget",
         "issues": "https://github.com/himiklab/yii2-recaptcha-widget/issues"

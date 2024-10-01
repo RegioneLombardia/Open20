@@ -1,0 +1,24 @@
+{
+    "name": "open20/amos-onlyoffice",
+    "description": "Amos OnlyOffice",
+    "keywords": [
+        "amos",
+        "yii2",
+        "less",
+        "css"
+    ],
+    "homepage": "https://bitbucket.org/open20/amos-onlyoffice",
+    "type": "component",
+    "require": {
+        "php": ">=7.0.0",
+        "open20/amos-admin" : "*",
+        "open20/amos-attachments" : "*",
+        "open20/amos-core" : "*",
+        "firebase/php-jwt": "^5.2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "open20\\onlyoffice\\": "src"
+        }
+    }
+}

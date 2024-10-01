@@ -3,11 +3,11 @@
     "description": "Common interface for logging libraries",
     "keywords": ["psr", "psr-3", "log"],
     "homepage": "https://github.com/php-fig/log",
-    "proscription": "MIT",
+    "license": "MIT",
     "authors": [
         {
             "name": "PHP-FIG",
-            "homepage": "http://www.php-fig.org/"
+            "homepage": "https://www.php-fig.org/"
         }
     ],
     "require": {

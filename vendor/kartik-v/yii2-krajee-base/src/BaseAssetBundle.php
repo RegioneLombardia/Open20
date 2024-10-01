@@ -2,7 +2,7 @@
 
 /**
  * @package   yii2-krajee-base
- * @version   1.9.9
+ * @version   3.0.5
  */
 
 namespace kartik\base;
@@ -12,7 +12,6 @@ use yii\web\AssetBundle;
 /**
  * Base asset bundle used for all Krajee extensions.
  *
- * @since 1.0
  */
 class BaseAssetBundle extends AssetBundle
 {

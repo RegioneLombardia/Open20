@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @var yii\web\View $this
  * @var cornernote\workflow\manager\models\Workflow $model
@@ -14,39 +15,88 @@ use yii\jui\Sortable;
 use yii\web\JsExpression;
 use yii\widgets\DetailView;
 
+
 $this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('workflow', 'Workflow'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
+
 ?>
+<style>
+    table {
+        word-break: break-word;
+        white-space: normal;
+    }
+</style>
+
+
 <div class="workflow-default-view">
 
-    <h1>
-        <?= Html::encode($this->title) ?>
-        <div class="pull-right">
-            <?= Html::a('<span class="glyphicon glyphicon-pencil"></span> ' . Yii::t('workflow', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-info']) ?>
-            <?= Html::a('<span class="glyphicon glyphicon-trash"></span> ' . Yii::t('workflow', 'Delete'), ['delete', 'id' => $model->id], [
-                'class' => 'btn btn-danger',
-                'data-confirm' => Yii::t('workflow', 'Are you sure?'),
-                'data-method' => 'post',
-            ]) ?>
+    <div class="page-header fake-vendor-wm-page-header">
+
+        <div class="bi-plugin-header">
+
+            <style>
+                .page-header {
+                    display: none;
+                }
+
+                .page-header.fake-vendor-wm-page-header {
+                    display: flex;
+                }
+            </style>
+
+            <div class="flexbox title-heading-plugin">
+                <div class="m-r-10">
+                    <div class="h2 text-uppercase "><?= $model->id ?></div>
+                </div>
+            </div>
+
+            <div class="cta-wrapper">
+                <div class="flexbox manage-cta-container">
+                    <a href="/workflow-manager/default/update?id=<?= $model->id ?>" class="cta link-create-news flexbox align-items-center btn btn-xs btn-primary-outline" title="Aggiorna <?= $model->id ?>" style="width:40px;height:40px;">
+                        <span class="am am-edit"></span>
+                        <span class="sr-only">Aggiorna</span>
+                    </a>
+                    <a href="/workflow-manager/default/delete?id=<?= $model->id ?>" class="cta link-create-news flexbox align-items-center btn btn-xs btn-danger" title="Elimina <?= $model->id ?>" data-confirm="Sei sicuro?" method="POST" style="width:40px;height:40px;">
+                        <span class="am am-delete"></span>
+                        <span class="sr-only">Elimina</span>
+                    </a>
+                </div>
+            </div>
         </div>
-    </h1>
+
+    </div>
 
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-xs-12">
+            <?php
+            if ($model->statuses) {
+                echo WorkflowViewWidget::widget([
+                    'workflow' => Yii::$app->workflowSource->getWorkflow($model->id),
+                    'containerId' => 'workflowView'
+                ]);
+                echo '<div id="workflowView" style="height: 400px;border: 5px double #ccc;margin: 15px 0 30px;background: #fefefe;"></div>';
+            }
+            ?>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
             <?php
             $sortables = [];
             foreach ($model->statuses as $status) {
                 $actions = [];
-                $actions[] = '<span class="glyphicon glyphicon-move sortable-handle" style="cursor: move"></span>';
+                $actions[] = '<span style="width:32px;height:32px;font-size:16px" class="btn btn-outline-secondary am am-arrows sortable-handle" style="cursor: move"></span>';
                 if ($model->initial_status_id != $status->id) {
-                    $actions[] = Html::a('<span class="glyphicon glyphicon-star"></span>', ['initial', 'id' => $model->id, 'status_id' => $status->id], ['title' => Yii::t('workflow', 'Set Initial')]);
+                    $actions[] = Html::a('<span style="width:32px;height:32px;font-size:16px" class="btn btn-outline-secondary am am-star"></span>', ['initial', 'id' => $model->id, 'status_id' => $status->id], ['title' => Yii::t('workflow', 'Set Initial'), 'style' => 'text-decoration:none !important;']);
                 }
-                $actions[] = Html::a('<span class="glyphicon glyphicon-pencil"></span>', ['status/update', 'id' => $status->id, 'workflow_id' => $status->workflow_id], ['title' => Yii::t('workflow', 'Update')]);
-                $actions[] = Html::a('<span class="glyphicon glyphicon-trash"></span>', ['status/delete', 'id' => $status->id, 'workflow_id' => $status->workflow_id], [
+                $actions[] = Html::a('<span style="width:32px;height:32px;font-size:16px" class="btn btn-outline-secondary am am-edit"></span>', ['status/update', 'id' => $status->id, 'workflow_id' => $status->workflow_id], ['title' => Yii::t('workflow', 'Update'), 'style' => 'text-decoration:none !important;']);
+                $actions[] = Html::a('<span style="width:32px;height:32px;font-size:16px" class="btn btn-outline-secondary am am-delete"></span>', ['status/delete', 'id' => $status->id, 'workflow_id' => $status->workflow_id], [
                     'title' => Yii::t('workflow', 'Delete'),
                     'data-confirm' => Yii::t('workflow', 'Are you sure?'),
                     'data-method' => 'post',
+                    'style' => 'text-decoration:none !important;'
                 ]);
                 $transitions = $status->startTransitions ? '<br><small><span class="glyphicon glyphicon-chevron-right"></span>&nbsp; &nbsp;' . implode(', ', ArrayHelper::map($status->startTransitions, 'end_status_id', 'endName')) . '</small>' : '';
                 $metadatas = $status->metadatas ? '<br><small><span class="glyphicon glyphicon-tags"></span>&nbsp; &nbsp;' . Json::encode(ArrayHelper::map($status->metadatas, 'key', 'value')) . '</small>' : '';
@@ -75,7 +125,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         'value' => $model->initial_status_id,
                     ],
                     [
-                        'label' => Yii::t('workflow', 'Status') . '<br>' . Html::a(Yii::t('workflow', 'Create Status'), ['status/create', 'workflow_id' => $model->id], ['class' => 'btn btn-success btn-xs']),
+                        'label' => Yii::t('workflow', 'Status') . '<br>' . Html::a(Yii::t('workflow', 'Crea Status'), ['status/create', 'workflow_id' => $model->id], ['class' => 'btn btn-success btn-xs']),
                         'value' => Sortable::widget([
                             'items' => $sortables,
                             'options' => [
@@ -102,22 +152,11 @@ $this->params['breadcrumbs'][] = $this->title;
             ]);
             ?>
         </div>
-        <div class="col-md-6">
-            <?php
-            if ($model->statuses) {
-                echo WorkflowViewWidget::widget([
-                    'workflow' => Yii::$app->workflowSource->getWorkflow($model->id),
-                    'containerId' => 'workflowView'
-                ]);
-                echo '<div id="workflowView" style="height: 400px;"></div>';
-            }
-            ?>
-        </div>
     </div>
 
     <?php if ($model->statuses) { ?>
         <?= Html::beginForm(); ?>
-        <h2><?= Yii::t('workflow', 'Transitions') ?></h2>
+        <h2 class="m-t-30"><?= Yii::t('workflow', 'Transitions') ?></h2>
         <table class="table table-bordered table-condensed">
             <tr>
                 <th colspan="2" rowspan="2"></th>
@@ -152,7 +191,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 </tr>
             <?php } ?>
         </table>
-        <?= Html::submitButton(Yii::t('workflow', 'Save'), ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton(Yii::t('workflow', 'Salva'), ['class' => 'btn btn-primary m-t-30']) ?>
         <?= Html::endForm(); ?>
     <?php } ?>
 

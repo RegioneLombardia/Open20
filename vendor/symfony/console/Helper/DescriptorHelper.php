@@ -44,11 +44,9 @@ class DescriptorHelper extends Helper
      * * format: string, the output format name
      * * raw_text: boolean, sets output type as raw
      *
-     * @param object $object
-     *
      * @throws InvalidArgumentException when the given format is not supported
      */
-    public function describe(OutputInterface $output, $object, array $options = [])
+    public function describe(OutputInterface $output, ?object $object, array $options = [])
     {
         $options = array_merge([
             'raw_text' => false,
@@ -66,11 +64,9 @@ class DescriptorHelper extends Helper
     /**
      * Registers a descriptor.
      *
-     * @param string $format
-     *
      * @return $this
      */
-    public function register($format, DescriptorInterface $descriptor)
+    public function register(string $format, DescriptorInterface $descriptor)
     {
         $this->descriptors[$format] = $descriptor;
 
@@ -83,5 +79,10 @@ class DescriptorHelper extends Helper
     public function getName()
     {
         return 'descriptor';
+    }
+
+    public function getFormats(): array
+    {
+        return array_keys($this->descriptors);
     }
 }

@@ -3,7 +3,7 @@
     "description": "RBAC Auth manager for Yii2 ",
     "keywords": ["yii", "admin", "auth", "rbac"],
     "type": "yii2-extension",
-    "proscription": "BSD-3-Clause",
+    "license": "BSD-3-Clause",
     "support": {
         "issues": "https://github.com/mdmsoft/yii2-admin/issues",
         "source": "https://github.com/mdmsoft/yii2-admin"

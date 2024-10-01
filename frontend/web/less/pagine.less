@@ -1,0 +1,358 @@
+/** FORM PAGINE */
+.dashboards-page-create {
+    #dynamicmodel-modello {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+
+        .radio {
+            width: 100%;
+            margin: 0 !important;
+            padding: 12px;
+
+            @media(min-width:768px) {
+                width: 50%;
+            }
+
+            @media(min-width:992px) {
+                width: 33.333%;
+            }
+
+            label {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-start;
+                padding: 12px;
+                border-radius: 6px;
+                border: 1px solid #ccc;
+                min-height: 110px;
+
+                img {
+                    margin-right: 12px;
+                    width: 90px;
+                    height: auto;
+                }
+
+                input {
+                    margin-right: 12px;
+                    margin-left: 0;
+                    position: relative;
+                }
+
+                span {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: block;
+                }
+            }
+        }
+
+
+    }
+}
+
+// .bi-plugin-header {
+//     position: relative;
+//     align-items: center;
+
+//     .title-heading-plugin {
+//         position: relative;
+
+//         &::before {
+//             content: none;
+
+//             @media (min-width:768px) {
+//                 left: -20px;
+//                 content: '';
+//                 position: absolute;
+//                 height: 27px;
+//                 background: @fl-gradient-blu;
+//                 width: 200%;
+//                 margin-top: -1px;
+//                 transform: translate(-100%, 0px);
+//             }
+
+//             // @media (min-width:992px){
+//             //     left: -960px;
+//             // }
+//             // @media (min-width:1200px){
+//             //     left: -20px;
+//             // }
+//         }
+
+//         .h2 {
+//             position: relative;
+//             font-weight: 900;
+//             color: @fl-color-primary;
+//             font-family: 'Titillium Web';
+//             font-size: 2.3em;
+//             text-transform: uppercase;
+//             min-width: 230px;
+//         }
+
+//         &:after {
+//             content: none;
+
+//             @media (min-width:768px) {
+//                 left: 103%;
+//                 content: '';
+//                 position: absolute;
+//                 height: 27px;
+//                 background: @fl-gradient-verde;
+//                 width: 500%;
+//                 margin-top: -1px;
+
+//             }
+//         }
+//     }
+
+//     .cta-wrapper {
+//         position: relative;
+//     }
+// }
+
+//DETAIL VIEW
+.prodotti-servizi-view {
+    .img-detail {
+        height: 350px;
+        overflow: hidden;
+        background-color: #ccc;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        right: 0;
+
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+
+        }
+    }
+
+    .intro-detail {
+        background: #FFFFFF;
+        box-shadow: 0px 0px 80px rgba(0, 43, 85, 0.1);
+        border-radius: 6px;
+        padding: 35px;
+        position: relative;
+        transform: translateY(275px);
+        margin-bottom: 275px;
+
+        .riga-intro {
+            border-bottom: 1px dashed #979797;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .soluzione {
+
+            font-size: 16px;
+            text-transform: uppercase;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            color: @fl-color-secondary;
+            margin-right: auto;
+
+            .icon-card {
+                font-size: 30px;
+                margin-right: 8px;
+                line-height: 1;
+
+            }
+
+        }
+
+        .status {
+            font-size: 18px;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: #fff;
+            padding: 2px 6px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+            background: #000;
+
+            &.status-aperto {
+                background: @fl-color-secondary;
+            }
+
+            &.status-chiuso {
+                background: #D92828;
+            }
+
+            &.status-archiviato {
+                background: #5E7887;
+            }
+        }
+
+        .content-finalita {
+            border-left: 1px solid #000;
+            padding-left: 30px;
+            margin-left: 30px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .finalita {
+            padding-right: 10px;
+            border-right: 1px solid #949494;
+        }
+    }
+
+    .content-detail {
+        position: relative;
+        padding-top: 50px;
+        margin-bottom: 80px;
+
+        .listato-contenuti {
+            border-bottom: 1px dashed #A7A7A7;
+            padding: 16px 0;
+
+            a {
+                &.link-toggle {
+                    font-weight: bold;
+                    color: #000;
+                    text-decoration: none;
+                    display: flex;
+                    justify-content: space-between;
+                }
+
+                &:hover {
+                    text-decoration: underline;
+                }
+
+            }
+
+            p:last-child {
+                margin-bottom: 0;
+            }
+
+            .collapse {
+                margin-top: 12px;
+            }
+        }
+    }
+
+    .content-sportello {
+        position: relative;
+
+        &::after {
+            content: '';
+            width: 100px;
+            position: absolute;
+            right: 0;
+            height: 100%;
+            background: linear-gradient(270deg, rgba(244, 244, 244, 1) 20%, rgba(244, 244, 244, 0) 100%);
+            top: 0;
+        }
+
+        .scroll-sportello {
+            overflow: auto;
+        }
+
+        .lista-sportello {
+            display: flex;
+            flex-direction: column;
+            border-left: 4px solid @fl-color-primary;
+            margin-top: 30px;
+            margin-left: 10px;
+            position: relative;
+
+            .item-sportello {
+                width: 100%;
+                // border-top: 4px solid @fl-color-primary;
+                padding-left: 15px;
+                position: relative;
+                margin-bottom: 25px;
+                min-width: 300px;
+
+                a {
+                    display: flex;
+                    flex-direction: column;
+                    color: @fl-color-primary;
+
+                    span {
+                        font-size: 16px;
+                    }
+                }
+
+                &::after {
+                    position: absolute;
+                    content: '';
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 20px;
+                    background-color: @fl-color-primary;
+                    top: -3px;
+                    left: -8px;
+
+                    @media (min-width:568px) {
+                        top: -8px;
+                        left: -3px;
+                    }
+                }
+
+                @media (min-width:568px) {
+                    padding-top: 15px;
+                    padding-left: 0;
+                    width: 25%;
+                    border-top: 4px solid @fl-color-primary;
+                    margin-top: -4px;
+                }
+
+                @media (min-width:568px) {
+                    padding-top: 15px;
+                    padding-left: 0;
+                    width: 25%;
+                    border-top: 4px solid @fl-color-primary;
+                    margin-top: -4px;
+                }
+
+                &.active-sportello {
+                    &::before {
+                        position: absolute;
+                        content: '';
+                        width: 20px;
+                        height: 20px;
+                        border-radius: 20px;
+                        border: 2px solid @fl-color-primary;
+                        top: -7px;
+                        left: -12px;
+
+                        @media (min-width:568px) {
+                            top: -12px;
+                            left: -7px;
+                        }
+                    }
+                }
+            }
+
+            @media (min-width:568px) {
+                flex-direction: row;
+                border-top: 4px solid @fl-color-primary;
+                border-left: none;
+
+            }
+        }
+    }
+}
+
+.info-sportello {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.page-content {
+    margin-top: 15px;
+}

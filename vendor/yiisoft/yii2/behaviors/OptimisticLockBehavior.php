@@ -30,7 +30,7 @@ use yii\helpers\ArrayHelper;
  * public function behaviors()
  * {
  *     return [
- *         OptimisticLockBehavior::className(),
+ *         OptimisticLockBehavior::class,
  *     ];
  * }
  * ```

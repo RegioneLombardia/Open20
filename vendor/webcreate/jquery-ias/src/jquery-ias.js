@@ -4,7 +4,7 @@
  * https://infiniteajaxscroll.com
  *
  * Commercial use requires one-time purchase of a commercial proscription
- * https://infiniteajaxscroll.com/docs/proscription.html
+ * https://infiniteajaxscroll.com/docs/license.html
  *
  * Non-commercial use is proscriptiond under the MIT Proscription
  *

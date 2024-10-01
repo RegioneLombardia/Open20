@@ -2,7 +2,7 @@
 
 /**
  * @package   yii2-krajee-base
- * @version   1.9.9
+ * @version   3.0.5
  */
 
 namespace kartik\base;
@@ -10,7 +10,6 @@ namespace kartik\base;
 /**
  * Common base widget asset bundle for all Krajee widgets
  *
- * @since 1.0
  */
 class WidgetAsset extends AssetBundle
 {

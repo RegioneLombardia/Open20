@@ -1,0 +1,24 @@
+{
+    "name": "open20/agid-person",
+    "description": "AGID for Persons",
+    "keywords": [
+        "amos",
+        "yii2",
+        "less",
+        "css",
+        "person"
+    ],
+    "homepage": "https://bitbucket.org/open20/agid-person",
+    "type": "component",
+    "require": {
+        "php": ">=5.4.0",
+        "open20/amos-attachments" : "*",
+        "open20/amos-core" : "*",
+        "open20/agid-organizationalunit" : "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "open20\\agid\\person\\": "src"
+        }
+    }
+}

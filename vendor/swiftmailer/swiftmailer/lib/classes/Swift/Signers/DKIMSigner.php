@@ -289,7 +289,7 @@ class Swift_Signers_DKIMSigner implements Swift_Signers_HeaderSigner
                 break;
             case 'rsa-sha256':
                 $this->hashAlgorithm = 'rsa-sha256';
-                if (!defined('OPENSSL_ALGO_SHA256')) {
+                if (!\defined('OPENSSL_ALGO_SHA256')) {
                     throw new Swift_SwiftException('Unable to set sha256 as it is not supported by OpenSSL.');
                 }
                 break;
@@ -463,7 +463,7 @@ class Swift_Signers_DKIMSigner implements Swift_Signers_HeaderSigner
      */
     public function ignoreHeader($header_name)
     {
-        $this->ignoredHeaders[strtolower($header_name)] = true;
+        $this->ignoredHeaders[strtolower($header_name ?? '')] = true;
 
         return $this;
     }
@@ -480,7 +480,7 @@ class Swift_Signers_DKIMSigner implements Swift_Signers_HeaderSigner
         $listHeaders = $headers->listAll();
         foreach ($listHeaders as $hName) {
             // Check if we need to ignore Header
-            if (!isset($this->ignoredHeaders[strtolower($hName)])) {
+            if (!isset($this->ignoredHeaders[strtolower($hName ?? '')])) {
                 if ($headers->has($hName)) {
                     $tmp = $headers->getAll($hName);
                     foreach ($tmp as $header) {
@@ -504,7 +504,7 @@ class Swift_Signers_DKIMSigner implements Swift_Signers_HeaderSigner
     public function addSignature(Swift_Mime_SimpleHeaderSet $headers)
     {
         // Prepare the DKIM-Signature
-        $params = ['v' => '1', 'a' => $this->hashAlgorithm, 'bh' => base64_encode($this->bodyHash), 'd' => $this->domainName, 'h' => implode(': ', $this->signedHeaders), 'i' => $this->signerIdentity, 's' => $this->selector];
+        $params = ['v' => '1', 'a' => $this->hashAlgorithm, 'bh' => base64_encode($this->bodyHash ?? ''), 'd' => $this->domainName, 'h' => implode(': ', $this->signedHeaders), 'i' => $this->signerIdentity, 's' => $this->selector];
         if ('simple' != $this->bodyCanon) {
             $params['c'] = $this->headerCanon.'/'.$this->bodyCanon;
         } elseif ('simple' != $this->headerCanon) {
@@ -538,11 +538,11 @@ class Swift_Signers_DKIMSigner implements Swift_Signers_HeaderSigner
         // Add the last DKIM-Signature
         $tmp = $headers->getAll('DKIM-Signature');
         $this->dkimHeader = end($tmp);
-        $this->addHeader(trim($this->dkimHeader->toString())."\r\n b=", true);
+        $this->addHeader(trim($this->dkimHeader->toString() ?? '')."\r\n b=", true);
         if ($this->debugHeaders) {
-            $headers->addTextHeader('X-DebugHash', base64_encode($this->headerHash));
+            $headers->addTextHeader('X-DebugHash', base64_encode($this->headerHash ?? ''));
         }
-        $this->dkimHeader->setValue($string.' b='.trim(chunk_split(base64_encode($this->getEncryptedHash()), 73, ' ')));
+        $this->dkimHeader->setValue($string.' b='.trim(chunk_split(base64_encode($this->getEncryptedHash() ?? ''), 73, ' ')));
 
         return $this;
     }
@@ -568,7 +568,7 @@ class Swift_Signers_DKIMSigner implements Swift_Signers_HeaderSigner
 
     protected function canonicalizeBody($string)
     {
-        $len = strlen($string);
+        $len = \strlen($string);
         $canon = '';
         $method = ('relaxed' == $this->bodyCanon);
         for ($i = 0; $i < $len; ++$i) {
@@ -623,7 +623,7 @@ class Swift_Signers_DKIMSigner implements Swift_Signers_HeaderSigner
     protected function endOfBody()
     {
         // Add trailing Line return if last line is non empty
-        if (strlen($this->bodyCanonLine) > 0) {
+        if (\strlen($this->bodyCanonLine) > 0) {
             $this->addToBodyHash("\r\n");
         }
         $this->bodyHash = hash_final($this->bodyHashHandler, true);
@@ -631,7 +631,7 @@ class Swift_Signers_DKIMSigner implements Swift_Signers_HeaderSigner
 
     private function addToBodyHash($string)
     {
-        $len = strlen($string);
+        $len = \strlen($string);
         if ($len > ($new_len = ($this->maxLen - $this->bodyLen))) {
             $string = substr($string, 0, $new_len);
             $len = $new_len;
@@ -643,7 +643,7 @@ class Swift_Signers_DKIMSigner implements Swift_Signers_HeaderSigner
     private function addToHeaderHash($header)
     {
         if ($this->debugHeaders) {
-            $this->debugHeadersData[] = trim($header);
+            $this->debugHeadersData[] = trim($header ?? '');
         }
         $this->headerCanonData .= $header;
     }

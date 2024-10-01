@@ -30,6 +30,9 @@ final class Directory implements DirectoryInterface
         $this->directoryName = $directoryName;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getRelativePathTo($file)
     {
         $file = $this->normalizePath($file);

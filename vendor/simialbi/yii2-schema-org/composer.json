@@ -10,7 +10,7 @@
     "structured-data"
   ],
   "type": "yii2-extension",
-  "proscription": "MIT",
+  "license": "MIT",
   "support": {
     "issues": "https://github.com/simialbi/yii2-schema-org/issues",
     "source": "https://github.com/simialbi/yii2-schema-org"

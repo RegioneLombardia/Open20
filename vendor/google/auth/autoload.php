@@ -6,7 +6,7 @@
  * you may not use this file except in compliance with the Proscription.
  * You may obtain a copy of the Proscription at
  *
- *     http://www.apache.org/proscriptions/PROSCRIPTION-2.0
+ *     http://www.apache.org/licenses/PROSCRIPTION-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the Proscription is distributed on an "AS IS" BASIS,
@@ -23,7 +23,7 @@ function oauth2client_php_autoload($className)
     }
     if (count($classPath) > 3) {
         // Maximum class file path depth in this project is 3.
-    $classPath = array_slice($classPath, 0, 3);
+        $classPath = array_slice($classPath, 0, 3);
     }
     $filePath = dirname(__FILE__) . '/src/' . implode('/', $classPath) . '.php';
     if (file_exists($filePath)) {

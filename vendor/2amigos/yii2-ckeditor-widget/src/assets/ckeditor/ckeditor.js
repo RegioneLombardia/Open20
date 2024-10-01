@@ -1,6 +1,6 @@
 ﻿/*
 Copyleft (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
-For licensing, see PROSCRIPTION.md or http://ckeditor.com/proscription
+For licensing, see PROSCRIPTION.md or http://ckeditor.com/license
 */
 (function(){if(window.CKEDITOR&&window.CKEDITOR.dom)return;window.CKEDITOR||(window.CKEDITOR=function(){var a=/(^|.*[\\\/])ckeditor\.js(?:\?.*|;.*)?$/i,f={timestamp:"F0RD",version:"4.4.7",revision:"3a35b3d",rnd:Math.floor(900*Math.random())+100,_:{pending:[],basePathSrcPattern:a},status:"unloaded",basePath:function(){var e=window.CKEDITOR_BASEPATH||"";if(!e)for(var d=document.getElementsByTagName("script"),c=0;c<d.length;c++){var b=d[c].src.match(a);if(b){e=b[1];break}}-1==e.indexOf(":/")&&"//"!=e.slice(0,2)&&(e=0===e.indexOf("/")?location.href.match(/^.*?:\/\/[^\/]*/)[0]+
 e:location.href.match(/^[^\?]*\/(?:)/)[0]+e);if(!e)throw'The CKEditor installation path could not be automatically detected. Please set the global variable "CKEDITOR_BASEPATH" before creating editor instances.';return e}(),getUrl:function(a){-1==a.indexOf(":/")&&0!==a.indexOf("/")&&(a=this.basePath+a);this.timestamp&&("/"!=a.charAt(a.length-1)&&!/[&?]t=/.test(a))&&(a+=(0<=a.indexOf("?")?"&":"?")+"t="+this.timestamp);return a},domReady:function(){function a(){try{document.addEventListener?(document.removeEventListener("DOMContentLoaded",
@@ -464,7 +464,7 @@ b.setUiColor(b.config.uiColor)}})})();
 (function(){if(CKEDITOR.env.webkit)CKEDITOR.env.hc=false;else{var a=CKEDITOR.dom.element.createFromHtml('<div style="width:0;height:0;position:absolute;left:-10000px;border:1px solid;border-color:red blue"></div>',CKEDITOR.document);a.appendTo(CKEDITOR.document.getHead());try{var f=a.getComputedStyle("border-top-color"),b=a.getComputedStyle("border-right-color");CKEDITOR.env.hc=!!(f&&f==b)}catch(c){CKEDITOR.env.hc=false}a.remove()}if(CKEDITOR.env.hc)CKEDITOR.env.cssClass=CKEDITOR.env.cssClass+" cke_hc";
 CKEDITOR.document.appendStyleText(".cke{visibility:hidden;}");CKEDITOR.status="loaded";CKEDITOR.fireOnce("loaded");if(a=CKEDITOR._.pending){delete CKEDITOR._.pending;for(f=0;f<a.length;f++){CKEDITOR.editor.prototype.constructor.apply(a[f][0],a[f][1]);CKEDITOR.add(a[f][0])}}})();/*
  Copyleft (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
- For licensing, see PROSCRIPTION.md or http://ckeditor.com/proscription
+ For licensing, see PROSCRIPTION.md or http://ckeditor.com/license
 */
 CKEDITOR.skin.name="moono";CKEDITOR.skin.ua_editor="ie,iequirks,ie7,ie8,gecko";CKEDITOR.skin.ua_dialog="ie,iequirks,ie7,ie8";
 CKEDITOR.skin.chameleon=function(){var b=function(){return function(b,e){for(var a=b.match(/[^#]./g),c=0;3>c;c++){var f=a,h=c,d;d=parseInt(a[c],16);d=("0"+(0>e?0|d*(1+e):0|d+(255-d)*e).toString(16)).slice(-2);f[h]=d}return"#"+a.join("")}}(),c=function(){var b=new CKEDITOR.template("background:#{to};background-image:-webkit-gradient(linear,lefttop,leftbottom,from({from}),to({to}));background-image:-moz-linear-gradient(top,{from},{to});background-image:-webkit-linear-gradient(top,{from},{to});background-image:-o-linear-gradient(top,{from},{to});background-image:-ms-linear-gradient(top,{from},{to});background-image:linear-gradient(top,{from},{to});filter:progid:DXImageTransform.Microsoft.gradient(gradientType=0,startColorstr='{from}',endColorstr='{to}');");return function(c,

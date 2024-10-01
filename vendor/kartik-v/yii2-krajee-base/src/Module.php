@@ -2,7 +2,7 @@
 
 /**
  * @package   yii2-krajee-base
- * @version   1.9.9
+ * @version   3.0.5
  */
 
 namespace kartik\base;
@@ -12,9 +12,10 @@ use yii\base\InvalidConfigException;
 use yii\base\Module as YiiModule;
 
 /**
- * Base module class for Krajee extensions
+ * This is the base module class for all modules implemented in Krajee extensions. It includes specific
+ * enhancements for configuring translations for the Krajee modules. It also allows initializing Bootstrap library
+ * specific parameters based on the Bootstrap library version (3.x, 4.x, or 5.x) used by your application.
  *
- * @since 1.9.9
  */
 class Module extends YiiModule implements BootstrapInterface
 {

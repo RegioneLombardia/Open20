@@ -10,7 +10,7 @@
         "gallery"
     ],
     "type": "yii2-extension",
-    "proscription": "BSD-3-Clause",
+    "license": "BSD-3-Clause",
     "homepage": "https://github.com/2amigos/yii2-gallery-widget",
     "authors": [
         {

@@ -1,0 +1,47 @@
+/**
+PAGINA RACCOGLITORE CON MODULO LAYOUTSECTION + LINKPANEL
+*/
+.wrap-modules {
+    .uk-section.box-pagina-raccoglitore-standard {
+        > .uk-container {
+            @extend .d-flex;
+            @extend .flex-row;
+            @extend .justify-content-start;
+            @extend .align-items-stretch;
+            @extend .flex-wrap;
+            > a.item-link.el-link {
+                @extend .col-12;
+                @extend .col-md-6;
+                @extend .col-lg-4;
+                @extend .mb-3;
+                > .panel-link-item {
+                    height: 200px;
+                    overflow: hidden;
+                    @extend .position-relative;
+                    img {
+                        object-fit: cover;
+                        height: 100%;
+                        width: 100%;
+                    }
+                    > .el-content {
+                        @extend .position-absolute;
+                        @extend .pl-2;
+                        @extend .w-100;
+                        bottom: 0;
+                        > .el-title {
+                            @extend .p-2;
+                            @extend .equal-font-size-h6;
+                            background-color: $tertiary;
+                            @include get-color-contrast($tertiary);
+                        }
+                    }
+                }
+                &:hover {
+                    .el-title {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}

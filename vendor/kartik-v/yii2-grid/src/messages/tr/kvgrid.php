@@ -17,13 +17,6 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Failed to update editable data due to an unknown server error' => '',
-    'Invalid editable index or model form name' => '',
-    'Invalid or bad editable data' => '',
-    'Krajee Solutions' => '',
-    'Krajee Yii2 Grid Export Extension' => '',
-    'No valid editable model found' => '',
-    'There are {totalCount} records. Are you sure you want to display them all?' => '',
     'Actions' => 'Eylemler',
     'Active' => 'Etkin',
     'Add Book' => 'Kitap Ekle',
@@ -64,6 +57,7 @@ return [
     'Request submitted! You may safely close this dialog after saving your downloaded file.' => 'İstek gönderildi! İndirilen dosyayı kaydettikten sonra güvenle bu iletişim kutusunu kapatabilir.',
     'Reset Grid' => 'Izgarayı Sıfırla',
     'Resize table columns just like a spreadsheet by dragging the column edges.' => 'Sadece kolon kenarlarını sürükleyerek bir tablo gibi sütunları yeniden boyutlandırınız.',
+    'Select...' => '',
     'Show all data' => 'Tüm verileri göster',
     'Show first page data' => 'İlk sayfa verisini göster',
     'Showing <b>{begin, number}-{end, number}</b> of <b>{totalCount, number}</b> {totalCount, plural, one{{item}} other{{items}}}.' => '<b>{totalCount, number}</b>  {totalCount, plural, one{{item}} few{{items-few}} many{{items-many}} other{{items}}} <b>{begin, number}-{end, number} arası gösteriliyor.</b>',
@@ -89,4 +83,13 @@ return [
     'items-many' => 'öğenin',
     'krajee, grid, export, yii2-grid, pdf' => 'Krajee, ızgara, ihracat, yii2-ızgara, pdf',
     '© Krajee Yii2 Extensions' => '© Krajee Yii2 Uzantıları',
+    '<small>Loading &hellip;</small>' => '',
+    'Failed to update editable data due to an unknown server error' => '',
+    'Invalid editable index or model form name' => '',
+    'Invalid or bad editable data' => '',
+    'Krajee Solutions' => '',
+    'Krajee Yii2 Grid Export Extension' => '',
+    'No valid editable model found' => '',
+    'There are {totalCount} records. Are you sure you want to display them all?' => '',
+    'items-acc' => '',
 ];

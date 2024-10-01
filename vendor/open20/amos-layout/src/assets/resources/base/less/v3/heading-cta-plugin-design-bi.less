@@ -1,0 +1,44 @@
+.bi-plugin-header {
+    font-size: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    @media (min-width:576px) {
+        flex-wrap: nowrap;
+    }
+    .cta-wrapper {
+        // display: flex;
+        // align-items: center;
+        margin-left: auto;
+        // padding-bottom: @padding-medium;
+
+        @media (min-width: 768px) {
+            justify-content: flex-end;
+        }
+
+        a {
+            span+span {
+                margin-left: 5px;
+            }
+
+        }
+
+        a:not(.btn) {
+            text-decoration: none;
+
+            span {
+                text-decoration: none;
+                text-transform: uppercase;
+
+            }
+        }
+
+    }
+
+    .manage-cta-container {
+        .cta {
+            margin-left: 10px;
+            padding: 8px;
+        }
+    }
+}

@@ -2,7 +2,7 @@
 
 /**
  * @package   yii2-grid
- * @version   3.2.9
+ * @version   3.5.3
  */
 
 namespace kartik\grid;
@@ -14,7 +14,6 @@ use yii\grid\Column;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Json;
-use yii\web\View;
 
 /**
  * RadioColumn displays a column of radio inputs in a grid view. It is different than the CheckboxColumn in the sense
@@ -26,7 +25,7 @@ use yii\web\View;
  * 'columns' => [
  *     // ...
  *     [
- *         'class' => RadioColumn::className(),
+ *         'class' => RadioColumn::class,
  *         // you may configure additional properties here
  *     ],
  * ]
@@ -49,13 +48,16 @@ class RadioColumn extends Column
     public $showClear = true;
 
     /**
-     * @var array the HTML attributes for the clear button in the header. The following special option is recognized:
-     * - label: string, the label for the button (defaults to `&times;`);
+     * @var array the HTML attributes for the clear button in the header. Note that the CSS class 'kv-clear-radio'
+     * will automatically be added to this array. The following special option is recognized:
+     * - label: string, the label for the button. Defaults to:
+     *   - `<i class="glyphicon glyphicon-remove-circle"></i>` for bootstrap 3.x and
+     *   - `<i class="far fa-remove-circle"></i>` for bootstrap 4.x and bootstrap 5.x
      */
-    public $clearOptions = ['class' => 'close'];
+    public $clearOptions = [];
 
     /**
-     * @var array|\Closure the HTML attributes for radio inputs. This can either be an array of attributes or an
+     * @var array|Closure the HTML attributes for radio inputs. This can either be an array of attributes or an
      * anonymous function ([[Closure]]) that returns such an array. The signature of the function should be the
      * following: `function ($model, $key, $index, $column)`. Where `$model`, `$key`, and `$index` refer to the
      * model, key and index of the row currently being rendered and `$column` is a reference to the [[RadioColumn]]
@@ -127,13 +129,15 @@ class RadioColumn extends Column
         if ($this->header !== null || !$this->showClear) {
             return parent::renderHeaderCellContent();
         } else {
-            $label = ArrayHelper::remove($this->clearOptions, 'label', '&times;');
+            $icon = !$this->grid->isBs(3) ? '<i class="far fa-times-circle"></i>' :
+                '<i class="glyphicon glyphicon-remove-circle"></i>';
+            $label = ArrayHelper::remove($this->clearOptions, 'label', $icon);
             Html::addCssClass($this->clearOptions, 'kv-clear-radio');
             if (empty($this->clearOptions['title'])) {
                 $this->clearOptions['title'] = Yii::t('kvgrid', 'Clear selection');
             }
             $this->_view->registerJs("kvClearRadio({$this->_clientVars});");
-            return Html::button($label, $this->clearOptions);
+            return Html::tag('span', $label, $this->clearOptions);
         }
     }
 

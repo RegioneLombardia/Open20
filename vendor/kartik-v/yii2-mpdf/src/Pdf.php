@@ -2,7 +2,7 @@
 
 /**
  * @package yii2-mpdf
- * @version 1.0.5
+ * @version 1.0.6
  */
 
 namespace kartik\mpdf;
@@ -197,32 +197,6 @@ class Pdf extends Component
     protected $_pdfAttachments;
 
     /**
-     * Defines a Mpdf temporary path if not set.
-     *
-     * @param string $prop the Mpdf constant to define
-     * @param string $dir the directory to create
-     *
-     * @throws InvalidConfigException
-     */
-    protected static function definePath($prop, $dir)
-    {
-        if (defined($prop)) {
-            $propDir = constant($prop);
-            if (is_writable($propDir)) {
-                return;
-            }
-        }
-        $status = true;
-        if (!is_dir($dir)) {
-            $status = mkdir($dir, 0777, true);
-        }
-        if (!$status) {
-            throw new InvalidConfigException("Could not create the folder '{$dir}' in '\$tempPath' set.");
-        }
-        define($prop, $dir);
-    }
-
-    /**
      * @inheritdoc
      */
     public function init()
@@ -234,18 +208,15 @@ class Pdf extends Component
 
     /**
      * Initialize folder paths to allow [[Mpdf]] to write temporary data.
-     *
-     * @throws InvalidConfigException
      */
     public function initTempPaths()
     {
         if (empty($this->tempPath)) {
             $this->tempPath = Yii::getAlias('@runtime/mpdf');
         }
-        $s = DIRECTORY_SEPARATOR;
-        $prefix = $this->tempPath . $s;
-        static::definePath('_MPDF_TEMP_PATH', "{$prefix}tmp{$s}");
-        static::definePath('_MPDF_TTFONTDATAPATH', "{$prefix}ttfontdata{$s}");
+        if (!file_exists($this->tempPath)) {
+            mkdir($this->tempPath);
+        }
     }
 
     /**
@@ -253,6 +224,10 @@ class Pdf extends Component
      *
      * @return mixed
      * @throws InvalidConfigException
+     * @throws \Mpdf\MpdfException
+     * @throws \setasign\Fpdi\PdfParser\CrossReference\CrossReferenceException
+     * @throws \setasign\Fpdi\PdfParser\PdfParserException
+     * @throws \setasign\Fpdi\PdfParser\Type\PdfTypeException
      */
     public function render()
     {
@@ -298,20 +273,27 @@ class Pdf extends Component
      * Fetches the content of the CSS file if supplied
      *
      * @return string
+     * @throws InvalidConfigException
      */
     public function getCss()
     {
         if (!empty($this->_css)) {
             return $this->_css;
         }
-        $cssFile = empty($this->cssFile) ? '' : Yii::getAlias($this->cssFile);
-        if (empty($cssFile) || !file_exists($cssFile)) {
-            $css = '';
-        } else {
-            $css = file_get_contents($cssFile);
+        $this->_css = '';
+        if (!empty($this->cssFile)) {
+            $cssFiles = is_array($this->cssFile) ? $this->cssFile : [$this->cssFile];
+            foreach ($cssFiles as $cssFile) {
+                $cssFile = Yii::getAlias($cssFile);
+                if (!empty($cssFile) && file_exists($cssFile)) {
+                    $this->_css .= file_get_contents($cssFile);
+                } else {
+                    throw new InvalidConfigException("CSS File not found: '{$cssFile}'.");
+                }
+            }
         }
-        $css .= $this->cssInline;
-        return $css;
+        $this->_css .= $this->cssInline;
+        return $this->_css;
     }
 
     /**
@@ -365,6 +347,10 @@ class Pdf extends Component
      *
      * @return mixed
      * @throws InvalidConfigException
+     * @throws \Mpdf\MpdfException
+     * @throws \setasign\Fpdi\PdfParser\CrossReference\CrossReferenceException
+     * @throws \setasign\Fpdi\PdfParser\PdfParserException
+     * @throws \setasign\Fpdi\PdfParser\Type\PdfTypeException
      */
     public function output($content = '', $file = '', $dest = self::DEST_BROWSER)
     {
@@ -383,7 +369,6 @@ class Pdf extends Component
             $api->WriteHTML($content);
         }
         if ($pdfAttachments) {
-            $api->SetImportUse();
             $api->SetHeader(null);
             $api->SetFooter(null);
             foreach ($pdfAttachments as $attachment) {
@@ -421,7 +406,7 @@ class Pdf extends Component
     /**
      * Parse the format automatically based on the orientation
      */
-    protected function parseFormat()
+    public function parseFormat()
     {
         $landscape = self::ORIENT_LANDSCAPE;
         $tag = '-' . $landscape;
@@ -435,9 +420,18 @@ class Pdf extends Component
      *
      * @param Mpdf $api the Mpdf API instance
      * @param string $attachment the attachment name
+     * @throws \setasign\Fpdi\PdfParser\CrossReference\CrossReferenceException
+     * @throws \setasign\Fpdi\PdfParser\PdfParserException
+     * @throws \setasign\Fpdi\PdfParser\Type\PdfTypeException
      */
-    private function writePdfAttachment($api, $attachment)
+    public function writePdfAttachment($api = null, $attachment = null)
     {
+        if ($attachment === null) {
+            return;
+        }
+        if ($api === null) {
+            $api = $this->getApi();
+        }
         $pageCount = $api->SetSourceFile($attachment);
         for ($i = 1; $i <= $pageCount; $i++) {
             $api->AddPage();

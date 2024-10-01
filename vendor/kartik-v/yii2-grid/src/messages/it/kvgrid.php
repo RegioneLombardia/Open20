@@ -17,10 +17,6 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Krajee Solutions' => '',
-    'Krajee Yii2 Grid Export Extension' => '',
-    'items-many' => '',
-    'items-manu' => '@@elementi@@',
     'Actions' => 'Opzioni',
     'Active' => 'Attivo',
     'Add Book' => 'Aggiungi Libro',
@@ -65,6 +61,7 @@ return [
     'Request submitted! You may safely close this dialog after saving your downloaded file.' => 'Richiesta inviata! E\' possibile chiudere questo popup dopo aver salvato il file scaricato.',
     'Reset Grid' => 'Azzera griglia',
     'Resize table columns just like a spreadsheet by dragging the column edges.' => 'Ridimensionare le colonne della tabella come un foglio di calcolo trascinando i bordi delle colonne.',
+    'Select...' => '',
     'Show all data' => 'Mostra tutti i dati',
     'Show first page data' => 'Mostra i dati della prima pagina',
     'Showing <b>{begin, number}-{end, number}</b> of <b>{totalCount, number}</b> {totalCount, plural, one{{item}} other{{items}}}.' => 'Visualizzo <b>{begin, number}-{end, number}</b> di <b>{totalCount, number}</b> {totalCount, plural, one{{item}} other{{items}}}.',
@@ -90,4 +87,10 @@ return [
     'items-few' => 'elementi',
     'krajee, grid, export, yii2-grid, pdf' => 'krajee, grid, export, yii2-grid, pdf',
     '© Krajee Yii2 Extensions' => '© Krajee Yii2 Extensions',
+    '<small>Loading &hellip;</small>' => '',
+    'Krajee Solutions' => '',
+    'Krajee Yii2 Grid Export Extension' => '',
+    'items-acc' => '',
+    'items-many' => '',
+    'items-manu' => '@@elementi@@',
 ];

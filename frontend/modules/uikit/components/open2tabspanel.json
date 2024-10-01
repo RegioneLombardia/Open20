@@ -1,0 +1,44 @@
+{
+    "vars": [
+        {
+            "var": "items",
+            "label": "Lista tab",
+            "description": "Definisce gli elementi tab, composti da intestazione che se cliccata apre il contenuto. Per ogni tab vanno definiti obbligatoriamente titolo e contenuto, icona è opzionale. Di default al caricamento della pagina è la prima tab a essere aperta.",
+            "type": "zaa-multiple-inputs",
+            "options": [
+                {
+                    "var": "title",
+                    "label": "Titolo della tab",
+                    "description": "",
+                    "initValue": "",
+                    "type": "zaa-text"
+                },{
+                    "var": "content",
+                    "label": "Contenuto della tab",
+                    "description": "",
+                    "initValue": "",
+                    "placeholder": "insert Html.",
+                    "type": "zaa-tinymce"
+                }
+            ]
+        },
+        {
+            "var": "is_vertical",
+            "label": "Tab verticali",
+            "description": "Se selezionato le tab vengono disposte verticalmente. Di default non è selezionato e sono disposte orizzontalmente.",
+            "initValue": "",
+            "type": "zaa-checkbox"
+        }
+    ],
+    "cfgs": [ 
+      
+        {
+            "var": "class",
+            "label": "Classe css",
+            "description": "Classe css associata al componente.",
+            "initValue": "",
+            "type": "zaa-text"
+        }
+    ]
+    
+}

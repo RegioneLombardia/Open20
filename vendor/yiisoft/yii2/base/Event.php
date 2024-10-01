@@ -30,7 +30,7 @@ class Event extends BaseObject
      */
     public $name;
     /**
-     * @var object the sender of this event. If not set, this property will be
+     * @var object|null the sender of this event. If not set, this property will be
      * set as the object whose `trigger()` method is called.
      * This property may also be a `null` when this event is a
      * class-level event which is triggered in a static context.
@@ -69,7 +69,7 @@ class Event extends BaseObject
      * `afterInsert` event:
      *
      * ```php
-     * Event::on(ActiveRecord::className(), ActiveRecord::EVENT_AFTER_INSERT, function ($event) {
+     * Event::on(ActiveRecord::class, ActiveRecord::EVENT_AFTER_INSERT, function ($event) {
      *     Yii::trace(get_class($event->sender) . ' is inserted.');
      * });
      * ```
@@ -125,7 +125,7 @@ class Event extends BaseObject
      *
      * @param string $class the fully qualified class name from which the event handler needs to be detached.
      * @param string $name the event name.
-     * @param callable $handler the event handler to be removed.
+     * @param callable|null $handler the event handler to be removed.
      * If it is `null`, all handlers attached to the named event will be removed.
      * @return bool whether a handler is found and detached.
      */
@@ -152,7 +152,7 @@ class Event extends BaseObject
             }
             if ($removed) {
                 self::$_events[$name][$class] = array_values(self::$_events[$name][$class]);
-                return $removed;
+                return true;
             }
         }
 
@@ -249,7 +249,7 @@ class Event extends BaseObject
      * for the specified class and all its parent classes.
      * @param string|object $class the object or the fully qualified class name specifying the class-level event.
      * @param string $name the event name.
-     * @param Event $event the event parameter. If not set, a default [[Event]] object will be created.
+     * @param Event|null $event the event parameter. If not set, a default [[Event]] object will be created.
      */
     public static function trigger($class, $name, $event = null)
     {
@@ -289,7 +289,7 @@ class Event extends BaseObject
         foreach ($classes as $class) {
             $eventHandlers = [];
             foreach ($wildcardEventHandlers as $classWildcard => $handlers) {
-                if (StringHelper::matchWildcard($classWildcard, $class)) {
+                if (StringHelper::matchWildcard($classWildcard, $class, ['escape' => false])) {
                     $eventHandlers = array_merge($eventHandlers, $handlers);
                     unset($wildcardEventHandlers[$classWildcard]);
                 }

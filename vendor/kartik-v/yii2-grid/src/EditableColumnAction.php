@@ -2,17 +2,19 @@
 
 /**
  * @package   yii2-grid
- * @version   3.2.9
+ * @version   3.5.3
  */
 
 namespace kartik\grid;
 
 use Yii;
 use Closure;
+use yii\base\InvalidConfigException;
 use yii\db\ActiveRecord;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\rest\Action;
+use yii\web\NotFoundHttpException;
 use yii\web\Response;
 use yii\web\BadRequestHttpException;
 
@@ -36,8 +38,8 @@ use yii\web\BadRequestHttpException;
  *    {
  *        return array_replace_recursive(parent::actions(), [
  *            'editbook' => [                                   // identifier for your editable column action
- *                'class' => EditableColumnAction::className(), // action class name
- *                'modelClass' => Book::className(),            // the model for the record being edited
+ *                'class' => EditableColumnAction::class,       // action class name
+ *                'modelClass' => Book::class,                  // the model for the record being edited
  *                'scenario' => Model::SCENARIO_DEFAULT,        // model scenario assigned before validation & update
  *                'outputValue' => function ($model, $attribute, $key, $index) {
  *                      return (int) $model->$attribute / 100;  // return a calculated output value if desired
@@ -138,7 +140,7 @@ class EditableColumnAction extends Action
         $m = Yii::$app->getModule(Module::MODULE);
         $out = $this->validateEditable();
         unset($m);
-        return Yii::createObject(['class' => Response::className(), 'format' => Response::FORMAT_JSON, 'data' => $out]);
+        return Yii::createObject(['class' => Response::class, 'format' => Response::FORMAT_JSON, 'data' => $out]);
     }
 
     /**
@@ -146,6 +148,8 @@ class EditableColumnAction extends Action
      *
      * @return array the output for the Editable action response
      * @throws BadRequestHttpException
+     * @throws InvalidConfigException
+     * @throws NotFoundHttpException
      */
     protected function validateEditable()
     {

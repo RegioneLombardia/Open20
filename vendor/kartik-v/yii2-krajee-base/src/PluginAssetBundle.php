@@ -2,13 +2,15 @@
 
 /**
  * @package   yii2-krajee-base
- * @version   1.9.9
+ * @version   3.0.5
  */
 
 namespace kartik\base;
 
 /**
- * Base asset bundle for Krajee extensions (including bootstrap plugins)
+ * This is the base asset bundle class for Krajee extensions which enables Krajee's special jQuery plugin handling
+ * functionality. It also includes special configurations to automatically enable Bootstrap library Plugins based
+ * on your bootstrap library version.
  *
  */
 class PluginAssetBundle extends AssetBundle

@@ -1,0 +1,29 @@
+{
+    "vars": [{
+            "var": "items",
+            "label": "Items",
+            "description": "",
+            "type": "zaa-multiple-inputs",
+            "options": [{
+                    "var": "title",
+                    "label": "Title",
+                    "description": "",
+                    "initvalue": "",
+                    "type": "zaa-text"
+                },
+                {
+                    "var": "attachment",
+                    "label": "attachment",
+                    "description": "",
+                    "initvalue": "",
+                    "options": {
+                        "no_filter": true
+                    },
+                    "type": "zaa-file-upload"
+                }
+                ]
+        }],
+    "defaults": {
+        
+    }
+}

@@ -1,0 +1,155 @@
+/**
+IMPORT AMOS-LAYOUT VARIABLES
+ */
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/v2/variables.less";
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/v2/utility.less";
+/**
+  IMPORT STYLE-CUSTOM
+   */
+@import (optional) "../../frontend/web/less/style_custom.less";
+
+.partnership-profiles {
+  .row-d-flex {
+    @media (min-width:768px) {
+    display: flex;
+    flex-wrap: wrap;
+    }
+  }
+  .col-auto {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: 100%;
+    @media (min-width:768px) {
+      flex: 0 0 100%;
+    max-width: 100%;
+    }
+  }
+  .border-left {
+    @media (min-width:768px) {
+    border-left: 5px solid #e9e6f2;
+    }
+  }
+  .info-proposte-collaborazione {
+    @media (min-width:768px) {
+      text-align: right;
+    }
+
+    .tipo-collaborazione {
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .date-end {
+      background-color: @tertiary-color;
+      color: contrast(@tertiary-color);
+      padding: 0 8px;
+    }
+
+    .author {
+      .post-header {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        float: none;
+        @media (min-width:768px){
+          justify-content: flex-end;
+        }
+        * {
+          float: none;
+        }
+
+        .post-header-avatar {
+          .container-round-img-sm {
+            width: 32px;
+            height: 32px;
+
+            img {
+              min-width: 32px;
+              min-height: 32px;
+            }
+          }
+        }
+
+        .creator {
+          font-size: 0.8888rem;
+          margin: 0;
+        }
+        .publication-date {
+          display: none
+        }
+      }
+
+    }
+
+    .other-info {
+      .published-by {
+        @media (max-width:767px) {
+          display: flex;
+          flex-wrap: wrap;
+        }
+        .item {
+          font-weight: bold;
+          @media (max-width:767px) {
+            padding-right: 12px;
+          }
+          label {
+            font-weight: normal;
+            font-size: 0.8888rem;
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .content-proposte-collaborazione {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    .title {
+      display: flex;
+      @media (min-width:768px) {
+        margin-top: 8px;
+      }
+      .manage {
+        margin-left: auto;
+      }
+    }
+
+    .footer-item {
+      margin-top: auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+
+       .box-interesse {
+        display: flex;
+        align-items: center;
+        color: @tertiary-color;
+
+        .num-interesse {
+          border: 2px solid @tertiary-color;
+          width: 38px;
+          height: 38px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.333rem;
+          font-weight: bold;
+          margin-right: 8px;
+        }
+      }
+      .readmore {
+        margin-left: auto;
+      }
+    }
+  }
+  .ml-auto {
+    margin-left: auto;
+  }
+  .new-badge {
+    position: relative;
+    font-size: 75%;
+  }
+}

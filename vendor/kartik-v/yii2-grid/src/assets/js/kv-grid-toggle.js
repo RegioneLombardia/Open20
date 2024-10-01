@@ -1,6 +1,6 @@
 /*!
  * @package   yii2-grid
- * @version   3.2.9
+ * @version   3.5.3
  *
  * jQuery methods library for yii2-grid toggle data
  * 

@@ -1,0 +1,27 @@
+{
+    "name": "open20/amos-partnership-profiles",
+    "description": "Partnership profiles - plugin",
+    "keywords": ["amos", "yii2", "partnership_profiles"],
+    "type": "plugin",
+    "license": "BSD-3-Clause",
+    "require": {
+        "php": ">=5.4.0",
+        "open20/amos-admin" : "*",
+        "open20/amos-attachments" : "*",
+        "open20/amos-comuni" : "*",
+        "open20/amos-community" : "*",
+        "open20/amos-dashboard" : "*",
+        "open20/amos-core" : "*"
+    },
+    "extra": {
+        "asset-installer-paths": {
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "open20\\amos\\partnershipprofiles\\": "src"
+        }
+    }
+}

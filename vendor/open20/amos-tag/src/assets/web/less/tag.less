@@ -1,0 +1,79 @@
+@import (optional) "../../vendor/open20/amos-core/views/assets/web/css/less/variables.less";
+/**
+IMPORT AMOS-LAYOUT VARIABLES
+ */
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/variables.less";
+/**
+IMPORT STYLE-CUSTOM
+ */
+/* @import (optional) "../../backend/web/less/style_custom.less"; */
+
+
+.tag-widget,
+.amos-cwh-tag-tree-container,
+.amos-tag-tree-container {
+  .kv-tree-wrapper .kv-tree-nofooter{ /* override */
+    border-bottom: 1px solid @border-color-default;
+  }
+
+  .preview_tag_tree {
+    .tag_selected{
+      background-color: @light-background-color;
+      border: 1px solid @border-color-default;
+      cursor: pointer;
+      font-size: 0.9em;
+      margin: 3px;
+      padding: 3px;
+      text-transform: uppercase;
+      display: table;
+
+      .tag_selected_part {
+        display: table-cell;
+
+        &.tag_selected_remove_container{
+          cursor: pointer;
+          width: 20px;
+          text-align: center;
+        }
+
+        .tag_selected_label{
+          font-weight: bold;
+        }
+
+        .tag_selected_parents {
+          font-size: 10px;
+        }
+      }
+    }
+  }
+
+  // kv-node-detail-parent - same graphics of class kv-node-detail by kartik (kv-tree.css)
+  .kv-node-detail-parent {
+    &:hover {
+      background-color: #e8e8e8;
+      cursor: default;
+    }
+    &:focus {
+      background-color: #f5f5f5;
+    }
+  }
+  .kv-has-checkbox .kv-selected > .kv-tree-list .kv-node-detail-parent {
+    background-color: #d9edf7;
+  }
+  .kv-parent > .kv-tree-list > .kv-node-detail-parent > .kv-node-icon{
+    &.kv-icon-child {
+      display: none;
+    }
+    &.kv-icon-parent, & .kv-node-opened{
+      display: inline;
+    }
+  }
+  .kv-collapsed > .kv-tree-list > .kv-node-detail-parent > .kv-node-icon {
+    .kv-node-opened {
+      display: none;
+    }
+    .kv-node-closed {
+      display: inline;
+    }
+  }
+}

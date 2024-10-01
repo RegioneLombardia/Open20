@@ -1,0 +1,32 @@
+{
+    "name": "open20/cms-dashboard",
+    "description": "Dashboard for CMS",
+    "keywords": [
+        "amos",
+        "yii2",
+        "less",
+        "css",
+        "dashboard",
+        "open 2.0",
+        "control",
+        "board"
+    ],
+    "homepage": "https://bitbucket.org/open20/cms-dashboard",
+    "type": "component",
+    "require": {
+        "php": ">=7.0.0",
+        "open20/amos-attachments" : "*",
+        "open20/amos-core" : "*",
+        "open20/amos-layout" : "*",
+        "open20/design" : "*",
+        "open20/amos-tag" : "*",
+        "open20/amos-favorites" : "*",
+        "amos/cms-module-userauth": "^1.6.2",
+        "yiisoft/yii2": ">=2.0.35"
+    },
+    "autoload": {
+        "psr-4": {
+            "open20\\cms\\dashboard\\": "src"
+        }
+    }
+}

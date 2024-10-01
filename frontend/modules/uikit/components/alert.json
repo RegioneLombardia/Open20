@@ -1,0 +1,62 @@
+{
+    "vars": [
+        {
+            "var": "alert_style",
+            "label": "Tipo di alert",
+            "description": "Seleziona il tipo di alert. Può essere informativo, di operazione conclusa con successo, di avvertimento o di pericolo. A seconda della selezione cambiano colori e icone.",
+            "initValue": "info",
+            "image" : "/img/type-alert.PNG",
+            "options": [
+                {
+                    "value": "info",
+                    "label": "Informativo"
+                },
+                {
+                    "value": "success",
+                    "label": "Successo"
+                },
+                {
+                    "value": "warning",
+                    "label": "Avvertimento"
+                },
+                {
+                    "value": "danger",
+                    "label": "Pericolo"
+                }
+            ],
+            "type": "zaa-select"
+        },
+        {
+            "var": "content",
+            "label": "Titolo",
+            "description": "Se selezionato sarà il titolo dell'alert. Ha un font più grande rispetto il testo normale ed è in grassetto. Non obbligatorio.",
+            "initValue": "",
+            "type": "zaa-wysiwyg"
+        }, {
+            "var": "additional_content",
+            "label": "Testo",
+            "description": "Se selezionato un testo di dimensione standard. Se è presente il titolo sarà visualizzato subito sotto separato da una linea divisoria, altrimenti direttamente a inizio alert. Non obbligatorio.",
+            "initValue": "",
+            "type": "zaa-wysiwyg"
+        },
+        {
+            "var": "can_close",
+            "label": "Alert disattivabile",
+            "description": "Se selezionato l'utente può chiudere l'alert attraverso una 'x'. Se non è selezionato l'utente non può chiudere il componente, quindi sarà sempre presente in pagina.",
+            "initValue": "",
+            "type": "zaa-checkbox"
+        }
+    ],
+    "cfgs": [
+        {
+            "var": "class",
+            "label": "Classe css",
+            "description": "Classe css associata al componente.",
+            "initValue": "",
+            "type": "zaa-text"
+        }
+    ],
+    "defaults": {
+        "alert_style": "info"
+    }
+}

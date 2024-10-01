@@ -5,6 +5,7 @@
 namespace yii\validators;
 
 use Yii;
+use yii\helpers\Json;
 use yii\web\UploadedFile;
 
 /**
@@ -23,22 +24,22 @@ class ImageValidator extends FileValidator
      */
     public $notImage;
     /**
-     * @var int the minimum width in pixels.
+     * @var int|null the minimum width in pixels.
      * Defaults to null, meaning no limit.
      */
     public $minWidth;
     /**
-     * @var int the maximum width in pixels.
+     * @var int|null the maximum width in pixels.
      * Defaults to null, meaning no limit.
      */
     public $maxWidth;
     /**
-     * @var int the minimum height in pixels.
+     * @var int|null the minimum height in pixels.
      * Defaults to null, meaning no limit.
      */
     public $minHeight;
     /**
-     * @var int the maximum width in pixels.
+     * @var int|null the maximum width in pixels.
      * Defaults to null, meaning no limit.
      */
     public $maxHeight;
@@ -158,7 +159,7 @@ class ImageValidator extends FileValidator
     {
         ValidationAsset::register($view);
         $options = $this->getClientOptions($model, $attribute);
-        return 'yii.validation.image(attribute, messages, ' . json_encode($options, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) . ', deferred);';
+        return 'yii.validation.image(attribute, messages, ' . Json::htmlEncode($options) . ', deferred);';
     }
 
     /**

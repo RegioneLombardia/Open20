@@ -1,0 +1,93 @@
+{
+    "vars": [
+        {
+            "var": "gallery_type",
+            "label": "Tipo di galleria",
+            "description": "Seleziona il tipo di galleria. Di default sarà un galleria lineare, in cui le foto hanno la stessa dimensione. Se invece si seleziona 'sfalsata' le foto avranno dimensioni diverse. Questo layout si può selezionare solo se ci sono almeno 6 foto.",
+            "initvalue": "1",
+            "options": [{
+                    "value": "1",
+                    "label": "Lineare",
+                    "image" : "/img/gallery/tipi_galleria_lineare.PNG"
+                }, {
+                    "value": "2",
+                    "label": "Sfalsata",
+                    "image" : "/img/gallery/tipi_galleria_sfasata.PNG"
+                }],
+                "type": "zaa-radio-image"
+        }, 
+        {
+            "var": "lightbox",
+            "label": "Zoom dell'immagine al click",
+            "description": "Se selezionato al click dell'immagine si aprirà un pop-up con l'immagine ingrandita.",
+            "initvalue": "",
+            "type": "zaa-checkbox"
+        },
+        {
+            "var": "items",
+            "label": "Elementi",
+            "description": "Seleziona gli elementi della galleria. Per ogni elemento si può selezionare una foto, una didascalia, la possibilità di mettere la didascalia sopra la foto e il link da agganciare all'immagine.",
+            "type": "zaa-multiple-inputs",
+            "options": [{
+                    "var": "image",
+                    "label": "Immagine",
+                    "description": "",
+                    "initValue": "",
+                    "options": {
+                        "no_filter": false
+                    },
+                    "type": "zaa-image-upload"
+                },
+                {
+                    "var": "img_dark",
+                    "label": "Ombreggiatura immagine",
+                    "description": "Se selezionato verrà scurita l'immagine. Consigliato nel caso in cui sia compilata la didascalia per questioni di leggibilità e accessibilità.",
+                    "initvalue": "",
+                    "type": "zaa-checkbox"
+                },
+                {
+                    "var": "content",
+                    "label": "Didascalia",
+                    "description": "",
+                    "initValue": "",
+                    "type": "zaa-wysiwyg"
+                },{
+                    "var": "superimposed_caption",
+                    "label": "Didascalia sovrapposta",
+                    "description": "",
+                    "initvalue": false,
+                    "type": "zaa-checkbox"
+                },
+                {
+                    "var": "link",
+                    "label": "Link",
+                    "description": "Enter or pick a link, an image or a video file.",
+                    "initvalue": "",
+                    "placeholder": "http:\/\/",
+                    "type": "zaa-link"
+                },
+                {
+                    "var": "link_target",
+                    "label": "Apri link in una nuova finestra",
+                    "description": "Se selezionato al click del link si aprirà il link di destinazione in una nuova finestra.",
+                    "initvalue": "",
+                    "type": "zaa-checkbox"
+                }
+                
+            ]
+        }
+    ],
+    "cfgs": [
+        {
+            "var": "class",
+            "label": "Classe css",
+            "description": "Classe css associata al componente.",
+            "initValue": "",
+            "type": "zaa-text"
+        }
+    ],
+    "defaults": {
+        "gallery_type": 1
+        
+    }
+}

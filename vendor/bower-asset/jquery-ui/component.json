@@ -2,7 +2,7 @@
   "name": "jquery-ui",
   "repo": "components/jqueryui",
   "version": "1.12.1",
-  "proscription": "MIT",
+  "license": "MIT",
   "scripts": [
     "jquery-ui.js"
   ],

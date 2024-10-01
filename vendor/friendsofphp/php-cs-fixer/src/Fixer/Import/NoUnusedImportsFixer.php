@@ -39,10 +39,12 @@ final class NoUnusedImportsFixer extends AbstractFixer
 
     /**
      * {@inheritdoc}
+     *
+     * Must run before BlankLineAfterNamespaceFixer, NoExtraBlankLinesFixer, NoLeadingImportSlashFixer, SingleLineAfterImportsFixer.
+     * Must run after ClassKeywordRemoveFixer, GlobalNamespaceImportFixer, PhpUnitFqcnAnnotationFixer, SingleImportPerStatementFixer.
      */
     public function getPriority()
     {
-        // should be run after the SingleImportPerStatementFixer
         return -10;
     }
 
@@ -141,7 +143,8 @@ final class NoUnusedImportsFixer extends AbstractFixer
 
                 if (
                     0 === strcasecmp($shortName, $token->getContent())
-                    && !$prevMeaningfulToken->isGivenKind([T_NS_SEPARATOR, T_CONST, T_OBJECT_OPERATOR, T_DOUBLE_COLON])
+                    && !$prevMeaningfulToken->isGivenKind([T_NS_SEPARATOR, T_CONST, T_DOUBLE_COLON])
+                    && !$prevMeaningfulToken->isObjectOperator()
                 ) {
                     return true;
                 }
@@ -151,7 +154,7 @@ final class NoUnusedImportsFixer extends AbstractFixer
 
             if ($token->isComment()
                 && Preg::match(
-                    '/(?<![[:alnum:]])(?<!\\\\)'.$shortName.'(?![[:alnum:]])/i',
+                    '/(?<![[:alnum:]\$])(?<!\\\\)'.$shortName.'(?![[:alnum:]])/i',
                     $token->getContent()
                 )
             ) {

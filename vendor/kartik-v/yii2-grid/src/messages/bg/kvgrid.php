@@ -17,6 +17,13 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
+    'Showing <b>{begin, number}-{end, number}</b> of <b>{totalCount, number}</b> {totalCount, plural, one{{item}} other{{items}}}.' => 'Показване на <b>{begin, number}-{end, number}</b> от <b>{totalCount, number}</b>  {totalCount, plural, one{{item}} few{{items-few}} many{{items-many}} other{{items}}}.',
+    'Total <b>{count, number}</b> {count, plural, one{{item}} other{{items}}}.' => '<b>{count, number}</b> {count, plural, one{{item}} few{{items-few}} many{{items-many}} other{{items}}}.',
+    'item' => 'запис',
+    'items' => 'записа',
+    'items-few' => 'записа',
+    'items-many' => 'записа',
+    '<small>Loading &hellip;</small>' => '',
     'Actions' => '',
     'Active' => '',
     'Add Book' => '',
@@ -63,6 +70,7 @@ return [
     'Request submitted! You may safely close this dialog after saving your downloaded file.' => '',
     'Reset Grid' => '',
     'Resize table columns just like a spreadsheet by dragging the column edges.' => '',
+    'Select...' => '',
     'Show all data' => '',
     'Show first page data' => '',
     'Tab Delimited Text' => '',
@@ -81,12 +89,7 @@ return [
     'Yii2 Grid Export (PDF)' => '',
     'export' => '',
     'grid-export' => '',
+    'items-acc' => '',
     'krajee, grid, export, yii2-grid, pdf' => '',
     '© Krajee Yii2 Extensions' => '',
-    'Showing <b>{begin, number}-{end, number}</b> of <b>{totalCount, number}</b> {totalCount, plural, one{{item}} other{{items}}}.' => 'Показване на <b>{begin, number}-{end, number}</b> от <b>{totalCount, number}</b>  {totalCount, plural, one{{item}} few{{items-few}} many{{items-many}} other{{items}}}.',
-    'Total <b>{count, number}</b> {count, plural, one{{item}} other{{items}}}.' => '<b>{count, number}</b> {count, plural, one{{item}} few{{items-few}} many{{items-many}} other{{items}}}.',
-    'item' => 'запис',
-    'items' => 'записа',
-    'items-few' => 'записа',
-    'items-many' => 'записа',
 ];

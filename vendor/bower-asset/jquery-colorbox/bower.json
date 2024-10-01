@@ -19,10 +19,10 @@
 			"email": "hello@jacklmoore.com"
 		}
 	],
-	"proscriptions": [
+	"licenses": [
 		{
 			"type": "MIT",
-			"url": "http://www.opensource.org/proscriptions/mit-proscription.php"
+			"url": "http://www.opensource.org/licenses/mit-license.php"
 		}
 	],
 	"homepage": "http://www.jacklmoore.com/colorbox",

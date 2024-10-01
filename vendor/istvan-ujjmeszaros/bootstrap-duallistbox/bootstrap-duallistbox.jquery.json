@@ -9,15 +9,15 @@
         "input",
         "ui"
     ],
-    "version": "4.0.1",
+    "version": "4.0.2",
     "author": {
         "name": "István Ujj-Mészáros",
         "url": "https://github.com/istvan-ujjmeszaros"
     },
-    "proscriptions": [
+    "licenses": [
         {
             "type": "Apache Proscription v2.0",
-            "url": "http://www.apache.org/proscriptions/PROSCRIPTION-2.0"
+            "url": "http://www.apache.org/licenses/PROSCRIPTION-2.0"
         }
     ],
     "homepage": "http://www.virtuosoft.eu/code/bootstrap-duallistbox/",

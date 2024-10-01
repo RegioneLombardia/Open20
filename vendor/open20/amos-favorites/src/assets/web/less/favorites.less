@@ -1,0 +1,120 @@
+.container-favourites {
+  .favourite-btn {
+    font-size: 24px;
+    color: #9B9B9B;
+
+    &:hover, &:focus {
+      color: #d97e00;
+    }
+  }
+
+  .added-to-favourites {
+    color: #d97e00;
+  }
+}
+
+.favorite-from-backend {
+  position: fixed;
+  top: 170px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  background-color: #FFF;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.08) !important;
+  border-radius: 50% !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  border: 1px solid #ccc;
+  @media (min-width: 1200px) {
+    right: 32px;
+  }
+}
+
+.shrink .favorite-from-backend {
+  transition: all 0.2s ease-in-out, transform 0.25s cubic-bezier(0.75, -0.5, 0, 1.75), visibility 0.3s linear, opacity 0.3s ease-in-out;
+  top: 110px;
+  margin-top: -52px;
+}
+
+.btn-modify-cms-page + .favorite-from-cms {
+  top: 220px;
+  right: 8px;
+}
+
+.favorite-from-cms {
+  position: fixed;
+  top: 170px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  background-color: #FFF;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.08) !important;
+  border-radius: 50% !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  border: 1px solid #ccc;
+  @media (min-width: 1200px) {
+    right: 32px;
+  }
+}
+
+.shrink {
+  .btn-modify-cms-page + .favorite-from-cms {
+    top: 170px;
+    right: 8px;
+  }
+}
+
+.shrink .favorite-from-cms {
+  transition: all 0.2s ease-in-out, transform 0.25s cubic-bezier(0.75, -0.5, 0, 1.75), visibility 0.3s linear, opacity 0.3s ease-in-out;
+  top: 110px;
+  margin-top: -52px;
+}
+
+
+.container-list-favorites {
+  .no-favorites {
+    line-height: 2em;
+    display: flex;
+    align-items: baseline;
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+  }
+
+  ul a {
+    line-height: 2em;
+    display: flex;
+    align-items: baseline;
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+  }
+
+  .icon-preferiti {
+    color: #d97e00;
+    margin-right: 8px;
+  }
+
+  .ul a .label-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-right: 0;
+  }
+
+  .label-caricamento {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+  }
+}
+

@@ -11,15 +11,34 @@
 
 namespace PhpCsFixer\FixerDefinition;
 
+use PhpCsFixer\Utils;
+
 /**
  */
 final class FixerDefinition implements FixerDefinitionInterface
 {
+    /**
+     * @var null|string
+     */
     private $riskyDescription;
+
     private $configurationDescription;
+
     private $defaultConfiguration;
+
+    /**
+     * @var CodeSampleInterface[]
+     */
     private $codeSamples;
+
+    /**
+     * @var string
+     */
     private $summary;
+
+    /**
+     * @var null|string
+     */
     private $description;
 
     /**
@@ -39,9 +58,9 @@ final class FixerDefinition implements FixerDefinitionInterface
         $riskyDescription = null
     ) {
         if (6 === \func_num_args()) {
-            @trigger_error('Arguments #5 and #6 of FixerDefinition::__construct() are deprecated and will be removed in 3.0, use argument #4 instead.', E_USER_DEPRECATED);
+            Utils::triggerDeprecation(new \RuntimeException('Arguments #5 and #6 of FixerDefinition::__construct() are deprecated and will be removed in 3.0, use argument #4 instead.'));
         } elseif (5 === \func_num_args()) {
-            @trigger_error('Argument #5 of FixerDefinition::__construct() is deprecated and will be removed in 3.0.', E_USER_DEPRECATED);
+            Utils::triggerDeprecation(new \RuntimeException('Argument #5 of FixerDefinition::__construct() is deprecated and will be removed in 3.0.'));
         } else {
             $riskyDescription = $configurationDescription;
             $configurationDescription = null;
@@ -67,14 +86,20 @@ final class FixerDefinition implements FixerDefinitionInterface
 
     public function getConfigurationDescription()
     {
-        @trigger_error(sprintf('%s is deprecated and will be removed in 3.0.', __METHOD__), E_USER_DEPRECATED);
+        Utils::triggerDeprecation(new \RuntimeException(sprintf(
+            '%s is deprecated and will be removed in 3.0.',
+            __METHOD__
+        )));
 
         return $this->configurationDescription;
     }
 
     public function getDefaultConfiguration()
     {
-        @trigger_error(sprintf('%s is deprecated and will be removed in 3.0.', __METHOD__), E_USER_DEPRECATED);
+        Utils::triggerDeprecation(new \RuntimeException(sprintf(
+            '%s is deprecated and will be removed in 3.0.',
+            __METHOD__
+        )));
 
         return $this->defaultConfiguration;
     }

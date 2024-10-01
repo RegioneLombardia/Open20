@@ -1,6 +1,6 @@
 /*!
  * @package yii2-number
- * v1.0.3
+ * v1.0.5
  *
  * Krajee number control jQuery plugin
  *
@@ -39,19 +39,31 @@
     NumberControl.prototype = {
         constructor: NumberControl,
         init: function () {
-            var self = this, $elDisp = self.$elDisp, $elSave = self.$elSave, opts = self.options.maskedInputOptions;
-            $elDisp.off('.numberControl').on('change.numberControl blur.numberControl', function () {
-                var num = $elDisp.inputmask('unmaskedvalue'), radix = opts.radixPoint || '.';
-                if (radix !== '.') {
-                    num = (num + '').replace(radix, '.');
+            var self = this, $elDisp = self.$elDisp, $elSave = self.$elSave, opts = self.options.maskedInputOptions,
+                NS = '.numberControl', events = ['change', 'blur', 'keypress', 'keydown'].join(NS + ' ') + NS,
+                originalValue = $elDisp.inputmask('unmaskedvalue'), radixPre = opts.radixPoint || '.';
+            if (radixPre !== '.') {
+                originalValue = (originalValue + '').replace('.', radixPre);
+            }
+            $elDisp.val(originalValue);
+            $elDisp.off(NS).on(events, function (e) {
+                var event = e.type, key = e.keyCode || e.which, enterKeyPressed = key && parseInt(key) === 13;
+                if (event === 'keypress' && !enterKeyPressed) {
+                    return;
                 }
-                $elSave.val(num).trigger('change');
+                if (event !== 'keydown' || enterKeyPressed) {
+                    var num = $elDisp.inputmask('unmaskedvalue'), radix = opts.radixPoint || '.';
+                    if (radix !== '.') {
+                        num = (num + '').replace(radix, '.');
+                    }
+                    $elSave.val(num).trigger('change');
+                }
             }).inputmask(opts);
         },
         destroy: function () {
             var self = this, $elDisp = self.$elDisp, $elSave = self.$elSave;
             $elDisp.off('.numberControl').removeData('inputmask');
-            $elSave.removeData('numberControl')
+            $elSave.removeData('numberControl');
         }
     };
 

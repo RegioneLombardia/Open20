@@ -1,0 +1,218 @@
+// WEBEX
+$primary: #2a7a38;
+$secondary: #5c6f82;
+
+#toolbar-search-char {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+  .char-search {
+    font-size: 16px;
+    padding: 4px;
+    text-align: center;
+    border: none;
+    text-decoration: none;
+    // height: 2.66667rem;
+    // min-width: 2.66667rem;
+    border-radius: 4px;
+    background: transparent;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $secondary;
+    margin: 0 4px;
+
+    @media (min-width:992px) {
+      width: calc(100% / 27);
+      margin: 0;
+    }
+
+    &:hover {
+      color: $primary;
+    }
+
+    &.active {
+
+      border: 1px solid $primary;
+      color: $primary;
+      pointer-events: none;
+      background: transparent;
+      color: $primary;
+      font-weight: bold;
+
+    }
+  }
+
+
+}
+
+.container-partecipants,
+#container-all-users {
+  margin-bottom: 20px;
+  margin-top: 30px;
+  .avatar-wrapper.avatar-extra-text {
+    margin-bottom: 0;
+  }
+
+  .avatar:focus-within {
+    border-color: #f90;
+    box-shadow: 0 0 0 2px #f90;
+    outline: none;
+  }
+
+  .list-view {
+
+    div[role="listbox"]:not(.grid) {
+      display: flex;
+      flex-wrap: wrap;
+      margin-left: 0px;
+      margin-right: 0px;
+
+      >div {
+        border-bottom: 1px solid #B1B1B3;
+        padding: 16px 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+
+        .item-participant {
+          display: flex;
+          align-items: center;
+          padding-right: 16px;
+          input {
+            margin-right: 16px;
+          }
+          .avatar-wrapper {
+            display: inline-flex;
+            align-items: center;
+
+            .avatar {
+              flex-shrink: 0;
+              background: #ebeced;
+              .container-round-img-xs {
+                border-radius: inherit;
+                width: inherit;
+                height:inherit;
+                overflow: inherit;
+                background-color: inherit;
+                margin: inherit;
+                border: none;
+                z-index: inherit;
+              }
+
+              &.size-xl {
+                width: 80px;
+                height: 80px;
+                
+              }
+              a {
+                width: 100%;
+                height: 100%;
+              }
+              img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                transition: filter 0.2s;
+                border-radius: 50%;
+              }
+            }
+            .extra-text {
+              margin-left: 16px;
+              line-height: 1.2em;
+               h4 {
+                font-size: 1.111rem;
+                margin-bottom: 0;
+               }
+            }
+          }
+        }
+
+        @media (min-width:576px) {
+          width: 50%;
+        }
+
+        @media (min-width:767px) {
+          width: 33.333%;
+        }
+      }
+    }
+  }
+
+  .pagination {
+    justify-content: center;
+    margin-top: 20px;
+
+    li {
+
+      span,
+      a {
+        border: none;
+        text-decoration: none;
+        height: 2.66667rem;
+        min-width: 2.66667rem;
+        border-radius: 4px;
+        background: transparent;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $secondary;
+      }
+
+      a {
+        &:hover {
+          color: $primary;
+        }
+      }
+
+      &.active {
+        a {
+          border: 1px solid $primary;
+          color: $primary;
+          pointer-events: none;
+          background: transparent;
+          color: $primary;
+        }
+      }
+    }
+  }
+}
+
+.btn-webex {
+  border: none !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  // background: linear-gradient(45deg, rgba(31, 194, 251, 1) 0%, rgba(54, 118, 254, 1) 50%, rgba(73, 209, 108, 1) 100%);
+  // background-image: linear-gradient(to right top, #1fc2fb, #3676fe, #49d16c) !important;
+  background-image: #000 !important;
+  width: 40px;
+  width: 40px;
+  height: 40px;
+  background-image: initial;
+  color: #FFF !important;
+  fill: #FFF;
+
+  span {
+    background: #1fc2fb;
+    background: -webkit-linear-gradient(to right, #1fc2fb 0%, #3676fe 50%, #49d16c 100%);
+    background: -moz-linear-gradient(to right, #1fc2fb 0%, #3676fe 50%, #49d16c 100%);
+    background: linear-gradient(to right, #1fc2fb 0%, #3676fe 50%, #49d16c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &:hover {
+    color: #FFF !important;
+    background: #fff !important;
+  }
+
+}
+
+.datepicker-dropdown {
+  z-index: 99 !important;
+}

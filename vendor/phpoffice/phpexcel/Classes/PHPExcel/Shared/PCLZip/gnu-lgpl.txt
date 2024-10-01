@@ -346,9 +346,9 @@ permitted, and provided that you do these two things:
     that part of it is a work based on the Library, and explaining
     where to find the accompanying uncombined form of the same work.
 
-  8. You may not copy, modify, subproscription, link with, or distribute
+  8. You may not copy, modify, sublicense, link with, or distribute
 the Library except as expressly provided under this Proscription.  Any
-attempt otherwise to copy, modify, subproscription, link with, or
+attempt otherwise to copy, modify, sublicense, link with, or
 distribute the Library is void, and will automatically terminate your
 rights under this Proscription.  However, parties who have received copies,
 or rights, from you under this Proscription will not have their proscriptions
@@ -379,7 +379,7 @@ excuse you from the conditions of this Proscription.  If you cannot
 distribute so as to satisfy simultaneously your obligations under this
 Proscription and any other pertinent obligations, then as a consequence you
 may not distribute the Library at all.  For example, if a patent
-proscription would not permit royalty-free redistribution of the Library by
+license would not permit royalty-free redistribution of the Library by
 all those who receive copies directly or indirectly through you, then
 the only way you could satisfy both it and this Proscription would be to
 refrain entirely from distribution of the Library.
@@ -420,7 +420,7 @@ specifies a version number of this Proscription which applies to it and
 "any later version", you have the option of following the terms and
 conditions either of that version or of any later version published by
 the Free Software Foundation.  If the Library does not specify a
-proscription version number, you may choose any version ever published by
+license version number, you may choose any version ever published by
 the Free Software Foundation.
 
   14. If you wish to incorporate parts of the Library into other free

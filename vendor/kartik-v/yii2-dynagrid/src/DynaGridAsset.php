@@ -2,7 +2,7 @@
 
 /**
  * @package   yii2-dynagrid
- * @version   1.5.1
+ * @version   1.5.5
  */
 
 namespace kartik\dynagrid;

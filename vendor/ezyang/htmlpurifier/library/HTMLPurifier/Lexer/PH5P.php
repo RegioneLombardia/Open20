@@ -50,7 +50,7 @@ Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the
 "Software"), to deal in the Software without restriction, including
 without limitation the rights to use, copy, modify, merge, publish,
-distribute, subproscription, and/or sell copies of the Software, and to
+distribute, sublicense, and/or sell copies of the Software, and to
 permit persons to whom the Software is furnished to do so, subject to
 the following conditions:
 
@@ -4410,7 +4410,7 @@ class HTML5TreeConstructer
 
         foreach ($token['attr'] as $attr) {
             if (!$el->hasAttribute($attr['name'])) {
-                $el->setAttribute($attr['name'], $attr['value']);
+                $el->setAttribute($attr['name'], (string)$attr['value']);
             }
         }
 

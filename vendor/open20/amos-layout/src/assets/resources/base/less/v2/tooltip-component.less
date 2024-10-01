@@ -1,0 +1,101 @@
+/* AMOS-LAYOUT */
+
+/**
+ Assistance div on dashboard button right position
+*/
+@fading-timer: .8s;
+@action-timer: .4s;
+@toltip-size: @min-tappable-area * 5/4; 
+
+.animated {
+  &#toggle-translate,
+  &#toggle-assistance { 
+    padding: 0;
+    margin: 0;
+    opacity: .8;
+    height: @toltip-size;
+    overflow: hidden;
+    border: 1px solid lighten(@brand-third-color, 20%);
+    transition: transform @action-timer, opacity @fading-timer;
+
+    background: @white-color;
+    color: @brand-secondary-color;
+    text-decoration: none;
+
+    position: fixed;
+    z-index: 999;
+
+    .tooltip-icon {
+      font-size: 1.8em;
+      text-decoration: none;
+      width: @toltip-size;
+      height: @toltip-size;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .tooltip-label {
+      font-size: 1.2em;
+      opacity: 0;
+      line-height: @toltip-size;
+      transform: translate3d(calc(~'100% - @{toltip-size}'), 0, 0);
+      transition: opacity @fading-timer, transform @action-timer;
+    }
+
+    .wrapper {
+      display: flex;
+      flex-direction: row;
+    }
+
+    &:hover,
+    &:focus {
+      opacity: 1;
+      outline: 0;
+      text-decoration: none;
+      transform: translate3d(0, 0, 0);
+
+      .tooltip-label {
+        text-decoration: underline;
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+  }
+
+  &#toggle-assistance {
+    transform: translate3d(calc(~'100% - @{toltip-size}'), 0, 0);
+
+    border-top-left-radius: @toltip-size/2;
+    border-width: 1px 0 0 1px;
+
+    right: 0;
+    bottom: 0;
+    left: auto;
+    top: auto;
+
+    .tooltip-label {
+      padding-right: @toltip-size/4;
+      transform: translate3d(calc(~'100% - @{toltip-size}'), 0, 0);
+    }
+  }
+
+  &#toggle-translate {
+    transform: translate3d(calc(~'-100% + @{toltip-size}'), 0, 0);
+
+    border-bottom-right-radius: @toltip-size/2;
+    border-width: 0 1px 1px 0;
+
+    left: 0;
+    top: 0;
+    right: auto;
+    bottom: auto;
+
+    .tooltip-label {
+      font-weight: normal;
+      text-transform: none;
+      padding-left: @toltip-size/4;
+      transform: translate3d(calc(~'-100% - @{toltip-size}'), 0, 0);
+    }
+  }
+}

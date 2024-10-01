@@ -14,14 +14,16 @@ namespace Symfony\Component\Finder\Iterator;
  * The anonymous function receives a \SplFileInfo and must return false
  * to remove files.
  *
+ *
+ * @extends \FilterIterator<string, \SplFileInfo>
  */
-class CustomFilterIterator extends FilterIterator
+class CustomFilterIterator extends \FilterIterator
 {
     private $filters = [];
 
     /**
-     * @param \Iterator  $iterator The Iterator to filter
-     * @param callable[] $filters  An array of PHP callbacks
+     * @param \Iterator<string, \SplFileInfo> $iterator The Iterator to filter
+     * @param callable[]                      $filters  An array of PHP callbacks
      *
      * @throws \InvalidArgumentException
      */
@@ -40,14 +42,15 @@ class CustomFilterIterator extends FilterIterator
     /**
      * Filters the iterator values.
      *
-     * @return bool true if the value should be kept, false otherwise
+     * @return bool
      */
+    #[\ReturnTypeWillChange]
     public function accept()
     {
         $fileinfo = $this->current();
 
         foreach ($this->filters as $filter) {
-            if (false === \call_user_func($filter, $fileinfo)) {
+            if (false === $filter($fileinfo)) {
                 return false;
             }
         }

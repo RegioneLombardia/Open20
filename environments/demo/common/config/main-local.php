@@ -1,35 +1,29 @@
 <?php
 
 /**
- * Lombardia Informatica S.p.A.
+ * Aria S.p.A.
  * OPEN 2.0
  *
  *
- * @package    lispa\amos\basic\template
+ * @package    open20\amos\basic\template
  * @category   CategoryName
  */
 
-/*---------- begin: BOOTSTRAP --------*/
-/*---------- end: BOOTSTRAP --------*/
-
-/*---------- begin: COMPONENTS AMOS --------*/
-/*---------- end: COMPONENTS AMOS --------*/
-
-/*---------- begin: COMPONENTS OTHERS --------*/
-$components['db'] = [
+$config = [
+    'components' => [
+        'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=localhost;dbname=dbname',
+            'dsn' => 'mysql:host=localhost;dbname=database',
             'username' => 'dbuser',
             'password' => 'dbpasswd',
             'charset' => 'utf8',
             'enableSchemaCache' => true,
             'schemaCacheDuration' => 88000,
             'schemaCache' => 'schemaCache',
-            'attributes'=>[
-                PDO::ATTR_PERSISTENT => true
-            ]
-        ];
-$components['mailer'] = [
+            //'attributes' => [PDO::ATTR_CASE => PDO::CASE_LOWER],//Enable on MySQL 8.X
+            
+        ],
+        'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             'useFileTransport' => false,
             'transport' => [
@@ -40,41 +34,12 @@ $components['mailer'] = [
                 'port' => 'email_port',
                 //'encryption' => 'tls',
             ],
-        ];
-/*---------- end: COMPONENTS OTHERS --------*/
-
-/*---------- begin: MODULES AMOS --------*/
-$modules['admin'] = [
-    'fieldsConfigurations' => [
-        'boxes' => [
-            'box_facilitatori' => ['form' => true, 'view' => true],
-            'box_privacy' => ['form' => true, 'view' => true],
+            'messageConfig' => [
+                'priority' => 3
+            ]
         ],
-        'fields' => [
-            'facilitatore_id' => ['form' => true, 'view' => true, 'referToBox' => 'box_facilitatori'],
-            'privacy' => ['form' => true, 'view' => true, 'referToBox' => 'box_privacy'],
-        ]
-    ]
-];
-$modules['community'] = [
-    'class' => 'lispa\amos\community\AmosCommunity',
-];
-$modules['cwh'] = [
-    'class' => 'lispa\amos\cwh\AmosCwh',
-    'rbacEnabled' => false
-];
-$modules['tag'] = [
-    'class' => 'lispa\amos\tag\AmosTag',
-];
-/*---------- end: MODULES AMOS --------*/
-
-/*---------- begin: MODULES OTHERS --------*/
-/*---------- end: MODULES OTHERS --------*/
-
-$config = [
-//    'bootstrap' => $bootstrap,
-//    'components' => $components,
-    'modules' => $modules,
+    ],
 ];
 
 return $config;
+

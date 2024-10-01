@@ -1,0 +1,188 @@
+// WIDGET AZIONI RAPIDE
+.widget-azioni-rapide {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px -12px;
+
+    .box-azione-rapida {
+        width: 100%;
+        min-height: 112px;
+        display: flex;
+        padding: 12px;
+
+        @media (min-width:576px) {
+            width: 50%;
+        }
+
+        @media (min-width:992px) {
+            width: 25%;
+        }
+        // &.azione-crea-pagina{
+        //     @media (min-width:992px) {
+        //         width: 40%;
+        //     } 
+        // }
+        a {
+            display: flex;
+            position: relative;
+            color: #000;
+            text-decoration: none;
+            width: 100%;
+            // justify-content: flex-end;
+            border-radius: 8px;
+            overflow: hidden;
+            transform: translateY(0);
+            transition: 0.4s ease-in-out transform;
+
+            &:hover,
+            &:focus {
+                transform: translateY(-5px);
+            }
+        }
+
+        .icon-azione {
+
+            position: absolute;
+            top: 5px;
+            left: 3px;
+
+            span {
+                font-size: 60px;
+                color: #FFF;
+
+                @media (min-width:768px) {
+                    font-size: 80px;
+                }
+            }
+        }
+
+        .text-azione {
+            position: relative;
+            text-transform: uppercase;
+            text-align: right;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+            margin-left: auto;
+            > small{
+                text-transform: lowercase;
+                margin-top: auto;
+                margin-left: auto;
+                width: 75%;
+                padding-top: 25px;
+                line-height: 1.2;
+                font-size: 14.5px;
+            }
+        }
+
+        &.azione-crea-modello {
+            a {
+                background: rgba(84, 35, 0, 0.15);
+            }
+
+        }
+
+        &.azione-crea-pagina {
+            a {
+                background: rgba(12, 0, 84, 0.15);
+            }
+        }
+
+        &.azione-crea-news {
+            a {
+                background: rgba(0, 79, 84, 0.15);
+            }
+        }
+
+        &.azione-crea-immagini {
+            a {
+                background: rgba(72, 84, 0, 0.15);
+            }
+        }
+
+        &.azione-crea-allegati {
+            a {
+                background: rgba(85, 85, 83, 0.15);
+            }
+        }
+    }
+}
+
+// WIDGET ATTIVITA ASSEGNATE
+.widget-task {
+    .list-task-dashboard {
+        li {
+            padding: 5px 0px;
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.05);
+            }
+        }
+
+        .d-flex {
+            display: flex;
+        }
+
+        .data {
+            margin-left: auto;
+        }
+    }
+}
+
+//WIDGET TABS
+.widget-tabs{
+    .nav-tabs {
+        justify-content: flex-end;
+        border-bottom: none;
+        position: relative;
+        .nav-link {
+            color: #000;
+            opacity: .5;
+            padding: 10px;
+            border-bottom: none;
+            &:hover {
+                opacity: 1;
+            }
+            &.active {
+                opacity: 1;
+                border-bottom: none;
+                background-color: $dashboard-color-primary;
+                border-radius: 8px 8px 0 0;
+                .title-tab {
+                    @media (min-width:768px){
+                        display: block;
+                    }
+                    
+                }
+            }
+            .title-tab {
+                display: none;
+                position: absolute;
+                left: 0;
+                top: 10px;
+            }
+        }
+    }
+    .icon-tab {
+        font-size: 30px;
+    }
+    .tab-content {
+        background-color: $dashboard-color-primary;
+        border-radius: 8px;
+    }
+}
+.itemRowDashboardTab {
+    padding: 6px;
+    font-size: 16px;
+    border-radius: 8px;
+    &:nth-child(even){
+        background-color: rgba(0, 0, 0, 0.05);
+    }
+    .title {
+        font-weight: bold;
+        a {
+            color: #000;
+        }
+        
+    }
+}

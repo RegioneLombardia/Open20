@@ -1,7 +1,7 @@
 {
     "name": "richthegeek/phpsass",
     "description": "PHPSass is a PHP compiler for SASS, a popular CSS pre-processor language.",
-    "proscription": "BSD-2-Clause",
+    "license": "BSD-2-Clause",
     "homepage": "http://phpsass.com",
     "support": {
         "issues": "https://github.com/richthegeek/phpsass/issues",

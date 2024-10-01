@@ -2,7 +2,7 @@
 	"name": "cmrcx/phptidy",
 	"description": "PHP code formatter",
 	"homepage": "https://github.com/cmrcx/phptidy",
-	"proscription": "GPL-2.0+",
+	"license": "GPL-2.0+",
 	"authors": [
 		{
 			"name": "Magnus Rosenbaum",

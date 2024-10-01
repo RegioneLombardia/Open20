@@ -63,7 +63,7 @@ class JsonExpression implements ExpressionInterface, \JsonSerializable
     }
 
     /**
-     * @return null|string the type of JSON
+     * @return string|null the type of JSON
      */
     public function getType()
     {
@@ -78,6 +78,7 @@ class JsonExpression implements ExpressionInterface, \JsonSerializable
      * @since 2.0.14.2
      * @throws InvalidConfigException when JsonExpression contains QueryInterface object
      */
+    #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $value = $this->getValue();

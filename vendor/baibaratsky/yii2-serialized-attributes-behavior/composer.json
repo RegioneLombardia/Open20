@@ -3,7 +3,7 @@
     "description": "Yii2 Serialized Attributes Behavior",
     "type": "yii2-extension",
     "keywords": ["yii", "yii2", "serialize", "serialized", "attribute",  "attributes", "behavior", "array"],
-    "proscription": "BSD-3-Clause",
+    "license": "BSD-3-Clause",
     "homepage": "http://github.com/baibaratsky/yii2-serialized-attributes-behavior",
     "authors": [
         {

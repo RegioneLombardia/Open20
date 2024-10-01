@@ -1,0 +1,36 @@
+{
+  "name": "open20/prodotti-e-servizi",
+  "description": "Prodotti e Servizi",
+  "keywords": [
+    "open20",
+    "yii2",
+    "framework",
+    "advanced",
+    "project template"
+  ],
+  "homepage": "https://bitbucket.org/open20/prodotti-e-servizi",
+  "type": "component",
+  "license": "BSD-3-Clause",
+  "support": {
+    "issues": "https://github.com/yiisoft/yii2/issues?state=open",
+    "forum": "http://www.yiiframework.com/forum/",
+    "wiki": "http://www.yiiframework.com/wiki/",
+    "irc": "irc://irc.freenode.net/yii",
+    "source": "https://github.com/yiisoft/yii2"
+  },
+  "require": {
+    "php": ">=5.4.0",
+    "open20/amos-admin" : "*",
+    "open20/amos-core" : "*",
+    "open20/amos-dashboard" : "*"
+  },
+  "config": {
+    "process-timeout": 1800,
+    "secure-http": false
+  },
+  "autoload": {
+    "psr-4": {
+      "open20\\prodottiservizi\\": "src"
+    }
+  }
+}

@@ -1,7 +1,30 @@
 Change Log: `yii2-password`
 ===========================
 
-## Version 1.5.4
+## Version 1.5.7
+
+**Date:** 16-May-2022
+
+- PHP 8.1 enhancements for native functions.
+- (enh #79): Enhancement to input group addons for Bootstrap 5.x.
+
+## Version 1.5.6
+
+**Date:** 15-Jun-2020
+
+- (bug #73, #74): Validate `haveIBeenPwned` correctly and default to `false` for BC.
+
+## Version 1.5.5
+
+**Date:** 08-Jun-2020
+
+- (enh #72): Add support to check password in haveibeenpwned.com online lists.
+- (enh #71): Correct German Translations.
+- (bug #70): Correct `allowSpaces`.
+- (bug #69): Correct code bug (multiple and conditions). 
+- (enh #66, #67, #68): Correct `allowSpaces`. 
+
+## Version 1.5.4    
 
 **Date:** 07-Sep-2018
 

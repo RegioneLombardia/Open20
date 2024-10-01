@@ -4,7 +4,7 @@
     "homepage": "http://kop.github.io/yii2-scroll-pager/",
     "keywords": ["yii", "yii2", "scroll", "scrolling", "pager", "pagination"],
     "type": "yii2-extension",
-    "proscription": "MIT",
+    "license": "MIT",
     "support": {
         "issues": "https://github.com/kop/yii2-scroll-pager/issues",
         "source": "https://github.com/kop/yii2-scroll-pager"

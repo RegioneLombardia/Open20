@@ -58,15 +58,15 @@ final class DoctrineAnnotationIndentationFixer extends AbstractDoctrineAnnotatio
     /**
      * {@inheritdoc}
      */
-    protected function fixAnnotations(Tokens $tokens)
+    protected function fixAnnotations(Tokens $doctrineAnnotationTokens)
     {
         $annotationPositions = [];
-        for ($index = 0, $max = \count($tokens); $index < $max; ++$index) {
-            if (!$tokens[$index]->isType(DocLexer::T_AT)) {
+        for ($index = 0, $max = \count($doctrineAnnotationTokens); $index < $max; ++$index) {
+            if (!$doctrineAnnotationTokens[$index]->isType(DocLexer::T_AT)) {
                 continue;
             }
 
-            $annotationEndIndex = $tokens->getAnnotationEnd($index);
+            $annotationEndIndex = $doctrineAnnotationTokens->getAnnotationEnd($index);
             if (null === $annotationEndIndex) {
                 return;
             }
@@ -76,16 +76,16 @@ final class DoctrineAnnotationIndentationFixer extends AbstractDoctrineAnnotatio
         }
 
         $indentLevel = 0;
-        foreach ($tokens as $index => $token) {
+        foreach ($doctrineAnnotationTokens as $index => $token) {
             if (!$token->isType(DocLexer::T_NONE) || false === strpos($token->getContent(), "\n")) {
                 continue;
             }
 
-            if (!$this->indentationCanBeFixed($tokens, $index, $annotationPositions)) {
+            if (!$this->indentationCanBeFixed($doctrineAnnotationTokens, $index, $annotationPositions)) {
                 continue;
             }
 
-            $braces = $this->getLineBracesCount($tokens, $index);
+            $braces = $this->getLineBracesCount($doctrineAnnotationTokens, $index);
             $delta = $braces[0] - $braces[1];
             $mixedBraces = 0 === $delta && $braces[0] > 0;
             $extraIndentLevel = 0;
@@ -93,7 +93,7 @@ final class DoctrineAnnotationIndentationFixer extends AbstractDoctrineAnnotatio
             if ($indentLevel > 0 && ($delta < 0 || $mixedBraces)) {
                 --$indentLevel;
 
-                if ($this->configuration['indent_mixed_lines'] && $this->isClosingLineWithMeaningfulContent($tokens, $index)) {
+                if ($this->configuration['indent_mixed_lines'] && $this->isClosingLineWithMeaningfulContent($doctrineAnnotationTokens, $index)) {
                     $extraIndentLevel = 1;
                 }
             }

@@ -32,14 +32,14 @@ namespace Symfony\Polyfill\Iconv;
  */
 final class Iconv
 {
-    const ERROR_ILLEGAL_CHARACTER = 'iconv(): Detected an illegal character in input string';
-    const ERROR_WRONG_CHARSET = 'iconv(): Wrong charset, conversion from `%s\' to `%s\' is not allowed';
+    public const ERROR_ILLEGAL_CHARACTER = 'iconv(): Detected an illegal character in input string';
+    public const ERROR_WRONG_CHARSET = 'iconv(): Wrong charset, conversion from `%s\' to `%s\' is not allowed';
 
     public static $inputEncoding = 'utf-8';
     public static $outputEncoding = 'utf-8';
     public static $internalEncoding = 'utf-8';
 
-    private static $alias = array(
+    private static $alias = [
         'utf8' => 'utf-8',
         'ascii' => 'us-ascii',
         'tis-620' => 'iso-8859-11',
@@ -112,13 +112,13 @@ final class Iconv
         'iso885914' => 'iso-8859-14',
         'iso885915' => 'iso-8859-15',
         'iso885916' => 'iso-8859-16',
-    );
-    private static $translitMap = array();
-    private static $convertMap = array();
+    ];
+    private static $translitMap = [];
+    private static $convertMap = [];
     private static $errorHandler;
     private static $lastError;
 
-    private static $ulenMask = array("\xC0" => 2, "\xD0" => 2, "\xE0" => 3, "\xF0" => 4);
+    private static $ulenMask = ["\xC0" => 2, "\xD0" => 2, "\xE0" => 3, "\xF0" => 4];
     private static $isValidUtf8;
 
     public static function iconv($inCharset, $outCharset, $str)
@@ -234,7 +234,7 @@ final class Iconv
         }
         $str = explode("\n\n", $str, 2);
 
-        $headers = array();
+        $headers = [];
 
         $str = preg_split('/\n(?![ \t])/', $str[0]);
         foreach ($str as $str) {
@@ -247,7 +247,7 @@ final class Iconv
             if (2 === \count($str)) {
                 if (isset($headers[$str[0]])) {
                     if (!\is_array($headers[$str[0]])) {
-                        $headers[$str[0]] = array($headers[$str[0]]);
+                        $headers[$str[0]] = [$headers[$str[0]]];
                     }
                     $headers[$str[0]][] = ltrim($str[1]);
                 } else {
@@ -264,7 +264,7 @@ final class Iconv
         if (null === $charset) {
             $charset = self::$internalEncoding;
         }
-        if (ICONV_MIME_DECODE_CONTINUE_ON_ERROR & $mode) {
+        if (\ICONV_MIME_DECODE_CONTINUE_ON_ERROR & $mode) {
             $charset .= '//IGNORE';
         }
 
@@ -273,7 +273,7 @@ final class Iconv
         }
         $str = preg_split('/\n(?![ \t])/', rtrim($str), 2);
         $str = preg_replace('/[ \t]*\n[ \t]+/', ' ', rtrim($str[0]));
-        $str = preg_split('/=\?([^?]+)\?([bqBQ])\?(.*?)\?=/', $str, -1, PREG_SPLIT_DELIM_CAPTURE);
+        $str = preg_split('/=\?([^?]+)\?([bqBQ])\?(.*?)\?=/', $str, -1, \PREG_SPLIT_DELIM_CAPTURE);
 
         $result = self::iconv('utf-8', $charset, $str[0]);
         if (false === $result) {
@@ -285,7 +285,7 @@ final class Iconv
 
         while ($i < $len) {
             $c = strtolower($str[$i]);
-            if ((ICONV_MIME_DECODE_CONTINUE_ON_ERROR & $mode)
+            if ((\ICONV_MIME_DECODE_CONTINUE_ON_ERROR & $mode)
               && 'utf-8' !== $c
               && !isset(self::$alias[$c])
               && !self::loadMap('from.', $c, $d)) {
@@ -308,7 +308,7 @@ final class Iconv
                 if ('' !== trim($d)) {
                     $result .= $d;
                 }
-            } elseif (ICONV_MIME_DECODE_CONTINUE_ON_ERROR & $mode) {
+            } elseif (\ICONV_MIME_DECODE_CONTINUE_ON_ERROR & $mode) {
                 $result .= "=?{$str[$i]}?{$str[$i + 1]}?{$str[$i + 2]}?={$str[$i + 3]}";
             } else {
                 $result = false;
@@ -329,11 +329,11 @@ final class Iconv
             case 'internal_encoding': return self::$internalEncoding;
         }
 
-        return array(
+        return [
             'input_encoding' => self::$inputEncoding,
             'output_encoding' => self::$outputEncoding,
             'internal_encoding' => self::$internalEncoding,
-        );
+        ];
     }
 
     public static function iconv_set_encoding($type, $charset)
@@ -342,7 +342,6 @@ final class Iconv
             case 'input_encoding': self::$inputEncoding = $charset; break;
             case 'output_encoding': self::$outputEncoding = $charset; break;
             case 'internal_encoding': self::$internalEncoding = $charset; break;
-
             default: return false;
         }
 
@@ -352,16 +351,16 @@ final class Iconv
     public static function iconv_mime_encode($fieldName, $fieldValue, $pref = null)
     {
         if (!\is_array($pref)) {
-            $pref = array();
+            $pref = [];
         }
 
-        $pref += array(
+        $pref += [
             'scheme' => 'B',
             'input-charset' => self::$internalEncoding,
             'output-charset' => self::$internalEncoding,
             'line-length' => 76,
             'line-break-chars' => "\r\n",
-        );
+        ];
 
         if (preg_match('/[\x80-\xFF]/', $fieldName)) {
             $fieldName = '';
@@ -377,7 +376,7 @@ final class Iconv
 
         preg_match_all('/./us', $fieldValue, $chars);
 
-        $chars = isset($chars[0]) ? $chars[0] : array();
+        $chars = $chars[0] ?? [];
 
         $lineBreak = (int) $pref['line-length'];
         $lineStart = "=?{$pref['output-charset']}?{$scheme}?";
@@ -385,7 +384,7 @@ final class Iconv
         $lineOffset = \strlen($lineStart) + 3;
         $lineData = '';
 
-        $fieldValue = array();
+        $fieldValue = [];
 
         $Q = 'Q' === $scheme;
 
@@ -397,7 +396,7 @@ final class Iconv
             $o = $Q
                 ? $c = preg_replace_callback(
                     '/[=_\?\x00-\x1F\x80-\xFF]/',
-                    array(__CLASS__, 'qpByteCallback'),
+                    [__CLASS__, 'qpByteCallback'],
                     $c
                 )
                 : base64_encode($lineData.$c);
@@ -468,7 +467,7 @@ final class Iconv
 
         while ($i < $len) {
             $u = $s[$i] & "\xF0";
-            $i += isset($ulenMask[$u]) ? $ulenMask[$u] : 1;
+            $i += $ulenMask[$u] ?? 1;
             ++$j;
         }
 
@@ -537,10 +536,14 @@ final class Iconv
             $start += $slen;
         }
         if (0 > $start) {
-            return false;
+            if (\PHP_VERSION_ID < 80000) {
+                return false;
+            }
+
+            $start = 0;
         }
         if ($start >= $slen) {
-            return false;
+            return \PHP_VERSION_ID >= 80000 ? '' : false;
         }
 
         $rx = $slen - $start;
@@ -552,7 +555,7 @@ final class Iconv
             return '';
         }
         if (0 > $length) {
-            return false;
+            return \PHP_VERSION_ID >= 80000 ? '' : false;
         }
 
         if ($length > $rx) {
@@ -603,7 +606,7 @@ final class Iconv
                 $u[$j++] = $str[$i++];
             } else {
                 $ulen = $str[$i] & "\xF0";
-                $ulen = isset($ulenMask[$ulen]) ? $ulenMask[$ulen] : 1;
+                $ulen = $ulenMask[$ulen] ?? 1;
                 $uchr = substr($str, $i, $ulen);
 
                 if (1 === $ulen || !($valid || preg_match('/^.$/us', $uchr))) {
@@ -615,9 +618,9 @@ final class Iconv
                     trigger_error(self::ERROR_ILLEGAL_CHARACTER);
 
                     return false;
-                } else {
-                    $i += $ulen;
                 }
+
+                $i += $ulen;
 
                 $u[$j++] = $uchr[0];
 
@@ -665,15 +668,15 @@ final class Iconv
                 $uchr = $str[$i++];
             } else {
                 $ulen = $str[$i] & "\xF0";
-                $ulen = isset($ulenMask[$ulen]) ? $ulenMask[$ulen] : 1;
+                $ulen = $ulenMask[$ulen] ?? 1;
                 $uchr = substr($str, $i, $ulen);
 
                 if ($ignore && (1 === $ulen || !($valid || preg_match('/^.$/us', $uchr)))) {
                     ++$i;
                     continue;
-                } else {
-                    $i += $ulen;
                 }
+
+                $i += $ulen;
             }
 
             if (isset($map[$uchr])) {
@@ -715,7 +718,7 @@ final class Iconv
 
     private static function pregOffset($offset)
     {
-        $rx = array();
+        $rx = [];
         $offset = (int) $offset;
 
         while ($offset > 65535) {

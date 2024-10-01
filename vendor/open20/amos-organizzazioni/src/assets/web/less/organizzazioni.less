@@ -1,0 +1,296 @@
+/**
+IMPORT AMOS-LAYOUT VARIABLES
+ */
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/variables.less";
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/utility.less";
+/**
+IMPORT STYLE-CUSTOM
+ */
+@import (optional) "../../backend/web/less/style_custom.less";
+
+@background-color-info-organizzazioni-view: lighten(desaturate(spin(@primary-color, -0.3750), 80.7692), 70.9804);
+
+/**
+PROFILO _FORM
+ */
+.area-profilo-form {
+  .social-section {
+    background-color: @light-background-color;
+    margin-top: @margin-default;
+    h2 {
+      text-transform: uppercase;
+    }
+    .am {
+      font-size: 3em;
+      margin-top: 3px;
+    }
+    .form-group:not(last-child) {
+      margin-bottom: @margin-medium;
+    }
+  }
+  .field-profilo-la_sede_legale_e_la_stessa_del.required {
+    margin-bottom: @margin-default;
+    label.radio-inline::after { /* hide asterisk on radio */
+      display: none;
+    }
+    + #same_sede > .subtitle-form { /* override amos-layout */
+      margin-top: 0;
+    }
+  }
+}
+
+/**
+PROFILO VIEW
+ */
+.organizzazioni-view {
+  .info-view-header {
+    background-color: @background-color-info-organizzazioni-view;
+    padding: 0 @padding-default 0 0;
+    margin-bottom: @margin-default;
+    > div:not(.father-organization-container) {
+      min-height: 250px;
+    }
+    > div:first-child {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .img-responsive { /* bootstrap override */
+      max-width: 80%;
+      margin: 0 auto;
+    }
+    .subsection-info-view-header {
+      background-color: @primary-color;
+      color: contrast(@primary-color);
+      text-align: center;
+      padding: @padding-min @padding-min @padding-default;
+      .organization-title {
+        font-size: 1.5em;
+        margin-bottom: 20px;
+      }
+    }
+    .info-body {
+      > div {
+        &:first-child {
+          margin-top: @margin-large;
+        }
+      }
+      .info-label {
+        font-weight: bold;
+        text-align: right;
+        padding-right: @padding-medium;
+      }
+    }
+    .manage { /* override */
+      margin-top: 0px;
+      position: absolute;
+      right: 0px;
+      z-index: 999;
+    }
+    .organization-header-map {
+      margin-top: 30px;
+    }
+  }
+
+  .info-view-body {
+    > div {
+      margin-bottom: @margin-default;
+    }
+    .info-label {
+      font-weight: bold;
+      &.description-label {
+        margin: @margin-min auto; /* for description tag p */
+      }
+    }
+  }
+
+  .ui-accordion {
+    &.sede-accordion {
+      .info-label {
+        font-weight: bold;
+        text-align: right;
+        padding-right: @padding-medium;
+      }
+      .info-label {
+        font-weight: bold;
+      }
+    }
+    &.social-accordion {
+      .am-facebook-box {
+        color: @facebook;
+        font-size: 3em;
+      }
+      .am-twitter-box {
+        color: @twitter;
+        font-size: 3em;
+      }
+      .am-google-plus-box {
+        color: @google;
+        font-size: 3em;
+      }
+      .am-linkedin-box {
+        color: @linkedin;
+        font-size: 3em;
+      }
+      .ui-accordion-content > .col-sm-6 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      .ui-accordion-content > div span:nth-child(2) {
+        //position: relative;
+        //bottom: 10px;
+        margin-left: 10px;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .father-organization-container {
+    background-color: @light-background-primary-color;
+    padding: 0 0 0 @padding-medium;
+    margin: @margin-default 0;
+
+    .father-organization-content {
+      background-color: @white-color;
+      padding: @padding-medium;
+      display: inline-flex;
+      flex-direction: row;
+      justify-content: space-between;
+      @media (max-width: 992px) {
+        display: block;
+      }
+      > div {
+        width: 25%;
+        text-align: center;
+        &:not(:first-child) {
+          margin-top: 50px;
+        }
+        &:first-child {
+          width: 50%;
+        }
+      }
+      @media (max-width: 992px) {
+        > div, > div:first-child {
+          width: 100%;
+          margin-top: 0px;
+          display: flex;
+          justify-content: center;
+        }
+
+        > div:not(:first-child) {
+          margin-top: @margin-default;
+        }
+      }
+      .father-organization-image {
+        text-align: unset;
+        > div {
+          margin-top: 20px;
+          float: left;
+        }
+        img {
+          height: 100px;
+          margin-right: @margin-default;
+          float: left;
+          @media (max-width: 992px) {
+            //float: none;
+          }
+        }
+        span {
+          text-transform: uppercase;
+          font-weight: bold;
+        }
+        p {
+          font-size: 2em;
+          font-weight: bold;
+        }
+      }
+      > div:nth-child(2) {
+        span:first-child {
+          font-weight: bold;
+        }
+        span + span {
+          padding-left: @padding-medium;
+        }
+      }
+
+    }
+  }
+}
+
+/**
+ORGANIZATION CARD VIEW
+ */
+@organization-card-background-header: linear-gradient(lighten(@secondary-color, 20%), lighten(@secondary-color, 70%));
+@organization-card-background-footer: @primary-color;
+
+.card-container.organization-card-container {
+  .icon-header {
+    max-height: 200px;
+    overflow: hidden;
+    background: @organization-card-background-header;
+    text-align: center;
+    .dash {
+      font-size: 8em;
+      display: inline-block;
+      margin-top: @margin-min;
+      background: linear-gradient(@secondary-color, @white-color);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .manage {
+      background-color: @white-color;
+      margin-top: 1px;
+      .manage-menu {
+        color: @secondary-color;
+        &:hover {
+          border-radius: 0;
+          color: @white-color;
+        }
+      }
+    }
+  }
+  .icon-body {
+    padding: 0 @padding-medium;
+    h3 { /* override */
+      -webkit-box-orient: initial;
+    }
+    .title a {
+      color: @secondary-color;
+      text-transform: uppercase;
+    }
+  }
+  .icon-footer {
+    background-color: @organization-card-background-footer;
+    position: absolute;
+    bottom: 0;
+    min-height: 32px;
+    .amos-tooltip {
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      color: contrast(@organization-card-background-footer);
+    }
+    .icon-footer-link {
+      color: contrast(@organization-card-background-footer);
+      float: right;
+      text-transform: uppercase;
+      font-size: 1.2em;
+      vertical-align: middle;
+      position: relative;
+      top: 5px;
+      .am {
+        margin: 0 @margin-min;
+      }
+    }
+  }
+}
+
+/**
+FOOTER OVERRIDE
+ */
+.footer-sponsor-container,
+.footer-space {
+  position: absolute;
+  width: 100%;
+}

@@ -16,7 +16,6 @@ use PhpCsFixer\FixerDefinition\CodeSample;
 use PhpCsFixer\FixerDefinition\FixerDefinition;
 use PhpCsFixer\Tokenizer\Analyzer\Analysis\TypeAnalysis;
 use PhpCsFixer\Tokenizer\Analyzer\FunctionsAnalyzer;
-use PhpCsFixer\Tokenizer\Token;
 use PhpCsFixer\Tokenizer\Tokens;
 
 /**
@@ -75,17 +74,7 @@ final class FunctionTypehintSpaceFixer extends AbstractFixer
                     continue;
                 }
 
-                $whitespaceTokenIndex = $type->getEndIndex() + 1;
-
-                if ($tokens[$whitespaceTokenIndex]->equals([T_WHITESPACE])) {
-                    if (' ' === $tokens[$whitespaceTokenIndex]->getContent()) {
-                        continue;
-                    }
-
-                    $tokens->clearAt($whitespaceTokenIndex);
-                }
-
-                $tokens->insertAt($whitespaceTokenIndex, new Token([T_WHITESPACE, ' ']));
+                $tokens->ensureWhitespaceAtIndex($type->getEndIndex() + 1, 0, ' ');
             }
         }
     }

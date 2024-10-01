@@ -1,0 +1,915 @@
+@import "../../../../../../vendor/elitedivision/design/src/assets/resources/bootstrapitaliacustom/node_modules/bootstrap-italia/src/scss/bootstrap-italia";
+@import "../../../../../../vendor/elitedivision/design/src/assets/resources/bootstrapitaliacustom/scss/main-design";
+@import "../../../../../../common/web/scss/style_platform";
+
+.luya {
+    font-size: 0.9em;
+}
+
+/** TAB DASHBOARD*/
+.luya-content {
+    .card-columns {
+        font-family: "titillium-web", sans-serif;
+        .card {
+            @extend .rounded;
+            @extend .border;
+            @extend .border-light;
+            &::after {
+                @extend .d-none;
+            }
+            .card-header {
+                background-color: rgba(0, 0, 0, 0.03);
+                @extend .border-bottom-0;
+                padding: 1rem 1.25rem;
+            }
+        }
+        .list-group {
+            /**PRIMA COLONNA*/
+            .list-group-item {
+                @extend .mb-0;
+                .badge.badge-info {
+                    background-color: $secondary;
+                    @include get-color-contrast($secondary);
+                }
+            }
+            /**SECONDA COLONNA*/
+            .list-group-item {
+                @extend .text-decoration-none;
+                h5 {
+                    @extend .lead;
+                    @extend .font-weight-bold;
+                }
+                div,
+                small {
+                    @extend .text-black;
+                }
+            }
+        }
+    }
+}
+
+/**TAB DI GESTIONE FILE*/
+.filemanager {
+    font-family: "titillium-web", sans-serif;
+    .btn-add-folder {
+        @extend .btn-primary;
+        @extend .btn-sm;
+        &::after {
+            @extend .d-none;
+        }
+    }
+    .filemanager-file-actions {
+        .btn-upload {
+            @extend .btn-primary;
+        }
+        .btn-move {
+            @extend .btn-info;
+        }
+
+        input.filemanager-search {
+            @extend .border;
+        }
+    }
+    .filemanager-files-table {
+        .breadcrumb {
+            @extend .bg-100;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+        .table-responsive {
+            table.table {
+                tr.filemanager-file {
+                    input[type="checkbox"]:checked + label::before {
+                        background-color: transparent !important;
+                        opacity: 1 !important;
+                        transition: none;
+                    }
+                    input[type="checkbox"]:not(:checked) + label::before {
+                        height: 20px;
+                        width: 20px;
+                        left: 0;
+                        top: 3px;
+                        background-color: #c0c0c0;
+                        transform: none;
+                        border-radius: 4px;
+                        transition: none;
+                    }
+                    input[type="checkbox"]:not(:checked) + label::after {
+                        transition: none;
+                    }
+                    input[type="checkbox"]:checked + label::after {
+                        transition: none;
+                    }
+                }
+                .filemanager-info-btn {
+                    padding: 10px;
+                }
+            }
+        }
+    }
+
+    table {
+        @extend .table;
+        @extend .table-hover;
+        @extend .table-striped;
+    }
+}
+
+.file-detail-view {
+    font-family: "titillium-web", sans-serif;
+    .btn-download {
+        @extend .btn-xs;
+        @extend .btn-success;
+        &::after {
+            @extend .d-none;
+        }
+    }
+    .btn-replace {
+        @extend .btn-xs;
+        @extend .btn-info;
+        &::after {
+            @extend .d-none;
+        }
+    }
+    .btn-replace + button.btn {
+        @extend .btn-xs;
+        @extend .btn-100;
+        width: 36px;
+    }
+    .btn-delete {
+        @extend .btn-xs;
+        @extend .btn-danger;
+    }
+    .btn-cancel {
+        @extend .btn-xs;
+        @extend .btn-info;
+    }
+    .btn-upload {
+        @extend .btn-xs;
+        @extend .btn-primary;
+        &::after {
+            @extend .d-none;
+        }
+    }
+    .ng-binding {
+        margin: 1rem 2rem;
+        padding: 0;
+    }
+    .card {
+        @extend .mt-0;
+        &::after {
+            display: none;
+        }
+        .card-header {
+            margin: 1rem 2rem;
+            padding: 10px 0;
+        }
+        .card-body {
+            margin: 1rem 2rem;
+            padding: 0;
+        }
+    }
+}
+
+.btn-save {
+    @extend .btn-success;
+    @extend .btn-sm;
+}
+
+.btn-cancel {
+    @extend .btn-danger;
+}
+
+.form-side-by-side {
+    input[type="checkbox"]:checked + label::before {
+        background-color: transparent !important;
+        opacity: 1 !important;
+        transition: none;
+    }
+    input[type="checkbox"]:not(:checked) + label::before {
+        height: 20px;
+        width: 20px;
+        left: 0;
+        top: 3px;
+        background-color: #c0c0c0;
+        transform: none;
+        border-radius: 4px;
+        transition: none;
+    }
+    input[type="checkbox"]:not(:checked) + label::after {
+        transition: none;
+    }
+    input[type="checkbox"]:checked + label::after {
+        transition: none;
+    }
+}
+
+#loading-bar .bar {
+    background-color: $secondary;
+}
+
+/**CONTAINER GENERALE*/
+.luya-main-wrapper {
+    max-width: calc(100% - 180px);
+}
+
+.luya-mainnav-small + .luya-main-wrapper {
+    max-width: calc(100% - 62px) !important;
+}
+
+.btn-outline-config {
+    height: 34px;
+    width: 36px;
+    @extend .p-0;
+    @extend .d-flex;
+    @extend .align-items-center;
+    @extend .justify-content-center;
+    border: 1px solid #868e96;
+}
+
+.cmsadmin-toolbar {
+    .toolbar-item {
+        .dropdown {
+            .dropdown-menu {
+                padding: 0.5rem 0;
+                .dropdown-item {
+                    padding: 0.25rem 1.5rem;
+                }
+            }
+        }
+    }
+}
+
+input[type] {
+    @extend .font-weight-normal;
+}
+
+ul.nav.nav-tabs {
+    .nav-link {
+        font-weight: normal;
+    }
+}
+
+.cmsadmin-nav-tabs {
+    ul.nav.nav-tabs {
+        background-color: transparent;
+        overflow-x: visible;
+        overflow-y: visible;
+        li {
+            > a {
+                @extend .text-black;
+                border-bottom: 1px solid transparent;
+                &:hover {
+                    //border: ;
+                }
+            }
+            .dropdown-toggle {
+                @extend .font-weight-normal;
+                &::after {
+                    border-left: 0.3em solid transparent !important;
+                    border-right: 0.3em solid transparent !important;
+                    border-top: 0.3em solid !important;
+                    margin-left: 5px;
+                }
+            }
+            .dropdown-menu.dropdown-menu-right {
+                font-size: 14px;
+                padding: 0;
+                &::before {
+                    @extend .d-none;
+                }
+                .dropdown-item {
+                    padding: 0.25rem 1.5rem;
+                    span {
+                        span {
+                            @extend .mr-2;
+                        }
+                    }
+                    &.active {
+                        background-color: rgba(0, 0, 0, 0.1);
+                        @extend .text-black;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.form-group label,
+.form-group input {
+    @extend .text-black;
+}
+
+.modal-dialog {
+    .modal-content {
+        .modal-body {
+            .card-body {
+                form {
+                    .form-group {
+                        margin-bottom: 1rem;
+                        .form-side {
+                            .list {
+                                .list-item {
+                                    .list-buttons {
+                                        .btn-group button {
+                                            height: 40px;
+                                            width: 40px;
+                                            display: flex;
+                                            align-items: center;
+                                            justify-content: center;
+                                        }
+                                    }
+                                }
+                            }
+                            .list + button {
+                                align-self: flex-start;
+                            }
+                            label {
+                                @extend .position-relative;
+                                line-height: 1.2;
+                                text-overflow: initial;
+                                white-space: pre-wrap;
+                            }
+                            .form-check {
+                                @extend .mt-0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.tooltip {
+    z-index: 1070;
+    opacity: 1;
+    position: fixed;
+}
+
+//MODALI (MODIFICA PAG ETC)
+.modal-xl {
+    max-width: 100% !important;
+    margin: 30px 50px !important;
+    font-family: "titillium-web", sans-serif;
+
+    .modal-header {
+        @extend .py-3;
+        border-bottom: 1px solid $primary;
+        h5 {
+            @extend .text-primary;
+        }
+    }
+    .modal-body {
+        .nav-pills {
+            .nav-link.active {
+                background-color: rgba(0, 0, 0, 0.1) !important;
+            }
+            .nav-link-icon.active .material-icons,
+            .nav-link-icon:hover .material-icons {
+                color: $primary;
+            }
+        }
+        zaa-radio-image {
+            .form-side-by-side {
+                .form-side {
+                    &:nth-child(2) {
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        > div.form-check {
+                            @extend .mb-3;
+                            max-width: 25%;
+                        }
+                    }
+                    label {
+                        height: auto;
+                    }
+                }
+            }
+            img[src="/img/slideshow/item-testuale.PNG"],
+            img[src="/img/slideshow/item-fotografico.PNG"] {
+                height: 180px;
+                margin-bottom: 10px;
+            }
+        }
+        //MODALE IMPOSTAZIONI
+        .btn-save {
+            @extend .btn-success;
+        }
+        .alert.alert-info {
+            background-image: none;
+            @extend .mb-3;
+        }
+        @extend .pb-3;
+    }
+}
+
+/**MENU LATERALI IN COLORI CUSTOM*/
+//MENU SX
+.luya-mainnav {
+    font-family: "titillium-web", sans-serif;
+    width: 180px;
+    &.luya-mainnav-small {
+        width: 62px;
+    }
+    .mainnav {
+        background-color: $primary;
+        @media (min-width: 960px) {
+            flex: 0 0 180px;
+            width: 180px;
+        }
+        &.mainnav-small {
+            @media (min-width: 960px) {
+                flex: 0 0 62px !important;
+                width: 62px !important;
+            }
+        }
+        .mainnav-icon.material-icons {
+            color: $white;
+        }
+        .mainnav-link-active .mainnav-icon {
+            color: $white;
+        }
+    }
+}
+
+.mainnav-toggler {
+    background-color: $primary;
+    &:hover {
+        background-color: $primary;
+    }
+}
+
+.luya-subnav {
+    @media (min-width: 960px) {
+        flex: 0 0 220px;
+        max-width: 220px;
+    }
+    .cmsnav-list-buttons {
+        li {
+            .btn-success {
+                @extend .btn-xs;
+                @extend .btn-primary;
+            }
+            .btn-info {
+                @extend .btn-xs;
+                @extend .btn-secondary;
+            }
+        }
+    }
+    .cmsnav-switch {
+        display: none;
+    }
+}
+
+//MENU DX
+.blockholder-column {
+    border-left: 1px solid $black;
+    width: 200px;
+    position: fixed !important;
+    max-height: 100%;
+    //height: calc(100vh - 120px);
+    @extend .pl-0;
+    @extend .pr-0;
+    &.blockholder-column-small {
+        width: 255px;
+    }
+    .blockholder {
+        background-color: #f8f9fa;
+        .blockholder-search {
+            border-bottom-color: $black;
+            .material-icons {
+                color: $black;
+            }
+            .blockholder-search-input {
+                color: $black;
+            }
+        }
+        .blockholder-item {
+            color: $primary;
+            .material-icons {
+                color: $primary;
+            }
+        }
+        .blockholder-group-title {
+            font-weight: bold;
+            color: $black;
+            .blockholder-toggle-icon {
+                color: $black;
+                font-size: 24px;
+            }
+            .ng-binding {
+                color: $black;
+            }
+        }
+        .blockholder-list {
+            li {
+                color: $black;
+                .blockholder-icon {
+                    color: $black;
+                }
+                &:hover {
+                    border-color: transparent;
+                    background-color: $white;
+                    border-radius: 4px;
+                    button {
+                        background-color: transparent;
+                    }
+                }
+            }
+        }
+        .blockholder-toggler {
+            background-color: $black;
+            &:hover {
+                background-color: $black;
+            }
+        }
+    }
+}
+
+.cmsadmin {
+    min-height: 100vh;
+    @media (min-width: 960px) {
+        margin-right: 200px;
+    }
+}
+
+.cmsadmin-blockholder-collapsed {
+    @media (min-width: 960px) {
+        margin-right: 48px;
+    }
+}
+
+.block__edit {
+    display: flex;
+    flex-direction: column;
+    button.btn-save {
+        align-self: flex-end;
+    }
+}
+
+//FONT GENERALE PIU PICCOLO
+.luya-main {
+    //controlla grandezza font menu dx + nome container in pagina + label radio anteprima a sx
+    font-size: 14px;
+    font-family: "titillium-web", sans-serif;
+}
+
+//PARTI IN MEZZO PIU PICCOLE
+.block-front {
+    padding: 5px 0 5px 0;
+}
+
+zaa-social-search {
+    .form-side {
+        .form-check {
+            label {
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                line-height: 2 !important;
+                white-space: initial !important;
+            }
+        }
+    }
+}
+
+.cmsadmin-page {
+    .card {
+        border: 0px;
+        background-color: #f8f9fa;
+        font-size: 12px;
+
+        .card-body {
+            padding: 0 5px;
+            .icon {
+                width: 32px;
+                height: 32px;
+            }
+            .row {
+                margin-right: -5px !important;
+                margin-left: -5px !important;
+            }
+            .col,
+            .col-1,
+            .col-2,
+            .col-3,
+            .col-4,
+            .col-5,
+            .col-6,
+            .col-7,
+            .col-8,
+            .col-9,
+            .col-10,
+            .col-11,
+            .col-12,
+            .col-auto,
+            .col-lg,
+            .col-lg-1,
+            .col-lg-2,
+            .col-lg-3,
+            .col-lg-4,
+            .col-lg-5,
+            .col-lg-6,
+            .col-lg-7,
+            .col-lg-8,
+            .col-lg-9,
+            .col-lg-10,
+            .col-lg-11,
+            .col-lg-12,
+            .col-lg-auto,
+            .col-md,
+            .col-md-1,
+            .col-md-2,
+            .col-md-3,
+            .col-md-4,
+            .col-md-5,
+            .col-md-6,
+            .col-md-7,
+            .col-md-8,
+            .col-md-9,
+            .col-md-10,
+            .col-md-11,
+            .col-md-12,
+            .col-md-auto,
+            .col-sm,
+            .col-sm-1,
+            .col-sm-2,
+            .col-sm-3,
+            .col-sm-4,
+            .col-sm-5,
+            .col-sm-6,
+            .col-sm-7,
+            .col-sm-8,
+            .col-sm-9,
+            .col-sm-10,
+            .col-sm-11,
+            .col-sm-12,
+            .col-sm-auto,
+            .col-xl,
+            .col-xl-1,
+            .col-xl-2,
+            .col-xl-3,
+            .col-xl-4,
+            .col-xl-5,
+            .col-xl-6,
+            .col-xl-7,
+            .col-xl-8,
+            .col-xl-9,
+            .col-xl-10,
+            .col-xl-11,
+            .col-xl-12,
+            .col-xl-auto,
+            .col-xxl,
+            .col-xxl-1,
+            .col-xxl-2,
+            .col-xxl-3,
+            .col-xxl-4,
+            .col-xxl-5,
+            .col-xxl-6,
+            .col-xxl-7,
+            .col-xxl-8,
+            .col-xxl-9,
+            .col-xxl-10,
+            .col-xxl-11,
+            .col-xxl-12,
+            .col-xxl-auto,
+            .col-xxxl,
+            .col-xxxl-1,
+            .col-xxxl-2,
+            .col-xxxl-3,
+            .col-xxxl-4,
+            .col-xxxl-5,
+            .col-xxxl-6,
+            .col-xxxl-7,
+            .col-xxxl-8,
+            .col-xxxl-9,
+            .col-xxxl-10,
+            .col-xxxl-11,
+            .col-xxxl-12,
+            .col-xxxl-auto {
+                padding-right: 5px !important;
+                padding-left: 5px !important;
+            }
+        }
+    }
+    .block {
+        border: 1px solid #ddd;
+        margin: 30px 0;
+        padding: 0 5px;
+        &:hover,
+        &:focus {
+            .block-toolbar {
+                background-color: transparent;
+                color: $black;
+                .toolbar-item {
+                    button {
+                        color: $black;
+                    }
+                }
+            }
+        }
+        &:hover {
+            border-color: black !important;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+    }
+    .block-toolbar {
+        background-color: transparent;
+        flex-wrap: nowrap;
+        padding-left: 0;
+        padding-right: 0;
+        .toolbar-item {
+            font-size: 16px;
+            padding: 2px 0px;
+            .block-toolbar-button {
+                margin-left: 0px;
+            }
+        }
+    }
+    .block-edit {
+        .block-front {
+            padding: 15px 5px 5px 5px;
+        }
+    }
+    .social-share {
+        .icon {
+            width: 32px;
+            height: 32px;
+        }
+    }
+    .menu-link-list {
+        .icon {
+            width: 32px;
+            height: 32px;
+        }
+    }
+    .icon {
+        width: 100%;
+        height: 100%;
+        fill: currentColor;
+    }
+}
+
+.card::after {
+    @extend .d-none;
+}
+
+.toasts-toast {
+    .alert {
+        background-image: none !important;
+        @extend .text-black;
+    }
+}
+
+.form-side:not(.form-side-label) {
+    display: flex;
+    flex-direction: column;
+
+    input[type="checkbox"] + label,
+    input[type="radio"] + label {
+        line-height: 1.5;
+        overflow: visible;
+    }
+}
+
+.form-side-label {
+    flex: 0 1 200px;
+    min-width: 200px;
+}
+
+textarea {
+    border: 1px solid #d9dadb !important;
+}
+
+.btn-delete {
+    @extend .btn-danger;
+}
+.treeview-item .treeview-icon > label {
+    overflow: visible;
+}
+
+div[type="input-hint"] {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #d9dadb;
+    margin: 0 0.5rem 50px;
+    font-style: italic;
+    font-size: 14px;
+    padding: 10px 0;
+    color: #5e7887;
+    i {
+        margin-right: 3px;
+        color: $secondary;
+    }
+}
+
+.link-selector {
+    .link-selector-btn.btn.btn-secondary {
+        @extend .btn-xs;
+    }
+}
+
+div[ng-if^="field.hasOwnProperty('image') && field.image != ''"] > img {
+    width: auto;
+    margin: 0 auto 30px;
+    max-width: 100%;
+}
+
+.layout-columns {
+    @extend .pb-2;
+    div[ng-show^="placeholder"] {
+        padding: 10px 0px 5px !important;
+        @extend .font-weight-bold;
+    }
+    .empty-placeholder {
+        text-align: left;
+        @extend .px-1;
+    }
+}
+
+.empty-placeholder {
+    img {
+        max-height: 130px;
+        width: auto !important;
+        margin: auto;
+    }
+}
+
+.block-is-container {
+    background-color: #f0f0f0;
+    @extend .p-1;
+}
+
+/**SEMPLIFICAZIONE TEXT EDITOR*/
+.mce-tinymce.mce-container.mce-panel {
+    .mce-container-body.mce-stack-layout {
+        .mce-top-part {
+            .mce-menubar.mce-toolbar.mce-first {
+                @extend .d-none;
+            }
+        }
+    }
+}
+
+/**
+FORM NATIVI CMS CON BI ATTIVO
+(update parziale nuova dxp)
+*/
+.luya {
+    .form-group label {
+        position: relative;
+    }
+}
+
+/**
+Z-INDEX MODALE DI CANCELLAZIONE
+*/
+.luya + .toasts.ng-scope.toasts--mainnav-small {
+    z-index: 1060;
+}
+
+/**
+PAGINAZIONE
+*/
+.pagination{
+    justify-content: center;
+    .pagination-page{
+        display: inline-flex;
+        align-items: center;
+        >*:nth-child(1){
+            font-weight: bold !important;
+            border-bottom: 0;
+        }
+        .pagination-number-of-pages{
+            padding:0.375rem 0.5rem;
+        }
+    }
+}
+
+.cms-bk-hr{
+    border-top:2px solid rgba(0, 0, 0, 0.3) !important;
+}
+
+.container-messages{
+    margin-top: 25px;
+}
+
+/**OSCURAMENTO LINK DESTINAZIONE*/
+
+
+
+div.modal[data-descr="stop"]{
+    .modal-body{
+        form{
+            zaa-link-options{
+                >div >.form-group.form-side-by-side:nth-child(1){
+                    display: none !important;
+                }
+            }
+        }
+    }
+}

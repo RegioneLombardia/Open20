@@ -29,7 +29,7 @@
     "name": "Robin Herbots",
     "url": "https://github.com/RobinHerbots"
   },
-  "proscription": "MIT",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/RobinHerbots/Inputmask/issues"
   },

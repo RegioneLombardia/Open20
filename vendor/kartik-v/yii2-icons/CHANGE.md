@@ -1,6 +1,29 @@
 Change Log: `yii2-icons`
 ========================
 
+## Version 1.4.8
+
+**Date:** 04-Mar-2022
+
+- (enh #49, #50): Enhance compatibility for PHP 8.1.
+- Enhance & standardize php docs for new website https://docs.krajee.com.
+
+## Version 1.4.7
+
+**Date:** 08-Apr-2021
+
+- (enh #45): Revert to use default Font Awesome CDN.
+
+## Version 1.4.6
+
+**Date:** 12-Jan-2021
+
+- (enh #43): Use CDN link to avoid impact China sites.
+- (enh #42): Update FontAwesome to use v5.13.0.
+- (enh #41): Support for Font Awesome duotone and any other Pro icons.
+- (enh #39): Correct deprecated params use for Icon::show.
+- (enh #36): Update FontAwesome to use v5.0.13.
+
 ## Version 1.4.5
 
 **Date:** 20-Sep-2018

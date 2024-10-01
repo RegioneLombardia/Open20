@@ -15,7 +15,7 @@
   ],
   "homepage": "https://github.com/kartik-v/yii2-widget-touchspin",
   "type": "yii2-extension",
-  "proscription": "BSD-3-Clause",
+  "license": "BSD-3-Clause",
   "authors": [
     {
       "name": "Kartik Visweswaran",
@@ -24,7 +24,7 @@
     }
   ],
   "require": {
-    "kartik-v/yii2-krajee-base": ">=1.9"
+    "kartik-v/yii2-krajee-base": ">=3.0"
   },
   "autoload": {
     "psr-4": {

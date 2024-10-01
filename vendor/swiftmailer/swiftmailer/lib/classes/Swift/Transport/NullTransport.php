@@ -76,9 +76,9 @@ class Swift_Transport_NullTransport implements Swift_Transport
         }
 
         $count = (
-            count((array) $message->getTo())
-            + count((array) $message->getCc())
-            + count((array) $message->getBcc())
+            \count((array) $message->getTo())
+            + \count((array) $message->getCc())
+            + \count((array) $message->getBcc())
             );
 
         return $count;

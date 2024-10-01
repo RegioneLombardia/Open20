@@ -1,9 +1,8 @@
 <?php
-
 /**
- * PHPExcel_Reader_IReader
+ * PHPExcel
  *
- * Copyleft (c) 2006 - 2015 PHPExcel
+ * Copyleft (c) 2006 - 2014 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -23,22 +22,30 @@
  * @package    PHPExcel_Reader
  * @version    ##VERSION##, ##DATE##
  */
+
+
+/**
+ * PHPExcel_Reader_IReader
+ *
+ * @category   PHPExcel
+ * @package    PHPExcel_Reader
+ */
 interface PHPExcel_Reader_IReader
 {
-    /**
-     * Can the current PHPExcel_Reader_IReader read the file?
-     *
-     * @param     string         $pFilename
-     * @return     boolean
-     */
-    public function canRead($pFilename);
+	/**
+	 * Can the current PHPExcel_Reader_IReader read the file?
+	 *
+	 * @param 	string 		$pFilename
+	 * @return 	boolean
+	 */
+	public function canRead($pFilename);
 
-    /**
-     * Loads PHPExcel from file
-     *
-     * @param     string         $pFilename
+	/**
+	 * Loads PHPExcel from file
+	 *
+	 * @param 	string 		$pFilename
      * @return  PHPExcel
-     * @throws     PHPExcel_Reader_Exception
-     */
-    public function load($pFilename);
+	 * @throws 	PHPExcel_Reader_Exception
+	 */
+	public function load($pFilename);
 }

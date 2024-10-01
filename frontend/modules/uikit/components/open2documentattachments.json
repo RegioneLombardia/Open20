@@ -1,0 +1,47 @@
+{
+    "vars": [{
+                "var": "backendModel",
+                "label": "Model",
+                "description": "Select model to Render",
+                "initvalue": "",
+                "options": [{
+                        "value": "\\open20\\amos\\documenti\\AmosDocumenti",
+                        "label": "Documenti"
+                    }],
+                "type": "zaa-select"
+            },
+            {
+                "var": "view",
+                "label": "'View",
+                "description": "",
+                "initvalue": "",
+                "type": "zaa-text"
+            },
+            {  
+            "var": "items",
+            "label": "Items",
+            "description": "",
+            "type": "zaa-multiple-inputs",
+            "options": [{
+                    "var": "title",
+                    "label": "Title",
+                    "description": "",
+                    "initvalue": "",
+                    "type": "zaa-text"
+                },
+                {
+                    "var": "attachment",
+                    "label": "attachment",
+                    "description": "",
+                    "initvalue": "",
+                    "options": {
+                        "no_filter": true
+                    },
+                    "type": "zaa-file-upload"
+                }
+                ]
+        }],
+    "defaults": {
+        
+    }
+}

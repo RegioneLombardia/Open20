@@ -4,7 +4,7 @@
 
 namespace yii\db;
 
-use yii\base\BaseObject;
+use yii\base\Component;
 
 /**
  * BatchQueryResult represents a batch query from which you can retrieve data in batches.
@@ -24,10 +24,21 @@ use yii\base\BaseObject;
  *
  * @since 2.0
  */
-class BatchQueryResult extends BaseObject implements \Iterator
+class BatchQueryResult extends Component implements \Iterator
 {
     /**
-     * @var Connection the DB connection to be used when performing batch query.
+     * @event Event an event that is triggered when the batch query is reset.
+     * @since 2.0.41
+     */
+    const EVENT_RESET = 'reset';
+    /**
+     * @event Event an event that is triggered when the last batch has been fetched.
+     * @since 2.0.41
+     */
+    const EVENT_FINISH = 'finish';
+
+    /**
+     * @var Connection|null the DB connection to be used when performing batch query.
      * If null, the "db" application component will be used.
      */
     public $db;
@@ -90,12 +101,14 @@ class BatchQueryResult extends BaseObject implements \Iterator
         $this->_batch = null;
         $this->_value = null;
         $this->_key = null;
+        $this->trigger(self::EVENT_RESET);
     }
 
     /**
      * Resets the iterator to the initial state.
      * This method is required by the interface [[\Iterator]].
      */
+    #[\ReturnTypeWillChange]
     public function rewind()
     {
         $this->reset();
@@ -106,6 +119,7 @@ class BatchQueryResult extends BaseObject implements \Iterator
      * Moves the internal pointer to the next dataset.
      * This method is required by the interface [[\Iterator]].
      */
+    #[\ReturnTypeWillChange]
     public function next()
     {
         if ($this->_batch === null || !$this->each || $this->each && next($this->_batch) === false) {
@@ -155,8 +169,14 @@ class BatchQueryResult extends BaseObject implements \Iterator
         $count = 0;
 
         try {
-            while ($count++ < $this->batchSize && ($row = $this->_dataReader->read())) {
-                $rows[] = $row;
+            while ($count++ < $this->batchSize) {
+                if ($row = $this->_dataReader->read()) {
+                    $rows[] = $row;
+                } else {
+                    // we've reached the end
+                    $this->trigger(self::EVENT_FINISH);
+                    break;
+                }
             }
         } catch (\PDOException $e) {
             $errorCode = isset($e->errorInfo[1]) ? $e->errorInfo[1] : null;
@@ -173,6 +193,7 @@ class BatchQueryResult extends BaseObject implements \Iterator
      * This method is required by the interface [[\Iterator]].
      * @return int the index of the current row.
      */
+    #[\ReturnTypeWillChange]
     public function key()
     {
         return $this->_key;
@@ -183,6 +204,7 @@ class BatchQueryResult extends BaseObject implements \Iterator
      * This method is required by the interface [[\Iterator]].
      * @return mixed the current dataset.
      */
+    #[\ReturnTypeWillChange]
     public function current()
     {
         return $this->_value;
@@ -193,6 +215,7 @@ class BatchQueryResult extends BaseObject implements \Iterator
      * This method is required by the interface [[\Iterator]].
      * @return bool whether there is a valid dataset at the current position.
      */
+    #[\ReturnTypeWillChange]
     public function valid()
     {
         return !empty($this->_batch);
@@ -217,5 +240,15 @@ class BatchQueryResult extends BaseObject implements \Iterator
         }
 
         return null;
+    }
+
+    /**
+     * Unserialization is disabled to prevent remote code execution in case application
+     * calls unserialize() on user input containing specially crafted string.
+     * @since 2.0.38
+     */
+    public function __wakeup()
+    {
+        throw new \BadMethodCallException('Cannot unserialize ' . __CLASS__);
     }
 }

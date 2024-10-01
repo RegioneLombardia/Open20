@@ -1,0 +1,67 @@
+{
+    "vars": [{
+            "var": "class",
+            "label": "Class",
+            "description": "Define one or more class names for the element. Separate multiple classes with spaces.",
+            "initvalue": "",
+            "type": "zaa-text"
+        },{
+            "var": "showthumb",
+            "label": "Show Thumb",
+            "description": "Define if show thumb.",
+            "initvalue": true,
+            "type": "zaa-checkbox"
+        },{
+            "var": "showactions",
+            "label": "Show Actions",
+            "description": "Define if show action buttons.",
+            "initvalue": true,
+            "type": "zaa-checkbox"
+        },{
+            "var": "gallery",
+            "label": "Is gallery",
+            "description": "Enable thumbnails gallery.",
+            "initvalue": true,
+            "type": "zaa-checkbox"
+        }, {
+            "var": "items",
+            "label": "Items",
+            "description": "",
+            "type": "zaa-multiple-inputs",
+            "options": [{
+                    "var": "image",
+                    "label": "Image",
+                    "description": "",
+                    "initValue": "",
+                    "options": {
+                        "no_filter": false
+                    },
+                    "type": "zaa-image-upload"
+                }, {
+                    "var": "category",
+                    "label": "Category",
+                    "description": "",
+                    "initValue": "",
+                    "type": "zaa-text"
+                }, {
+                    "var": "content",
+                    "label": "Content",
+                    "description": "",
+                    "initValue": "",
+                    "type": "zaa-wysiwyg"
+                }, {
+                    "var": "thumbcontent",
+                    "label": "ThumbContent",
+                    "description": "",
+                    "initValue": "",
+                    "type": "zaa-wysiwyg"
+                }, {
+                    "var": "link",
+                    "label": "Link",
+                    "description": "Enter or pick a link, an image or a video file.",
+                    "initvalue": "",
+                    "placeholder": "http:\/\/",
+                    "type": "zaa-link"
+                }]
+        }]
+}

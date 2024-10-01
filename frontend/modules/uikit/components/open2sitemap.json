@@ -1,0 +1,16 @@
+{
+    "vars": [ {
+            "var": "container",
+            "label": "Contenitore del quale si vuole stampare il menu",
+            "description": "Inserisci l'alias del menu di cui vuoi stampare l'alberatura. Il menu principale ha alias 'default'.",
+            "initValue": "",
+            "type": "zaa-select",
+            "options": []
+        }
+    ],
+    "cfgs": [
+    ],
+    "defaults": {
+        
+    }
+}

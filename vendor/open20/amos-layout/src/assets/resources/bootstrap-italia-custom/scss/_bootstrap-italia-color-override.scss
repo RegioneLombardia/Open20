@@ -1,0 +1,21 @@
+/* PRIMARY-COLOR OVERRIDE*/
+$primary-h: 131;
+$primary-s: 66;
+$primary-b: 48;
+
+/* THEME COLOR */
+$color-primary: #2a7a38;
+$blu-regione: #003354;
+$light-grey: #F7F9FA;
+
+/* UTILITY COLOR */
+$success-green: #00cf86;
+$warning-orange:#ff9900;
+
+$theme-colors: (
+  "primary": $color-primary,
+  "blu-regione": $blu-regione,
+  "light-grey": $light-grey,
+  "success-green": $success-green,
+  "warning-orange": $warning-orange,
+  );

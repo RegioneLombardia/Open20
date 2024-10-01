@@ -45,10 +45,11 @@ final class DoctrineAnnotationArrayAssignmentFixer extends AbstractDoctrineAnnot
 
     /**
      * {@inheritdoc}
+     *
+     * Must run before DoctrineAnnotationSpacesFixer.
      */
     public function getPriority()
     {
-        // must run before DoctrineAnnotationSpacesFixer
         return 1;
     }
 
@@ -72,10 +73,10 @@ final class DoctrineAnnotationArrayAssignmentFixer extends AbstractDoctrineAnnot
     /**
      * {@inheritdoc}
      */
-    protected function fixAnnotations(Tokens $tokens)
+    protected function fixAnnotations(Tokens $doctrineAnnotationTokens)
     {
         $scopes = [];
-        foreach ($tokens as $token) {
+        foreach ($doctrineAnnotationTokens as $token) {
             if ($token->isType(DocLexer::T_OPEN_PARENTHESIS)) {
                 $scopes[] = 'annotation';
 

@@ -1,0 +1,203 @@
+{
+    "vars": [
+        {
+            "var": "not_embed_container",
+            "label": "Larghezza a tutto schermo",
+            "description": "Se selezionato la sezione occuperà l'intera larghezza di pagina.",
+            "initvalue": "",
+            "type": "zaa-checkbox"
+        },
+        {
+            "var": "brandbook_background",
+            "label": "Colore di sfondo da brandbook",
+            "description": "Definisce il colore di sfondo appartenente al brandbook della riga.",
+            "initvalue": "",
+            "options": [           
+                {
+                    "value": "primary",
+                    "image" : "/img/sezione_orizzontale/bg-primary.PNG"
+
+                }, {
+                    "value": "secondary",
+                    "image" : "/img/sezione_orizzontale/bg-secondary.PNG"
+                }, {
+                    "value": "tertiary",
+                    "image" : "/img/sezione_orizzontale/bg-tertiary.PNG"
+                }, {
+                    "value": "brandbook-neutral-1",
+                    "image" : "/img/sezione_orizzontale/bg-neutral-1.PNG"
+                }, {
+                    "value": "brandbook-neutral-2",
+                    "image" : "/img/sezione_orizzontale/bg-neutral-2.PNG"
+                }, {
+                    "value": "white",
+                    "image" : "/img/sezione_orizzontale/bg-white.PNG"
+                }
+            
+            
+            
+            ],
+            "type": "zaa-radio"
+        },
+        {
+            "var": "opacity",
+            "label": "Opacità",
+            "description": "Definisce la percentuale di opacità della sezione attraverso un numero da 0 a 100. Di default è al 100%.",
+            "initvalue": "100",
+            "placeholder": "100",
+            "max": "100",
+            "type": "zaa-number"
+        },
+        {
+            "var": "gradient_percent",
+            "label": "Percentuale del gradiente",
+            "description": "Definisce la percentuale di gradiente, quindi l'espansione del primo colore in una scala che va da 0 a 100.",
+            "initvalue": "0",
+            "placeholder": "0",
+            "max": "100",
+            "type": "zaa-number"
+        }, 
+        {
+            "var": "gradient_align",
+            "label": "Allineamento del gradiente",
+            "description": "Definisce se la sfumatura del gradiente è verticale (dall'alto verso il basso) oppure orizzontale (da sinistra verso destra).",
+            "initvalue": "",
+            "options": [
+                {
+                    "value": "",
+                    "image" : "/img/nessun-gradiente.png"
+
+                },           
+                {
+                    "value": "90deg",
+                    "image" : "/img/horizontal-gradient.PNG"
+
+                }, {
+                    "value": "180deg",
+                    "image" : "/img/vertical-gradient.PNG"
+                }],
+            "type": "zaa-radio"
+        }, 
+        {
+            "var": "color_gradient_1",
+            "label": "Primo colore del gradiente",
+            "description": "Definisce il colore con il quale inizia la sfumatura del gradiente.",
+            "initValue": "",
+            "type": "zaa-color"
+        },
+        {
+            "var": "color_gradient_2",
+            "label": "Secondo colore del gradiente",
+            "description": "Definisce il colore con il quale finisce la sfumatura del gradiente.",
+            "initValue": "",
+            "type": "zaa-color"
+        },
+        
+        
+        
+        
+        
+        
+        
+        {
+            "var": "image",
+            "label": "Immagine di sfondo",
+            "description": "Se selezionata la sezione avrà un'immagine di sfondo.",
+            "initValue": "",
+            "options": {
+                "no_filter": false
+            },
+            "type": "zaa-image-upload"
+        }, {
+            "var": "image_size",
+            "label": "Dimensione immagine di sfondo",
+            "description": "Definisce in che modo l'immagine di sfondo (se selezionata nel campo 'Immagine di sfondo') occuperà lo spazio della sezione orizzontale in base alle sue dimensioni originali.",
+            "initValue": "",
+            "options": [{
+                    "value": "",
+                    "label": "Automatica (utilizza le dimensioni originali dell'immagine)"
+                }, {
+                    "value": "cover",
+                    "label": "Cover (l'immagine si adatta per coprire tutta la sezione)"
+                }, {
+                    "value": "contain",
+                    "label": "Contain (l'immagine si adatta per essere interamente contenuta nella sezione)"
+                }],
+            "type": "zaa-select"
+        }, {
+            "var": "image_position",
+            "label": "Centratura dell'imagine di sfondo",
+            "description": "Definisce il centro dell'immagine di sfondo (se selezionata nel campo 'Immagine di sfondo').",
+            "initValue": "center center",
+            "options": [{
+                    "value": "top left",
+                    "label": "In alto a sinistra"
+                }, {
+                    "value": "top center",
+                    "label": "In alto al centro"
+                }, {
+                    "value": "top right",
+                    "label": "In alto a destra"
+                }, {
+                    "value": "center left",
+                    "label": "A metà altezza a sinistra"
+                }, {
+                    "value": "center center",
+                    "label": "A metà altezza al centro"
+                }, {
+                    "value": "center right",
+                    "label": "A metà altezza a destra"
+                }, {
+                    "value": "bottom left",
+                    "label": "In basso a sinistra"
+                }, {
+                    "value": "bottom center",
+                    "label": "In basso al centro"
+                }, {
+                    "value": "bottom right",
+                    "label": "In basso a destra"
+                }],
+            "type": "zaa-select"
+        }, {
+            "var": "image_repeat",
+            "label": "Ripeti immagine di sfondo",
+            "description": "Se selezionato l'immagine si ripeterà (solo nel caso in cui questa sia più piccola della sezione). Attenzione! L'immagine si ripeterà solo se la dimensione dell'immagine di sfondo non è impostata a 'cover'.",
+            "initValue": "center-center",
+            "type": "zaa-checkbox"
+        }],
+    "cfgs": [
+        {
+            "var": "class",
+            "label": "Classe css",
+            "description": "Classe css associata al componente.",
+            "initValue": "",
+            "type": "zaa-text"
+        },{
+            "var": "visibility",
+            "label": "Visibilità del blocco",
+            "description": "Imposta la visibilità della sezione.",
+            "initValue": "",
+            "options": [{
+                    "value": "",
+                    "label": "Visibile a tutti a utenti loggati e non loggati"
+                }, {
+                    "value": "guest",
+                    "label": "Visibile solo a utenti non loggati"
+                }, {
+                    "value": "logged",
+                    "label": "Visibile solo a utenti loggati"
+                }],
+            "type": "zaa-select"
+        },{
+            "var": "cache",
+            "label": "Abilita cache",  
+            "description": "Se selezionato il contenuto della sezione sarà statico e non subirà variazioni nel breve periodo. Consigliato solo per i contenuti statici.",
+            "initvalue": "",
+            "type": "zaa-checkbox"
+        }
+    ],
+    "defaults": {
+        "image_position": "center-center",
+        "visibility": "all"
+    }
+}

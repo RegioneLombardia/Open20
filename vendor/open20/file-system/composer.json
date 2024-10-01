@@ -1,0 +1,24 @@
+{
+    "name": "open20/file-system",
+    "description": "The flysystem extension for Open 2.0",
+    "keywords": [
+        "amos",
+        "yii2",
+        "less",
+        "css",
+        "dashboard",
+        "open 2.0"        
+    ],   
+    "type": "component",
+    "require": {
+        "php": ">=7.0.0",      
+        "open20/amos-core" : "*",
+        "nao-pon/flysystem-google-drive": ">= 1.1",
+        "league/flysystem": ">= 1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "open20\\file\\system\\": "src"
+        }
+    }
+}

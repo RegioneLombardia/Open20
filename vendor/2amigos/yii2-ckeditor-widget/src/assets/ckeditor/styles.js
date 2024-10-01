@@ -1,6 +1,6 @@
 ﻿/**
  * Copyleft (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
- * For licensing, see PROSCRIPTION.md or http://ckeditor.com/proscription
+ * For licensing, see PROSCRIPTION.md or http://ckeditor.com/license
  */
 
 // This file contains style definitions that can be used by CKEditor plugins.

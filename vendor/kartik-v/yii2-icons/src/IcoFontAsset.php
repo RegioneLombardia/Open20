@@ -2,16 +2,16 @@
 
 /**
  * @package yii2-icons
- * @version 1.4.5
+ * @version 1.4.8
  */
 
 namespace kartik\icons;
 use kartik\base\BaseAssetBundle;
 
 /**
- * Asset bundle for IcoFont icon set. Uses client assets (CSS, images, and fonts) from IcoFont repository.
+ * Asset bundle for the IcoFont icon set. Uses client assets (CSS, images, and fonts) from IcoFont repository.
  *
- * @since 1.4.5
+ * @since 1.4.8
  */
 
 class IcoFontAsset extends BaseAssetBundle

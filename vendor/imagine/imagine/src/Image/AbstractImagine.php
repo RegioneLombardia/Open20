@@ -42,7 +42,7 @@ abstract class AbstractImagine implements ImagineInterface
      */
     public function getMetadataReader()
     {
-        if (null === $this->metadataReader) {
+        if ($this->metadataReader === null) {
             $this->metadataReader = $this->getClassFactory()->createMetadataReader();
         }
 
@@ -92,7 +92,7 @@ abstract class AbstractImagine implements ImagineInterface
 
         $handle = @fopen($path, 'r');
 
-        if (false === $handle) {
+        if ($handle === false) {
             throw new InvalidArgumentException(sprintf('File %s does not exist.', $path));
         }
 

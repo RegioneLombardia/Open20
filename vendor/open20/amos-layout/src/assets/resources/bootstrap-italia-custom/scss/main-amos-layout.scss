@@ -1,0 +1,37 @@
+/*VARIABILI*/
+@import "variables-custom";
+
+/*BOOTSTRAP-ITALIA*/
+@import "bootstrap-italia-color-override";
+
+/* STYLE CUSTOM */
+/* platform/backend/web/scss */
+@import "./style_custom";
+
+@import "../node_modules/bootstrap-italia/src/scss/bootstrap-italia";
+
+//ABSTRACT
+@import "mixin";
+
+
+//COMPONENTS
+@import "bootstrap-italia-breakpoints-override";
+@import "bootstrap-italia-avatar-override";
+@import "header-elite";
+@import "sidebar-elite";
+@import "layout-content";
+@import "assistance";
+@import "divider";
+@import "heading";
+@import "table";
+
+//TRICKS AND TEMP
+@import "bi-form-TEMP";
+@import "bi-font-TEMP";
+@import 'bi-glyphicons-TEMP';
+@import 'bi-bootstrap3retrocompatibility-TEMP';
+@import 'bi-IECompatibility';
+
+// EVENTS WIZARD DA METTERE IN AMOS-EVENTS
+// @import 'events-wizard';
+

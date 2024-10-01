@@ -1,6 +1,6 @@
 /*!
  * @package yii2-password
- * @version 1.5.3
+ * @version 1.5.7
  *
  * Password Strength Validation
  * Built for Yii Framework 2.0

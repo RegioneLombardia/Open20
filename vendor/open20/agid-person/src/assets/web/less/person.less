@@ -1,0 +1,107 @@
+/**
+IMPORT AMOS-LAYOUT VARIABLES and UTILITY
+ */
+ @import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/v2/variables.less";
+ @import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/v2/utility.less";
+ //@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/v3/utility-design-bi.less";
+ /**
+    IMPORT STYLE-CUSTOM
+     */
+ @import (optional) "../../frontend/web/less/style_custom.less";
+
+
+.person-section-addressbook-subtitle-form {
+    color: @danger-color !important;
+    display: flex;
+    align-items: center;
+    .icon-rounded-danger {
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background-color: @danger-color;
+        color: contrast(@danger-color);
+        font-size: 20px;
+        margin-left: 4px;
+    }
+
+} 
+.person-section-addressbook {
+    border: 1px solid @danger-color;
+    position: relative;
+    padding: 24px 12px;
+    margin: 1rem 0 1rem;
+    border-radius: 8px;
+}
+
+.agid-person-index {
+    .icon-view, .list-view {
+      div[role="listbox"] {
+        >div {
+          display: flex;
+          @media (min-width:768px) {
+            width: 50%;
+          }
+          @media (min-width:992px) {
+            width: 33.3333333333%;
+          }
+        }
+      }
+    }
+    .agid-person-card-container {
+        margin-bottom: 24px;
+        width: 100%;
+        .agid-person-card-shadow {
+            height: 100%;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 15%);
+            .row {
+                display: flex;
+                flex-wrap: wrap;
+                height: 100%;
+                .agid-person-card-info {
+                    padding-top: 0;
+                    padding-bottom: 0;
+                    display: flex;
+                    flex-direction: column;
+                    .agid-person-card-title {
+                        color: @primary-color;
+                        font-weight: bold;
+                        text-transform: uppercase;
+                        text-decoration: none !important;
+                        padding-left: 24px;
+                        padding-right: 24px;
+                        padding-top: 24px;
+                    }
+                    .agid-person-card-role-description {
+                        padding-left: 24px;
+                        padding-right: 24px;
+                    }
+                    .agid-person-card-read-more {
+                        padding: 24px;
+                        display: flex;
+                        align-items: flex-end;
+                        flex-grow: 1;
+                        a {
+                            font-weight: bold;
+                            text-decoration: none !important;
+                        }
+                    }
+                }
+                .agid-person-card-img {
+                    @media (min-width:768px) {
+                        padding-left: 0;
+                    }
+                    img {
+                        object-fit: cover;
+                        margin-bottom: 0;
+                        height: 100%;
+                        width: 100%;
+                        max-width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

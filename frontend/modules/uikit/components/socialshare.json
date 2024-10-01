@@ -1,0 +1,55 @@
+{
+    "vars": [
+        {
+            "var": "share_label",
+            "label": "Etichetta",
+            "description": "Se impostata è il testo che viene mostrato prima delle icone dei social. Un esempio potrebbe essere la label 'Condividi: ..'.",
+            "initValue": "",
+            "type": "zaa-text"
+        },{
+            "var": "items",
+            "label": "Social per la condivisione",
+            "description": "Scegli i social con i quali l'utente può condividere la pagina.",
+            "type": "zaa-multiple-inputs",
+            "options": [
+                {
+                    "var": "social",
+                    "label": "Social",
+                    "description": "Select social.",
+                    "initvalue": "",
+                    "options": [{
+                            "value": "facebook",
+                            "label": "Facebook"
+                        }, {
+                            "value": "twitter",
+                            "label": "Twitter"
+                        },{
+                            "value": "linkedin",
+                            "label": "Linkedin"
+                        }, {
+                            "value": "whatsapp",
+                            "label": "Whatsapp"
+                        }, {
+                            "value": "telegram",
+                            "label": "Telegram"
+                        }
+                    
+                    ],
+                    "type": "zaa-select"
+                }
+            ]
+        }
+        
+    ],
+    "cfgs": [
+        {
+            "var": "class",
+            "label": "Classe css",
+            "description": "Classe css associata al componente.",
+            "initValue": "",
+            "type": "zaa-text"
+        }
+    ],
+    "defaults": {
+    }
+}

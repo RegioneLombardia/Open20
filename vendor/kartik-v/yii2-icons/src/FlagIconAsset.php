@@ -2,14 +2,14 @@
 
 /**
  * @package yii2-icons
- * @version 1.4.5
+ * @version 1.4.8
  */
 
 namespace kartik\icons;
 use kartik\base\BaseAssetBundle;
 
 /**
- * Asset bundle for FlagIcon icon set. Uses client assets (CSS, images, and fonts) from flag icons repository.
+ * Asset bundle for the FlagIcon icon set. Uses client assets (CSS, images, and fonts) from flag icons repository.
  * 
  *
  * @since 1.4

@@ -16,7 +16,7 @@ class SessionIterator implements \Iterator
      */
     private $_keys;
     /**
-     * @var mixed current key
+     * @var string|int|false current key
      */
     private $_key;
 
@@ -26,13 +26,15 @@ class SessionIterator implements \Iterator
      */
     public function __construct()
     {
-        $this->_keys = array_keys($_SESSION);
+        $this->_keys = array_keys(isset($_SESSION) ? $_SESSION : []);
+        $this->rewind();
     }
 
     /**
      * Rewinds internal array pointer.
      * This method is required by the interface [[\Iterator]].
      */
+    #[\ReturnTypeWillChange]
     public function rewind()
     {
         $this->_key = reset($this->_keys);
@@ -41,11 +43,12 @@ class SessionIterator implements \Iterator
     /**
      * Returns the key of the current array element.
      * This method is required by the interface [[\Iterator]].
-     * @return mixed the key of the current array element
+     * @return string|int|null the key of the current array element
      */
+    #[\ReturnTypeWillChange]
     public function key()
     {
-        return $this->_key;
+        return $this->_key === false ? null : $this->_key;
     }
 
     /**
@@ -53,20 +56,22 @@ class SessionIterator implements \Iterator
      * This method is required by the interface [[\Iterator]].
      * @return mixed the current array element
      */
+    #[\ReturnTypeWillChange]
     public function current()
     {
-        return isset($_SESSION[$this->_key]) ? $_SESSION[$this->_key] : null;
+        return $this->_key !== false && isset($_SESSION[$this->_key]) ? $_SESSION[$this->_key] : null;
     }
 
     /**
      * Moves the internal pointer to the next array element.
      * This method is required by the interface [[\Iterator]].
      */
+    #[\ReturnTypeWillChange]
     public function next()
     {
         do {
             $this->_key = next($this->_keys);
-        } while (!isset($_SESSION[$this->_key]) && $this->_key !== false);
+        } while ($this->_key !== false && !isset($_SESSION[$this->_key]));
     }
 
     /**
@@ -74,6 +79,7 @@ class SessionIterator implements \Iterator
      * This method is required by the interface [[\Iterator]].
      * @return bool
      */
+    #[\ReturnTypeWillChange]
     public function valid()
     {
         return $this->_key !== false;

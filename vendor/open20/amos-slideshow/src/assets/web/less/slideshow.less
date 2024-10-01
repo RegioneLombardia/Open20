@@ -1,0 +1,53 @@
+/**
+IMPORT AMOS-LAYOUT VARIABLES
+ */
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/variables.less";
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/utility.less";
+/**
+IMPORT STYLE-CUSTOM
+ */
+@import (optional) "../../backend/web/less/style_custom.less";
+
+/**
+SLIDESHOW WIDGET
+ */
+.modal-slideshow {
+  .modal-content {
+    padding: 0;
+    .modal-body .carousel {
+      .carousel-inner {
+        padding: 0 @padding-large;
+        .item {
+          img {
+            max-width: 100%;
+            height: auto;
+          }
+        }
+      }
+      .carousel-control {
+        background-image: none;
+        width: auto;
+        > .mdi {
+          color: @primary-color;
+        }
+      }
+      .carousel-indicators {
+        position: initial;
+        width: 100%;
+        margin: @margin-large 0 0;
+        left: 0;
+        > li {
+          border-color: @primary-color;
+          &.active {
+            background-color: @primary-color;
+            &:first-child{
+              &:last-child{
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

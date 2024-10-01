@@ -1,0 +1,20 @@
+{
+    "name": "open20/amos-mobile-bridge",
+    "description": "Amos 4 Mobile Compatibility Bridge",
+    "keywords": ["amos", "mobile", "app", "yii2"],
+    "homepage": "https://bitbucket.org/open20/amos-mobile-ridge",
+    "type": "component",
+    "require": {
+        "php": ">=5.4.0",
+        "open20/amos-admin" : "*",
+        "open20/amos-core" : "*",
+        "understeam/yii2-fcm": "~0.1",
+        "2amigos/yii2-qrcode-helper": "1.0.2",
+        "open2/amos-expo": "^1.1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "open20\\amos\\mobile\\bridge\\": "src"
+        }
+    }
+}

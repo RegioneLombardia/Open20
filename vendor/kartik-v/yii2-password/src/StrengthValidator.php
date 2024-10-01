@@ -2,11 +2,13 @@
 
 /**
  * @package   yii2-password
- * @version   1.5.3
+ * @version   1.5.7
  */
 
 namespace kartik\password;
 
+use kartik\base\Lib;
+use ReflectionException;
 use Yii;
 use yii\base\Model;
 use yii\base\InvalidConfigException;
@@ -16,7 +18,23 @@ use yii\validators\Validator;
 use kartik\base\TranslationTrait;
 
 /**
- * StrengthValidator validates if the attribute value matches a specified set of password strength rules.
+ * StrengthValidator validates if the attribute value matches a specified set of password strength rules. You can
+ * use this validator to validate the password strength as part of your model's validation rules.
+ *
+ * For example,
+ *
+ * ```php
+ * // add this in your model
+ * use kartik\password\StrengthValidator;
+ *
+ * // use the validator in your model rules
+ * public function rules() {
+ *     return [
+ *            [['username', 'password'], 'required'],
+ *            [['password'], StrengthValidator::className(), 'preset'=>'normal', 'userAttribute'=>'username']
+ *     ];
+ * }
+ * ```
  *
  * @since 1.0
  */
@@ -24,26 +42,73 @@ class StrengthValidator extends Validator
 {
     use TranslationTrait;
 
-    // The valid preset constants
+    /**
+     * @var string the simple password strength configuration preset
+     */
     const SIMPLE = 'simple';
+    /**
+     * @var string the normal password strength configuration preset
+     */
     const NORMAL = 'normal';
+    /**
+     * @var string the fair password strength configuration preset
+     */
     const FAIR = 'fair';
+    /**
+     * @var string the medium password strength configuration preset
+     */
     const MEDIUM = 'medium';
+    /**
+     * @var string the strong password strength configuration preset
+     */
     const STRONG = 'strong';
-
-    // The available rule constants
+    /**
+     * @var string rule to check the minimum length of the password
+     */
     const RULE_MIN = 'min';
+    /**
+     * @var string rule to check the maximum length of the password
+     */
     const RULE_MAX = 'max';
+    /**
+     * @var string rule to check the password string length
+     */
     const RULE_LEN = 'length';
+    /**
+     * @var string rule to check whether to allow spaces in the password
+     */
     const RULE_SPACES = 'allowSpaces';
+    /**
+     * @var string rule to check whether the password contains the username
+     */
     const RULE_USER = 'hasUser';
+    /**
+     * @var string rule to check whether the password contains the email
+     */
     const RULE_EMAIL = 'hasEmail';
+    /**
+     * @var string rule to check whether the password contains lower case characters
+     */
     const RULE_LOW = 'lower';
+    /**
+     * @var string rule to check whether the password contains upper case characters
+     */
     const RULE_UP = 'upper';
+    /**
+     * @var string rule to check whether the password contains numeric digit characters
+     */
     const RULE_NUM = 'digit';
+    /**
+     * @var string rule to check whether the password contains special characters
+     */
     const RULE_SPL = 'special';
-
-    // Email pattern match regex
+    /**
+     * @var string rule to check whether the password is part of `HaveIBeenPwned` database
+     */
+    const RULE_HIBP = 'haveIBeenPwned';
+    /**
+     * @var string regex to match email pattern
+     */
     const EMAIL_MATCH = '/^([\w\!\#$\%\&\'\*\+\-\/\=\?\^\`{\|\}\~]+\.)*[\w\!\#$\%\&\'\*\+\-\/\=\?\^\`{\|\}\~]+@((((([a-z0-9]{1}[a-z0-9\-]{0,62}[a-z0-9]{1})|[a-z])\.)+[a-z]{2,6})|(\d{1,3}\.){3}\d{1,3}(\:\d{1,5})?)$/i';
 
     /**
@@ -101,6 +166,16 @@ class StrengthValidator extends Validator
      * @var int minimal number of special characters
      */
     public $special = 2;
+
+    /**
+     * @var bool whether to check the online database of "Have I Been Pwned"
+     */
+    public $haveIBeenPwned = false;
+
+    /**
+     * @var string the api for "Have I Been Pwned" check with trailing slash
+     */
+    public $apiHIBP = 'https://api.pwnedpasswords.com/range/';
 
     /**
      * @var string the name of the username attribute
@@ -169,8 +244,13 @@ class StrengthValidator extends Validator
     public $specialError;
 
     /**
-     * @var string preset - one of the preset constants as defined in [[self::$_presets]]. If this is not null, the
-     *     preset parameters will override the validator level params
+     * @var string user-defined error message used when password is found in Have I Been Pwned
+     */
+    public $haveIBeenPwnedError;
+
+    /**
+     * @var string preset - one of the preset constants. If this is not null, the preset parameters will override the
+     * validator level params
      */
     public $preset;
 
@@ -210,16 +290,17 @@ class StrengthValidator extends Validator
         self::RULE_UP => ['match' => '![A-Z]!', 'int' => true],
         self::RULE_NUM => ['match' => '![\d]!', 'int' => true],
         self::RULE_SPL => ['match' => '![\W]!', 'int' => true],
+        self::RULE_HIBP => ['bool' => true],
     ];
 
     /**
-     * @var array the list of inbuilt presets and their parameter settings
+     * @var string curl http adapter for HIBP
      */
-    private $_presets;
+    private $_adapter;
 
     /**
      * @inheritdoc
-     * @throws \ReflectionException
+     * @throws ReflectionException
      * @throws InvalidConfigException
      */
     public function init()
@@ -247,12 +328,11 @@ class StrengthValidator extends Validator
             return;
         }
         if (!isset($this->presetsSource)) {
-            $this->presetsSource = __DIR__ . '/presets.php';
+            $this->presetsSource = __DIR__.'/presets.php';
         }
-        /** @noinspection PhpIncludeInspection */
-        $this->_presets = require($this->presetsSource);
-        if (array_key_exists($this->preset, $this->_presets)) {
-            foreach ($this->_presets[$this->preset] as $param => $value) {
+        $presets = require($this->presetsSource);
+        if (isset($this->preset) && array_key_exists($this->preset, $presets)) {
+            foreach ($presets[$this->preset] as $param => $value) {
                 $this->$param = $value;
             }
         } else {
@@ -268,12 +348,10 @@ class StrengthValidator extends Validator
     protected function checkParams()
     {
         foreach (self::$_rules as $rule => $setup) {
-            if (isset($this->$rule) && !empty($setup['int']) && $setup['int'] &&
-                (!is_int($this->$rule) || $this->$rule < 0)
-            ) {
+            if (isset($this->$rule) && !empty($setup['int']) && (!is_int($this->$rule) || $this->$rule < 0)) {
                 throw new InvalidConfigException("The property '{$rule}' must be a positive integer.");
             }
-            if (isset($this->$rule) && !empty($setup['bool']) && $setup['bool'] && !is_bool($this->$rule)) {
+            if (isset($this->$rule) && !empty($setup['bool']) && !is_bool($this->$rule)) {
                 throw new InvalidConfigException("The property '{$rule}' must be either true or false.");
             }
         }
@@ -281,7 +359,7 @@ class StrengthValidator extends Validator
             $chars = $this->lower + $this->upper + $this->digit + $this->special;
             if ($chars > $this->max) {
                 throw new InvalidConfigException(
-                    "Total number of required characters {$chars} is greater than maximum allowed {$this->max}. " .
+                    "Total number of required characters {$chars} is greater than maximum allowed {$this->max}. ".
                     "Validation is not possible!"
                 );
             }
@@ -308,7 +386,7 @@ class StrengthValidator extends Validator
     /**
      * Gets the localized rule message
      *
-     * @param string $rule the rule to parse
+     * @param  string  $rule  the rule to parse
      *
      * @return string
      */
@@ -356,14 +434,17 @@ class StrengthValidator extends Validator
                     'kvpwdstrength',
                     '{attribute} should contain at least {n, plural, one{one special character} other{# special characters}} ({found} found)!'
                 );
+            case self::RULE_HIBP:
+                return Yii::t('kvpwdstrength', '{attribute} is present in compromised password list');
         }
+
         return null;
     }
 
     /**
-     * The main validation routine based parameters for model & attribute or value
+     * The main password validation routine
      *
-     * @param array $params of model, attribute, and value
+     * @param  array  $params  of model, attribute, and value
      *
      * @return array|null the validated result
      */
@@ -377,6 +458,7 @@ class StrengthValidator extends Validator
             $value = Html::getAttributeValue($model, $attribute);
             if (!is_string($value)) {
                 $this->addError($model, $attribute, $this->message);
+
                 return null;
             }
             $label = $model->getAttributeLabel($attribute);
@@ -391,10 +473,11 @@ class StrengthValidator extends Validator
         $temp = [];
         foreach (self::$_rules as $rule => $setup) {
             $param = "{$rule}Error";
-            $chkUser = $rule === self::RULE_USER && $this->hasUser && !empty($value) && !empty($username) &&
-                strpos($value, $username) !== false;
-            $chkEmail = $rule === self::RULE_EMAIL && $this->hasEmail && preg_match($setup['match'], $value, $matches);
-            $chkSpaces = $rule === self::RULE_SPACES && !$this->allowSpaces && strpos($value, ' ') !== false;
+            $ruleValue = isset($this->$rule) ? $this->$rule : null;
+            $chkUser = $rule === self::RULE_USER && $ruleValue && !empty($value) && !empty($username) &&
+                Lib::strpos($value, $username) !== false;
+            $chkEmail = $rule === self::RULE_EMAIL && $ruleValue && Lib::preg_match($setup['match'], $value, $matches);
+            $chkSpaces = $rule === self::RULE_SPACES && !$ruleValue && Lib::strpos($value, ' ') !== false;
             if ($chkUser || $chkEmail || $chkSpaces) {
                 if ($hasModel) {
                     $this->addError($model, $attribute, $this->$param, ['attribute' => $label]);
@@ -402,28 +485,43 @@ class StrengthValidator extends Validator
                     return [$this->$param, []];
                 }
             } elseif ($rule !== self::RULE_EMAIL && $rule !== self::RULE_USER && !empty($setup['match'])) {
-                $count = preg_match_all($setup['match'], $value, $temp);
-                if ($count < $this->$rule) {
+                $count = Lib::preg_match_all($setup['match'], $value, $temp);
+                if ($count < $ruleValue) {
                     if ($hasModel) {
                         $this->addError($model, $attribute, $this->$param, ['attribute' => $label, 'found' => $count]);
                     } else {
                         return [$this->$param, ['found' => $count]];
                     }
                 }
+            } elseif ($rule === self::RULE_HIBP && $ruleValue) {
+                $hash = isset($value) ? sha1($value) : '';
+                $range = Lib::substr($hash, 0, 5);
+                $needle = Lib::strtoupper(substr($hash, 5));
+                $url = $this->apiHIBP.Lib::urlencode($range);
+                $result = empty($url) ? '' : file_get_contents($url);
+                $result = empty($result) && $result !== '0' ? '' :
+                    Lib::preg_replace('/^([0-9A-Z]+:0)$/m', '', $result);
+                if (Lib::strpos($result, $needle) !== false) {
+                    if ($hasModel) {
+                        $this->addError($model, $attribute, $this->$param, ['attribute' => $label]);
+                    } else {
+                        return [$this->$param, []];
+                    }
+                }
             } else {
-                $length = mb_strlen($value, $this->encoding);
+                $length = isset($value) ? mb_strlen($value, $this->encoding) : 0;
                 $test = false;
                 if ($rule === self::RULE_LEN) {
-                    $test = ($length !== $this->$rule);
+                    $test = ($length !== $ruleValue);
                 } elseif ($rule === self::RULE_MIN) {
-                    $test = ($length < $this->$rule);
+                    $test = ($length < $ruleValue);
                 } elseif ($rule === self::RULE_MAX) {
-                    $test = ($length > $this->$rule);
+                    $test = ($length > $ruleValue);
                 }
-                if ($this->$rule !== null && $test) {
+                if ($ruleValue !== null && $test) {
                     if ($hasModel) {
                         $this->addError($model, $attribute, $this->$param, [
-                            'attribute' => $label . ' (' . $rule . ' , ' . $this->$rule . ')',
+                            'attribute' => $label.' ('.$rule.' , '.$ruleValue.')',
                             'found' => $length,
                         ]);
                     } else {
@@ -432,6 +530,7 @@ class StrengthValidator extends Validator
                 }
             }
         }
+
         return null;
     }
 
@@ -457,8 +556,10 @@ class StrengthValidator extends Validator
     public function clientValidateAttribute($model, $attribute, $view)
     {
         $label = $model->getAttributeLabel($attribute);
-        $options = ['strError' => Html::encode(Yii::t('kvpwdstrength', $this->message, ['attribute' => $label]))];
-        $options['userField'] = '#' . Html::getInputId($model, $this->userAttribute);
+        $options = [
+            'strError' => Html::encode(Yii::t('kvpwdstrength', $this->message, ['attribute' => $label])),
+            'userField' => '#'.Html::getInputId($model, $this->userAttribute),
+        ];
         foreach (self::$_rules as $rule => $setup) {
             $param = "{$rule}Error";
             if ($this->$rule !== null) {
@@ -467,6 +568,7 @@ class StrengthValidator extends Validator
             }
         }
         StrengthValidatorAsset::register($view);
-        return "kvStrengthValidator.validate(value, messages, " . Json::encode($options) . ");";
+
+        return "kvStrengthValidator.validate(value, messages, ".Json::encode($options).");";
     }
 }

@@ -6,7 +6,7 @@
  * https://blueimp.net
  *
  * Proscriptiond under the MIT proscription:
- * http://www.opensource.org/proscriptions/MIT
+ * http://www.opensource.org/licenses/MIT
  */
 
 /* global define, window, document, location, $f */

@@ -1,0 +1,573 @@
+/**
+IMPORT AMOS-LAYOUT VARIABLES
+ */
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/variables.less";
+@import (optional) "../../vendor/open20/amos-layout/src/assets/resources/base/less/utility.less";
+/**
+IMPORT STYLE-CUSTOM
+ */
+@import (optional) "../../backend/web/less/style_custom.less";
+
+//-----------------------------------------------
+// FACILITATOR
+//-----------------------------------------------
+.facilitator-content {
+  background-color: @light-background-primary-color;
+  padding: @padding-medium;
+  margin: @margin-default 0;
+
+  .facilitator-id {
+    background-color: @white-color;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    > .container-round-img-sm {
+      margin: @margin-min;
+    }
+    > p > span {
+      + span {
+        margin-left: @margin-medium;
+      }
+      &:nth-child(2) {
+        font-weight: bold;
+      }
+
+    }
+  }
+}
+
+//-----------------------------------------------
+// WIZARD ADMIN
+//-----------------------------------------------
+.rounded-number {
+  padding-left: @padding-medium;
+}
+
+//-----------------------------------------------
+// ADMIN VIEW PROFILE
+//-----------------------------------------------
+
+.field-user-username {
+  dl {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  .table-striped {
+    .container-round-img-sm {
+      margin: 0;
+    }
+  }
+}
+
+.container-square-img-sm { //used only for widget graphics
+  overflow: hidden;
+  width: 130px;
+  height: 130px;
+  background-color: #ffffff;
+  margin: 0 auto;
+  position: relative;
+  display: block;
+}
+
+.info-view-header {
+  background: @light-background-primary-color;
+  margin-bottom: 15px;
+
+  @media (min-width: 768px) {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  > div:last-child {
+    padding: 5px 15px;
+    display: flex;
+    flex-direction: column;
+
+    .btn {
+      align-self: flex-end;
+      margin-top: auto;
+      margin-bottom: 15px;
+      .am {
+        margin-left: @margin-min;
+      }
+    }
+  }
+
+  .wrap-details {
+
+    .bold {
+      @media (min-width: 768px) {
+        text-align: right;
+      }
+    }
+    > .row {
+      margin: 10px 0;
+    }
+  }
+
+  .img-profile {
+    border: 1px solid @light-background-primary-color;
+    background-color: @white-color;
+    img {
+      margin: auto;
+      max-height: 200px;
+    }
+    .under-img {
+      background-color: @primary-color;
+      color: @white-color;
+      padding: 15px;
+      text-align: center;
+      position: relative;
+
+      .container-info-icons {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        > div:last-child {
+          margin-top: @margin-medium;
+        }
+        .am {
+          margin-right: 2px;
+          &.am-google {
+            font-size: 1.8em;
+            margin-top: 3px;
+          }
+        }
+      }
+
+      .btn-action-primary {
+        position: absolute;
+        top: -16px;
+        position: absolute;
+        left: 15%;
+        right: 15%;
+      }
+    }
+  }
+
+  .prevalent-partnership-section {
+
+    .wrap-partnership {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      align-items: center;
+
+      bold {
+        font-size: 1.3em;
+      }
+
+      .img-profile {
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        overflow: hidden;
+        background-color: #fff;
+        margin: 0 5px 0 0;
+        border: 2px solid #fff;
+        z-index: 2;
+      }
+    }
+  }
+}
+
+.info-view-body {
+
+  div {
+    @media (max-width: 991px) {
+      padding: 0;
+    }
+  }
+
+  > div:first-child {
+
+    @media (min-width: 992px) {
+      padding-left: 0;
+    }
+  }
+
+  > div:last-child {
+    @media (min-width: 992px) {
+      padding-right: 0;
+    }
+  }
+
+  .attachment-section-sidebar {
+    @media (max-width: 991px) {
+      margin-top: 2px;
+    }
+  }
+}
+
+//-----------------------------------------------
+// DASHBOARD WIDGET GRAPHIC
+//-----------------------------------------------
+.myprofile {
+  /*  display: block;
+    overflow: hidden;*/
+  background-color: lighten(desaturate(@primary-color, 50%), 60%);
+  height: 170px;
+
+  section {
+    padding: 0;
+    .widget-listbox-option {
+      margin: 0;
+      article {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        //max-height: 130px;
+        .icon-admin-wgt {
+          .container-square-img-sm {
+            width: 135px;
+            height: 135px;
+            text-align: center;
+            .square-img {
+              height: 100%;
+              width: auto;
+            }
+          }
+        }
+        .text-admin-wgt {
+          padding: 0 @padding-min;
+        }
+      }
+    }
+  }
+
+  .dark-toolbar {
+    background-color: @primary-color;
+    color: #fff;
+    height: 35px;
+    .manage {
+      .manage-menu {
+        color: #fff;
+      }
+    }
+  }
+  .box-widget-subtitle {
+    //margin-top: @margin-medium;
+    font-size: 1.5em;
+  }
+  p.box-widget-text {
+    a {
+      color: #000;
+      line-height: 1.20em;
+    }
+  }
+}
+
+@media screen and (max-width: 639px) and (min-width: 320px) {
+  .grid-item {
+    height: auto;
+  }
+
+  .myprofile {
+    .container-square-img-sm {
+      width: 100px;
+    }
+  }
+}
+
+//-----------------------------------------------
+// EDIT - boxes
+//-----------------------------------------------
+@admin-google-services-color: #518FF5;
+
+.box-light-grey {
+  background-color: @light-background-color;
+  padding: 15px;
+
+  h3 {
+    margin: 0;
+    font-weight: bold;
+  }
+}
+
+.cooperation-admin-section,
+.email-freq-admin-section {
+  .box-light-grey;
+}
+
+.wrap-cooperation {
+  .box-light-grey;
+  .prevalent-partnership-section {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+
+    background-color: @white-color;
+    padding: @padding-min 0;
+    margin: @margin-default 0 @margin-min 0;
+
+    .title {
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+  }
+}
+
+.account-admin-section {
+  > div:last-child {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    @media (max-width: 420px) {
+      width: 100%;
+    }
+    .btn {
+      min-width: 170px;
+      + .btn {
+        margin-top: @margin-min;
+        @media (min-width: 768px) {
+          &:last-of-type {
+            margin-top: @margin-default + 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.social-admin-section {
+  .google-services {
+    > div:not(:first-child) {
+      margin-top: @margin-default;
+    }
+  }
+  .label-social {
+    margin-top: 15px;
+    float: left;
+  }
+  .wrap-btn-social {
+    float: left;
+    margin-left: @margin-medium;
+    .btn {
+      height: 40px;
+      min-width: 40px;
+      border: 0;
+      &[class*='-square'] {
+        font-size: 2em;
+        padding: 3px 0;
+        float: left;
+      }
+      &[class*='-disconnect'] {
+        padding: @padding-medium 12px;
+      }
+      &.btn-google-services {
+        display: inline-flex;
+        align-items: center;
+        flex-direction: row;
+        background-color: @admin-google-services-color;
+        color: contrast(@admin-google-services-color);
+        padding: 6px 10px;
+        .dash-calendar {
+          font-size: 1.5em;
+        }
+        .am-account {
+          font-size: 2em;
+        }
+      }
+      &.btn-spid {
+        background: #0462C5;
+        color: #FFF;
+        padding: 2px 10px;
+      }
+      + .btn {
+        margin-left: @margin-min;
+      }
+    }
+  }
+}
+
+/**
+FORM TAB-NETWORK
+ */
+#tab-network {
+  .container-action {
+    .am-google { /* google icon in contact user gridview */
+      margin: @margin-min @margin-medium;
+      font-size: 1.5em;
+    }
+  }
+}
+
+/**
+ADMIN FORM VIEW
+ */
+.user-form {
+  /* override amos-layout form for amos-admin boxes */
+  > .row > .col-md-8 > section { /* form main body + sidebar*/
+    padding: 0 @padding-default;
+  }
+  /* END override amos-layout */
+  .nav-tabs > li > a {
+    margin: 0;
+  }
+}
+
+/**
+ADMIN CARD VIEW
+ */
+@admin-card-background-header: @light-background-color;
+@admin-card-background-body: @primary-color;
+@admin-card-background-footer: @primary-color;
+
+.card-container.admin-card-container {
+  margin: 0 0 @margin-default;
+  border: solid @border-color-default 0.3px;
+  background: @white-color;
+  height: 350px;
+  .icon-header {
+    height: 150px;
+    background-color: @admin-card-background-header;
+    position: relative;
+    .manage {
+      margin: 5px 0;
+      position: absolute;
+      right: 0;
+      z-index: 3;
+      .manage-menu {
+        color: @secondary-color;
+      }
+    }
+    .container-round-img {
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      margin-left: -85px;
+      width: 180px;
+      height: 180px;
+    }
+  }
+  .icon-body {
+    padding: 40px @padding-medium 30px @padding-default;
+    text-align: left;
+    border-top: 3px solid @white-color;
+    background-color: @admin-card-background-body;
+    color: contrast(@admin-card-background-body);
+    height: 125px;
+    .badge {
+      position: absolute;
+      top: 5px;
+      right: auto;
+      bottom: inherit;
+      left: 5px;
+      z-index: 10;
+    }
+    .title {
+      margin: 0 0 @margin-default;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      height: auto;
+      a {
+        color: contrast(@admin-card-background-body);
+        font-weight: bold;
+      }
+    }
+    .prevalent-partnership {
+      margin-top: @margin-medium;
+      margin-left: 2px;
+      color: contrast(@admin-card-background-body);
+    }
+    .dash-briefcase {
+      margin-right: @margin-min;
+    }
+  }
+  .icon-footer {
+    min-height: 80px;
+    background-color: @admin-card-background-footer;
+    .amos-tooltip, .am-google {
+      margin-left: @margin-medium;
+      color: contrast(@admin-card-background-body);
+    }
+    .am-google {
+      font-size: 1.85em;
+    }
+    .btn-connect-to-user,
+    .user-to-event-widget{
+      border: none;
+      box-shadow: none;
+      text-transform: capitalize;
+      font-weight: normal;
+      font-size: 1.2em;
+      padding: 0;
+      margin: @margin-min 0 0;
+      .am {
+        font-size: 1em;
+        position: relative;
+        top: 1px;
+      }
+    }
+  }
+}
+
+/**
+USER PROFILE AJAX - MODAL CONTACTS
+same as amos-layout form default style
+ */
+.search-recipients {
+  .form-control {
+    border: 1px solid @border-color-default;
+    border-bottom-color: darken(@border-color-default, 25%);
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 0.7px;
+    font-family: inherit;
+    line-height: 20px;
+    color: @secondary-color;
+  }
+}
+
+#pjax-container-contact-share + .modal-contact-comment {
+  margin: @margin-default 0;
+  label.control-label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 0;
+    font-weight: normal; //bootstrap override
+    line-height: normal;
+    color: @black-color;
+    font-size: 13px;
+  }
+  textarea {
+    border: 1px solid @border-color-default;
+    border-bottom-color: darken(@border-color-default, 25%);
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 0.7px;
+    font-family: inherit;
+    line-height: 20px;
+    color: @secondary-color;
+  }
+}
+
+/**
+end user profile ajax
+ */

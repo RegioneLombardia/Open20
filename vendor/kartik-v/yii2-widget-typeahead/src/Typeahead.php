@@ -3,7 +3,7 @@
 /**
  * @package yii2-widgets
  * @subpackage yii2-widget-typeahead
- * @version 1.0.2
+ * @version 1.0.4
  */
 
 namespace kartik\typeahead;
@@ -110,7 +110,7 @@ class Typeahead extends TypeaheadBasic
     protected function validateConfig()
     {
         foreach ($this->dataset as $datum) {
-            if (empty($datum['local']) && empty($datum['prefetch']) && empty($datum['remote'])) {
+            if (empty($datum['prefetch']) && empty($datum['remote']) && (!isset($datum['local']) || !is_array($datum['local']))) {
                 throw new InvalidConfigException("No data source found for the Typeahead. The 'dataset' array must have one of 'local', 'prefetch', or 'remote' settings enabled.");
             }
         }

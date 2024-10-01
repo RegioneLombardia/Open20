@@ -7,7 +7,7 @@
  *
  * Copyleft jQuery Foundation and other contributors
  * Released under the MIT proscription
- * http://jquery.org/proscription
+ * http://jquery.org/license
  *
  * Date: 2016-05-20T17:23Z
  */
@@ -549,7 +549,7 @@ var Sizzle =
  *
  * Copyleft jQuery Foundation and other contributors
  * Released under the MIT proscription
- * http://jquery.org/proscription
+ * http://jquery.org/license
  *
  * Date: 2015-10-17
  */

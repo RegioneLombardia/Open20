@@ -1,0 +1,43 @@
+# yii console command
+/yii
+
+# phpstorm project files
+.idea
+
+# netbeans project files
+nbproject
+
+# zend studio for eclipse project files
+.buildpath
+.project
+.settings
+
+# windows thumbnail cache
+Thumbs.db
+
+# composer vendor dir
+/vendor
+
+# composer itself is not needed
+composer.phar
+composer.lock
+
+# Mac DS_Store Files
+.DS_Store
+
+# phpunit itself is not needed
+phpunit.phar
+# local phpunit config
+/phpunit.xml
+
+
+/nbproject/private/
+nbproject/project.properties
+nbproject/project.xml
+src/i18n/it-IT/messages.php.orig
+src/i18n/en-US/messages.php.orig
+src/controllers/SecurityController.php.orig
+src/components/FirstAccessWizardComponent.php.orig
+src/bootstrap/FirstAccessWizard.php.orig
+src/i18n/en-GB/messages.php.orig
+.vscode/sftp.json

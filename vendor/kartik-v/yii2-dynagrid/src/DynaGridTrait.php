@@ -2,7 +2,7 @@
 
 /**
  * @package   yii2-dynagrid
- * @version   1.5.1
+ * @version   1.5.5
  */
 
 namespace kartik\dynagrid;
@@ -19,8 +19,8 @@ trait DynaGridTrait
     /**
      * Gets the category translated description
      *
-     * @param string  $cat the category 'grid', 'filter', or 'sort'
-     * @param boolean $initCap whether to capitalize first letter.
+     * @param  string  $cat  the category 'grid', 'filter', or 'sort'
+     * @param  boolean  $initCap  whether to capitalize first letter.
      *
      * @return string
      */

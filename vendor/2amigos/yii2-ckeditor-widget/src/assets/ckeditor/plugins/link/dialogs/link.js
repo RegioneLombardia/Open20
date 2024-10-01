@@ -1,6 +1,6 @@
 ﻿/*
  Copyleft (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
- For licensing, see PROSCRIPTION.md or http://ckeditor.com/proscription
+ For licensing, see PROSCRIPTION.md or http://ckeditor.com/license
 */
 (function(){CKEDITOR.dialog.add("link",function(g){var l=CKEDITOR.plugins.link,m=function(){var a=this.getDialog(),b=a.getContentElement("target","popupFeatures"),a=a.getContentElement("target","linkTargetName"),k=this.getValue();if(b&&a)switch(b=b.getElement(),b.hide(),a.setValue(""),k){case "frame":a.setLabel(g.lang.link.targetFrameName);a.getElement().show();break;case "popup":b.show();a.setLabel(g.lang.link.targetPopupName);a.getElement().show();break;default:a.setValue(k),a.getElement().hide()}},
 f=function(a){a.target&&this.setValue(a.target[this.id]||"")},h=function(a){a.advanced&&this.setValue(a.advanced[this.id]||"")},i=function(a){a.target||(a.target={});a.target[this.id]=this.getValue()||""},j=function(a){a.advanced||(a.advanced={});a.advanced[this.id]=this.getValue()||""},c=g.lang.common,b=g.lang.link,d;return{title:b.title,minWidth:350,minHeight:230,contents:[{id:"info",label:b.info,title:b.info,elements:[{id:"linkType",type:"select",label:b.type,"default":"url",items:[[b.toUrl,"url"],

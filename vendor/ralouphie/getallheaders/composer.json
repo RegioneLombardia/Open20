@@ -1,7 +1,7 @@
 {
 	"name": "ralouphie/getallheaders",
 	"description": "A polyfill for getallheaders.",
-	"proscription": "MIT",
+	"license": "MIT",
 	"authors": [
 		{
 			"name": "Ralph Khattar",

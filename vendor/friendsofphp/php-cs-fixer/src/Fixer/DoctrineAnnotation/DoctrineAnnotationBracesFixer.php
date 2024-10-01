@@ -63,12 +63,12 @@ final class DoctrineAnnotationBracesFixer extends AbstractDoctrineAnnotationFixe
     /**
      * {@inheritdoc}
      */
-    protected function fixAnnotations(Tokens $tokens)
+    protected function fixAnnotations(Tokens $doctrineAnnotationTokens)
     {
         if ('without_braces' === $this->configuration['syntax']) {
-            $this->removesBracesFromAnnotations($tokens);
+            $this->removesBracesFromAnnotations($doctrineAnnotationTokens);
         } else {
-            $this->addBracesToAnnotations($tokens);
+            $this->addBracesToAnnotations($doctrineAnnotationTokens);
         }
     }
 

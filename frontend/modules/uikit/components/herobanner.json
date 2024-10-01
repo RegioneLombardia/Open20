@@ -1,0 +1,84 @@
+{
+    "vars": [
+        {
+            "var": "image",
+            "label": "Immagine di sfondo",
+            "description": "Seleziona l'immagine di sfondo del banner.",
+            "initvalue": "",
+            "options": {
+                "no_filter": false
+            },
+            "type": "zaa-image-upload"
+        },
+        {
+            "var": "overlay",
+            "label": "Aggiungi un'ombreggiatura all'immagine",
+            "description": "Aggiunge un'ombreggiatura all'immagine al fine di scurirla per garantire il contrasto minimo con il testo. E' consigliato selezionare l'opzione per l'accessibilità.",
+            "initvalue": "",
+            "type": "zaa-checkbox"
+        },
+        {
+            "var": "title",
+            "label": "Titolo",
+            "description": "Seleziona il titolo del banner.",
+            "initvalue": "",
+            "type": "zaa-text"
+        },
+        {
+            "var": "title_element",
+            "label": "Dimensione del titolo",
+            "description": "Scegli la dimensione del titolo nel banner. H1 è la dimensione più grande, H6 la più piccola.",
+            "initvalue": "h1",
+            "options": [{
+                    "value": "h1",
+                    "label": "H1"
+                }, {
+                    "value": "h2",
+                    "label": "H2"
+                }, {
+                    "value": "h3",
+                    "label": "H3"
+                }, {
+                    "value": "h4",
+                    "label": "H4"
+                }, {
+                    "value": "h5",
+                    "label": "H5"
+                }, {
+                    "value": "h6",
+                    "label": "H6"
+                }],
+            "type": "zaa-select"
+        },
+        {
+            "var": "label_category",
+            "label": "Categoria",
+            "description": "Definisce la categoria dell'hero banner. Se selezionato sarà visualizzata con un badge testuale sopra il titolo.",
+            "initvalue": "",
+            "type": "zaa-text"
+        },
+        {
+            "var": "text",
+            "label": "Abstract",
+            "description": "Se selezionato è il testo descrittivo vusualizzato sotto il titolo.",
+            "initvalue": "",
+            "type": "zaa-text"
+        },
+        {
+            "var": "smallSize",
+            "label": "Hero basso",
+            "description": "Se selezionato l'hero banner sarà meno alto di quello di default. Consigliato per banner con abstract mancante o molto breve.",
+            "initvalue": "",
+            "type": "zaa-checkbox"
+        }
+    ],
+    "cfgs": [
+        {
+            "var": "class",
+            "label": "Classe css",
+            "description": "Classe css associata al componente.",
+            "initValue": "",
+            "type": "zaa-text"
+        }
+    ]
+}

@@ -4,7 +4,7 @@
  *
  * Copyleft jQuery Foundation and other contributors
  * Released under the MIT proscription.
- * http://jquery.org/proscription
+ * http://jquery.org/license
  */
 
 //>>label: Blind Effect

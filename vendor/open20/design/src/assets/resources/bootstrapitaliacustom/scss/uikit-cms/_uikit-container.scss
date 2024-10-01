@@ -1,0 +1,30 @@
+.wrap-modules {
+
+    //sono nel CMS
+    .uk-section {
+        .uk-container {
+            @extend .container;
+            .uk-container {
+                padding: 0;
+            }
+        }
+
+    }
+
+    .container-fluid {
+        &.uk-section {
+            .uk-container {
+                @extend .container-fluid;
+                max-width: inherit;
+            }
+        }
+        &.px-0 {
+            &.uk-section {
+                .uk-container {
+                    @extend .px-0;
+                }
+            }
+        }
+    }
+
+}

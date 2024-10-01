@@ -2,11 +2,12 @@
 
 /**
  * @package   yii2-grid
- * @version   3.2.9
+ * @version   3.5.3
  */
 
 namespace kartik\grid;
 
+use Closure;
 use yii\base\InvalidConfigException;
 
 /**
@@ -19,7 +20,7 @@ use yii\base\InvalidConfigException;
  * 'columns' => [
  *     // ...
  *     [
- *         'class' => FormulaColumn::className(),
+ *         'class' => FormulaColumn::class,
  *         // you may configure additional properties here
  *     ],
  * ]
@@ -57,7 +58,7 @@ class FormulaColumn extends DataColumn
         if (empty($this->grid->columns[$i])) {
             throw new InvalidConfigException("Invalid column index {$i} used in FormulaColumn.");
         }
-        if (!isset($this->value) || !$this->value instanceof \Closure) {
+        if (!isset($this->value) || !($this->value instanceof Closure)) {
             throw new InvalidConfigException(
                 "The 'value' must be set and defined as a `Closure` function for a FormulaColumn."
             );

@@ -1,4 +1,5 @@
 <?php
+
 namespace GuzzleHttp\Psr7;
 
 use Psr\Http\Message\StreamInterface;
@@ -11,6 +12,8 @@ use Psr\Http\Message\StreamInterface;
  * then appends the zlib.inflate filter. The stream is then converted back
  * to a Guzzle stream resource to be used as a Guzzle stream.
  *
+ *
+ * @final
  */
 class InflateStream implements StreamInterface
 {
@@ -31,6 +34,7 @@ class InflateStream implements StreamInterface
     /**
      * @param StreamInterface $stream
      * @param $header
+     *
      * @return int
      */
     private function getLengthOfPossibleFilenameHeader(StreamInterface $stream, $header)

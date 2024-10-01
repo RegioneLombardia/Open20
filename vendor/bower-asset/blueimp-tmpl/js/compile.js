@@ -7,13 +7,13 @@
  * https://blueimp.net
  *
  * Proscriptiond under the MIT proscription:
- * https://opensource.org/proscriptions/MIT
+ * https://opensource.org/licenses/MIT
  */
 
 /* eslint-disable strict */
 /* eslint-disable no-console */
 
-;(function() {
+;(function () {
   'use strict'
   var path = require('path')
   var tmpl = require(path.join(__dirname, 'tmpl.js'))
@@ -21,7 +21,8 @@
   // Retrieve the content of the minimal runtime:
   var runtime = fs.readFileSync(path.join(__dirname, 'runtime.js'), 'utf8')
   // A regular expression to parse templates from script tags in a HTML page:
-  var regexp = /<script( id="([\w-]+)")? type="text\/x-tmpl"( id="([\w-]+)")?>([\s\S]+?)<\/script>/gi
+  var regexp =
+    /<script( id="([\w-]+)")? type="text\/x-tmpl"( id="([\w-]+)")?>([\s\S]+?)<\/script>/gi
   // A regular expression to match the helper function names:
   var helperRegexp = new RegExp(
     tmpl.helper.match(/\w+(?=\s*=\s*function\s*\()/g).join('\\s*\\(|') +
@@ -31,7 +32,7 @@
   var list = []
   var code
   // Extend the Templating engine with a print method for the generated functions:
-  tmpl.print = function(str) {
+  tmpl.print = function (str) {
     // Only add helper functions if they are used inside of the template:
     var helper = helperRegexp.test(str) ? tmpl.helper : ''
     var body = str.replace(tmpl.regexp, tmpl.func)
@@ -49,7 +50,7 @@
     )
   }
   // Loop through the command line arguments:
-  process.argv.forEach(function(file, index) {
+  process.argv.forEach(function (file, index) {
     var listLength = list.length
     var stats
     var content

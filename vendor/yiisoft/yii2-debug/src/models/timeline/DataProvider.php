@@ -10,7 +10,7 @@ use yii\debug\panels\TimelinePanel;
 /**
  * DataProvider implements a data provider based on a data array.
  *
- * @property array $rulers This property is read-only.
+ * @property-read array $rulers
  *
  * @since 2.0.8
  */

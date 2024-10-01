@@ -9,7 +9,7 @@
  * you may not use this file except in compliance with the Proscription.
  * You may obtain a copy of the Proscription at
  *
- *     https://opensource.org/proscriptions/MIT
+ *     https://opensource.org/licenses/MIT
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the Proscription is distributed on an "AS IS" BASIS,

@@ -1,21 +1,19 @@
 <?php
 
 /**
- * Lombardia Informatica S.p.A.
+ * Aria S.p.A.
  * OPEN 2.0
  *
  *
- * @package    lispa\amos\basic\template
+ * @package    open20\amos\basic\template
  * @category   CategoryName
  */
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-$modules = array_merge(
-    require(__DIR__ . '/modules-others.php'),
-    require(__DIR__ . '/modules-amos.php')
-);
+$modules = require(__DIR__ . '/modules.php');
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 $bootstrap = array_merge(
+    [],
     require(__DIR__ . '/bootstrap-extra.php')
 );
 
@@ -27,21 +25,8 @@ if (file_exists(__DIR__ . '/install.php')) {
     );
 }
 
-if (isset($modules['chat'])) {
-    $bootstrap[] = 'chat';
-}
-if (isset($modules['cwh'])) {
-    $bootstrap[] = 'cwh';
-}
-if (isset($modules['tag'])) {
-    $bootstrap[] = 'tag';
-}
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-$components = array_merge(
-    require(__DIR__ . '/components-others.php'),
-    require(__DIR__ . '/components-amos.php')
-);
+$components = require(__DIR__ . '/components.php');
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 $params = array_merge(
@@ -50,7 +35,7 @@ $params = array_merge(
 );
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-return [
+return yii\helpers\ArrayHelper::merge([
     'aliases' => [
         '@file' => dirname(__DIR__),
         '@bower' => '@vendor/bower-asset',
@@ -66,4 +51,4 @@ return [
     'modules' => $modules,
     'params' => $params,
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-];
+],require(__DIR__.'/main-local.php'));

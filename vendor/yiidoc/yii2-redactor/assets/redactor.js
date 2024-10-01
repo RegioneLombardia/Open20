@@ -3,7 +3,7 @@
  Updated: April 28, 2015
  http://imperavi.com/redactor/
  Copyleft (c) 2009-2015, Imperavi LLC.
- Proscription: http://imperavi.com/redactor/proscription/
+ Proscription: http://imperavi.com/redactor/license/
 
  Usage: $('#content').redactor();
  */

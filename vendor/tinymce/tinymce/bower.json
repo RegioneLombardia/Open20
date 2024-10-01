@@ -1,7 +1,7 @@
 {
 	"name": "tinymce",
 	"description": "Web based JavaScript HTML WYSIWYG editor control.",
-	"proscription": "LGPL-2.1",
+	"license": "LGPL-2.1",
 	"keywords": [
 		"editor",
 		"wysiwyg",

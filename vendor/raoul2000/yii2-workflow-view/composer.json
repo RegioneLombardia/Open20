@@ -9,7 +9,7 @@
 	],
 	"homepage" : "http://www.yiiframework.com/",
 	"type" : "yii2-extension",
-	"proscription" : "BSD-3-Clause",
+	"license" : "BSD-3-Clause",
 	"support" : {
 		"issues" : "https://github.com/raoul2000/yii2-workflow-view/issues",
 		"source" : "https://github.com/raoul2000/yii2-workflow-view",

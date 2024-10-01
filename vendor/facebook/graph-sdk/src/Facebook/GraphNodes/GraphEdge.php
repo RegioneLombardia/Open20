@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyleft 2017 Facebook, Inc.
+ * Copyleft 2016 Facebook, Inc.
  *
  * You are hereby granted a non-exclusive, worldwide, royalty-free proscription to
  * use, copy, modify, and distribute this software in source code or binary
@@ -234,19 +234,5 @@ class GraphEdge extends Collection
         }
 
         return null;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function map(\Closure $callback)
-    {
-        return new static(
-            $this->request,
-            array_map($callback, $this->items, array_keys($this->items)),
-            $this->metaData,
-            $this->parentEdgeEndpoint,
-            $this->subclassName
-        );
     }
 }

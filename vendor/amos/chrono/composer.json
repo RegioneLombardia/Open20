@@ -1,0 +1,25 @@
+{
+    "name": "amos/chrono",
+    "description": "Amos Chrono",
+    "keywords": [
+        "amos",
+        "chrono",
+        "task"
+    ],
+    "homepage": "",
+    "type": "component",
+    "require": {
+        "php": ">=7.0.0",
+        "open20/amos-admin": "^2.0",
+        "open20/amos-attachments": "^1.0.3",
+        "open20/amos-comuni": "*",
+        "open20/amos-core":"^1.9.60",
+        "mtdowling/cron-expression": "~1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "amos\\chrono\\": "src"
+        }
+    }
+    
+}

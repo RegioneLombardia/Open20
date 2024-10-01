@@ -1,7 +1,7 @@
 /*!
  * @package yii2-widgets
  * @subpackage yii2-widget-activeform
- * @version 1.5.8
+ * @version 1.6.4
  *
  * Active Form Styling for Bootstrap 3.x & Bootstrap 4.x
  * Built for Yii Framework 2.0
@@ -251,6 +251,16 @@ label.disabled, label.readonly, .disabled label, .readonly label {
     color: #999;
 }
 
+.kv-form-bs3 .hint-block {
+    font-size: 12px;
+    margin-top: -5px;
+    color: #999;
+}
+
+.kv-form-bs3 .help-block-error {
+    font-size: 90%;
+}
+
 .checkbox.not-enclosed,
 .radio.not-enclosed {
     padding-left: 20px;
@@ -272,11 +282,32 @@ label.disabled, label.readonly, .disabled label, .readonly label {
     margin-top: -5px;
 }
 
-.form-group.required .has-star:not(.custom-control-label)::after,
+.required .has-star:not(.custom-control-label):not(.custom-file-label)::after,
 .is-required::after {
     content: "*";
     margin-left: 3px;
     font-weight: normal;
     font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     color: tomato;
+}
+
+.form-floating > .form-control:focus ~ label.has-star::after,
+.form-floating > .form-control:not(:placeholder-shown) ~ label.has-star::after,
+.form-floating > .form-control-plaintext ~ label.has-star::after,
+.form-floating > .form-select ~ label.has-star::after {
+    content: none;
+    margin-left: none;
+}
+
+.bs5-form-check.form-check-input,
+.bs5-form-check.form-check-input:checked,
+.bs5-form-check.form-check-input:focus,
+.bs5-form-check.form-check-input:active,
+.bs5-form-check.form-check-input:indeterminate {
+    background: none;
+    border: none;
+    box-shadow: none;
+    appearance: auto;
+    -webkit-appearance: auto;
+    -moz-appearance: auto;
 }

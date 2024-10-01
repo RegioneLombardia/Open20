@@ -1,0 +1,42 @@
+.fullsizeRegistrationBiLayout {
+    .loginContainerFullsize {
+        .spid-block, .registration-block, .social-block {
+            margin-bottom: 50px;
+        }
+        .social-buttons.col-xs-12.row{
+            margin: 0;
+            .button-container{
+                > .btn{
+                    width: 90%;
+                    margin: 0 auto;
+                    border-radius: 0;
+                    margin-bottom: 15px;
+                }
+            }
+        }
+        .reactivate-profile-block{
+            display: none;
+        }
+        #login-form{
+            .form-group > .row > .col-xs-12:first-child {
+                display: none;
+            }
+            .form-group .form-control {
+                padding-left: 35px;
+            }
+            .form-group + .ic {
+                position: absolute;
+                top: 15px;
+                margin-left: 7px;
+                font-size: 1.2em;
+            }
+            .action-block{
+                padding: 0;
+                .btn-navigation-primary{ //nascosto dottone indietro
+                    display: none !important;
+                }
+            }
+        }
+    }
+
+}

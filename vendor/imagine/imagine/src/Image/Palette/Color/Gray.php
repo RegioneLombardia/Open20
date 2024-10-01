@@ -127,7 +127,7 @@ final class Gray implements ColorInterface
      */
     public function isOpaque()
     {
-        return 100 === $this->alpha;
+        return $this->alpha === 100;
     }
 
     /**

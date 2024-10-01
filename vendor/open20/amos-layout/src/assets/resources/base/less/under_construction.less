@@ -1,0 +1,130 @@
+/* ---------------------------------------------- /*
+ * Mouse animate icon
+/* ---------------------------------------------- */
+.mouse-icon {
+  position: absolute;
+  left: 50%;
+  bottom: 8%;
+  border: 2px solid #fff;
+  border-radius: 16px;
+  height: 50px;
+  width: 30px;
+  margin-left: -17px;
+  display: block;
+  z-index: 10;
+
+  .wheel {
+    -webkit-animation-name: drop;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-delay: 0s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-play-state: running;
+    animation-name: drop;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+
+    position: relative;
+    border-radius: 10px;
+    background: #fff;
+    width: 4px;
+    height: 10px;
+    top: 4px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@keyframes drop	{
+  0%   { top:5px;  opacity: 0;}
+  30%  { top:10px; opacity: 1;}
+  100% { top:25px; opacity: 0;}
+}
+
+
+.under-construction {
+  background: url(../img/under_construction.jpg) no-repeat center center;
+  background-position: center 35%;
+  -webkit-background-attachment: fixed;
+  background-attachment: fixed;
+  background-color: #222;
+  background-size: cover;
+  padding: 0;
+  position: relative;
+
+  &:before {
+    content: "";
+    background-color: rgba(26, 30, 40, 0.30);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.intro {
+  position: absolute;
+  width: 100%;
+  top: 62%;
+  left: 0;
+  text-align: center;
+  -webkit-transform: translate(0%, -50%);
+  -moz-transform: translate(0%, -50%);
+  -ms-transform: translate(0%, -50%);
+  -o-transform: translate(0%, -50%);
+  transform: translate(0%, -50%);
+  padding: 0 15px;
+
+  h1 {
+    font-size: 90px;
+    line-height: 90px;
+    color: @primary-color;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.45);
+    margin-bottom: 30px;
+    margin-top: 25px;
+  }
+  h2 span {
+    color: #fff;
+    font-size: 50px;
+    line-height: 52px;
+  }
+
+  p {
+    color: #f7f7f7;
+    margin-bottom: 40px;
+  }
+}
+
+.intro-sub {
+  color: #fff;
+  font-size: 50px;
+  line-height: 52px;
+  text-transform: uppercase;
+  display: block;
+}
+
+/* === Footer Wrapper === */
+.header-wrapper {
+  background: #fff;
+  padding:  0;
+  color: #fff;
+  border-top: 20px	solid @primary-color;
+
+  .logo {
+    img {
+      height: 100px;
+      width: auto;
+      padding: 5px 0;
+    }
+  }
+}
+
+.footer-wrapper {
+  background: @primary-color;
+  padding: 36px 0;
+  color: #fff;
+}

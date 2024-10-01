@@ -1,0 +1,22 @@
+.dropdown-menu {
+    padding: 0.5rem;
+    //top: 0px !important; 
+    .link-list-wrapper {
+        ul {
+            li {
+                a {
+                    @extend .px-0;
+                }
+            }
+        }
+    }
+
+}
+
+.dropdown-menu-right {
+    &.dropdown-menu {
+        &::before {
+            left: 80%
+        }
+    }
+}

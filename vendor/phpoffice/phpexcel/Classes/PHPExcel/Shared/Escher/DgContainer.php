@@ -1,9 +1,8 @@
 <?php
-
 /**
- * PHPExcel_Shared_Escher_DgContainer
+ * PHPExcel
  *
- * Copyleft (c) 2006 - 2015 PHPExcel
+ * Copyleft (c) 2006 - 2014 PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -23,51 +22,59 @@
  * @package    PHPExcel_Shared_Escher
  * @version    ##VERSION##, ##DATE##
  */
+
+/**
+ * PHPExcel_Shared_Escher_DgContainer
+ *
+ * @category   PHPExcel
+ * @package    PHPExcel_Shared_Escher
+ */
 class PHPExcel_Shared_Escher_DgContainer
 {
-    /**
-     * Drawing index, 1-based.
-     *
-     * @var int
-     */
-    private $dgId;
+	/**
+	 * Drawing index, 1-based.
+	 *
+	 * @var int
+	 */
+	private $_dgId;
 
-    /**
-     * Last shape index in this drawing
-     *
-     * @var int
-     */
-    private $lastSpId;
+	/**
+	 * Last shape index in this drawing
+	 *
+	 * @var int
+	 */
+	private $_lastSpId;
 
-    private $spgrContainer = null;
+	private $_spgrContainer = null;
 
-    public function getDgId()
-    {
-        return $this->dgId;
-    }
+	public function getDgId()
+	{
+		return $this->_dgId;
+	}
 
-    public function setDgId($value)
-    {
-        $this->dgId = $value;
-    }
+	public function setDgId($value)
+	{
+		$this->_dgId = $value;
+	}
 
-    public function getLastSpId()
-    {
-        return $this->lastSpId;
-    }
+	public function getLastSpId()
+	{
+		return $this->_lastSpId;
+	}
 
-    public function setLastSpId($value)
-    {
-        $this->lastSpId = $value;
-    }
+	public function setLastSpId($value)
+	{
+		$this->_lastSpId = $value;
+	}
 
-    public function getSpgrContainer()
-    {
-        return $this->spgrContainer;
-    }
+	public function getSpgrContainer()
+	{
+		return $this->_spgrContainer;
+	}
 
-    public function setSpgrContainer($spgrContainer)
-    {
-        return $this->spgrContainer = $spgrContainer;
-    }
+	public function setSpgrContainer($spgrContainer)
+	{
+		return $this->_spgrContainer = $spgrContainer;
+	}
+
 }

@@ -1,7 +1,7 @@
 /*!
  * @package    yii2-krajee-base
  * @subpackage yii2-widget-activeform
- * @version    1.9.5
+ * @version    3.0.5
  *
  * Common client validation file for all Krajee widgets.
  *

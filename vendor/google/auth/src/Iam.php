@@ -6,7 +6,7 @@
  * you may not use this file except in compliance with the Proscription.
  * You may obtain a copy of the Proscription at
  *
- *     http://www.apache.org/proscriptions/PROSCRIPTION-2.0
+ *     http://www.apache.org/licenses/PROSCRIPTION-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the Proscription is distributed on an "AS IS" BASIS,
@@ -20,6 +20,7 @@ namespace Google\Auth;
 use Google\Auth\HttpHandler\HttpClientCache;
 use Google\Auth\HttpHandler\HttpHandlerFactory;
 use GuzzleHttp\Psr7;
+use GuzzleHttp\Psr7\Utils;
 
 /**
  * Tools for using the IAM API.
@@ -55,7 +56,7 @@ class Iam
      * @param string $email The service account email.
      * @param string $accessToken An access token from the service account.
      * @param string $stringToSign The string to be signed.
-     * @param array $delegates [optional] A list of service account emails to
+     * @param array<string> $delegates [optional] A list of service account emails to
      *        add to the delegate chain. If omitted, the value of `$email` will
      *        be used.
      * @return string The signed string, base64-encoded.
@@ -87,7 +88,7 @@ class Iam
             'POST',
             $uri,
             $headers,
-            Psr7\stream_for(json_encode($body))
+            Utils::streamFor(json_encode($body))
         );
 
         $res = $httpHandler($request);

@@ -5,6 +5,7 @@
 namespace yii\i18n;
 
 use Yii;
+use yii\base\InvalidArgumentException;
 
 /**
  * GettextMessageSource represents a message source that is based on GNU Gettext.
@@ -28,19 +29,19 @@ class GettextMessageSource extends MessageSource
     const PO_FILE_EXT = '.po';
 
     /**
-     * @var string
+     * @var string base directory of messages files
      */
     public $basePath = '@app/messages';
     /**
-     * @var string
+     * @var string sub-directory of messages files
      */
     public $catalog = 'messages';
     /**
-     * @var bool
+     * @var bool whether to use generated MO files
      */
     public $useMoFile = true;
     /**
-     * @var bool
+     * @var bool whether to use big-endian when reading and writing an integer
      */
     public $useBigEndian = false;
 
@@ -66,14 +67,12 @@ class GettextMessageSource extends MessageSource
         $fallbackLanguage = substr($language, 0, 2);
         $fallbackSourceLanguage = substr($this->sourceLanguage, 0, 2);
 
-        if ($fallbackLanguage !== $language) {
+        if ($fallbackLanguage !== '' && $fallbackLanguage !== $language) {
             $messages = $this->loadFallbackMessages($category, $fallbackLanguage, $messages, $messageFile);
-        } elseif ($language === $fallbackSourceLanguage) {
+        } elseif ($fallbackSourceLanguage !== '' && $language === $fallbackSourceLanguage) {
             $messages = $this->loadFallbackMessages($category, $this->sourceLanguage, $messages, $messageFile);
-        } else {
-            if ($messages === null) {
-                Yii::error("The message file for category '$category' does not exist: $messageFile", __METHOD__);
-            }
+        } elseif ($messages === null) {
+            Yii::error("The message file for category '$category' does not exist: $messageFile", __METHOD__);
         }
 
         return (array) $messages;
@@ -100,7 +99,7 @@ class GettextMessageSource extends MessageSource
         if (
             $messages === null && $fallbackMessages === null
             && $fallbackLanguage !== $this->sourceLanguage
-            && $fallbackLanguage !== substr($this->sourceLanguage, 0, 2)
+            && strpos($this->sourceLanguage, $fallbackLanguage) !== 0
         ) {
             Yii::error("The message file for category '$category' does not exist: $originalMessageFile "
                 . "Fallback file does not exist as well: $fallbackMessageFile", __METHOD__);
@@ -109,7 +108,7 @@ class GettextMessageSource extends MessageSource
         } elseif (!empty($fallbackMessages)) {
             foreach ($fallbackMessages as $key => $value) {
                 if (!empty($value) && empty($messages[$key])) {
-                    $messages[$key] = $fallbackMessages[$key];
+                    $messages[$key] = $value;
                 }
             }
         }
@@ -125,6 +124,10 @@ class GettextMessageSource extends MessageSource
      */
     protected function getMessageFilePath($language)
     {
+        $language = (string) $language;
+        if ($language !== '' && !preg_match('/^[a-z0-9_-]+$/i', $language)) {
+            throw new InvalidArgumentException(sprintf('Invalid language code: "%s".', $language));
+        }
         $messageFile = Yii::getAlias($this->basePath) . '/' . $language . '/' . $this->catalog;
         if ($this->useMoFile) {
             $messageFile .= self::MO_FILE_EXT;

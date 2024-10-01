@@ -63,7 +63,7 @@ class Breadcrumbs extends Widget
      */
     public $encodeLabels = true;
     /**
-     * @var array the first hyperlink in the breadcrumbs (called home link).
+     * @var array|null the first hyperlink in the breadcrumbs (called home link).
      * Please refer to [[links]] on the format of the link.
      * If this property is not set, it will default to a link pointing to [[\yii\web\Application::homeUrl]]
      * with the label 'Home'. If this property is false, the home link will not be rendered.
@@ -92,7 +92,7 @@ class Breadcrumbs extends Widget
      * ```php
      * [
      *     'label' => 'demo',
-     *     'url' => 'http://example.com',
+     *     'url' => 'https://example.com',
      *     'class' => 'external',
      * ]
      * ```

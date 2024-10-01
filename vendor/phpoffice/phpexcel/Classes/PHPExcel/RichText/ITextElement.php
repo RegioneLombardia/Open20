@@ -1,7 +1,6 @@
 <?php
-
 /**
- * PHPExcel_RichText_ITextElement
+ * PHPExcel
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -21,34 +20,42 @@
  * @package    PHPExcel_RichText
  * @version    ##VERSION##, ##DATE##
  */
+
+
+/**
+ * PHPExcel_RichText_ITextElement
+ *
+ * @category   PHPExcel
+ * @package    PHPExcel_RichText
+ */
 interface PHPExcel_RichText_ITextElement
 {
-    /**
-     * Get text
-     *
-     * @return string    Text
-     */
-    public function getText();
+	/**
+	 * Get text
+	 *
+	 * @return string	Text
+	 */
+	public function getText();
 
-    /**
-     * Set text
-     *
-     * @param     $pText string    Text
-     * @return PHPExcel_RichText_ITextElement
-     */
-    public function setText($pText = '');
+	/**
+	 * Set text
+	 *
+	 * @param 	$pText string	Text
+	 * @return PHPExcel_RichText_ITextElement
+	 */
+	public function setText($pText = '');
 
-    /**
-     * Get font
-     *
-     * @return PHPExcel_Style_Font
-     */
-    public function getFont();
+	/**
+	 * Get font
+	 *
+	 * @return PHPExcel_Style_Font
+	 */
+	public function getFont();
 
-    /**
-     * Get hash code
-     *
-     * @return string    Hash code
-     */
-    public function getHashCode();
+	/**
+	 * Get hash code
+	 *
+	 * @return string	Hash code
+	 */
+	public function getHashCode();
 }

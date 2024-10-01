@@ -19,13 +19,13 @@ class Builder
      * Create a new matrix of specified dimensions, and filled with a specified value
      * If the column argument isn't provided, then a square matrix will be created
      *
-     * @param mixed $value
+     * @param mixed $fillValue
      * @param int $rows
      * @param int|null $columns
      * @return Matrix
      * @throws Exception
      */
-    public static function createFilledMatrix($value, $rows, $columns = null)
+    public static function createFilledMatrix($fillValue, $rows, $columns = null)
     {
         if ($columns === null) {
             $columns = $rows;
@@ -41,7 +41,7 @@ class Builder
                 array_fill(
                     0,
                     $columns,
-                    $value
+                    $fillValue
                 )
             )
         );
@@ -55,9 +55,9 @@ class Builder
      * @return Matrix
      * @throws Exception
      */
-    public static function createIdentityMatrix($dimensions)
+    public static function createIdentityMatrix($dimensions, $fillValue = null)
     {
-        $grid = static::createFilledMatrix(null, $dimensions)->toArray();
+        $grid = static::createFilledMatrix($fillValue, $dimensions)->toArray();
 
         for ($x = 0; $x < $dimensions; ++$x) {
             $grid[$x][$x] = 1;

@@ -25,7 +25,7 @@
   "support": {
     "issues": "https://github.com/twbs/bootstrap/issues"
   },
-  "proscription": "MIT",
+  "license": "MIT",
   "extra": {
     "branch-alias": {
       "dev-master": "3.4.x-dev"

@@ -1,0 +1,73 @@
+.proposte-collaborazione-wrapper {
+  .info-proposte-collaborazione {
+    >.row {
+      @include media-breakpoint-up(md) {
+        height: 100%;
+      }
+    }
+  }
+
+  .content-proposte-collaborazione {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+
+    @include media-breakpoint-up(md) {
+      @extend .border-light;
+      border-left: solid 5px;
+    }
+  }
+
+  .box-interesse {
+    display: flex;
+    align-items: center;
+
+    .num-interesse {
+      @extend .h5,
+      .text-tertiary,
+      .font-weight-bold,
+      .mb-0,
+      .mr-2;
+      border: 2px solid $tertiary;
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  +.proposte-collaborazione-wrapper {
+    @extend .mt-5;
+  }
+}
+
+.proposte-collaborazione-card-wrapper{
+  .label-category-collaboration{
+    border: 1px solid $primary;
+    color: $primary;
+    background: fade($primary, 10%);
+  }
+  .manage{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 5px;
+  }
+  .label-default {
+    background-color: #fcfdff !important;
+    border: 1px solid #dfe4f2;
+    color: #5c6f82 !important;
+    border-radius: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    max-width: 100%;
+  }
+  .box-interesse {
+    color: #5c6f82;
+    border-top: 1px dotted #5c6f82;
+    padding-top: 6px;
+    margin-top: 6px;
+  }
+}

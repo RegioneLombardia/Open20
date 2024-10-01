@@ -1,13 +1,43 @@
 <?php
 
-namespace frontend\controllers;
+namespace app\controllers;
 
+use open20\amos\core\controllers\AmosController;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\NotFoundHttpException;
 
-class FilesController extends \yii\web\Controller
+class FilesController extends AmosController
 {
+    
+    /**
+    * Extensions locked
+    */
+    private $notExpectedFormats = [
+                'cgi-script',
+                'php',
+                'php2',
+                'php3',
+                'php4',
+                'php5',
+                'php6',
+                'php7',
+                'php8',
+                'pl',
+                'py',
+                'js',
+                'jsp',
+                'asp',
+                'htm',
+                'html',
+                'shtml',
+                'sh',
+                'cgi',
+                'git',
+                'htaccess',
+                'htpasswd'
+            ];
+    
     /**
      * @inheritdoc
      */
@@ -19,10 +49,11 @@ class FilesController extends \yii\web\Controller
                 'rules' => [
                     [
                         'actions' => [
-                            'index'
+                            'index',
+                            'img',
                         ],
                         'allow' => true,
-                        'roles' => ['@'],
+                        'roles' => ['?','@'],
                     ],
                 ],
             ],
@@ -47,37 +78,39 @@ class FilesController extends \yii\web\Controller
             $fileInfo = pathinfo($filePath);
 
             /**
-             * Extensions locked
+             * If the extension is not alowed
              */
-            $notExpectedFormats = [
-                'cgi-script',
-                'php',
-                'php2',
-                'php3',
-                'php4',
-                'php5',
-                'php6',
-                'php7',
-                'php8',
-                'pl',
-                'py',
-                'js',
-                'jsp',
-                'asp',
-                'htm',
-                'html',
-                'shtml',
-                'sh',
-                'cgi',
-                'git',
-                'htaccess',
-                'htpasswd'
-            ];
+            if (in_array($fileInfo['extension'], $this->notExpectedFormats)) {
+                throw new NotFoundHttpException('File Not Found');
+            }
+
+            return Yii::$app->response->sendFile($filePath);
+        }
+
+        throw new NotFoundHttpException('File Not Found');
+    }
+    
+    /**
+     * 
+     * @param type $file
+     * @return type
+     * @throws NotFoundHttpException
+     */
+    public function actionImg($file)
+    {
+        $filePath = __DIR__ . '/../web/img' . $file;
+
+        //If file exists
+        if (file_exists($filePath) && !strstr($file, '../')) {
+            /**
+             * @var $fileInfo array
+             */
+            $fileInfo = pathinfo($filePath);
 
             /**
              * If the extension is not alowed
              */
-            if (in_array($fileInfo['extension'], $notExpectedFormats)) {
+            if (in_array($fileInfo['extension'], $this->notExpectedFormats)) {
                 throw new NotFoundHttpException('File Not Found');
             }
 

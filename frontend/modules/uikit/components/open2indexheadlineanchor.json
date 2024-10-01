@@ -1,0 +1,57 @@
+{
+    "vars": [
+            {
+                "var": "header",
+                "label": "Selezionare il tipo di titoli con ancora da indicizzare",
+                "description": "Il componente permette di creare un indice, con voci che se cliccate riportano alla sezione corrispondente.Inserire uno o più componenti 'Titolo della sezione' per creare l'indice. Il tipo di intestazione deve corrispondere.",
+                "initvalue": "h1",
+                "image" : "/img/index-headline-anchor/index-headline-anchor.png",
+                "options": [{
+                        "value": "h1",
+                        "label": "Intestazione 1"
+                    },
+                    {
+                        "value": "h2",
+                        "label": "Intestazione 2"
+                    },
+                    {
+                        "value": "h3",
+                        "label": "Intestazione 3"
+                    },
+                    {
+                        "value": "h4",
+                        "label": "Intestazione 4"
+                    },
+                    {
+                        "value": "h5",
+                        "label": "Intestazione 5"
+                    },
+                    {
+                        "value": "h6",
+                        "label": "Intestazione 6"
+                    }
+                    
+                ],
+                "type": "zaa-select"
+            },
+            {
+                "var": "section_title",
+                "label": "Titolo della sezione",
+                "description": "Se non indicato verrà stampato 'Indice della pagina'.",
+                "initvalue": "",
+                "type": "zaa-text"
+            },
+            {
+                "var": "affix",
+                "label": " Segui scorrimento di pagina",
+                "description": "Se abilitato, l'indice della pagina rimarrà visibile mentre si scorre verso il basso la pagina.",
+                "initvalue": "",
+                "type": "zaa-checkbox"
+            }
+    ],
+    "cfgs": [
+    ],
+    "defaults": {
+        
+    }
+}

@@ -11,7 +11,7 @@
         "helper",
         "qrcode"
     ],
-    "proscription": "BSD-3-Clause",
+    "license": "BSD-3-Clause",
     "authors": [
         {
             "name": "2amigOS! Consulting Group",

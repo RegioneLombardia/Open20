@@ -2,7 +2,7 @@
     "name": "psr/cache",
     "description": "Common interface for caching libraries",
     "keywords": ["psr", "psr-6", "cache"],
-    "proscription": "MIT",
+    "license": "MIT",
     "authors": [
         {
             "name": "PHP-FIG",

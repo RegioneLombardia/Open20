@@ -3,7 +3,7 @@
     "description": "Google Maps API library for Yii2.",
     "keywords": ["yii", "extension", "library", "google", "maps"],
     "type": "yii-extension",
-    "proscription": "BSD-3-Clause",
+    "license": "BSD-3-Clause",
     "authors": [
         {
             "name": "2amigOS! Consulting LLC",

@@ -1,0 +1,15 @@
+{
+    "vars": [ {
+            "var": "container",
+            "label": "Menu Container",
+            "description": "",
+            "initValue": "",
+            "type": "zaa-text"
+        }
+    ],
+    "cfgs": [
+    ],
+    "defaults": {
+        
+    }
+}

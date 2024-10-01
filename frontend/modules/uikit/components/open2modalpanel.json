@@ -1,0 +1,151 @@
+{
+    "vars": [
+        {
+            "var": "open_modal",
+            "label": "Apertura modale",
+            "description": "Determina l'elemento che apre la modale. L'apertura può essere scatenata da elementi in pagina (se selezionati bottone o immagine), oppure un evento (caricamento della pagina).",
+            "initvalue": "default",
+            "options": [
+                {
+                    "value": "default",
+                    "label": "Link/Bottone"
+                }, {
+                    "value": "load",
+                    "label": "Al caricamento della pagina"
+                }, {
+                    "value": "image",
+                    "label": "Immagine"
+                }],
+            "type": "zaa-select"
+        },{
+            "var": "modal_button_text",
+            "label": "Testo del bottone che apre la modale",
+            "description": "Da compilare solo se per il campo 'Apertura modale' è stato selezionato il valore 'bottone'. In tal caso determina il testo del bottone che apre la modale.",
+            "initValue": "",
+            "type": "zaa-text"
+        },{
+            "var": "modal_button_style",
+            "label": "Stile del bottone che apre la modale",
+            "description": "Da compilare solo se per il campo 'Apertura modale' è stato selezionato il valore 'bottone'. In tal caso determina lo stile del bottone che apre la modale.",
+            "initvalue": "default",
+            "options": [ 
+                {
+                    "value": "",
+                    "label": "Link"
+                },
+                {
+                    "value": "primary",
+                    "label": "Primario"
+                }, {
+                    "value": "secondary",
+                    "label": "Secondario"
+                }, {
+                    "value": "tertiary",
+                    "label": "Terziario"
+                }],
+            "type": "zaa-select"
+        },{
+            "var": "link_image",
+            "label": "Immagine che apre la modale",
+            "description": "Da compilare solo se per il campo 'Apertura modale' è stato selezionato il valore 'immagine'. In tal caso determina l'immagine che apre la modale.",
+            "initvalue": "",
+            "options": {
+                "no_filter": false
+            },
+            "type": "zaa-image-upload"
+        },{
+            "var": "modal_size",
+            "label": "Dimensione della modale",
+            "description": "Definisce la dimensione della modale. Di default il valore sarà medio.",
+            "initvalue": "default",
+            "options": [
+                {
+                    "value": "sm",
+                    "label": "Piccolo"
+                }, {
+                    "value": "default",
+                    "label": "Medio"
+                }, {
+                    "value": "lg",
+                    "label": "Grande"
+                }, {
+                    "value": "xl",
+                    "label": "Molto grande"
+                }],
+            "type": "zaa-select"
+        },{
+            "var": "internal_scroll",
+            "label": "Abilita lo scroll interno",
+            "description": "Se selezionato in caso di modali con contenuti lunghi permette di scrollare. Consigliato per esempio in caso di testi molto lunghi, oppure una lista di allegati molto numerosa.",
+            "initvalue": "",
+            "type": "zaa-checkbox"
+        }, {
+            "var": "modal_title",
+            "label": "Titolo della modale",
+            "description": "Determina il titolo visualizzato in alto nella finestra modale.",
+            "initvalue": "",
+            "type": "zaa-text"
+        },{
+            "var": "modal_text",
+            "label": "Testo della modale",
+            "description": "Determina il testo visualizzato nel corpo della finestra modale.",
+            "initvalue": "",
+            "type": "zaa-wysiwyg"
+        },
+        {
+            "var": "allegati",
+            "label": "Allegati",
+            "description": "Determina la lista di allegati visualizzati nel corpo della finestra modale. I formati ammissibili sono url (per esempio documenti in Google Drive), e-mail, .docx, .doc, .pdf.",
+            "initValue": "",
+            "placeholder": "",
+            "type": "zaa-multiple-inputs",
+            "options": [{
+                "var": "link",
+                "label": "Allegato",
+                "description": "",
+                "initvalue": "",
+                "options": {
+                    "no_filter": true
+                },
+                "type": "zaa-file-upload"
+            }]
+        },
+        {
+            "var": "can_close",
+            "label": "Bottone di chiusura modale in alto",
+            "description": "Se selezionato permette all'utente di richiudere la finestra modale attraverso un bottone x posizionato in alto a destra. Se non selezionato il bottone x per la chiusura non ci sarà.",
+            "initvalue": "1",
+            "type": "zaa-checkbox"
+        },{
+            "var": "can_close_button",
+            "label": "Bottone di chiusura modale in basso",
+            "description": "Se selezionato permette all'utente di richiudere la finestra modale attraverso un bottone 'Chiudi' posizionato in basso. Se non selezionato il bottone in basso per la chiusura non ci sarà.",
+            "initvalue": "",
+            "type": "zaa-checkbox"
+        },{
+            "var": "second_button",
+            "label": "Bottone primario in basso della modale",
+            "description": "Se selezionato visualizza un bottone in basso nella modale che rappresenta l'azione principale della modale. Sarà di fianco al bottone 'Chiudi' se il campo 'Bottone di chiusura modale in basso' è compilato.",
+            "initvalue": "",
+            "placeholder": "http:\/\/",
+            "type": "zaa-link"
+        },{
+            "var": "second_button_text",
+            "label": "Testo del bottone primario in basso della modale",
+            "description": "Da compilare solo se il campo 'Bottone primario in basso della modale' è stato compilato. In tal caso determina il testo del bottone. Se non compilato di default sarà 'Accetta'.",
+            "initvalue": "",
+            "type": "zaa-text"
+        }
+    
+    ],
+    "cfgs": [
+        {
+            "var": "class",
+            "label": "Classe css",
+            "description": "Classe css associata al componente.",
+            "initValue": "",
+            "type": "zaa-text"
+        }
+    ]
+    
+}

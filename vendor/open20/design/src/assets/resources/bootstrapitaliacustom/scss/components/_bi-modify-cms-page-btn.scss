@@ -1,0 +1,38 @@
+.btn-modify-cms-page {
+  position: fixed;
+  right: 0;
+  z-index: 9;
+  width: 60px;
+  height: 60px;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  transition: all 0.2s ease-in-out, transform 0.25s cubic-bezier(0.75, -0.5, 0, 1.75), visibility 0.3s linear, opacity 0.3s ease-in-out;
+  @extend .shadow-sm;
+  .icon {
+    color: #fff;
+  }
+}
+
+.shrink {
+  .btn-modify-cms-page {
+    margin-top:-52px;
+    transition: all 0.2s ease-in-out, transform 0.25s cubic-bezier(0.75, -0.5, 0, 1.75), visibility 0.3s linear, opacity 0.3s ease-in-out;
+  }
+}
+main {
+  &.highlight-modify-cms-page {
+    position: relative;
+    &::after {
+      content: '';
+      height: 100%;
+      width: 100%;
+      top: 0;
+      position: absolute;
+      left: 0;
+      z-index: 2;
+      box-shadow: inset 0px 0px 0px 5px #00cf86;
+    }
+  }
+}

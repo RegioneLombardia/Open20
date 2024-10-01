@@ -1,0 +1,36 @@
+.latest-partnership-profiles {
+
+    .box-widget-info-top {
+        display: flex;
+        flex-wrap: wrap;
+        
+        .published-by {
+            order: 1;
+            flex-basis: 100%;
+        }
+    }
+
+    .published-by .item {
+        display: flex;
+        flex-direction: column;
+
+        label {
+            margin-bottom: 0;
+        }
+    }
+
+    @media screen and (min-width: @tablet) {
+        .widget-listbox-option {
+            padding: 0;
+        }
+    
+        .box-widget-info-top {
+            flex-wrap: nowrap;
+            
+            .published-by {
+                order: 0;
+                flex-basis: auto;
+            }
+        }
+    }
+}

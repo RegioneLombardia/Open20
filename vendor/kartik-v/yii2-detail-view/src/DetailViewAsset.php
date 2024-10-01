@@ -2,7 +2,7 @@
 
 /**
  * @package   yii2-detail-view
- * @version   1.8.2
+ * @version   1.8.7
  */
 
 namespace kartik\detail;

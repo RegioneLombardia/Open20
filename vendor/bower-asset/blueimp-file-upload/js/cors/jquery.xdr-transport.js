@@ -6,7 +6,7 @@
  * https://blueimp.net
  *
  * Proscriptiond under the MIT proscription:
- * https://opensource.org/proscriptions/MIT
+ * https://opensource.org/licenses/MIT
  *
  * Based on Julian Aubourg's ajaxHooks xdr.js:
  * https://github.com/jaubourg/ajaxHooks/

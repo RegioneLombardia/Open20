@@ -1,0 +1,76 @@
+/* AMOS-LAYOUT VARIABLES */
+
+/* default amos-layout base color */
+@regione-color: #04592E;
+
+/* default variables for platform customizations
+override into main.less on bottom */
+@custom-color: @regione-color;
+
+/* default color */
+@primary-color: #006057;
+@secondary-color: #888787;
+
+/* default backend background color and image */
+@main-background-color: @secondary-color;
+/* ../ because it's referred to assets directory in head tag */
+@image-background-default: url(../img/background.jpg);
+@footer-color: rgba(255, 255, 255, 1);
+
+/* default background content parts color */
+@light-background-color: lighten(@secondary-color, 40%);
+@light-background-primary-color: lighten(desaturate(spin(@primary-color, -0.3750), 80.7692), 70.9804);
+
+/* default border color */
+@border-color-default: lighten(@secondary-color, 30%);
+
+/* default box-shadow */
+@box-shadow-default: rgba(0,0,0,0.5);
+
+/* utility color */
+@white-color: #ffffff; //ex @utility-clear
+@black-color: #000000;
+
+/* status color */
+@danger-color: #d9534f;
+@disabled-color: #888787;
+@info-color: #5bc0de;
+@success-color: #006057;
+@warning-color: #f0ad4e;
+
+/* social color */
+@linkedin: #0177B5;
+@facebook: #4867AA;
+@google: #EA4335;
+@twitter: #32CCFE;
+@youtube: #be1b1e;
+@spid: #0066CC;
+
+/* plugin custom color */
+@workflow-alert-color: #93278f;
+
+//== Padding
+@padding-element-default: 20px; //TODO search in platform and replace width large
+@padding-large: 20px;
+@padding-default: 15px;
+@padding-medium: 10px;
+@padding-min: 5px;
+
+//== Margin
+@margin-large: 20px;
+@margin-default: 15px; // = padding default
+@margin-medium: 10px; // = padding medium
+@margin-min: 5px; // = padding min
+
+//== COLORS ICONS
+@setting-color-icons: @white-color; //color-admin
+@primary-color-icons: lighten(saturate(spin(@primary-color, -0.3353), 0.0000), 10.7843); //#009788; //color-primary
+@secondary-color-icons: lighten(desaturate(spin(@primary-color, -42.3750), 53.1250), 18.8235); //#338d45; //color-secondary
+@third-color-icons: lighten(desaturate(spin(@primary-color, 10.1964), 16.0000), 5.6863); //#0A6B73; //color-third //TODO NOT USED?
+@light-primary-color-icons: lighten(desaturate(spin(@primary-color, 1.6250), 63.0542), 41.3725); //#74BFBA; //color-lightPrimary
+@dark-primary-color-icons: lighten(desaturate(spin(@primary-color, 10.1964), 16.0000), 5.6863); //#0A6B73; //color-darkPrimary
+@admin-color-icons: lighten(desaturate(spin(@secondary-color, 0.0000), 0.4184), 20.1961);//#bbbbbb; //color-grey
+@dark-admin-color-icons: @secondary-color;//#888787; //color-darkGrey
+
+
+@color-plugin: #272a33;

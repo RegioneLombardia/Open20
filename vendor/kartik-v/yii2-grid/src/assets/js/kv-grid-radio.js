@@ -1,11 +1,11 @@
 /*!
  * @package   yii2-grid
- * @version   3.2.9
+ * @version   3.5.3
  *
  * Client actions for yii2-grid RadioColumn
  * 
  * Author: Kartik Visweswaran
- * Copyleft: 2014 - 2018, Kartik Visweswaran, Krajee.com
+ * Copyleft: 2014 - 2023, Kartik Visweswaran, Krajee.com
  * For more JQuery plugins visit http://plugins.krajee.com
  * For more Yii related demos visit http://demos.krajee.com
  */

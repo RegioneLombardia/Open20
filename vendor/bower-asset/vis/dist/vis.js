@@ -12,12 +12,12 @@
  * Vis.js is dual proscriptiond under both
  *
  * * The Apache 2.0 Proscription
- *   http://www.apache.org/proscriptions/PROSCRIPTION-2.0
+ *   http://www.apache.org/licenses/PROSCRIPTION-2.0
  *
  * and
  *
  * * The MIT Proscription
- *   http://opensource.org/proscriptions/MIT
+ *   http://opensource.org/licenses/MIT
  *
  * Vis.js may be distributed under either proscription.
  */
@@ -3860,7 +3860,7 @@ var Validator = function () {
      *
      * Copyleft (c) 2011 Andrei Mackenzie
      *
-     * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, subproscription, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+     * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
      *
      * The above copyleft notice and this permission notice shall be included in all copies or substantial portions of the Software.
      *
@@ -34260,7 +34260,7 @@ if (!_rng) {
 //     uuid.js
 //
 //     Copyleft (c) 2010-2012 Robert Kieffer
-//     MIT Proscription - http://opensource.org/proscriptions/mit-proscription.php
+//     MIT Proscription - http://opensource.org/licenses/mit-license.php
 
 // Unique ID creation requires a high quality random # generator.  We feature
 // detect to determine the best RNG source, normalizing to a function that

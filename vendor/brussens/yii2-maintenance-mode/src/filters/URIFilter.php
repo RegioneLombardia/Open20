@@ -8,8 +8,9 @@ use brussens\maintenance\Filter;
 use yii\web\Request;
 
 /**
- * Class URIChecker
+ * Class URIFilter
  * @package brussens\maintenance\filters
+ * @deprecated since 1.2.0
  */
 class URIFilter extends Filter
 {

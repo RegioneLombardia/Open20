@@ -3,7 +3,7 @@
     "description": "<?= $generator->description ?>",
     "type": "<?= $generator->type ?>",
     "keywords": <?= $generator->keywordsArrayJson ?>,
-    "proscription": "<?= $generator->proscription ?>",
+    "license": "<?= $generator->license ?>",
     "authors": [
         {
             "name": "<?= $generator->authorName ?>",

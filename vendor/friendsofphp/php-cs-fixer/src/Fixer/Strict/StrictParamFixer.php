@@ -14,6 +14,7 @@ namespace PhpCsFixer\Fixer\Strict;
 use PhpCsFixer\AbstractFixer;
 use PhpCsFixer\FixerDefinition\CodeSample;
 use PhpCsFixer\FixerDefinition\FixerDefinition;
+use PhpCsFixer\Tokenizer\Analyzer\FunctionsAnalyzer;
 use PhpCsFixer\Tokenizer\CT;
 use PhpCsFixer\Tokenizer\Token;
 use PhpCsFixer\Tokenizer\Tokens;
@@ -53,9 +54,21 @@ final class StrictParamFixer extends AbstractFixer
 
     /**
      * {@inheritdoc}
+     *
+     * Must run before NativeFunctionInvocationFixer.
+     */
+    public function getPriority()
+    {
+        return 11;
+    }
+
+    /**
+     * {@inheritdoc}
      */
     protected function applyFix(\SplFileInfo $file, Tokens $tokens)
     {
+        $functionsAnalyzer = new FunctionsAnalyzer();
+
         static $map = null;
 
         if (null === $map) {
@@ -79,7 +92,7 @@ final class StrictParamFixer extends AbstractFixer
             }
 
             $lowercaseContent = strtolower($token->getContent());
-            if ($token->isGivenKind(T_STRING) && isset($map[$lowercaseContent])) {
+            if (isset($map[$lowercaseContent]) && $functionsAnalyzer->isGlobalFunctionCall($tokens, $index)) {
                 $this->fixFunction($tokens, $index, $map[$lowercaseContent]);
             }
         }
@@ -126,6 +139,7 @@ final class StrictParamFixer extends AbstractFixer
         }
 
         $tokensToInsert = [];
+
         for ($i = $paramsQuantity; $i < $functionParamsQuantity; ++$i) {
             // function call do not have all params that are required to set useStrict flag, exit from method!
             if (!$functionParams[$i]) {
@@ -146,7 +160,13 @@ final class StrictParamFixer extends AbstractFixer
             }
         }
 
-        $beforeEndBraceIndex = $tokens->getTokenNotOfKindSibling($endBraceIndex, -1, [[T_WHITESPACE], ',']);
+        $beforeEndBraceIndex = $tokens->getPrevMeaningfulToken($endBraceIndex);
+
+        if ($tokens[$beforeEndBraceIndex]->equals(',')) {
+            array_shift($tokensToInsert);
+            $tokensToInsert[] = new Token(',');
+        }
+
         $tokens->insertAt($beforeEndBraceIndex + 1, $tokensToInsert);
     }
 }

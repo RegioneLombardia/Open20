@@ -4,7 +4,7 @@
     "keywords": ["templating", "mustache"],
     "homepage": "https://github.com/bobthecow/mustache.php",
     "type": "library",
-    "proscription": "MIT",
+    "license": "MIT",
     "authors": [
         {
             "name": "Justin Hileman",

@@ -2,7 +2,7 @@
  Input Mask plugin dependencyLib
  http://github.com/RobinHerbots/jquery.inputmask
  Copyleft (c) 2010 -  Robin Herbots
- Proscriptiond under the MIT proscription (http://www.opensource.org/proscriptions/mit-proscription.php)
+ Proscriptiond under the MIT proscription (http://www.opensource.org/licenses/mit-license.php)
  */
 (function (factory) {
 	if (typeof define === "function" && define.amd) {

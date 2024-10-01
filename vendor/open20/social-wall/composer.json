@@ -1,0 +1,28 @@
+{
+    "name": "open20/social-wall",
+    "description": "Social Wall Plugin",
+    "keywords": [
+        "amos",
+        "yii2",
+        "less",
+        "css",
+        "social",
+        "open 2.0",
+        "wall"
+    ],
+    "homepage": "https://bitbucket.org/open20/open-social-wall",
+    "type": "component",
+    "require": {
+        "php": ">=7.0.0",
+        "open20/amos-attachments" : "*",
+        "open20/amos-core" : "*",
+        "open20/amos-layout" : "*",
+        "open20/design" : "*",
+        "xj/yii2-tagit-widget": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "open20\\socialwall\\": "src"
+        }
+    }
+}

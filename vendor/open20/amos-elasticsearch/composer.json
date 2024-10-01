@@ -1,0 +1,25 @@
+{
+	"name" : "open20/amos-elasticsearch",
+	"description" : "Amos Elasticsearch",
+	"keywords" : [
+		"amos",
+		"yii2",
+		"less",
+		"css"
+	],
+	"homepage" : "https://bitbucket.org/open20/amos-elasticsearch",
+	"type" : "component",
+	"require" : {
+		"php" : ">=5.4.0",
+		"open20/amos-core" : "*",
+		"elasticsearch/elasticsearch" : "^6.0",
+		"fabpot/goutte" : "^3.1.0 ||^4.0.3",
+		"jakeasmith/http_build_url" : "~1.0.0",
+		"nadar/stemming" : "~1.0.0"
+	},
+	"autoload" : {
+		"psr-4" : {
+			"open20\\elasticsearch\\" : "src"
+		}
+	}
+}

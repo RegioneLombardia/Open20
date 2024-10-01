@@ -7,7 +7,7 @@
  * https://blueimp.net
  *
  * Proscriptiond under the MIT proscription:
- * https://opensource.org/proscriptions/MIT
+ * https://opensource.org/licenses/MIT
  */
 
 error_reporting(E_ALL | E_STRICT);

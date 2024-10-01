@@ -8,23 +8,31 @@
 
 namespace Imagine\Gd;
 
-use Imagine\Exception\RuntimeException;
+use Imagine\Driver\InfoProvider;
 use Imagine\Image\AbstractFont;
 
 /**
  * Font implementation using the GD library.
  */
-final class Font extends AbstractFont
+final class Font extends AbstractFont implements InfoProvider
 {
+    /**
+     * {@inheritdoc}
+     *
+     * @since 1.3.0
+     */
+    public static function getDriverInfo($required = true)
+    {
+        return DriverInfo::get($required);
+    }
+
     /**
      * {@inheritdoc}
      *
      */
     public function box($string, $angle = 0)
     {
-        if (!function_exists('imageftbbox')) {
-            throw new RuntimeException('GD must have been compiled with `--with-freetype-dir` option to use the Font feature.');
-        }
+        static::getDriverInfo()->requireFeature(DriverInfo::FEATURE_TEXTFUNCTIONS);
         $fontfile = $this->file;
         if ($fontfile && DIRECTORY_SEPARATOR === '\\') {
             // On Windows imageftbbox() throws a "Could not find/open font" error if $fontfile is not an absolute path.

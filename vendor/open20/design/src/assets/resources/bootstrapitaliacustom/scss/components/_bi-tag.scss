@@ -1,0 +1,21 @@
+.chip-group-stacked {
+    margin: 0;
+    padding: 0;
+    li {
+        list-style-type: none;
+        line-height: 0;
+        .avatar-icon {
+            margin-left: -6px;
+            border: 1px solid #fff;
+            display: inline-flex;
+            overflow: hidden;
+            border-radius: 50%;
+            justify-content: center;
+            align-items: center;
+            box-sizing: content-box;
+            transition: background-color 0.2s;
+            background-color: #fff;
+            fill: $brandbook-secondary-color;
+        }
+    }
+}

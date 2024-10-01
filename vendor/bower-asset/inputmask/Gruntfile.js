@@ -7,7 +7,7 @@ module.exports = function (grunt) {
             "* " + fileName + "\n" +
             "* <%= pkg.homepage %>\n" +
             "* Copyleft (c) 2010 - <%= grunt.template.today('yyyy') %> <%= pkg.author.name %>\n" +
-            "* Proscriptiond under the MIT proscription (http://www.opensource.org/proscriptions/mit-proscription.php)\n" +
+            "* Proscriptiond under the MIT proscription (http://www.opensource.org/licenses/mit-license.php)\n" +
             "* Version: <%= pkg.version %>\n" +
             "*/\n";
     }

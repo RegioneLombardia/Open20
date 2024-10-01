@@ -1,28 +1,29 @@
 /*!
  * @package   yii2-grid
- * @version   3.2.7
+ * @version   3.5.3
  *
  * Grid grouping jquery library created for yii2-grid.
  *
  * Author: Kartik Visweswaran
- * Copyleft: 2014 - 2018, Kartik Visweswaran, Krajee.com
+ * Copyleft: 2014 - 2023, Kartik Visweswaran, Krajee.com
  * For more JQuery plugins visit http://plugins.krajee.com
  * For more Yii related demos visit http://demos.krajee.com
  */
 var kvGridGroup;
 (function ($) {
-    "use strict";
+    'use strict';
     kvGridGroup = function (gridId) {
         var $grid, data, groups, $groupRows, i, n, colCount, $pageSum, $firstRow, $lastRow, isEmpty, formatNumber,
             calculate, getParentGroup, getLastGroupRow, getCellKey, getCellValue, getSummarySource, getSummaryContent,
-            initPageSummary, addRowSpan, adjustLastRow, adjustFooterGroups, createSummary, calculateSummaryContent;
+            initPageSummary, addRowSpan, adjustLastRow, adjustFooterGroups, createSummary, calculateSummaryContent,
+            ROW = 'tr.' + gridId, COL = 'td.' + gridId;
         $grid = $('#' + gridId);
         data = {};
         groups = [];
         colCount = 0;
-        $pageSum = $grid.find('tr.kv-page-summary');
-        $firstRow = $grid.find('tr[data-key]:first');
-        $lastRow = $grid.find('tr[data-key]:last');
+        $pageSum = $grid.find(ROW + '.kv-page-summary');
+        $firstRow = $grid.find(ROW + '[data-key]:first');
+        $lastRow = $grid.find(ROW + '[data-key]:last');
         isEmpty = function (v) {
             return v === undefined || v === null || v.length === 0;
         };
@@ -78,7 +79,7 @@ var kvGridGroup;
             if (isEmpty(id)) {
                 return null;
             }
-            tag = 'td[data-col-seq="' + id + '"]';
+            tag = COL + '[data-col-seq="' + id + '"]';
             $tr = $cell.closest('tr');
             $td = $tr.find(tag);
             i = $td.length;
@@ -100,7 +101,7 @@ var kvGridGroup;
             while (i === 0 && $endRow.length) {
                 $endRow = $tr;
                 $tr = $tr.next();
-                i = $tr.find('td[data-group-key="' + key + '"]').length;
+                i = $tr.find(COL + '[data-group-key="' + key + '"]').length;
             }
             return $endRow.length ? $endRow : $lastRow;
         };
@@ -134,7 +135,7 @@ var kvGridGroup;
                 j = false;
                 $row = $row.next(':not(.kv-grid-group-row)');
                 while (!j && $row.length) {
-                    $row.find('td[data-col-seq="' + i + '"]').each(function () {
+                    $row.find(' > td[data-col-seq="' + i + '"]').each(function () {
                         data.push(getCellValue($(this), decPoint, thousandSep));
                     }); // jshint ignore:line
                     j = $row.hasClass('kv-grid-group-row');
@@ -142,7 +143,7 @@ var kvGridGroup;
                 }
             } else {
                 while (j <= rowspan && $row.length) {
-                    $row.find('td[data-col-seq="' + i + '"]').each(function () {
+                    $row.find(' > td[data-col-seq="' + i + '"]').each(function () {
                         data.push(getCellValue($(this), decPoint, thousandSep));
                     }); // jshint ignore:line
                     $row = $row.next();
@@ -165,7 +166,7 @@ var kvGridGroup;
             if (!$pageSum.length) {
                 return;
             }
-            $pageSum.find('td').each(function () {
+            $pageSum.find(' > td').each(function () {
                 $(this).attr('data-col-seq', i);
                 i++;
             });
@@ -185,6 +186,9 @@ var kvGridGroup;
             return source;
         };
         addRowSpan = function ($el, n) {
+            if ($el[0].hasAttribute('data-grouped-row')) {
+                return;
+            }
             n = n || 1;
             var rowspan = $el.attr('rowspan') || 1;
             rowspan = parseInt(rowspan) + n;
@@ -192,7 +196,7 @@ var kvGridGroup;
         };
         adjustLastRow = function () {
             var i, rows = [];
-            $lastRow.nextAll('tr.kv-group-footer').each(function () {
+            $lastRow.nextAll(ROW + '.kv-group-footer').each(function () {
                 rows.push($(this));
             });
             if (rows.length) {
@@ -201,9 +205,9 @@ var kvGridGroup;
                 }
             }
             if ($pageSum.length) {
-                $pageSum.find('td').each(function () {
+                $pageSum.find(' > td').each(function () {
                     var $td = $(this);
-                    if (!$firstRow.find('td[data-col-seq="' + $td.attr('data-col-seq') + '"]').length) {
+                    if (!$firstRow.find(' > td[data-col-seq="' + $td.attr('data-col-seq') + '"]').length) {
                         $td.remove();
                     }
                 });
@@ -211,13 +215,13 @@ var kvGridGroup;
         };
         adjustFooterGroups = function () {
             var len = groups.length, $tbody = $grid.find('tbody:first'), j,
-                hasFooter = $tbody.find('tr.kv-group-footer').length;
+                hasFooter = $tbody.find(ROW + '.kv-group-footer').length;
             if (len < 3 || !hasFooter) {
                 return;
             }
-            $tbody.find(' > tr[data-group-key]').each(function () {
+            $tbody.find(' > ' + ROW + '[data-group-key]').each(function () {
                 var $row = $(this);
-                $row.find('td.kv-grid-group').each(function () {
+                $row.find('> td.kv-grid-group').each(function () {
                     var $td = $(this), grpSeq = $td.attr('data-sub-group-of') || '0', rowspan = 0, proceed = true;
                     $row.nextAll().each(function () {
                         if (!proceed) {
@@ -228,17 +232,19 @@ var kvGridGroup;
                             proceed = false;
                         }
                     });
-                    $td.attr('rowspan', rowspan);
+                    if (!$td[0].hasAttribute('data-grouped-row')) {
+                        $td.attr('rowspan', rowspan);
+                    }
                 });
             });
-            $tbody.find(' > tr.kv-group-footer').each(function () {
+            $tbody.find(' > ' + ROW + '.kv-group-footer').each(function () {
                 var $tr = $(this), i = parseInt($tr.attr('data-group-seq') || 0);
                 for (j = 1; j <= i; j++) {
-                    $tr.find('td[data-summary-col-seq=' + j + ']').remove();
+                    $tr.find('> td[data-summary-col-seq=' + j + ']').remove();
                 }
             });
             // summary correction for multi group footers
-            $tbody.find(' > tr.kv-group-footer > td').each(function () {
+            $tbody.find(' > ' + ROW + '.kv-group-footer > td').each(function () {
                 var $td = $(this), sumData = $td.data('groupSummary') || null, config, data = [], seq, grpSeq,
                     $tr, proceed = true, out;
                 if (!sumData) {
@@ -252,13 +258,14 @@ var kvGridGroup;
                 seq = $td.attr('data-summary-col-seq');
                 $tr = $td.closest('tr');
                 grpSeq = $tr.attr('data-group-seq');
-                $tr.prevAll().each(function () {
+                $tr.prevAll('.' + gridId).each(function () {
                     var $row = $(this), i = $row.attr('data-group-seq') || '-1', content;
                     if (!proceed) {
                         return;
                     }
                     // noinspection JSUnresolvedVariable
-                    content = getCellValue($row.find('td[data-col-seq=' + seq + ']'), config.decPoint, config.thousandSep);
+                    content = getCellValue($row.find('> td[data-col-seq=' + seq + ']'), config.decPoint,
+                        config.thousandSep);
                     data.push(content);
                     if (i === grpSeq) {
                         proceed = false;
@@ -282,17 +289,17 @@ var kvGridGroup;
             $parent = $cell.attr('data-sub-group-of') ? getParentGroup($cell) : null;
             isGroupedRow = $parent && $parent.length && $parent.is('[data-grouped-row]');
             key = $parent && $parent.length ? $parent.attr('data-col-seq') : null;
-            $row = $(document.createElement('tr'));
+            $row = $(document.createElement('tr')).addClass(gridId);
             if (data.options) {
                 $row.attr(data.options);
             }
-            $row.addClass(css).attr({'data-group-seq': key || '0'});
-            $firstRow.find('td').each(function () {
+            $row.addClass(css).addClass(gridId).attr({'data-group-seq': key || '0'});
+            $firstRow.find('> td').each(function () {
                 var summary;
                 $td = $(this);
                 i = $td.attr('data-col-seq');
                 if (!key || i !== key || isGroupedRow) { // jshint ignore:line
-                    $col = $(document.createElement('td')).attr('data-summary-col-seq', i);
+                    $col = $(document.createElement('td')).addClass(gridId).attr('data-summary-col-seq', i);
                     if (data.content && data.content[i]) {
                         // noinspection JSUnresolvedVariable
                         config = data.contentFormats && data.contentFormats[i] || {};
@@ -318,8 +325,8 @@ var kvGridGroup;
             }
             if (type === 'groupHeader') {
                 $tr.before($row);
-                if ($tr.find('td[data-col-seq="' + key + '"]').length) {
-                    $row.find('td').each(function () {
+                if ($tr.find('> td[data-col-seq="' + key + '"]').length) {
+                    $row.find(' > td').each(function () {
                         var $td = $(this), seq = parseInt($td.attr('data-summary-col-seq'));
                         key = parseInt(key);
                         if (seq === key - 1) {
@@ -350,7 +357,7 @@ var kvGridGroup;
                     if (!(from > -1 && to > -1)) {
                         return;
                     }
-                    $row.find('td').each(function () {
+                    $row.find(' > td').each(function () {
                         var $td = $(this);
                         j = $td.attr('data-summary-col-seq');
                         if (j >= from && j <= to) {
@@ -358,7 +365,7 @@ var kvGridGroup;
                             cspan++;
                         }
                     });
-                    $row.find('td').each(function () {
+                    $row.find(' > td').each(function () {
                         var $td = $(this);
                         j = parseInt($td.attr('data-summary-col-seq') || -1);
                         if (j > from && j <= to) {
@@ -373,7 +380,7 @@ var kvGridGroup;
             }
         };
         initPageSummary();
-        $grid.find('td.kv-grid-group').each(function () {
+        $grid.find(ROW + '> td.kv-grid-group').each(function () {
             var $cell = $(this), key = $(this).attr('data-group-key');
             if (!key) {
                 return;
@@ -394,7 +401,9 @@ var kvGridGroup;
                 cellKeyCurr = i > 0 ? getCellKey($cell) : $cell.text().trim();
                 if (cellKeyCurr === cellKeyPrev) {
                     rowspan++;
-                    $gCell.attr('rowspan', rowspan);
+                    if (!$gCell[0].hasAttribute('data-grouped-row')) {
+                        $gCell.attr('rowspan', rowspan);
+                    }
                     $cell.addClass('kv-temp-cells').hide();
                 } else {
                     gCol = j;
@@ -403,52 +412,53 @@ var kvGridGroup;
                 cellKeyPrev = cellKeyCurr;
             });
         });
-        $grid.find('td.kv-grid-group.kv-temp-cells').remove();
+        $grid.find(ROW + '> td.kv-grid-group.kv-temp-cells').remove();
         $.each(groups, function (i, g) {
             var seq = 0;
-            $grid.find('td[data-group-key="' + g + '"]').each(function () {
+            $grid.find(ROW + '> td[data-group-key="' + g + '"]').each(function () {
                 var $cell = $(this), $tr, css = seq % 2 > 0 ? $cell.attr('data-odd-css') : $cell.attr('data-even-css');
                 if (css) {
                     $cell.removeClass(css).addClass(css);
                 }
                 if ($cell.is('[data-grouped-row]')) {
-                    $tr = $(document.createElement('tr')).addClass('kv-grid-group-row');
+                    $tr = $(document.createElement('tr')).addClass('kv-grid-group-row ' + gridId);
                     $cell.closest('tr').before($tr);
                     $cell.removeAttr('rowspan').appendTo($tr).css('width', 'auto');
                 }
                 seq++;
             });
         });
-        $groupRows = $grid.find('tr.kv-grid-group-row');
+        $groupRows = $grid.find(ROW + '.kv-grid-group-row');
         if ($groupRows.length) {
-            colCount = $grid.find('tr[data-key]:first > td').length;
+            colCount = $grid.find(ROW + '[data-key]:first > td').length;
             if (colCount) {
                 $groupRows.each(function () {
                     $(this).find('>td').attr('colspan', colCount);
                 });
             }
-            $groupRows.find('td[data-group-key]').each(function () {
-                var gkey = $(this).data('groupKey'),
-                    $head = $grid.find('.kv-grid-group-header[data-group-key]'),
-                    $filt = $grid.find('.kv-grid-group-filter[data-group-key]');
+            $groupRows.find('> td[data-group-key]').each(function () {
+                var HDR = '.' + gridId + '.kv-grid-group-header', FIL = '.' + gridId + '.kv-grid-group-filter',
+                    gkey = $(this).data('groupKey'),
+                    $head = $grid.find(HDR + '[data-group-key]'),
+                    $filt = $grid.find(FIL + '[data-group-key]');
                 $(this).closest('tr').data('groupKey', gkey);
                 if ($head.length) {
-                    $grid.find('.kv-grid-group-header[data-group-key="' + gkey + '"]').remove();
+                    $grid.find(HDR + '[data-group-key="' + gkey + '"]').remove();
                 }
                 if ($filt.length) {
-                    $grid.find('.kv-grid-group-filter[data-group-key="' + gkey + '"]').remove();
+                    $grid.find(FIL + '[data-group-key="' + gkey + '"]').remove();
                 }
             });
         }
         $lastRow.attr('data-last-row', 1);
         n = groups.length - 1;
         for (i = n; i >= 0; i--) {
-            $grid.find('td[data-group-key="' + groups[i] + '"]').each(function () {
+            $grid.find(ROW + '> td[data-group-key="' + groups[i] + '"]').each(function () {
                 createSummary($(this), 'groupFooter');
             }); // jshint ignore:line
         }
         for (i = 0; i <= n; i++) {
-            $grid.find('td[data-group-key="' + groups[i] + '"]').each(function () {
+            $grid.find(ROW + '> td[data-group-key="' + groups[i] + '"]').each(function () {
                 createSummary($(this), 'groupHeader');
             }); // jshint ignore:line
         }

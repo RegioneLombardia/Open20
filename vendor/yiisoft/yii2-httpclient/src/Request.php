@@ -12,7 +12,7 @@ use yii\helpers\FileHelper;
  *
  * @property string $fullUrl Full target URL.
  * @property string $method Request method.
- * @property array $options Request options. This property is read-only.
+ * @property-read array $options Request options.
  * @property string|array $url Target URL or URL parameters.
  *
  * @since 2.0
@@ -56,7 +56,7 @@ class Request extends Message
      * @var array Stores map (alias => name) of the content parameters
      */
     private $_contentMap = [];
-    /** 
+    /**
      * @var float stores the starttime of the current request with microsecond-precession
      */
     private $_startTime;
@@ -373,7 +373,8 @@ class Request extends Message
 
         // generate safe boundary :
         do {
-            $boundary = '---------------------' . md5(mt_rand() . microtime());
+
+            $boundary = '---------------------' . md5(random_int(0, PHP_INT_MAX) . microtime());
         } while (preg_grep("/{$boundary}/", $contentParts));
 
         // add boundary for each part :

@@ -3,7 +3,7 @@
 /**
  * @package yii2-widgets
  * @subpackage yii2-widget-colorinput
- * @version 1.0.5
+ * @version 1.0.6
  */
 
 namespace kartik\color;

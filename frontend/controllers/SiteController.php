@@ -1,247 +1,208 @@
 <?php
 
 /**
- * Lombardia Informatica S.p.A.
+ * Aria S.p.A.
  * OPEN 2.0
  *
  *
- * @package    lispa\amos\basic\template
+ * @package    open20\amos\basic\template
  * @category   CategoryName
  */
 
-namespace frontend\controllers;
+namespace app\controllers;
 
-use common\models\LoginForm;
-use frontend\models\ContactForm;
-use frontend\models\PasswordResetRequestForm;
-use frontend\models\ResetPasswordForm;
-use frontend\models\SignupForm;
+use open20\amos\core\controllers\AmosController;
+use open20\amos\cwh\AmosCwh;
+use open20\amos\utility\models\base\AuthRule;
 use Yii;
-use yii\base\InvalidParamException;
+use luya\cms\helpers\Url;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
-use yii\web\BadRequestHttpException;
-use yii\web\Controller;
+use yii\web\Response;
 
 /**
  * Class SiteController
+ *
  * @package frontend\controllers
  */
-class SiteController extends Controller
-{
+class SiteController extends AmosController {
+
+    const USERAUTH_CONFIG_REDIRECT_NAV_ID = 'userauth_redirect_nav_id';
+    const USERAUTH_CONFIG_AFTER_LOGIN_NAV_ID = 'userauth_afterlogin_nav_id';
+    const NOPERMISSION_CONFIG_REDIRECT_NAV_ID = 'nopermission_redirect_nav_id';
+
     /**
+     *
      * @inheritdoc
      */
-    public function behaviors()
-    {
+    public function behaviors() {
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'signup', 'language'],
+                'only' => [
+                    'logout',
+                    'login',
+                    'privacy-policy',
+                    'reserialize'
+                ],
                 'rules' => [
                     [
-                        'actions' => ['language'],
+                        'actions' => [
+                            'login',
+                            'privacy-policy',
+                            'reserialize'
+                        ],
                         'allow' => true,
+                        'roles' => [
+                            '?',
+                            '@'
+                        ]
                     ],
                     [
-                        'actions' => ['signup'],
-                        'allow' => true,
-                        'roles' => ['?'],
-                    ],
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
+                        'actions' => [
+                            'logout',
+                            'reserialize'
+                        ],
+                        'allow' => true
+                    ]
+                ]
             ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
+                    'logout' => [
+                        'get'
+                    ]
+                ]
+            ]
         ];
     }
 
     /**
+     *
      * @inheritdoc
      */
-    public function actions()
-    {
+    public function actions() {
         return [
             'error' => [
-                'class' => 'yii\web\ErrorAction',
-            ],
-            'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-            ],
+                'class' => 'yii\web\ErrorAction'
+            ]
         ];
-    }
-
-    /**
-     * Displays homepage.
-     * @return string
-     */
-    public function actionIndex()
-    {
-        return $this->render('index');
-    }
-
-    public function actionLanguage()
-    {
-
-        $data = Yii::$app->request->post();
-        $getData = \Yii::$app->request->post();
-
-        //GET Overrides post
-        if($getData['language']) {
-            $data = $getData;
-        }
-
-        if (!empty($data['language'])) {
-            \Yii::$app->language = $data['language'];
-
-            $languageCookie = new Cookie([
-                'name' => 'language',
-                'value' => $data['language'],
-                'expire' => time() + 60 * 60 * 24 * 30, // 30 days
-            ]);
-            Yii::$app->response->cookies->add($languageCookie);
-        }
-        if (!empty($data['url'])) {
-            return $this->redirect([$data['url']]);
-        }
-        return $this->redirect(Url::previous());
     }
 
     /**
      * Logs in a user.
-     * @return string|\yii\web\Response
+     *
+     * @return string|Response
      */
-    public function actionLogin()
-    {
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
+    public function actionLogin($redir = null) {
+        if (!Yii::$app->user->isGuest && \Yii::$app->user->id != Yii::$app->params['platformConfigurations']['guestUserId']) {
+            return Yii::$app->response->redirect(Url::home(true));
         }
 
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        } else {
-            return $this->render('login', [
-                'model' => $model,
-            ]);
+        if (!empty($navItem)) {
+            return Yii::$app->response->redirect($navItem->getLink());
         }
+
+        $firstPartUrl = \Yii::$app->params['platform']['frontendUrl'];
+        $isSlah1 = ((substr($firstPartUrl, - 1) == '/') ? true : false);
+        if ($isSlah1)
+            $firstPartUrl = substr($firstPartUrl, 0, strlen($firstPartUrl) - 1);
+        $secondPartUrl = \Yii::$app->params['linkConfigurations']['loginLinkCommon'];
+        $isSlah2 = ((strpos($secondPartUrl, '/') === 0) ? true : false);
+        if ($isSlah2)
+            $secondPartUrl = substr($secondPartUrl, 1);
+
+        return $this->redirect($firstPartUrl . '/' . $secondPartUrl);
     }
 
     /**
      * Logs out the current user.
-     * @return \yii\web\Response
+     *
+     * @return Response
      */
-    public function actionLogout()
-    {
-        Yii::$app->user->logout();
-
-        return $this->goHome();
-    }
-
-    /**
-     * Displays contact page.
-     * @return string|\yii\web\Response
-     */
-    public function actionContact()
-    {
-        $model = new ContactForm();
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
-                Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
-            } else {
-                Yii::$app->session->setFlash('error', 'There was an error sending email.');
-            }
-
-            return $this->refresh();
-        } else {
-            return $this->render('contact', [
-                'model' => $model,
-            ]);
-        }
-    }
-
-    /**
-     * Displays about page.
-     * @return string
-     */
-    public function actionAbout()
-    {
-        return $this->render('about');
-    }
-
-    /**
-     * Signs user up.
-     * @return string|\yii\web\Response
-     */
-    public function actionSignup()
-    {
-        $model = new SignupForm();
-        if ($model->load(Yii::$app->request->post())) {
-            if ($user = $model->signup()) {
-                if (Yii::$app->getUser()->login($user)) {
-                    return $this->goHome();
+    public function actionLogout($redir = null) {
+        if (Yii::$app->user->logout()) {
+            try {
+                if (!empty(\Yii::$app->adminuser)) {
+                    \Yii::$app->adminuser->logout();
                 }
+            } catch (\Exception $ex) {
+                
             }
+            Yii::$app->session->destroy();
         }
+        $referrer = \Yii::$app->request->referrer;
+        if ($redir) {
+            return $this->redirect($redir);
+        }
+        return $this->redirect($referrer ? $referrer : \Yii::$app->params['platform']['frontendUrl']);
+    }
 
-        return $this->render('signup', [
-            'model' => $model,
-        ]);
+    public function define_me($classname) {
+        // just create a class that has some nice accessors to it
+        eval("class $classname extends ArrayObject {}");
     }
 
     /**
-     * Requests password reset.
-     * @return string|\yii\web\Response
+     * Replaces serialized values
+     *
+     * @return null
      */
-    public function actionRequestPasswordReset()
-    {
-        $model = new PasswordResetRequestForm();
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            if ($model->sendEmail()) {
-                Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
+    public function actionReserialize() {
+        $finder  = AuthRule::find()->all();
+        foreach ($finder as $rule) {
 
-                return $this->goHome();
-            } else {
-                Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for email provided.');
+            // verifies if the string contains the word elitedivision
+            if (str_contains($rule['data'], 'elitedivision')) {
+
+                // explode string to extract the elitedivision part
+                $explodedOriginal = explode('\\', $rule['data']);
+
+                // separate the part to be modified
+                $replace = $explodedOriginal[0];
+
+                // replaces the value
+                $newValue = str_replace('elitedivision', 'open20', $replace);
+
+                // extracts the number part
+                $numberValue = explode(':', $newValue);
+
+                // replaces the number part
+                $newNumber = (int) $numberValue[1] - 7;
+
+                // replaces in the exploded array the value as string
+                $numberValue[1] = strval($newNumber);
+
+                // implode the value to recreate the string
+                $imploded = implode(':', $numberValue);
+
+                // replaces the value with the correct values
+                $explodedOriginal[0] = $imploded;
+
+                // recreates the initial string with correct values
+                $implodeOriginal = implode('\\', $explodedOriginal);
+
+                // replace the original value
+                $rule->updateAttributes(['data' => $implodeOriginal]);
             }
         }
-
-        return $this->render('requestPasswordResetToken', [
-            'model' => $model,
-        ]);
+        return null;
     }
 
     /**
-     * Resets password.
-     * @param $token
-     * @return string|\yii\web\Response
-     * @throws BadRequestHttpException
      */
-    public function actionResetPassword($token)
-    {
-        try {
-            $model = new ResetPasswordForm($token);
-        } catch (InvalidParamException $e) {
-            throw new BadRequestHttpException($e->getMessage());
+    public function actionToMenuUrl($url) {
+        $moduleCwh = AmosCwh::instance();
+        if (!is_null($moduleCwh)) {
+            $moduleCwh->resetCwhScopeInSession();
         }
+        return Yii::$app->controller->redirect($url);
+    }
 
-        if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
-            Yii::$app->session->setFlash('success', 'New password was saved.');
-
-            return $this->goHome();
-        }
-
-        return $this->render('resetPassword', [
-            'model' => $model,
-        ]);
+    /**
+     */
+    public function actionPrivacyPolicy() {
+        return $this->redirect('/privacy-policy');
     }
 }

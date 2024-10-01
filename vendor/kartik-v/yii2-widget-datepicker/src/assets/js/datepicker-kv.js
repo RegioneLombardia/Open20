@@ -1,7 +1,7 @@
 /*!
  * @package yii2-widgets
  * @subpackage yii2-widget-datepicker
- * @version 1.4.6
+ * @version 1.4.8
  *
  * Extension to bootstrap datepicker to use noconflict approach
  * so that the plugin does not conflict with other jquery plugins

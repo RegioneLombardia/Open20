@@ -1,0 +1,63 @@
+{
+    "vars": [
+        {
+            "var": "image",
+            "label": "Immagine",
+            "description": "Seleziona l'immagine.",
+            "initvalue": "",
+            "options": {
+                "no_filter": false
+            },
+            "type": "zaa-image-upload"
+        },
+        {
+            "var": "image_box_shadow",
+            "label": "Aggiungi ombreggiatura",
+            "description": "Se selezionato permette di aggiungere un'ombreggiatura all'immagine.",
+            "initvalue": "",
+            "type": "zaa-checkbox"
+        },
+        {
+            "var": "rounded_image",
+            "label": "Forma dell'immagine",
+            "description": "Seleziona la forma dell'immagine. Un'immagine di forma rotonda è consigliata se quella originale ha altezza e larghezza delle stesse dimensioni.",
+            "initvalue": "",
+            "options": [{
+                    "value": "",
+                    "label": "Originale"
+                }, {
+                    "value": "rounded",
+                    "label": "Bordi arrotondati"
+                }, {
+                    "value": "rounded-circle",
+                    "label": "Immagine rotonda"
+                }
+            ],
+            "type": "zaa-select"
+        },
+        {
+            "var": "link",
+            "label": "Link dell'immagine",
+            "description": "Se selezionato permette di rendere l'immagine cliccabile.",
+            "initvalue": "",
+            "placeholder": "http:\/\/",
+            "type": "zaa-link"
+        }
+    ],
+    "cfgs": [
+        {
+            "var": "class",
+            "label": "Classe css",
+            "description": "Classe css associata al componente.",
+            "initValue": "",
+            "type": "zaa-text"
+        },
+        {
+            "var": "image_alt",
+            "label": "Alt dell'immagine",
+            "description": "Attributo per l'accessibilità: nel caso in cui l'immagine non venga caricata con successo verrà visualizzato questo testo.",
+            "initvalue": "",
+            "type": "zaa-text"
+        }
+    ]
+}

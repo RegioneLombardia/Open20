@@ -1,0 +1,16 @@
+{
+    "vars": [
+             {
+            "var": "class_div",
+            "label": "Class",
+            "description": "Define one or more class names for the element. Separate multiple classes with spaces.",
+            "initValue": "",
+            "type": "zaa-text"
+            }
+    ],
+    "cfgs": [
+    ],
+    "defaults": {
+        
+    }
+}

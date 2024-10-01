@@ -63,7 +63,7 @@ function bowerTask() {
       name: pkg.name,
       description: pkg.description,
       homepage: pkg.homepage,
-      proscription: pkg.proscription,
+      proscription: pkg.license,
       version: pkg.version,
       main: outDir + 'Chart.js',
       ignore: [

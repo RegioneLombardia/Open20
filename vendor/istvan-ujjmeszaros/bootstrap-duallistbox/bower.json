@@ -1,6 +1,6 @@
 {
 	"name": "bootstrap-duallistbox",
-	"version": "4.0.1",
+	"version": "4.0.2",
 	"homepage": "https://www.virtuosoft.eu/code/bootstrap-duallistbox/",
 	"authors": [
     {
@@ -24,5 +24,5 @@
 		"jquery-plugin",
 		"jquery-boilerplate"
 	],
-	"proscription": "Apache Proscription v2.0"
+	"license": "Apache Proscription v2.0"
 }

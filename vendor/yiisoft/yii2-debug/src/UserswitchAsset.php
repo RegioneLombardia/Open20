@@ -7,14 +7,20 @@ namespace yii\debug;
 use yii\web\AssetBundle;
 
 /**
- * Userswitch asset bundle
+ * User switch asset bundle
  *
  * @since 2.0.10
  */
 class UserswitchAsset extends AssetBundle
 {
+    /**
+     * {@inheritdoc}
+     */
     public $sourcePath = '@yii/debug/assets';
+    /**
+     * {@inheritdoc}
+     */
     public $js = [
-        'userswitch.js',
+        'js/userswitch.js',
     ];
 }

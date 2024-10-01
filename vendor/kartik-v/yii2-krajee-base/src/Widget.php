@@ -2,7 +2,7 @@
 
 /**
  * @package   yii2-krajee-base
- * @version   1.9.9
+ * @version   3.0.5
  */
 
 namespace kartik\base;
@@ -11,14 +11,14 @@ use yii\base\InvalidConfigException;
 use yii\base\Widget as YiiWidget;
 
 /**
- * Base class for widgets extending [[YiiWidget]] used in Krajee extensions.
+ * Widget is the base class for widgets extending [[YiiWidget]] used in Krajee extensions.
  *
- * @since  1.0
  */
 class Widget extends YiiWidget implements BootstrapInterface
 {
     use TranslationTrait;
     use WidgetTrait;
+    use BootstrapTrait;
 
     /**
      * @var array HTML attributes or other settings for widgets.

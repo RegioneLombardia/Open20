@@ -1,0 +1,20 @@
+{
+    "name": "amos/podcast",
+    "description": "Podcast",
+    "type": "component",
+    "keywords": [
+        "amos",
+        "podcast"
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "open20/amos-admin":"^2.0.21",
+        "open20/amos-core": "^1.9.59",
+        "open20/amos-community": "^1.5.29"
+    },
+    "autoload": {
+        "psr-4": {
+            "amos\\podcast\\": "src"
+        }
+    }
+}

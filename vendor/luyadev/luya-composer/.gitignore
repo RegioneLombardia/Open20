@@ -1,0 +1,6 @@
+/.buildpath
+/.project
+/.settings/
+/vendor/
+/tests/data/tmp
+/tests/data/luya

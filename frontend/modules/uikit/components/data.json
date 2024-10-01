@@ -1,0 +1,28 @@
+{
+    "vars": [ {
+            "var": "items",
+            "label": "Fields",
+            "description": "",
+            "type": "zaa-multiple-inputs",
+            "options": [{
+                    "var": "variable",
+                    "label": "Variable",
+                    "description": "",
+                    "initvalue": "",
+                    "type": "zaa-text"
+                },
+                {
+                    "var": "value",
+                    "label": "Value",
+                    "description": "",
+                    "initvalue": "",
+                    "type": "zaa-text"
+                }
+            ]
+    }],
+    "cfgs": [
+    ],
+    "defaults": {
+        
+    }
+}

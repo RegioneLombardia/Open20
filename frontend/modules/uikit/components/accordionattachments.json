@@ -1,0 +1,56 @@
+{
+    "vars": [{
+            "var": "items",
+            "label": "Items",
+            "description": "",
+            "type": "zaa-multiple-inputs",
+            "options": [{
+                    "var": "title",
+                    "label": "Title",
+                    "description": "",
+                    "initvalue": "",
+                    "type": "zaa-text"
+                },
+                {
+                    "var": "attachment",
+                    "label": "attachment",
+                    "description": "",
+                    "initvalue": "",
+                    "options": {
+                    	"var": "title",
+                    	"label": "Title",
+                    	"description": "",
+                    	"initvalue": "",
+                    	"type": "zaa-file-upload"
+                    },
+                    "type": "zaa-file-array-upload"
+                },{
+                    "var": "accordion_image",
+                    "label": "Accordion Image",
+                    "description": "",
+                    "initvalue": "",
+                    "options": {
+                        "no_filter": false
+                    },
+                    "type": "zaa-image-upload"
+                },
+                {
+                    "var": "accordion_image_class",
+                    "label": "Accordion Image Class",
+                    "description": "Define one or more class names for the element. Separate multiple classes with spaces.",
+                    "initvalue": "accordion-icon",
+                    "type": "zaa-text"
+                }
+                , {
+                    "var": "content",
+                    "label": "Content",
+                    "description": "",
+                    "initvalue": "",
+                    "type": "zaa-wysiwyg"
+                }
+                ]
+        }],
+    "defaults": {
+        
+    }
+}

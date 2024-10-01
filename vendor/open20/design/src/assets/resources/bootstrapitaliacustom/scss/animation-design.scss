@@ -1,0 +1,86 @@
+// ANIMAZIONI IN INGRESSO
+// Animations variables
+$animation-distance: 200px !default;
+
+[class*='fade-in'] {
+    opacity: 0;
+    transition-property: opacity, transform;
+
+    &.animate {
+        opacity: 1;
+        transform: none;
+        transition-duration: 1s;
+    }
+}
+
+.fade-in-from-left {
+    &.to-animate {
+        transform: translate3d(-$animation-distance, 0, 0);
+    }
+}
+
+.fade-in-from-right {
+    &.to-animate {
+        transform: translate3d($animation-distance, 0, 0);
+    }
+}
+
+.fade-in-from-down {
+    &.to-animate {
+        transform: translate3d(0, $animation-distance, 0);
+    }
+}
+
+.fade-in-from-up {
+    &.to-animate {
+        transform: translate3d(0, -$animation-distance, 0);
+    }
+}
+
+[class*='zoom-in'] {
+    opacity: 0;
+    transition-property: opacity, transform;
+
+    &.animate {
+        opacity: 1;
+        transform: none;
+        transition-duration: 1s;
+    }
+}
+
+.zoom-in {
+    &.to-animate {
+        transform: scale(.6);
+    }
+}
+
+.zoom-in-from-down {
+    &.to-animate {
+        transform: translate3d(0, $animation-distance, 0) scale(.6);
+    }
+}
+
+.zoom-in-from-up {
+    &.to-animate {
+        transform: translate3d(0, -$animation-distance, 0) scale(.6);
+    }
+}
+
+.zoom-in-from-right {
+    &.to-animate {
+        transform: translate3d(animation-distance, 0, 0) scale(.6);
+    }
+}
+
+.zoom-in-from-left {
+    &.to-animate {
+        transform: translate3d(-animation-distance, 0, 0) scale(.6);
+    }
+}
+
+@for $i from 1 through 6 {
+    .transition-delay-#{$i} {
+        transition-delay: #{$i * 1}s !important;
+    }
+}
+

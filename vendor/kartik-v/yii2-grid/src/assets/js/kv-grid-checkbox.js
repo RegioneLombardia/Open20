@@ -1,11 +1,11 @@
 /*!
  * @package   yii2-grid
- * @version   3.2.9
+ * @version   3.5.3
  *
  * Client actions for kartik\grid\CheckboxColumn
  * 
  * Author: Kartik Visweswaran
- * Copyleft: 2014 - 2018, Kartik Visweswaran, Krajee.com
+ * Copyleft: 2014 - 2023, Kartik Visweswaran, Krajee.com
  * For more JQuery plugins visit http://plugins.krajee.com
  * For more Yii related demos visit http://demos.krajee.com
  */
@@ -13,7 +13,8 @@ var kvSelectRow, kvSelectColumn;
 (function ($) {
     "use strict";
     kvSelectRow = function (id, css) {
-        var $grid = $('#' + id),
+        var KRAJEE_NS = 'krajeeGrid', CHANGE = 'change.' + KRAJEE_NS, 
+            $grid = $('#' + id), $cbxs = $grid.find(".kv-row-select input"),
             kvHighlight = function ($el, $parent) {
                 var $row = $el.closest('tr'), $cbx = $parent || $el;
                 if ($cbx.is(':checked') && !$el.attr('disabled')) {
@@ -21,24 +22,23 @@ var kvSelectRow, kvSelectColumn;
                 } else {
                     $row.removeClass(css);
                 }
-            },
-            toggle = function ($cbx, all) {
-                if (all === true) {
-                    $grid.find(".kv-row-select input").each(function () {
-                        kvHighlight($(this), $cbx);
-                    });
-                    return;
-                }
-                kvHighlight($cbx);
+            }, 
+            toggleAll = function() {
+                $cbxs.each(function () {
+                    kvHighlight($(this));
+                });
             };
-        $grid.find(".kv-row-select input").on('change', function () {
-            toggle($(this));
-        }).each(function () {
-            toggle($(this));
+        $cbxs.off(CHANGE).on(CHANGE, function () {
+            kvHighlight($(this));
         });
-        $grid.find(".kv-all-select input").on('change', function () {
-            toggle($(this), true);
+        $grid.find(".kv-all-select input").off(CHANGE).on(CHANGE, function (event) {
+            if (event.namespace === undefined && event.handleObj.namespace === KRAJEE_NS) {
+                setTimeout(function() {
+                    toggleAll();
+                }, 100);
+            }
         });
+        toggleAll();
     };
     kvSelectColumn = function (id, options) {
         var gridId = '#' + id, $grid = $(gridId), checkAll, inputs, inputsEnabled;

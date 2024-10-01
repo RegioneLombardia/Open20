@@ -2,7 +2,7 @@
 
 /**
  * @package   yii2-dynagrid
- * @version   1.5.1
+ * @version   1.5.5
  */
 
 namespace kartik\dynagrid\models;
@@ -84,6 +84,7 @@ class DynaGridConfig extends Model
          * @var Module $module
          */
         $module = Config::getModule($this->moduleId, Module::class);
+
         return [
             [['id', 'hiddenColumns', 'visibleColumns', 'pageSize', 'filterId', 'sortId', 'theme'], 'safe'],
             ['theme', 'required'],

@@ -2,7 +2,7 @@
 
 /**
  * @package   yii2-grid
- * @version   3.2.9
+ * @version   3.5.3
  */
 
 namespace kartik\grid;
@@ -22,7 +22,7 @@ use yii\helpers\Json;
  * 'columns' => [
  *     // ...
  *     [
- *         'class' => CheckboxColumn::className(),
+ *         'class' => CheckboxColumn::class,
  *         // you may configure additional properties here
  *     ],
  * ]
@@ -102,7 +102,9 @@ class CheckboxColumn extends YiiCheckboxColumn
         $this->initPjax($this->_clientScript);
         if ($this->attribute !== null) {
             $this->name = Html::getInputName($model, "[{$index}]{$this->attribute}");
-            $this->checkboxOptions['value'] = Html::getAttributeValue($model, $this->attribute);
+             if (!$this->checkboxOptions instanceof Closure) {
+                $this->checkboxOptions['value'] = Html::getAttributeValue($model, $this->attribute);
+             }
         }
         return Html::tag('td', $this->renderDataCellContent($model, $key, $index), $options);
     }

@@ -86,12 +86,12 @@ class BaseFormatConverter
      *
      * Pattern constructs that are not supported by the PHP format will be removed.
      *
-     * [php date() function format]: https://secure.php.net/manual/en/function.date.php
-     * [ICU format]: http://userguide.icu-project.org/formatparse/datetime#TOC-Date-Time-Format-Syntax
+     * [php date() function format]: https://www.php.net/manual/en/function.date.php
+     * [ICU format]: https://unicode-org.github.io/icu/userguide/format_parse/datetime/#datetime-format-syntax
      *
      * @param string $pattern date format pattern in ICU format.
      * @param string $type 'date', 'time', or 'datetime'.
-     * @param string $locale the locale to use for converting ICU short patterns `short`, `medium`, `long` and `full`.
+     * @param string|null $locale the locale to use for converting ICU short patterns `short`, `medium`, `long` and `full`.
      * If not given, `Yii::$app->language` will be used.
      * @return string The converted date format pattern.
      */
@@ -114,7 +114,7 @@ class BaseFormatConverter
                 return static::$phpFallbackDatePatterns[$pattern][$type];
             }
         }
-        // http://userguide.icu-project.org/formatparse/datetime#TOC-Date-Time-Format-Syntax
+        // https://unicode-org.github.io/icu/userguide/format_parse/datetime/#datetime-format-syntax
         // escaped text
         $escaped = [];
         if (preg_match_all('/(?<!\')\'(.*?[^\'])\'(?!\')/', $pattern, $matches, PREG_SET_ORDER)) {
@@ -233,8 +233,8 @@ class BaseFormatConverter
      *
      * Pattern constructs that are not supported by the ICU format will be removed.
      *
-     * [php date() function format]: https://secure.php.net/manual/en/function.date.php
-     * [ICU format]: http://userguide.icu-project.org/formatparse/datetime#TOC-Date-Time-Format-Syntax
+     * [php date() function format]: https://www.php.net/manual/en/function.date.php
+     * [ICU format]: https://unicode-org.github.io/icu/userguide/format_parse/datetime/#datetime-format-syntax
      *
      * Since 2.0.13 it handles escaped characters correctly.
      *
@@ -243,7 +243,7 @@ class BaseFormatConverter
      */
     public static function convertDatePhpToIcu($pattern)
     {
-        // https://secure.php.net/manual/en/function.date.php
+        // https://www.php.net/manual/en/function.date.php
         $result = strtr($pattern, [
             "'" => "''''",  // single `'` should be encoded as `''`, which internally should be encoded as `''''`
             // Day
@@ -330,7 +330,7 @@ class BaseFormatConverter
             '\\\\' => '\\',
         ]);
 
-        // remove `''` - the're result of consecutive escaped chars (`\A\B` will be `'A''B'`, but should be `'AB'`)
+        // remove `''` - they're result of consecutive escaped chars (`\A\B` will be `'A''B'`, but should be `'AB'`)
         // real `'` are encoded as `''''`
         return strtr($result, [
             "''''" => "''",
@@ -343,12 +343,12 @@ class BaseFormatConverter
      *
      * Pattern constructs that are not supported by the jQuery UI format will be removed.
      *
-     * [jQuery UI date format]: http://api.jqueryui.com/datepicker/#utility-formatDate
-     * [ICU format]: http://userguide.icu-project.org/formatparse/datetime#TOC-Date-Time-Format-Syntax
+     * [jQuery UI date format]: https://api.jqueryui.com/datepicker/#utility-formatDate
+     * [ICU format]: https://unicode-org.github.io/icu/userguide/format_parse/datetime/#datetime-format-syntax
      *
      * @param string $pattern date format pattern in ICU format.
      * @param string $type 'date', 'time', or 'datetime'.
-     * @param string $locale the locale to use for converting ICU short patterns `short`, `medium`, `long` and `full`.
+     * @param string|null $locale the locale to use for converting ICU short patterns `short`, `medium`, `long` and `full`.
      * If not given, `Yii::$app->language` will be used.
      * @return string The converted date format pattern.
      */
@@ -371,7 +371,7 @@ class BaseFormatConverter
                 return static::$juiFallbackDatePatterns[$pattern][$type];
             }
         }
-        // http://userguide.icu-project.org/formatparse/datetime#TOC-Date-Time-Format-Syntax
+        // https://unicode-org.github.io/icu/userguide/format_parse/datetime/#datetime-format-syntax
         // escaped text
         $escaped = [];
         if (preg_match_all('/(?<!\')\'.*?[^\']\'(?!\')/', $pattern, $matches)) {
@@ -492,15 +492,15 @@ class BaseFormatConverter
      *
      * Pattern constructs that are not supported by the jQuery UI format will be removed.
      *
-     * [php date() function format]: https://secure.php.net/manual/en/function.date.php
-     * [jQuery UI date format]: http://api.jqueryui.com/datepicker/#utility-formatDate
+     * [php date() function format]: https://www.php.net/manual/en/function.date.php
+     * [jQuery UI date format]: https://api.jqueryui.com/datepicker/#utility-formatDate
      *
      * @param string $pattern date format pattern in php date()-function format.
      * @return string The converted date format pattern.
      */
     public static function convertDatePhpToJui($pattern)
     {
-        // https://secure.php.net/manual/en/function.date.php
+        // https://www.php.net/manual/en/function.date.php
         return strtr($pattern, [
             // Day
             'd' => 'dd',    // Day of the month, 2 digits with leading zeros 	01 to 31
